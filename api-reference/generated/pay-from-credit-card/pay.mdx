@@ -1,12 +1,17 @@
 ---
 title: 'Pay'
 api: 'POST /payments/card'
+authMethod: 'bearer'
 ---
 
-## Authorization
+## Body parameters
 
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="errorMsg" type="string">
+  Request body field `errorMsg`.
 </ParamField>
 
 ## Request

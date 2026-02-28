@@ -1,6 +1,7 @@
 ---
 title: 'Add Attachment'
 api: 'POST /attachment'
+authMethod: 'bearer'
 ---
 
 This API uploads an attachment file (example: PDF,document) and returns a unique attachment ID.
@@ -12,10 +13,18 @@ Supported File Types
 | image | file | Optional | Supported file formats: pdf, xls, xlsx, rtf, doc, docx, txt, jpg, png. |
 | fileUrl | Text | Optional | Public URL of the file to upload or process. Supported file formats: pdf, xls, xlsx, rtf, doc, docx, txt, jpg, png. |
 
-## Authorization
+## Body parameters
 
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.id" type="string">
+  Request body field `data.id`.
 </ParamField>
 
 ## Request

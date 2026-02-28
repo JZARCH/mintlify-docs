@@ -1,6 +1,7 @@
 ---
 title: 'Delete voucher'
 api: 'DELETE /vouchers/{voucherId}'
+authMethod: 'bearer'
 ---
 
 Permanently deletes a voucher.
@@ -15,16 +16,20 @@ Path parameters
 
 
 
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
-
 ## Path parameters
 
 <ParamField path="voucherId" type="string" required>
   Path parameter `voucherId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="errorMsg" type="string">
+  Request body field `errorMsg`.
 </ParamField>
 
 ## Request

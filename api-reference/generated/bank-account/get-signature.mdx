@@ -1,6 +1,7 @@
 ---
 title: 'Get Signature'
 api: 'GET /bankAccounts/{bankAccountId}/signatures'
+authMethod: 'bearer'
 ---
 
 Add signature to existing bank account
@@ -9,16 +10,28 @@ Add signature to existing bank account
 
 bankAccountIdRequiredThe id of the Bank account to update.
 
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
-
 ## Path parameters
 
 <ParamField path="bankAccountId" type="string" required>
   Path parameter `bankAccountId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.id" type="string">
+  Request body field `data.id`.
+</ParamField>
+
+<ParamField body="data.signature" type="string">
+  Request body field `data.signature`.
 </ParamField>
 
 ## Request

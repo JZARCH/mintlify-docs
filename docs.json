@@ -1,18 +1,15 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Zil Money",
   "colors": {
-    "primary": "#20319D",
+    "primary": "#00F889",
     "light": "#00F889",
-    "dark": "#15236D"
+    "dark": "#00C97A"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "https://zilmoney.com/favicon.ico",
   "navigation": {
-    "tabs": [
-      {
-        "tab": "API reference",
-        "groups": [
+    "groups": [
           {
             "group": "Get started",
             "pages": [
@@ -334,9 +331,120 @@
                 ]
               }
             ]
+          },
+          {
+            "group": "Zil Money Webhook Integration",
+            "pages": [
+              "api-reference/zil-money-webhook-integration/overview",
+              {
+                "group": "Wallet",
+                "pages": [
+                  {
+                    "group": "Withdraw Fund",
+                    "pages": [
+                      {
+                        "group": "Withdraw by ACH",
+                        "pages": [
+                          "api-reference/generated/zil-money-webhook-integration/wallet/withdraw-fund/withdraw-by-ach/wallet-withdraw-ach-initiated",
+                          "api-reference/generated/zil-money-webhook-integration/wallet/withdraw-fund/withdraw-by-ach/wallet-withdraw-ach-updated"
+                        ]
+                      },
+                      {
+                        "group": "Withdraw by Wire Transfer",
+                        "pages": [
+                          "api-reference/generated/zil-money-webhook-integration/wallet/withdraw-fund/withdraw-by-wire-transfer/wallet-withdraw-wire-initiated",
+                          "api-reference/generated/zil-money-webhook-integration/wallet/withdraw-fund/withdraw-by-wire-transfer/wallet-withdraw-wire-updated"
+                        ]
+                      },
+                      {
+                        "group": "Withdraw by Check Mail",
+                        "pages": [
+                          "api-reference/generated/zil-money-webhook-integration/wallet/withdraw-fund/withdraw-by-check-mail/wallet-withdraw-check-mail-initiated",
+                          "api-reference/generated/zil-money-webhook-integration/wallet/withdraw-fund/withdraw-by-check-mail/wallet-withdraw-check-mail-updated"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Wallet Funding",
+                    "pages": [
+                      {
+                        "group": "ACH",
+                        "pages": [
+                          "api-reference/generated/zil-money-webhook-integration/wallet/wallet-funding/ach/wallet-funding-ach-initiated",
+                          "api-reference/generated/zil-money-webhook-integration/wallet/wallet-funding/ach/wallet-funding-ach-updated"
+                        ]
+                      },
+                      {
+                        "group": "Fund Request",
+                        "pages": [
+                          "api-reference/generated/zil-money-webhook-integration/wallet/wallet-funding/fund-request/wallet-funding-request-initiated",
+                          "api-reference/generated/zil-money-webhook-integration/wallet/wallet-funding/fund-request/wallet-funding-request-updated"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Send Payment",
+                "pages": [
+                  "api-reference/generated/zil-money-webhook-integration/send-payment/sendpayment-updated"
+                ]
+              },
+              {
+                "group": "Receive Payment",
+                "pages": [
+                  {
+                    "group": "Payment Link",
+                    "pages": [
+                      "api-reference/generated/zil-money-webhook-integration/receive-payment/payment-link/gpbf-check-created",
+                      "api-reference/generated/zil-money-webhook-integration/receive-payment/payment-link/gpbf-check-updated"
+                    ]
+                  },
+                  {
+                    "group": "Manual ACH",
+                    "pages": [
+                      "api-reference/generated/zil-money-webhook-integration/receive-payment/manual-ach/manual-ach-initiated",
+                      "api-reference/generated/zil-money-webhook-integration/receive-payment/manual-ach/manual-ach-updated"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Card Program",
+                "pages": [
+                  {
+                    "group": "Card Program Events",
+                    "pages": [
+                      "api-reference/generated/zil-money-webhook-integration/card-program/card-program-events/card-program-card-created",
+                      "api-reference/generated/zil-money-webhook-integration/card-program/card-program-events/card-program-card-transaction-created",
+                      "api-reference/generated/zil-money-webhook-integration/card-program/card-program-events/card-program-card-transaction-updated"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Check",
+                "pages": [
+                  {
+                    "group": "Print",
+                    "pages": [
+                      "api-reference/generated/zil-money-webhook-integration/check/print/check-print-async-success",
+                      "api-reference/generated/zil-money-webhook-integration/check/print/check-print-async-failed"
+                    ]
+                  },
+                  {
+                    "group": "Mail",
+                    "pages": [
+                      "api-reference/generated/zil-money-webhook-integration/check/mail/check-mailing-tracking",
+                      "api-reference/generated/zil-money-webhook-integration/check/mail/document-mailing-tracking"
+                    ]
+                  }
+                ]
+              }
+            ]
           }
-        ]
-      }
     ]
   },
   "logo": {
@@ -353,16 +461,11 @@
     }
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
+    "links": [],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Contact Us",
+      "href": "https://zilmoney.com/contact/"
     }
   },
   "contextual": {

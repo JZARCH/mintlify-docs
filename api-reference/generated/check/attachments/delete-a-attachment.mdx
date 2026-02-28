@@ -1,6 +1,7 @@
 ---
 title: 'Delete a attachment'
 api: 'DELETE /checks/{checkId}/attachments/{checkAttachmentId}'
+authMethod: 'bearer'
 ---
 
 Remove attachment.
@@ -20,12 +21,6 @@ Path parameters
 
 
 
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
-
 ## Path parameters
 
 <ParamField path="checkId" type="string" required>
@@ -34,6 +29,16 @@ Path parameters
 
 <ParamField path="checkAttachmentId" type="string" required>
   Path parameter `checkAttachmentId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="errorMsg" type="string">
+  Request body field `errorMsg`.
 </ParamField>
 
 ## Request

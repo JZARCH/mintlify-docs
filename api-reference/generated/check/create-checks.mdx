@@ -1,6 +1,7 @@
 ---
 title: 'Create checks'
 api: 'POST /checks'
+authMethod: 'bearer'
 ---
 
 You can create multiple checks in one single request by passing check attributes.  
@@ -17,12 +18,6 @@ OptionalObject
 Must be an object of voucher attributes
 
 bankAccountIdRequiredStringMust be a bank account IDpayeeIdRequiredStringMust be a payee IDOptional if noPayee is true, otherwise required.categoryIdOptionalStringMust be a category IDserialNumberOptionalStringBy default increment every time a check is created, If a serialNumber is passed, that will override any default.issueDateOptionalString yyyy-mm-ddBy default it will be check creation date, If a issueDate is passed, that willoverride any default.amountRequiredDecimalOptional if noAmount is true, otherwise required.memoOptionalStringMax of 150 characters to be included on the memo line of the check.noteOptionalStringAn internal note that identifies this check. Must be no longer than 150 characters.accountNumberOptionalStringAny account number associated with this checkinvoiceNumberOptionalStringAny invoice number associated with this checknoSignOptionalBooleanif true ,check will create without signature ,By default falsenoAmountOptionalBooleaniftrue ,check will create without amount,By default falsenoDateOptionalBooleanif true ,check will create without date,By default falsenoPayeeOptionalBooleanif true ,check will create without payee,By default falsevoucherIdOptionalStringMust be an voucher ID, It will be ignored if object of voucher attributes passed.voucherOptionalObjectMust be an object of voucher attributescustomElementsOptionalMust be a key-value pair where both the key and value are stringshtmlStubOptionalCustom stub from htmlreferenceIdOptionalUnique reference id for check
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

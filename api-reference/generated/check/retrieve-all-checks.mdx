@@ -1,6 +1,7 @@
 ---
 title: 'Retrieve all checks'
 api: 'GET /checks'
+authMethod: 'bearer'
 ---
 
 List all check records
@@ -8,12 +9,6 @@ List all check records
 **Query parameters**
 
 perPageNumber of records that you want to receive in the response,By default 10 records will belistedpageFor navigating through pages ,By default first page will be listedtermFilter records by using any keywordsstatusFilter records by using check status ,Eg:new , void ,mailed ,refunded , emailed , eprinted ,printedreferenceIdFilter records by referenceIdcolumnThe column name to be used for filtering records. Supported columns include payee_name,payee_nick_name,serial_number,amount,bank_account_account_name,bank_account_nick_name,memo,noteSearchTypeDefines how the search is applied to the chosen column. Eg- exact or like
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Query parameters
 
@@ -35,6 +30,36 @@ perPageNumber of records that you want to receive in the response,By default 10 
 
 <ParamField query="referenceId" type="string">
   Query parameter `referenceId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.meta" type="object">
+  Request body field `data.meta`.
+</ParamField>
+
+<ParamField body="data.meta.total" type="number">
+  Request body field `data.meta.total`.
+</ParamField>
+
+<ParamField body="data.meta.currentPage" type="number">
+  Request body field `data.meta.currentPage`.
+</ParamField>
+
+<ParamField body="data.meta.perPage" type="number">
+  Request body field `data.meta.perPage`.
+</ParamField>
+
+<ParamField body="data.checks" type="object[]">
+  Request body field `data.checks`.
 </ParamField>
 
 ## Request

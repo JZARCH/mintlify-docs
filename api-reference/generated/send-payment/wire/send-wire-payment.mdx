@@ -1,16 +1,11 @@
 ---
 title: 'Send Wire Payment'
 api: 'POST /send-payment/wire'
+authMethod: 'bearer'
 ---
 
 Initiate an Wire Payment from a wallet or bank account.  
 Allowed sourceType : `wallet` ,`bankAccount`
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

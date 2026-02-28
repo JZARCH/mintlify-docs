@@ -1,6 +1,7 @@
 ---
 title: 'Show Wallet Spend Card Details'
 api: 'GET /card-program/card/show-card/{showCardId}'
+authMethod: 'bearer'
 ---
 
 This endpoint returns encrypted sensitive card information, including PAN and CVC.
@@ -115,16 +116,60 @@ The script then formats the card number with spaces between each group of 4 digi
         
     - Catches and logs decryption errors to the console
 
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
-
 ## Path parameters
 
 <ParamField path="showCardId" type="string" required>
   Path parameter `showCardId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.secretKey" type="string">
+  Request body field `data.secretKey`.
+</ParamField>
+
+<ParamField body="data.token" type="object">
+  Request body field `data.token`.
+</ParamField>
+
+<ParamField body="data.token.encryptedPan" type="object">
+  Request body field `data.token.encryptedPan`.
+</ParamField>
+
+<ParamField body="data.token.encryptedPan.iv" type="string">
+  Request body field `data.token.encryptedPan.iv`.
+</ParamField>
+
+<ParamField body="data.token.encryptedPan.data" type="string">
+  Request body field `data.token.encryptedPan.data`.
+</ParamField>
+
+<ParamField body="data.token.encryptedCvc" type="object">
+  Request body field `data.token.encryptedCvc`.
+</ParamField>
+
+<ParamField body="data.token.encryptedCvc.iv" type="string">
+  Request body field `data.token.encryptedCvc.iv`.
+</ParamField>
+
+<ParamField body="data.token.encryptedCvc.data" type="string">
+  Request body field `data.token.encryptedCvc.data`.
+</ParamField>
+
+<ParamField body="data.expiryMonth" type="string">
+  Request body field `data.expiryMonth`.
+</ParamField>
+
+<ParamField body="data.expiryYear" type="string">
+  Request body field `data.expiryYear`.
 </ParamField>
 
 ## Request

@@ -1,20 +1,141 @@
 ---
 title: 'Retrieve Wallet Gift Card'
 api: 'GET /card-program/gift-card/{giftCardId}'
+authMethod: 'bearer'
 ---
 
 Retrieves the details of a specific gift card using its unique ID.
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Path parameters
 
 <ParamField path="giftCardId" type="string" required>
   Path parameter `giftCardId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.id" type="string">
+  Request body field `data.id`.
+</ParamField>
+
+<ParamField body="data.walletId" type="string">
+  Request body field `data.walletId`.
+</ParamField>
+
+<ParamField body="data.status" type="string">
+  Request body field `data.status`.
+</ParamField>
+
+<ParamField body="data.card" type="object">
+  Request body field `data.card`.
+</ParamField>
+
+<ParamField body="data.card.id" type="string">
+  Request body field `data.card.id`.
+</ParamField>
+
+<ParamField body="data.card.cardProgramIssuingRecordId" type="string">
+  Request body field `data.card.cardProgramIssuingRecordId`.
+</ParamField>
+
+<ParamField body="data.card.cardType" type="string">
+  Request body field `data.card.cardType`.
+</ParamField>
+
+<ParamField body="data.card.label" type="string">
+  Request body field `data.card.label`.
+</ParamField>
+
+<ParamField body="data.card.nameOnCard" type="string">
+  Request body field `data.card.nameOnCard`.
+</ParamField>
+
+<ParamField body="data.card.limitAmount" type="string">
+  Request body field `data.card.limitAmount`.
+</ParamField>
+
+<ParamField body="data.card.limitInterval" type="string">
+  Request body field `data.card.limitInterval`.
+</ParamField>
+
+<ParamField body="data.card.last4" type="string">
+  Request body field `data.card.last4`.
+</ParamField>
+
+<ParamField body="data.card.cardStatus" type="string">
+  Request body field `data.card.cardStatus`.
+</ParamField>
+
+<ParamField body="data.card.expiryMonth" type="string">
+  Request body field `data.card.expiryMonth`.
+</ParamField>
+
+<ParamField body="data.card.expiryYear" type="string">
+  Request body field `data.card.expiryYear`.
+</ParamField>
+
+<ParamField body="data.card.holder" type="object">
+  Request body field `data.card.holder`.
+</ParamField>
+
+<ParamField body="data.card.holder.payeeId" type="string">
+  Request body field `data.card.holder.payeeId`.
+</ParamField>
+
+<ParamField body="data.card.holder.name" type="string">
+  Request body field `data.card.holder.name`.
+</ParamField>
+
+<ParamField body="data.card.holder.email" type="string">
+  Request body field `data.card.holder.email`.
+</ParamField>
+
+<ParamField body="data.card.holder.address1" type="string">
+  Request body field `data.card.holder.address1`.
+</ParamField>
+
+<ParamField body="data.card.holder.address2" type="string">
+  Request body field `data.card.holder.address2`.
+</ParamField>
+
+<ParamField body="data.card.holder.city" type="string">
+  Request body field `data.card.holder.city`.
+</ParamField>
+
+<ParamField body="data.card.holder.state" type="string">
+  Request body field `data.card.holder.state`.
+</ParamField>
+
+<ParamField body="data.card.holder.country" type="string">
+  Request body field `data.card.holder.country`.
+</ParamField>
+
+<ParamField body="data.card.holder.zip" type="string">
+  Request body field `data.card.holder.zip`.
+</ParamField>
+
+<ParamField body="data.card.cardIssueType" type="string">
+  Request body field `data.card.cardIssueType`.
+</ParamField>
+
+<ParamField body="data.availableBalance" type="string">
+  Request body field `data.availableBalance`.
+</ParamField>
+
+<ParamField body="data.updatedAt" type="string">
+  Request body field `data.updatedAt`.
+</ParamField>
+
+<ParamField body="data.createdAt" type="string">
+  Request body field `data.createdAt`.
 </ParamField>
 
 ## Request

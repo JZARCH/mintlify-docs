@@ -1,15 +1,10 @@
 ---
 title: 'View Attachment'
 api: 'GET /attachment/{attachment_id}'
+authMethod: 'bearer'
 ---
 
 This API retrieves the uploaded attachment using the provided `attachment_id` and returns a **secure pre-signed URL** to view or download the file.
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Path parameters
 

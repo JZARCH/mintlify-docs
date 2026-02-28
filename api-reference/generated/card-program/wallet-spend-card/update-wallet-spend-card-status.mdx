@@ -1,6 +1,7 @@
 ---
 title: 'Update Wallet Spend Card Status'
 api: 'POST /card-program/card/{cardId}/change-status'
+authMethod: 'bearer'
 ---
 
 Use this endpoint to update the status of a wallet spend card.
@@ -16,12 +17,6 @@ Use this endpoint to update the status of a wallet spend card.
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `status` | `string` | ✅ | New card status. Possible Accepdted values: `active` and `inactive` |
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Path parameters
 

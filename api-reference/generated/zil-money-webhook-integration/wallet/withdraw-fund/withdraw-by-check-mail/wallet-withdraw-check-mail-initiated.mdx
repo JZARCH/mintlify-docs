@@ -1,0 +1,106 @@
+---
+title: 'wallet.withdraw.check.mail.initiated'
+api: 'POST /webhooks/zilmoney'
+authMethod: 'none'
+playground: 'none'
+---
+
+## wallet.withdraw.check.mail.initiated
+
+Triggered when a user initiates a **wallet withdrawal via physical check mailing**. A check will be printed and mailed to the specified recipient address.
+
+**Trigger:** User creates a check mail withdrawal from their Zil Money wallet.
+
+
+---
+
+## Payload Field Reference
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `data.id` | string (UUID) | Unique identifier for this check mail request |
+| `data.fromWallet` | string | Source wallet UUID (e.g., `"deab2f42-8b8b-47ad-b766-eacc632df634"`) |
+| `data.amount` | string | Check amount formatted to 2 decimal places |
+| `data.description` | string | Memo / description on the check |
+| `data.shippingType` | string | Shipping carrier and service (e.g., `USPS_FIRST_CLASS`, `USPS_PRIORITY`, `FEDEX_NEXT_DAY_PM`, `FEDEX_GROUND`) |
+| `data.shippingInfo.trackingNumber` | string\|null | Carrier tracking number (null until check is mailed) |
+| `data.shippingInfo.trackingUrl` | string\|null | Public tracking URL (null until check is mailed) |
+| `data.status` | string | `PENDING`, `PROCESSING`, `COMPLETED`, `CANCELED`, `FAILED`, `RETURNED` |
+| `data.clearingFile` | string\|null | Pre-signed S3 URL to the clearing PDF (available after printing) |
+| `data.previewFile` | string\|null | Pre-signed S3 URL to the check preview PDF |
+| `data.reviewMessage` | string | Message if check is under review |
+| `data.fromAddress.name` | string | Sender's name (appears as return address on envelope) |
+| `data.fromAddress.addressLine1` | string | Sender's street address |
+| `data.fromAddress.addressLine2` | string | Sender's address line 2 (apt, suite, etc.) |
+| `data.fromAddress.city` | string | Sender's city |
+| `data.fromAddress.state` | string | Sender's state (2-letter code) |
+| `data.fromAddress.zip` | string | Sender's ZIP code |
+| `data.toAddress.name` | string | Recipient's name (pay to the order of) |
+| `data.toAddress.addressLine1` | string | Recipient's street address |
+| `data.toAddress.addressLine2` | string | Recipient's address line 2 |
+| `data.toAddress.city` | string | Recipient's city |
+| `data.toAddress.state` | string | Recipient's state (2-letter code) |
+| `data.toAddress.zip` | string | Recipient's ZIP code |
+| `data.updatedAt` | ISO 8601 datetime | Last updated timestamp |
+| `data.createdAt` | ISO 8601 datetime | Creation timestamp |
+
+## HEADERS
+
+| Header | Value |
+| --- | --- |
+| Content-Type | application/json |
+| Signature | {{hmac_signature}}<br/>HMAC-SHA256 of the raw JSON request body, signed with your webhook_secret: hash_hmac('sha256', rawJsonBody, webhookSecret) |
+
+## Example Request
+
+```http
+POST /webhooks/zilmoney HTTP/1.1
+Host: your-server.com
+Content-Type: application/json
+Signature: {{hmac_signature}}
+```
+
+## Example Response
+
+```json
+{
+  "event": {
+    "type": "wallet.withdraw.check.mail.initiated",
+    "id": "e5f6a7b8-c9d0-1234-efab-678901234567",
+    "createdAt": "2024-01-15T11:00:00.000000Z",
+    "data": {
+      "id": "f7a8b9c0-d1e2-3456-fab7-890123456789",
+      "fromWallet": "deab2f42-8b8b-47ad-b766-eacc632df634",
+      "amount": "1.25",
+      "description": "Wallet Withdraw :Mail",
+      "shippingType": "FEDEX_NEXT_DAY_PM",
+      "shippingInfo": {
+        "trackingNumber": null,
+        "trackingUrl": null
+      },
+      "status": "PENDING",
+      "clearingFile": null,
+      "previewFile": null,
+      "reviewMessage": "",
+      "updatedAt": "2024-01-15T11:00:00.000000Z",
+      "createdAt": "2024-01-15T11:00:00.000000Z",
+      "fromAddress": {
+        "name": "Acme Corporation",
+        "addressLine1": "123 Business Ave",
+        "addressLine2": "Suite 100",
+        "city": "Austin",
+        "state": "TX",
+        "zip": "78701"
+      },
+      "toAddress": {
+        "name": "John Smith",
+        "addressLine1": "456 Main Street",
+        "addressLine2": "",
+        "city": "New York",
+        "state": "NY",
+        "zip": "10001"
+      }
+    }
+  }
+}
+```

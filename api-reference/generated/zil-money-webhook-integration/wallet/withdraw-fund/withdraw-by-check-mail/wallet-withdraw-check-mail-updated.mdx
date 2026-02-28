@@ -1,0 +1,114 @@
+---
+title: 'wallet.withdraw.check.mail.updated'
+api: 'POST /webhooks/zilmoney'
+authMethod: 'none'
+playground: 'none'
+---
+
+## wallet.withdraw.check.mail.updated
+
+Triggered whenever the **status** of a check mail withdrawal changes. This event fires **multiple times** across the check's lifecycle.
+
+**Trigger conditions:**
+1. Status changes (e.g., `PENDING` → `PROCESSING` → `COMPLETED`)
+2. Tracking number assigned after check is handed to carrier
+3. Clearing/preview files generated after printing
+
+
+---
+
+## Lifecycle of updates
+
+| Fire # | What changed | `status` | `trackingNumber` | `clearingFile` |
+|--------|-------------|----------|-----------------|----------------|
+| 1st | Status → `PROCESSING` | `PROCESSING` | `null` | `null` |
+| 2nd | Check printed, files ready | `PROCESSING` | `null` | populated URL |
+| 3rd | Handed to carrier | `PROCESSING` | populated | populated URL |
+| 4th | Status → `COMPLETED` | `COMPLETED` | populated | populated URL |
+
+> This sample shows the **first update** (status change only). Fields populate in later fires.
+
+---
+
+## Payload Field Reference
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `data.id` | string (UUID) | Unique identifier for this check mail request |
+| `data.fromWallet` | string | Source wallet UUID |
+| `data.amount` | string | Check amount |
+| `data.description` | string | Memo / description |
+| `data.shippingType` | string | Carrier and service (e.g., `FEDEX_NEXT_DAY_PM`, `USPS_FIRST_CLASS`) |
+| `data.shippingInfo.trackingNumber` | string\|null | Carrier tracking number — `null` until handed to carrier |
+| `data.shippingInfo.trackingUrl` | string\|null | Public tracking URL — `null` until handed to carrier |
+| `data.status` | string | `PENDING`, `PROCESSING`, `COMPLETED`, `CANCELED`, `FAILED`, `RETURNED` |
+| `data.clearingFile` | string\|null | Pre-signed S3 URL to clearing PDF — `null` until printed |
+| `data.previewFile` | string\|null | Pre-signed S3 URL to check preview — `null` until printed |
+| `data.reviewMessage` | string | Message if check is under review |
+| `data.fromAddress` | object | Sender address (same structure as initiated) |
+| `data.toAddress` | object | Recipient address (same structure as initiated) |
+| `data.updatedAt` | ISO 8601 datetime | Timestamp of this update |
+| `data.createdAt` | ISO 8601 datetime | Original creation timestamp |
+
+> **Note:** Pre-signed S3 URLs for `clearingFile` and `previewFile` expire — download promptly after receiving.
+
+## HEADERS
+
+| Header | Value |
+| --- | --- |
+| Content-Type | application/json |
+| Signature | {{hmac_signature}}<br/>HMAC-SHA256 of the raw JSON request body, signed with your webhook_secret: hash_hmac('sha256', rawJsonBody, webhookSecret) |
+
+## Example Request
+
+```http
+POST /webhooks/zilmoney HTTP/1.1
+Host: your-server.com
+Content-Type: application/json
+Signature: {{hmac_signature}}
+```
+
+## Example Response
+
+```json
+{
+  "event": {
+    "type": "wallet.withdraw.check.mail.updated",
+    "id": "e5f6a7b8-c9d0-1234-efab-678901234568",
+    "createdAt": "2024-01-16T08:30:00.000000Z",
+    "data": {
+      "id": "f7a8b9c0-d1e2-3456-fab7-890123456789",
+      "fromWallet": "deab2f42-8b8b-47ad-b766-eacc632df634",
+      "amount": "1.25",
+      "description": "Wallet Withdraw :Mail",
+      "shippingType": "FEDEX_NEXT_DAY_PM",
+      "shippingInfo": {
+        "trackingNumber": null,
+        "trackingUrl": null
+      },
+      "status": "PROCESSING",
+      "clearingFile": null,
+      "previewFile": null,
+      "reviewMessage": "",
+      "updatedAt": "2026-02-23T06:53:15.000000Z",
+      "createdAt": "2026-02-23T06:53:14.000000Z",
+      "fromAddress": {
+        "name": "Acme Corporation",
+        "addressLine1": "123 Business Ave",
+        "addressLine2": "Suite 100",
+        "city": "Austin",
+        "state": "TX",
+        "zip": "78701"
+      },
+      "toAddress": {
+        "name": "John Smith",
+        "addressLine1": "456 Main Street",
+        "addressLine2": "",
+        "city": "New York",
+        "state": "NY",
+        "zip": "10001"
+      }
+    }
+  }
+}
+```

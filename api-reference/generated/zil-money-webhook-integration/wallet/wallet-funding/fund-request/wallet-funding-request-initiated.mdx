@@ -1,6 +1,8 @@
 ---
 title: 'wallet.funding.request.initiated'
-api: 'POST /'
+api: 'POST /webhooks/zilmoney'
+authMethod: 'none'
+playground: 'none'
 ---
 
 ## wallet.funding.request.initiated
@@ -34,110 +36,50 @@ Triggered when a **wallet fund request is created** — a request for an externa
 
 > **Important:** Share the `depositInformation` fields with the depositor so they can correctly initiate the wire. The `specialInstruction` must be included in the wire memo to ensure the funds are credited to the correct wallet.
 
-## Authorization
+## HEADERS
 
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
+| Header | Value |
+| --- | --- |
+| Content-Type | application/json |
+| Signature | {{hmac_signature}}<br/>HMAC-SHA256 of the raw JSON request body, signed with your webhook_secret: hash_hmac('sha256', rawJsonBody, webhookSecret) |
 
-## Body parameters
+## Example Request
 
-<ParamField body="event" type="object">
-  Request body field `event`.
-</ParamField>
+```http
+POST /webhooks/zilmoney HTTP/1.1
+Host: your-server.com
+Content-Type: application/json
+Signature: {{hmac_signature}}
+```
 
-<ParamField body="event.type" type="string">
-  Request body field `event.type`.
-</ParamField>
+## Example Response
 
-<ParamField body="event.id" type="string">
-  Request body field `event.id`.
-</ParamField>
-
-<ParamField body="event.createdAt" type="string">
-  Request body field `event.createdAt`.
-</ParamField>
-
-<ParamField body="event.data" type="object">
-  Request body field `event.data`.
-</ParamField>
-
-<ParamField body="event.data.id" type="string">
-  Request body field `event.data.id`.
-</ParamField>
-
-<ParamField body="event.data.depositorName" type="string">
-  Request body field `event.data.depositorName`.
-</ParamField>
-
-<ParamField body="event.data.toWallet" type="string">
-  Request body field `event.data.toWallet`.
-</ParamField>
-
-<ParamField body="event.data.amount" type="string">
-  Request body field `event.data.amount`.
-</ParamField>
-
-<ParamField body="event.data.description" type="string">
-  Request body field `event.data.description`.
-</ParamField>
-
-<ParamField body="event.data.status" type="string">
-  Request body field `event.data.status`.
-</ParamField>
-
-<ParamField body="event.data.transferType" type="string">
-  Request body field `event.data.transferType`.
-</ParamField>
-
-<ParamField body="event.data.depositInformation" type="object">
-  Request body field `event.data.depositInformation`.
-</ParamField>
-
-<ParamField body="event.data.depositInformation.beneficiaryName" type="string">
-  Request body field `event.data.depositInformation.beneficiaryName`.
-</ParamField>
-
-<ParamField body="event.data.depositInformation.beneficiaryRoutingNumber" type="string">
-  Request body field `event.data.depositInformation.beneficiaryRoutingNumber`.
-</ParamField>
-
-<ParamField body="event.data.depositInformation.beneficiaryAccountNumber" type="string">
-  Request body field `event.data.depositInformation.beneficiaryAccountNumber`.
-</ParamField>
-
-<ParamField body="event.data.depositInformation.beneficiaryAccountType" type="string">
-  Request body field `event.data.depositInformation.beneficiaryAccountType`.
-</ParamField>
-
-<ParamField body="event.data.depositInformation.beneficiaryBankAddress" type="string">
-  Request body field `event.data.depositInformation.beneficiaryBankAddress`.
-</ParamField>
-
-<ParamField body="event.data.depositInformation.beneficiaryBankSwift" type="string">
-  Request body field `event.data.depositInformation.beneficiaryBankSwift`.
-</ParamField>
-
-<ParamField body="event.data.depositInformation.specialInstruction" type="string">
-  Request body field `event.data.depositInformation.specialInstruction`.
-</ParamField>
-
-<ParamField body="event.data.updatedAt" type="string">
-  Request body field `event.data.updatedAt`.
-</ParamField>
-
-<ParamField body="event.data.createdAt" type="string">
-  Request body field `event.data.createdAt`.
-</ParamField>
-
-## Request
-
-Endpoint: `POST /`
-
-### Example
-
-```bash
-curl --location "$BASE_URL/" \
-  --header "Authorization: Bearer $AUTH_TOKEN" \
-  --header "Accept: application/json"
+```json
+{
+  "event": {
+    "type": "wallet.funding.request.initiated",
+    "id": "55c6683a-6b7c-4410-b3e3-3ad4cd4b1ff0",
+    "createdAt": "2024-10-25T09:45:16.000000Z",
+    "data": {
+      "id": "afce0ae6-03d6-40e9-b5fd-152afa174054",
+      "depositorName": "JOHN DOE",
+      "toWallet": "4692095d-4606-4731-be31-5cc933837b34",
+      "amount": "145.00",
+      "description": "test from api",
+      "status": "PENDING",
+      "transferType": "domestic-wire",
+      "depositInformation": {
+        "beneficiaryName": "ABC LLC",
+        "beneficiaryRoutingNumber": "121140399",
+        "beneficiaryAccountNumber": "3304236682",
+        "beneficiaryAccountType": "Business Checking",
+        "beneficiaryBankAddress": "3003 Tasman Drive, Santa Clara, CA 95054, USA",
+        "beneficiaryBankSwift": "SVBKUS6S",
+        "specialInstruction": "ZM OF33 OCW ABC LLC"
+      },
+      "updatedAt": "2024-10-25T09:45:15.000000Z",
+      "createdAt": "2024-10-25T09:45:15.000000Z"
+    }
+  }
+}
 ```

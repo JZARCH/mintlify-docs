@@ -1,6 +1,7 @@
 ---
 title: 'Retrieve all attachments details'
 api: 'GET /checks/{checkId}/attachments'
+authMethod: 'bearer'
 ---
 
 Retrieve all attachments of a existing check.
@@ -15,16 +16,20 @@ Path parameters
 
 
 
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
-
 ## Path parameters
 
 <ParamField path="checkId" type="string" required>
   Path parameter `checkId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object[]">
+  Request body field `data`.
 </ParamField>
 
 ## Request

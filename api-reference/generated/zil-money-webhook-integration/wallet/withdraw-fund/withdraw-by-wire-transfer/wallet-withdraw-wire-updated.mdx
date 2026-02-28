@@ -1,0 +1,66 @@
+---
+title: 'wallet.withdraw.wire.updated'
+api: 'POST /webhooks/zilmoney'
+authMethod: 'none'
+playground: 'none'
+---
+
+## wallet.withdraw.wire.updated
+
+Triggered whenever the **status** of a wire withdrawal changes. This event fires multiple times across the transfer lifecycle.
+
+**Trigger:** Wire transfer status is updated by the banking network.
+
+---
+
+## Status Lifecycle
+
+```
+PENDING → PROCESSING → COMPLETED
+                    ↘ FAILED
+PENDING → CANCELED
+```
+
+> This event fires once per status transition. The sample shows the first update (`PROCESSING`). A second fire will follow when status moves to `COMPLETED` or `FAILED`.
+
+---
+
+Same schema as `wallet.withdraw.wire.initiated`. The `data.status` and `data.updatedAt` fields reflect the new state.
+
+## HEADERS
+
+| Header | Value |
+| --- | --- |
+| Content-Type | application/json |
+| Signature | {{hmac_signature}}<br/>HMAC-SHA256 of the raw JSON request body, signed with your webhook_secret: hash_hmac('sha256', rawJsonBody, webhookSecret) |
+
+## Example Request
+
+```http
+POST /webhooks/zilmoney HTTP/1.1
+Host: your-server.com
+Content-Type: application/json
+Signature: {{hmac_signature}}
+```
+
+## Example Response
+
+```json
+{
+  "event": {
+    "type": "wallet.withdraw.wire.updated",
+    "id": "d9560ca2-b29c-4e56-a153-20e6560dd4d4",
+    "createdAt": "2025-03-14T09:46:43.000000Z",
+    "data": {
+      "id": "97e49c39-f141-48c7-a8c2-248507f43a87",
+      "fromWallet": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+      "toBankAccount": "Jy7VeBw8yQjzn1m",
+      "amount": "50.01",
+      "description": "Wallet withdrawal",
+      "status": "PROCESSING",
+      "updatedAt": "2025-03-14T09:46:43.000000Z",
+      "createdAt": "2025-03-14T09:46:43.000000Z"
+    }
+  }
+}
+```

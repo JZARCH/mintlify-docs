@@ -1,6 +1,7 @@
 ---
 title: 'Print  checks with attachment'
 api: 'POST /checks/print-with-attachment'
+authMethod: 'bearer'
 ---
 
 You can print checks by passing check id and paper type,if you would like to print multiple checks you need to pass checkId as array.
@@ -12,12 +13,6 @@ paperTypeRequiredIntegerMust be an integer from Available paper typescheckIdRequ
 _Available_ `_paper types_`
 
 Paper typeDescription1Check on Top2Check on Middle3Check on Bottom4Three per page5Wallet size6Simple print
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

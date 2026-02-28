@@ -1,18 +1,63 @@
 ---
 title: 'Retrieve a wallet'
 api: 'GET /wallet/{uuid}'
+authMethod: 'bearer'
 ---
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Path parameters
 
 <ParamField path="uuid" type="string" required>
   Path parameter `uuid`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.id" type="string">
+  Request body field `data.id`.
+</ParamField>
+
+<ParamField body="data.availableBalance" type="string">
+  Request body field `data.availableBalance`.
+</ParamField>
+
+<ParamField body="data.currentBalance" type="string">
+  Request body field `data.currentBalance`.
+</ParamField>
+
+<ParamField body="data.bankAccount_id" type="string">
+  Request body field `data.bankAccount_id`.
+</ParamField>
+
+<ParamField body="data.walletName" type="string">
+  Request body field `data.walletName`.
+</ParamField>
+
+<ParamField body="data.walletType" type="number">
+  Request body field `data.walletType`.
+</ParamField>
+
+<ParamField body="data.bankAccountName" type="string">
+  Request body field `data.bankAccountName`.
+</ParamField>
+
+<ParamField body="data.bankAccountNickName" type="string">
+  Request body field `data.bankAccountNickName`.
+</ParamField>
+
+<ParamField body="data.bankAccountNumber" type="string">
+  Request body field `data.bankAccountNumber`.
+</ParamField>
+
+<ParamField body="data.bankAccountNatureType" type="string">
+  Request body field `data.bankAccountNatureType`.
 </ParamField>
 
 ## Request

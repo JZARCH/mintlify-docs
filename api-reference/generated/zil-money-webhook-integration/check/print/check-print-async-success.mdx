@@ -1,6 +1,8 @@
 ---
 title: 'check.print.async (success)'
-api: 'POST /'
+api: 'POST /webhooks/zilmoney'
+authMethod: 'none'
+playground: 'none'
 ---
 
 ## check.print.async (success)
@@ -9,7 +11,6 @@ Triggered when an **asynchronous check print job completes successfully**. The P
 
 **Trigger:** `AsynchronousCheckPrintJob` finishes generating the print PDF for one or more checks.
 
-**Source:** `AsynchronousCheckPrintJob::handle()` → `postOcwUsersWebhook()`
 
 ---
 
@@ -24,58 +25,40 @@ Triggered when an **asynchronous check print job completes successfully**. The P
 
 > **Note:** The `data.url` is a pre-signed S3 URL. Download the PDF as soon as possible after receiving this event.
 
-## Authorization
+## HEADERS
 
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
+| Header | Value |
+| --- | --- |
+| Content-Type | application/json |
+| Signature | {{hmac_signature}}<br/>HMAC-SHA256 of the raw JSON request body, signed with your webhook_secret: hash_hmac('sha256', rawJsonBody, webhookSecret) |
 
-## Body parameters
+## Example Request
 
-<ParamField body="event" type="object">
-  Request body field `event`.
-</ParamField>
+```http
+POST /webhooks/zilmoney HTTP/1.1
+Host: your-server.com
+Content-Type: application/json
+Signature: {{hmac_signature}}
+```
 
-<ParamField body="event.type" type="string">
-  Request body field `event.type`.
-</ParamField>
+## Example Response
 
-<ParamField body="event.id" type="string">
-  Request body field `event.id`.
-</ParamField>
-
-<ParamField body="event.createdAt" type="string">
-  Request body field `event.createdAt`.
-</ParamField>
-
-<ParamField body="event.data" type="object">
-  Request body field `event.data`.
-</ParamField>
-
-<ParamField body="event.data.status" type="string">
-  Request body field `event.data.status`.
-</ParamField>
-
-<ParamField body="event.data.requestId" type="string">
-  Request body field `event.data.requestId`.
-</ParamField>
-
-<ParamField body="event.data.url" type="string">
-  Request body field `event.data.url`.
-</ParamField>
-
-<ParamField body="event.data.checkIds" type="string[]">
-  Request body field `event.data.checkIds`.
-</ParamField>
-
-## Request
-
-Endpoint: `POST /`
-
-### Example
-
-```bash
-curl --location "$BASE_URL/" \
-  --header "Authorization: Bearer $AUTH_TOKEN" \
-  --header "Accept: application/json"
+```json
+{
+  "event": {
+    "type": "check.print.async",
+    "id": "a9b0c1d2-e3f4-5678-abcd-ef1234567890",
+    "createdAt": "2024-01-15T12:30:00.000000Z",
+    "data": {
+      "status": "success",
+      "requestId": "req-7f3c2a1b-4e5d-6f7a-8b9c-0d1e2f3a4b5c",
+      "url": "https://s3.amazonaws.com/zilmoney-prints/checks/batch_a9b0c1d2.pdf?Expires=1705401600&Signature=...",
+      "checkIds": [
+        "CHK_enc_a1b2c3d4e5f6",
+        "CHK_enc_b2c3d4e5f6a7",
+        "CHK_enc_c3d4e5f6a7b8"
+      ]
+    }
+  }
+}
 ```

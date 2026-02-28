@@ -1,6 +1,7 @@
 ---
 title: 'Retrieve a check'
 api: 'GET /checks/{checkId}'
+authMethod: 'bearer'
 ---
 
 Details of an existing check.
@@ -15,16 +16,112 @@ Path parameters
 
 
 
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
-
 ## Path parameters
 
 <ParamField path="checkId" type="string" required>
   Path parameter `checkId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.checkId" type="string">
+  Request body field `data.checkId`.
+</ParamField>
+
+<ParamField body="data.serialNumber" type="string">
+  Request body field `data.serialNumber`.
+</ParamField>
+
+<ParamField body="data.amount" type="string">
+  Request body field `data.amount`.
+</ParamField>
+
+<ParamField body="data.amountInWord" type="string">
+  Request body field `data.amountInWord`.
+</ParamField>
+
+<ParamField body="data.date" type="string">
+  Request body field `data.date`.
+</ParamField>
+
+<ParamField body="data.status" type="number">
+  Request body field `data.status`.
+</ParamField>
+
+<ParamField body="data.memo" type="string">
+  Request body field `data.memo`.
+</ParamField>
+
+<ParamField body="data.accountNumber" type="string">
+  Request body field `data.accountNumber`.
+</ParamField>
+
+<ParamField body="data.invoiceNumber" type="string">
+  Request body field `data.invoiceNumber`.
+</ParamField>
+
+<ParamField body="data.referenceID" type="string">
+  Request body field `data.referenceID`.
+</ParamField>
+
+<ParamField body="data.bankAccount" type="object">
+  Request body field `data.bankAccount`.
+</ParamField>
+
+<ParamField body="data.bankAccount.bankAccountId" type="string">
+  Request body field `data.bankAccount.bankAccountId`.
+</ParamField>
+
+<ParamField body="data.bankAccount.name" type="string">
+  Request body field `data.bankAccount.name`.
+</ParamField>
+
+<ParamField body="data.payee" type="object">
+  Request body field `data.payee`.
+</ParamField>
+
+<ParamField body="data.payee.payeeId" type="string">
+  Request body field `data.payee.payeeId`.
+</ParamField>
+
+<ParamField body="data.payee.name" type="string">
+  Request body field `data.payee.name`.
+</ParamField>
+
+<ParamField body="data.category" type="object">
+  Request body field `data.category`.
+</ParamField>
+
+<ParamField body="data.category.categoryId" type="string">
+  Request body field `data.category.categoryId`.
+</ParamField>
+
+<ParamField body="data.category.name" type="string">
+  Request body field `data.category.name`.
+</ParamField>
+
+<ParamField body="data.checkStatus" type="object">
+  Request body field `data.checkStatus`.
+</ParamField>
+
+<ParamField body="data.checkStatus.status" type="number">
+  Request body field `data.checkStatus.status`.
+</ParamField>
+
+<ParamField body="data.checkStatus.description" type="string">
+  Request body field `data.checkStatus.description`.
+</ParamField>
+
+<ParamField body="data.checkStatements" type="object[]">
+  Request body field `data.checkStatements`.
 </ParamField>
 
 ## Request

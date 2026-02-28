@@ -1,6 +1,7 @@
 ---
 title: 'Retrieve all payees'
 api: 'GET /payees'
+authMethod: 'bearer'
 ---
 
 List all payee records.
@@ -23,12 +24,6 @@ Query parameters
 
 
 
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
-
 ## Query parameters
 
 <ParamField query="perPage" type="string">
@@ -41,6 +36,36 @@ Query parameters
 
 <ParamField query="term" type="string">
   Filter records by using any keywords
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.meta" type="object">
+  Request body field `data.meta`.
+</ParamField>
+
+<ParamField body="data.meta.total" type="number">
+  Request body field `data.meta.total`.
+</ParamField>
+
+<ParamField body="data.meta.currentPage" type="number">
+  Request body field `data.meta.currentPage`.
+</ParamField>
+
+<ParamField body="data.meta.perPage" type="number">
+  Request body field `data.meta.perPage`.
+</ParamField>
+
+<ParamField body="data.payees" type="object[]">
+  Request body field `data.payees`.
 </ParamField>
 
 ## Request

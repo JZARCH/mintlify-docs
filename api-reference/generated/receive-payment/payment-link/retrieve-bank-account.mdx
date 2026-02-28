@@ -1,20 +1,57 @@
 ---
 title: 'Retrieve Bank account'
 api: 'GET /getpaid-by-form/bank-account/{customerBankAccountId}'
+authMethod: 'bearer'
 ---
 
 Retrieve customer bank account
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Path parameters
 
 <ParamField path="customerBankAccountId" type="string" required>
   Path parameter `customerBankAccountId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.id" type="string">
+  Request body field `data.id`.
+</ParamField>
+
+<ParamField body="data.accountName" type="string">
+  Request body field `data.accountName`.
+</ParamField>
+
+<ParamField body="data.accountNumber" type="string">
+  Request body field `data.accountNumber`.
+</ParamField>
+
+<ParamField body="data.routingNumber" type="string">
+  Request body field `data.routingNumber`.
+</ParamField>
+
+<ParamField body="data.accountType" type="string">
+  Request body field `data.accountType`.
+</ParamField>
+
+<ParamField body="data.createdAt" type="string">
+  Request body field `data.createdAt`.
+</ParamField>
+
+<ParamField body="data.updatedAt" type="string">
+  Request body field `data.updatedAt`.
+</ParamField>
+
+<ParamField body="statusCode" type="number">
+  Request body field `statusCode`.
 </ParamField>
 
 ## Request

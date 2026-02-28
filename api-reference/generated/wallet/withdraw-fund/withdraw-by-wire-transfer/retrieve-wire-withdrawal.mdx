@@ -1,18 +1,55 @@
 ---
 title: 'Retrieve Wire Withdrawal'
 api: 'GET /wallet/withdraw/wire/{wireId}'
+authMethod: 'bearer'
 ---
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Path parameters
 
 <ParamField path="wireId" type="string" required>
   Path parameter `wireId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.id" type="string">
+  Request body field `data.id`.
+</ParamField>
+
+<ParamField body="data.fromWallet" type="string">
+  Request body field `data.fromWallet`.
+</ParamField>
+
+<ParamField body="data.toBankAccount" type="string">
+  Request body field `data.toBankAccount`.
+</ParamField>
+
+<ParamField body="data.amount" type="string">
+  Request body field `data.amount`.
+</ParamField>
+
+<ParamField body="data.description" type="string">
+  Request body field `data.description`.
+</ParamField>
+
+<ParamField body="data.status" type="string">
+  Request body field `data.status`.
+</ParamField>
+
+<ParamField body="data.updatedAt" type="string">
+  Request body field `data.updatedAt`.
+</ParamField>
+
+<ParamField body="data.createdAt" type="string">
+  Request body field `data.createdAt`.
 </ParamField>
 
 ## Request

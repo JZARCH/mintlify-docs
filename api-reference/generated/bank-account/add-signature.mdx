@@ -1,6 +1,7 @@
 ---
 title: 'Add Signature'
 api: 'POST /bankAccounts/{bankAccountId}/signatures'
+authMethod: 'bearer'
 ---
 
 Add signature to existing bank account
@@ -13,16 +14,20 @@ bankAccountIdRequiredThe id of the Bank account to update.
 
 signatureRequiredFileAccepted file types are PNG,JPG and JPEG and must be no more than 40960KbnickNameOptionalStringThe nick name of the signature,Must be no longer than 20 characters.
 
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
-
 ## Path parameters
 
 <ParamField path="bankAccountId" type="string" required>
   Path parameter `bankAccountId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="message" type="string">
+  Request body field `message`.
 </ParamField>
 
 ## Request

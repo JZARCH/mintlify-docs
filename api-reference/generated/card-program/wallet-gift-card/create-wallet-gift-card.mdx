@@ -1,6 +1,7 @@
 ---
 title: 'Create Wallet Gift Card'
 api: 'POST /card-program/gift-card/create'
+authMethod: 'bearer'
 ---
 
 This API endpoint allows you to create a gift card linked to a specified wallet, with customizable spending limits. Choose between onetime or rechargeable cards and assign it to a payee.
@@ -15,12 +16,6 @@ This API endpoint allows you to create a gift card linked to a specified wallet,
 | cardLimitType | String | The limit type of the gift card. Accepted values - "onetime", "rechargeable" |
 | payeeId | String | The ID of the payee for the gift card program |
 | payeeEmail | String | The email of the payee for the gift card program |
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

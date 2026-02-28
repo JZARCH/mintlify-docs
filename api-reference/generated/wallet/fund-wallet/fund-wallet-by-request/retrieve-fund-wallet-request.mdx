@@ -1,18 +1,91 @@
 ---
 title: 'Retrieve Fund Wallet Request'
 api: 'GET /wallet/fund/requests/{requestId}'
+authMethod: 'bearer'
 ---
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Path parameters
 
 <ParamField path="requestId" type="string" required>
   Path parameter `requestId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.id" type="string">
+  Request body field `data.id`.
+</ParamField>
+
+<ParamField body="data.depositorName" type="string">
+  Request body field `data.depositorName`.
+</ParamField>
+
+<ParamField body="data.toWallet" type="string">
+  Request body field `data.toWallet`.
+</ParamField>
+
+<ParamField body="data.amount" type="string">
+  Request body field `data.amount`.
+</ParamField>
+
+<ParamField body="data.description" type="string">
+  Request body field `data.description`.
+</ParamField>
+
+<ParamField body="data.status" type="string">
+  Request body field `data.status`.
+</ParamField>
+
+<ParamField body="data.transferType" type="string">
+  Request body field `data.transferType`.
+</ParamField>
+
+<ParamField body="data.depositInformation" type="object">
+  Request body field `data.depositInformation`.
+</ParamField>
+
+<ParamField body="data.depositInformation.beneficiaryName" type="string">
+  Request body field `data.depositInformation.beneficiaryName`.
+</ParamField>
+
+<ParamField body="data.depositInformation.beneficiaryRoutingNumber" type="string">
+  Request body field `data.depositInformation.beneficiaryRoutingNumber`.
+</ParamField>
+
+<ParamField body="data.depositInformation.beneficiaryAccountNumber" type="string">
+  Request body field `data.depositInformation.beneficiaryAccountNumber`.
+</ParamField>
+
+<ParamField body="data.depositInformation.beneficiaryAccountType" type="string">
+  Request body field `data.depositInformation.beneficiaryAccountType`.
+</ParamField>
+
+<ParamField body="data.depositInformation.beneficiaryBankAddress" type="string">
+  Request body field `data.depositInformation.beneficiaryBankAddress`.
+</ParamField>
+
+<ParamField body="data.depositInformation.beneficiaryBankSwift" type="string">
+  Request body field `data.depositInformation.beneficiaryBankSwift`.
+</ParamField>
+
+<ParamField body="data.depositInformation.specialInstruction" type="string">
+  Request body field `data.depositInformation.specialInstruction`.
+</ParamField>
+
+<ParamField body="data.updatedAt" type="string">
+  Request body field `data.updatedAt`.
+</ParamField>
+
+<ParamField body="data.createdAt" type="string">
+  Request body field `data.createdAt`.
 </ParamField>
 
 ## Request

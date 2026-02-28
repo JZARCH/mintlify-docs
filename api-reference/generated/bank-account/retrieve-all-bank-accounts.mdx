@@ -1,6 +1,7 @@
 ---
 title: 'Retrieve all bank accounts'
 api: 'GET /bankAccounts'
+authMethod: 'bearer'
 ---
 
 List all bank account records.
@@ -8,12 +9,6 @@ List all bank account records.
 **Query parameters**
 
 perPageNumber of records that you want to receive in the response,By default 10 records will belistedpageFor navigating through pages ,By default first page will be listedtermFilter records by using any keywords
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Query parameters
 
@@ -27,6 +22,36 @@ perPageNumber of records that you want to receive in the response,By default 10 
 
 <ParamField query="term" type="string">
   Filter records by using any keywords
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.meta" type="object">
+  Request body field `data.meta`.
+</ParamField>
+
+<ParamField body="data.meta.total" type="number">
+  Request body field `data.meta.total`.
+</ParamField>
+
+<ParamField body="data.meta.currentPage" type="number">
+  Request body field `data.meta.currentPage`.
+</ParamField>
+
+<ParamField body="data.meta.perPage" type="number">
+  Request body field `data.meta.perPage`.
+</ParamField>
+
+<ParamField body="data.bankAccounts" type="object[]">
+  Request body field `data.bankAccounts`.
 </ParamField>
 
 ## Request

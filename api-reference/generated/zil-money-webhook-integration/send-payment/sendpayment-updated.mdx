@@ -1,13 +1,14 @@
 ---
 title: 'sendPayment.updated'
-api: 'POST /'
+api: 'POST /webhooks/zilmoney'
+authMethod: 'none'
+playground: 'none'
 ---
 
 ## sendPayment.updated
 
 Triggered whenever an **outgoing payment status changes**. The event fires for all payment methods — only the `transferType`, `source`, and a few additional fields differ per method. The rest of the payload structure is identical.
 
-**Source:** `ZilPaymentObserver::updated()` → `ZilPaymentV3Resource`
 
 ---
 
@@ -89,102 +90,46 @@ Only the fields shown below differ between payment types. All other fields remai
 
 > **Check Mail only:** `clearingFile`, `previewFile`, and `tracking` are extra fields not present in ACH or Wire payloads.
 
-## Authorization
+## HEADERS
 
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
+| Header | Value |
+| --- | --- |
+| Content-Type | application/json |
+| Signature | {{hmac_signature}}<br/>HMAC-SHA256 of the raw JSON request body, signed with your webhook_secret: hash_hmac('sha256', rawJsonBody, webhookSecret) |
 
-## Body parameters
+## Example Request
 
-<ParamField body="event" type="object">
-  Request body field `event`.
-</ParamField>
-
-<ParamField body="event.type" type="string">
-  Request body field `event.type`.
-</ParamField>
-
-<ParamField body="event.id" type="string">
-  Request body field `event.id`.
-</ParamField>
-
-<ParamField body="event.createdAt" type="string">
-  Request body field `event.createdAt`.
-</ParamField>
-
-<ParamField body="event.data" type="object">
-  Request body field `event.data`.
-</ParamField>
-
-<ParamField body="event.data.id" type="string">
-  Request body field `event.data.id`.
-</ParamField>
-
-<ParamField body="event.data.amount" type="string">
-  Request body field `event.data.amount`.
-</ParamField>
-
-<ParamField body="event.data.payeeId" type="string">
-  Request body field `event.data.payeeId`.
-</ParamField>
-
-<ParamField body="event.data.transferType" type="string">
-  Request body field `event.data.transferType`.
-</ParamField>
-
-<ParamField body="event.data.referenceNo" type="string">
-  Request body field `event.data.referenceNo`.
-</ParamField>
-
-<ParamField body="event.data.status" type="string">
-  Request body field `event.data.status`.
-</ParamField>
-
-<ParamField body="event.data.description" type="string">
-  Request body field `event.data.description`.
-</ParamField>
-
-<ParamField body="event.data.source" type="object">
-  Request body field `event.data.source`.
-</ParamField>
-
-<ParamField body="event.data.source.sourceType" type="string">
-  Request body field `event.data.source.sourceType`.
-</ParamField>
-
-<ParamField body="event.data.source.sourceId" type="string">
-  Request body field `event.data.source.sourceId`.
-</ParamField>
-
-<ParamField body="event.data.reviewMessage" type="string">
-  Request body field `event.data.reviewMessage`.
-</ParamField>
-
-<ParamField body="event.data.createdAt" type="string">
-  Request body field `event.data.createdAt`.
-</ParamField>
-
-<ParamField body="event.data.updatedAt" type="string">
-  Request body field `event.data.updatedAt`.
-</ParamField>
-
-## Request
-
-Endpoint: `POST /`
-
-### Example
-
-```bash
-curl --location "$BASE_URL/" \
-  --header "Authorization: Bearer $AUTH_TOKEN" \
-  --header "Accept: application/json"
+```http
+POST /webhooks/zilmoney HTTP/1.1
+Host: your-server.com
+Content-Type: application/json
+Signature: {{hmac_signature}}
 ```
 
-## Response example
+## Example Response
 
 ```json
 {
-  "status": "ok"
+  "event": {
+    "type": "sendPayment.updated",
+    "id": "fb8e75e5-b3ab-4539-a004-80ba5948432d",
+    "createdAt": "2026-02-21T08:53:58.000000Z",
+    "data": {
+      "id": "af126fac-cd3a-47a7-8fed-8727ad63235b",
+      "amount": "10.00",
+      "payeeId": "dJM5GbMbxv4Y329",
+      "transferType": "ach",
+      "referenceNo": "",
+      "status": "PROCESSING",
+      "description": "",
+      "source": {
+        "sourceType": "bankAccount",
+        "sourceId": "qx5NrWjyoA1NG2n3l6b"
+      },
+      "reviewMessage": "",
+      "createdAt": "2026-02-21T08:53:53.000000Z",
+      "updatedAt": "2026-02-21T08:53:58.000000Z"
+    }
+  }
 }
 ```

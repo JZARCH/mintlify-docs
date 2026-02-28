@@ -1,20 +1,117 @@
 ---
 title: 'Retrieve Single Payment'
 api: 'GET /getpaid-by-form/check/{referenceId}'
+authMethod: 'bearer'
 ---
 
 You can retrieve a single payment link check using `referenceId`
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Path parameters
 
 <ParamField path="referenceId" type="string" required>
   Path parameter `referenceId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.referenceId" type="string">
+  Request body field `data.referenceId`.
+</ParamField>
+
+<ParamField body="data.memo" type="string">
+  Request body field `data.memo`.
+</ParamField>
+
+<ParamField body="data.amount" type="string">
+  Request body field `data.amount`.
+</ParamField>
+
+<ParamField body="data.serialNumber" type="number">
+  Request body field `data.serialNumber`.
+</ParamField>
+
+<ParamField body="data.createdAt" type="string">
+  Request body field `data.createdAt`.
+</ParamField>
+
+<ParamField body="data.invoiceNumber" type="string">
+  Request body field `data.invoiceNumber`.
+</ParamField>
+
+<ParamField body="data.transactionId" type="string">
+  Request body field `data.transactionId`.
+</ParamField>
+
+<ParamField body="data.customerDetails" type="object">
+  Request body field `data.customerDetails`.
+</ParamField>
+
+<ParamField body="data.customerDetails.customerEmail" type="string">
+  Request body field `data.customerDetails.customerEmail`.
+</ParamField>
+
+<ParamField body="data.customerDetails.customerName" type="string">
+  Request body field `data.customerDetails.customerName`.
+</ParamField>
+
+<ParamField body="data.customerDetails.customerAddressLine1" type="string">
+  Request body field `data.customerDetails.customerAddressLine1`.
+</ParamField>
+
+<ParamField body="data.customerDetails.customerPhone" type="string">
+  Request body field `data.customerDetails.customerPhone`.
+</ParamField>
+
+<ParamField body="data.customerDetails.customerCity" type="string">
+  Request body field `data.customerDetails.customerCity`.
+</ParamField>
+
+<ParamField body="data.customerDetails.customerState" type="string">
+  Request body field `data.customerDetails.customerState`.
+</ParamField>
+
+<ParamField body="data.customerDetails.customerZip" type="string">
+  Request body field `data.customerDetails.customerZip`.
+</ParamField>
+
+<ParamField body="data.metaData" type="object[]">
+  Request body field `data.metaData`.
+</ParamField>
+
+<ParamField body="data.customField1" type="string">
+  Request body field `data.customField1`.
+</ParamField>
+
+<ParamField body="data.customField2" type="string">
+  Request body field `data.customField2`.
+</ParamField>
+
+<ParamField body="data.customField3" type="string">
+  Request body field `data.customField3`.
+</ParamField>
+
+<ParamField body="data.status" type="object">
+  Request body field `data.status`.
+</ParamField>
+
+<ParamField body="data.status.statusCode" type="number">
+  Request body field `data.status.statusCode`.
+</ParamField>
+
+<ParamField body="data.status.statusShortDescription" type="string">
+  Request body field `data.status.statusShortDescription`.
+</ParamField>
+
+<ParamField body="statusCode" type="number">
+  Request body field `statusCode`.
 </ParamField>
 
 ## Request

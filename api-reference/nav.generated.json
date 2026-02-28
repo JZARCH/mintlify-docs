@@ -371,12 +371,12 @@
             "api-reference/generated/zil-money-webhook-integration/wallet/wallet-funding/ach/wallet-funding-ach-updated",
             "api-reference/generated/zil-money-webhook-integration/wallet/wallet-funding/fund-request/wallet-funding-request-initiated",
             "api-reference/generated/zil-money-webhook-integration/wallet/wallet-funding/fund-request/wallet-funding-request-updated",
-            "api-reference/generated/zil-money-webhook-integration/wallet/wallet-withdrawal/ach/wallet-withdraw-ach-initiated",
-            "api-reference/generated/zil-money-webhook-integration/wallet/wallet-withdrawal/ach/wallet-withdraw-ach-updated",
-            "api-reference/generated/zil-money-webhook-integration/wallet/wallet-withdrawal/mail/wallet-withdraw-check-mail-initiated",
-            "api-reference/generated/zil-money-webhook-integration/wallet/wallet-withdrawal/mail/wallet-withdraw-check-mail-updated",
-            "api-reference/generated/zil-money-webhook-integration/wallet/wallet-withdrawal/wire/wallet-withdraw-wire-initiated",
-            "api-reference/generated/zil-money-webhook-integration/wallet/wallet-withdrawal/wire/wallet-withdraw-wire-updated"
+            "api-reference/generated/zil-money-webhook-integration/wallet/withdraw-fund/withdraw-by-ach/wallet-withdraw-ach-initiated",
+            "api-reference/generated/zil-money-webhook-integration/wallet/withdraw-fund/withdraw-by-ach/wallet-withdraw-ach-updated",
+            "api-reference/generated/zil-money-webhook-integration/wallet/withdraw-fund/withdraw-by-check-mail/wallet-withdraw-check-mail-initiated",
+            "api-reference/generated/zil-money-webhook-integration/wallet/withdraw-fund/withdraw-by-check-mail/wallet-withdraw-check-mail-updated",
+            "api-reference/generated/zil-money-webhook-integration/wallet/withdraw-fund/withdraw-by-wire-transfer/wallet-withdraw-wire-initiated",
+            "api-reference/generated/zil-money-webhook-integration/wallet/withdraw-fund/withdraw-by-wire-transfer/wallet-withdraw-wire-updated"
           ]
         }
       ]

@@ -1,6 +1,7 @@
 ---
 title: 'Create new mail check'
 api: 'POST /mailchecks'
+authMethod: 'bearer'
 ---
 
 You can create multiple checks in one single request
@@ -24,12 +25,6 @@ Paper Type IdDescription7Regular Check Paper8Hollogram Check Paper9Ultra Hollogr
 Inform Types
 
 Inform Type IdDescription10Notify Receiver by Sms
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

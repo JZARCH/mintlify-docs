@@ -1,6 +1,7 @@
 ---
 title: 'Create Check'
 api: 'POST /quickpay/check'
+authMethod: 'bearer'
 ---
 
 | **Source** |  |
@@ -28,12 +29,6 @@ api: 'POST /quickpay/check'
 | customElements | Optional : Must be key-value pair |
 | htmlStub | Optional : Custom stub from html |
 | referenceId | Optional |
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

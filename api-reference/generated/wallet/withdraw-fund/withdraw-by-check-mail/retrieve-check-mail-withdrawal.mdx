@@ -1,20 +1,133 @@
 ---
 title: 'Retrieve Check Mail Withdrawal'
 api: 'GET /wallet/withdraw/mail/{mailId}'
+authMethod: 'bearer'
 ---
 
 status :`PENDING` ,`PROCESSING` , `COMPLETED`,`CANCELED`,`FAILED`
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Path parameters
 
 <ParamField path="mailId" type="string" required>
   Path parameter `mailId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.id" type="string">
+  Request body field `data.id`.
+</ParamField>
+
+<ParamField body="data.fromWallet" type="string">
+  Request body field `data.fromWallet`.
+</ParamField>
+
+<ParamField body="data.amount" type="string">
+  Request body field `data.amount`.
+</ParamField>
+
+<ParamField body="data.description" type="string">
+  Request body field `data.description`.
+</ParamField>
+
+<ParamField body="data.shippingType" type="string">
+  Request body field `data.shippingType`.
+</ParamField>
+
+<ParamField body="data.shippingInfo" type="object">
+  Request body field `data.shippingInfo`.
+</ParamField>
+
+<ParamField body="data.shippingInfo.trackingNumber" type="string">
+  Request body field `data.shippingInfo.trackingNumber`.
+</ParamField>
+
+<ParamField body="data.shippingInfo.trackingUrl" type="string">
+  Request body field `data.shippingInfo.trackingUrl`.
+</ParamField>
+
+<ParamField body="data.status" type="string">
+  Request body field `data.status`.
+</ParamField>
+
+<ParamField body="data.clearingFile" type="string">
+  Request body field `data.clearingFile`.
+</ParamField>
+
+<ParamField body="data.previewFile" type="string">
+  Request body field `data.previewFile`.
+</ParamField>
+
+<ParamField body="data.updatedAt" type="string">
+  Request body field `data.updatedAt`.
+</ParamField>
+
+<ParamField body="data.createdAt" type="string">
+  Request body field `data.createdAt`.
+</ParamField>
+
+<ParamField body="data.fromAddress" type="object">
+  Request body field `data.fromAddress`.
+</ParamField>
+
+<ParamField body="data.fromAddress.name" type="string">
+  Request body field `data.fromAddress.name`.
+</ParamField>
+
+<ParamField body="data.fromAddress.addressLine1" type="string">
+  Request body field `data.fromAddress.addressLine1`.
+</ParamField>
+
+<ParamField body="data.fromAddress.addressLine2" type="string">
+  Request body field `data.fromAddress.addressLine2`.
+</ParamField>
+
+<ParamField body="data.fromAddress.city" type="string">
+  Request body field `data.fromAddress.city`.
+</ParamField>
+
+<ParamField body="data.fromAddress.state" type="string">
+  Request body field `data.fromAddress.state`.
+</ParamField>
+
+<ParamField body="data.fromAddress.zip" type="string">
+  Request body field `data.fromAddress.zip`.
+</ParamField>
+
+<ParamField body="data.toAddress" type="object">
+  Request body field `data.toAddress`.
+</ParamField>
+
+<ParamField body="data.toAddress.name" type="string">
+  Request body field `data.toAddress.name`.
+</ParamField>
+
+<ParamField body="data.toAddress.addressLine1" type="string">
+  Request body field `data.toAddress.addressLine1`.
+</ParamField>
+
+<ParamField body="data.toAddress.addressLine2" type="string">
+  Request body field `data.toAddress.addressLine2`.
+</ParamField>
+
+<ParamField body="data.toAddress.city" type="string">
+  Request body field `data.toAddress.city`.
+</ParamField>
+
+<ParamField body="data.toAddress.state" type="string">
+  Request body field `data.toAddress.state`.
+</ParamField>
+
+<ParamField body="data.toAddress.zip" type="string">
+  Request body field `data.toAddress.zip`.
 </ParamField>
 
 ## Request

@@ -1,6 +1,7 @@
 ---
 title: 'Create Payees'
 api: 'POST /payees'
+authMethod: 'bearer'
 ---
 
 You can create multiple payees in one single request by passing payee attributes.
@@ -12,12 +13,6 @@ payeesRequiredAn array of payee attributes
 `_payee_` _attributes_
 
 nameRequiredStringName of payee,Must be no longer than 100 characters.nickNameOptionalStringNick name of payee,Must be no longer than 50 characters.companyOptionalStringCompany name,Must be no longer than 50 characters.emailOptionalStringMust be no longer than 90 characters.phoneOptionalStringMust be no longer than 15 characters.address1OptionalStringMust be no longer than 180 characters.address2OptionalStringMust be no longer than 180 characters.cityOptionalStringMust be no longer than 180 characters.stateOptionalStringMust be a 2 letter state short-name codezipOptionalStringMust be no longer than 15 characters.countryOptionalStringMust be no longer than 40 characters.dobOptional StringDate of birth, Must be in the format YYYY-MM-DD.
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

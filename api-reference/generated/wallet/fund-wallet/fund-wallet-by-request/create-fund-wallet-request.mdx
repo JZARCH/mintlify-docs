@@ -1,15 +1,10 @@
 ---
 title: 'Create Fund Wallet Request'
 api: 'POST /wallet/fund/requests/create'
+authMethod: 'bearer'
 ---
 
 Allowed TransferType : `domestic-wire` ,`international-wire`
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

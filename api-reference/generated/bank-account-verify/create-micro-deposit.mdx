@@ -1,12 +1,17 @@
 ---
 title: 'Create Micro Deposit'
 api: 'POST /bank-account-verify/micro-deposit'
+authMethod: 'bearer'
 ---
 
-## Authorization
+## Body parameters
 
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="message" type="string">
+  Request body field `message`.
 </ParamField>
 
 ## Request

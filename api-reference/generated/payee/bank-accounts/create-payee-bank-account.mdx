@@ -1,6 +1,7 @@
 ---
 title: 'Create Payee  Bank Account'
 api: 'POST /payees/{payee_id}/bank-accounts'
+authMethod: 'bearer'
 ---
 
 This API endpoint allows you to create a bank account for a specified payee.
@@ -14,12 +15,6 @@ _Available_ accountType
 | Business Savings | businessSavings |
 | Personal Checking | personalChecking |
 | Personal Savings | personalSavings |
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Path parameters
 

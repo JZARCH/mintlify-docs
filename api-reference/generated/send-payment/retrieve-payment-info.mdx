@@ -1,6 +1,7 @@
 ---
 title: 'Retrieve Payment Info'
 api: 'GET /send-payment/{paymentId}/info'
+authMethod: 'bearer'
 ---
 
 You can retrieve the payment status by passing the payment ID.
@@ -14,16 +15,128 @@ You can retrieve the payment status by passing the payment ID.
 | COMPLETED | The payment has been successfully executed and finalized. |
 | FAILED | Payment was rejected or returned |
 
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
-
 ## Path parameters
 
 <ParamField path="paymentId" type="string" required>
   Path parameter `paymentId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.id" type="string">
+  Request body field `data.id`.
+</ParamField>
+
+<ParamField body="data.amount" type="string">
+  Request body field `data.amount`.
+</ParamField>
+
+<ParamField body="data.payeeId" type="string">
+  Request body field `data.payeeId`.
+</ParamField>
+
+<ParamField body="data.transferType" type="string">
+  Request body field `data.transferType`.
+</ParamField>
+
+<ParamField body="data.referenceNo" type="string">
+  Request body field `data.referenceNo`.
+</ParamField>
+
+<ParamField body="data.status" type="string">
+  Request body field `data.status`.
+</ParamField>
+
+<ParamField body="data.description" type="string">
+  Request body field `data.description`.
+</ParamField>
+
+<ParamField body="data.source" type="object">
+  Request body field `data.source`.
+</ParamField>
+
+<ParamField body="data.source.sourceType" type="string">
+  Request body field `data.source.sourceType`.
+</ParamField>
+
+<ParamField body="data.source.sourceId" type="string">
+  Request body field `data.source.sourceId`.
+</ParamField>
+
+<ParamField body="data.virtualCard" type="string">
+  Request body field `data.virtualCard`.
+</ParamField>
+
+<ParamField body="data.wire" type="object">
+  Request body field `data.wire`.
+</ParamField>
+
+<ParamField body="data.wire.imad" type="string">
+  Request body field `data.wire.imad`.
+</ParamField>
+
+<ParamField body="data.wire.beneficiary" type="object">
+  Request body field `data.wire.beneficiary`.
+</ParamField>
+
+<ParamField body="data.wire.beneficiary.name" type="string">
+  Request body field `data.wire.beneficiary.name`.
+</ParamField>
+
+<ParamField body="data.wire.beneficiary.account_number" type="string">
+  Request body field `data.wire.beneficiary.account_number`.
+</ParamField>
+
+<ParamField body="data.wire.beneficiary.routing_number" type="string">
+  Request body field `data.wire.beneficiary.routing_number`.
+</ParamField>
+
+<ParamField body="data.wire.beneficiary.account_type" type="string">
+  Request body field `data.wire.beneficiary.account_type`.
+</ParamField>
+
+<ParamField body="data.wire.beneficiary.address1" type="string">
+  Request body field `data.wire.beneficiary.address1`.
+</ParamField>
+
+<ParamField body="data.wire.beneficiary.address2" type="string">
+  Request body field `data.wire.beneficiary.address2`.
+</ParamField>
+
+<ParamField body="data.wire.beneficiary.city" type="string">
+  Request body field `data.wire.beneficiary.city`.
+</ParamField>
+
+<ParamField body="data.wire.beneficiary.state" type="string">
+  Request body field `data.wire.beneficiary.state`.
+</ParamField>
+
+<ParamField body="data.wire.beneficiary.zip" type="string">
+  Request body field `data.wire.beneficiary.zip`.
+</ParamField>
+
+<ParamField body="data.wire.beneficiary.country" type="string">
+  Request body field `data.wire.beneficiary.country`.
+</ParamField>
+
+<ParamField body="data.ach" type="string">
+  Request body field `data.ach`.
+</ParamField>
+
+<ParamField body="data.createdAt" type="string">
+  Request body field `data.createdAt`.
+</ParamField>
+
+<ParamField body="data.updatedAt" type="string">
+  Request body field `data.updatedAt`.
 </ParamField>
 
 ## Request

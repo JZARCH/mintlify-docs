@@ -7,25 +7,25 @@ This page lists all endpoints that belong to the **Zil Money Webhook Integration
 
 | Method | Path | Endpoint |
 | --- | --- | --- |
-| `POST` | `/` | [wallet.withdraw.ach.initiated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-withdrawal/ach/wallet-withdraw-ach-initiated) |
-| `POST` | `/` | [wallet.withdraw.ach.updated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-withdrawal/ach/wallet-withdraw-ach-updated) |
-| `POST` | `/` | [wallet.withdraw.wire.initiated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-withdrawal/wire/wallet-withdraw-wire-initiated) |
-| `POST` | `/` | [wallet.withdraw.wire.updated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-withdrawal/wire/wallet-withdraw-wire-updated) |
-| `POST` | `/` | [wallet.withdraw.check.mail.initiated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-withdrawal/mail/wallet-withdraw-check-mail-initiated) |
-| `POST` | `/` | [wallet.withdraw.check.mail.updated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-withdrawal/mail/wallet-withdraw-check-mail-updated) |
-| `POST` | `/` | [wallet.funding.ach.initiated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-funding/ach/wallet-funding-ach-initiated) |
-| `POST` | `/` | [wallet.funding.ach.updated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-funding/ach/wallet-funding-ach-updated) |
-| `POST` | `/` | [wallet.funding.request.initiated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-funding/fund-request/wallet-funding-request-initiated) |
-| `POST` | `/` | [wallet.funding.request.updated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-funding/fund-request/wallet-funding-request-updated) |
-| `POST` | `/` | [sendPayment.updated](/api-reference/generated/zil-money-webhook-integration/send-payment/sendpayment-updated) |
-| `POST` | `/` | [gpbf.check.created](/api-reference/generated/zil-money-webhook-integration/receive-payment/payment-link/gpbf-check-created) |
-| `POST` | `/` | [gpbf.check.updated](/api-reference/generated/zil-money-webhook-integration/receive-payment/payment-link/gpbf-check-updated) |
-| `POST` | `/` | [manual-ach.initiated](/api-reference/generated/zil-money-webhook-integration/receive-payment/manual-ach/manual-ach-initiated) |
-| `POST` | `/` | [manual-ach.updated](/api-reference/generated/zil-money-webhook-integration/receive-payment/manual-ach/manual-ach-updated) |
-| `POST` | `/` | [card-program.card.created](/api-reference/generated/zil-money-webhook-integration/card-program/card-program-events/card-program-card-created) |
-| `POST` | `/` | [card-program.card.transaction.created](/api-reference/generated/zil-money-webhook-integration/card-program/card-program-events/card-program-card-transaction-created) |
-| `POST` | `/` | [card-program.card.transaction.updated](/api-reference/generated/zil-money-webhook-integration/card-program/card-program-events/card-program-card-transaction-updated) |
-| `POST` | `/` | [check.print.async (success)](/api-reference/generated/zil-money-webhook-integration/check/print/check-print-async-success) |
-| `POST` | `/` | [check.print.async (failed)](/api-reference/generated/zil-money-webhook-integration/check/print/check-print-async-failed) |
-| `POST` | `/` | [check.mailing.tracking](/api-reference/generated/zil-money-webhook-integration/check/mail/check-mailing-tracking) |
-| `POST` | `/` | [document.mailing.tracking](/api-reference/generated/zil-money-webhook-integration/check/mail/document-mailing-tracking) |
+| `POST` | `/webhooks/zilmoney` | [wallet.withdraw.ach.initiated](/api-reference/generated/zil-money-webhook-integration/wallet/withdraw-fund/withdraw-by-ach/wallet-withdraw-ach-initiated) |
+| `POST` | `/webhooks/zilmoney` | [wallet.withdraw.ach.updated](/api-reference/generated/zil-money-webhook-integration/wallet/withdraw-fund/withdraw-by-ach/wallet-withdraw-ach-updated) |
+| `POST` | `/webhooks/zilmoney` | [wallet.withdraw.wire.initiated](/api-reference/generated/zil-money-webhook-integration/wallet/withdraw-fund/withdraw-by-wire-transfer/wallet-withdraw-wire-initiated) |
+| `POST` | `/webhooks/zilmoney` | [wallet.withdraw.wire.updated](/api-reference/generated/zil-money-webhook-integration/wallet/withdraw-fund/withdraw-by-wire-transfer/wallet-withdraw-wire-updated) |
+| `POST` | `/webhooks/zilmoney` | [wallet.withdraw.check.mail.initiated](/api-reference/generated/zil-money-webhook-integration/wallet/withdraw-fund/withdraw-by-check-mail/wallet-withdraw-check-mail-initiated) |
+| `POST` | `/webhooks/zilmoney` | [wallet.withdraw.check.mail.updated](/api-reference/generated/zil-money-webhook-integration/wallet/withdraw-fund/withdraw-by-check-mail/wallet-withdraw-check-mail-updated) |
+| `POST` | `/webhooks/zilmoney` | [wallet.funding.ach.initiated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-funding/ach/wallet-funding-ach-initiated) |
+| `POST` | `/webhooks/zilmoney` | [wallet.funding.ach.updated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-funding/ach/wallet-funding-ach-updated) |
+| `POST` | `/webhooks/zilmoney` | [wallet.funding.request.initiated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-funding/fund-request/wallet-funding-request-initiated) |
+| `POST` | `/webhooks/zilmoney` | [wallet.funding.request.updated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-funding/fund-request/wallet-funding-request-updated) |
+| `POST` | `/webhooks/zilmoney` | [sendPayment.updated](/api-reference/generated/zil-money-webhook-integration/send-payment/sendpayment-updated) |
+| `POST` | `/webhooks/zilmoney` | [gpbf.check.created](/api-reference/generated/zil-money-webhook-integration/receive-payment/payment-link/gpbf-check-created) |
+| `POST` | `/webhooks/zilmoney` | [gpbf.check.updated](/api-reference/generated/zil-money-webhook-integration/receive-payment/payment-link/gpbf-check-updated) |
+| `POST` | `/webhooks/zilmoney` | [manual-ach.initiated](/api-reference/generated/zil-money-webhook-integration/receive-payment/manual-ach/manual-ach-initiated) |
+| `POST` | `/webhooks/zilmoney` | [manual-ach.updated](/api-reference/generated/zil-money-webhook-integration/receive-payment/manual-ach/manual-ach-updated) |
+| `POST` | `/webhooks/zilmoney` | [card-program.card.created](/api-reference/generated/zil-money-webhook-integration/card-program/card-program-events/card-program-card-created) |
+| `POST` | `/webhooks/zilmoney` | [card-program.card.transaction.created](/api-reference/generated/zil-money-webhook-integration/card-program/card-program-events/card-program-card-transaction-created) |
+| `POST` | `/webhooks/zilmoney` | [card-program.card.transaction.updated](/api-reference/generated/zil-money-webhook-integration/card-program/card-program-events/card-program-card-transaction-updated) |
+| `POST` | `/webhooks/zilmoney` | [check.print.async (success)](/api-reference/generated/zil-money-webhook-integration/check/print/check-print-async-success) |
+| `POST` | `/webhooks/zilmoney` | [check.print.async (failed)](/api-reference/generated/zil-money-webhook-integration/check/print/check-print-async-failed) |
+| `POST` | `/webhooks/zilmoney` | [check.mailing.tracking](/api-reference/generated/zil-money-webhook-integration/check/mail/check-mailing-tracking) |
+| `POST` | `/webhooks/zilmoney` | [document.mailing.tracking](/api-reference/generated/zil-money-webhook-integration/check/mail/document-mailing-tracking) |

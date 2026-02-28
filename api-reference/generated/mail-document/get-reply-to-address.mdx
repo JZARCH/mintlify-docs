@@ -1,13 +1,8 @@
 ---
 title: 'Get Reply To Address'
 api: 'GET /documentmailing/getreplyto'
+authMethod: 'bearer'
 ---
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Query parameters
 
@@ -17,6 +12,36 @@ api: 'GET /documentmailing/getreplyto'
 
 <ParamField query="terms" type="string">
   We will search using these terms or keywords within the name, company name, phone, and email. If there's a match, you will receive results. This helps narrow down your search.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.meta" type="object">
+  Request body field `data.meta`.
+</ParamField>
+
+<ParamField body="data.meta.total" type="number">
+  Request body field `data.meta.total`.
+</ParamField>
+
+<ParamField body="data.meta.currentPage" type="number">
+  Request body field `data.meta.currentPage`.
+</ParamField>
+
+<ParamField body="data.meta.perPage" type="string">
+  Request body field `data.meta.perPage`.
+</ParamField>
+
+<ParamField body="data.relyToAddress" type="object[]">
+  Request body field `data.relyToAddress`.
 </ParamField>
 
 ## Request

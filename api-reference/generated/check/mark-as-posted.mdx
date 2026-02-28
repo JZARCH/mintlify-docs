@@ -1,18 +1,23 @@
 ---
 title: 'Mark as Posted'
 api: 'POST /checks/{checkId}/mark-as-cleared'
+authMethod: 'bearer'
 ---
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Path parameters
 
 <ParamField path="checkId" type="string" required>
   Path parameter `checkId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="message" type="string">
+  Request body field `message`.
 </ParamField>
 
 ## Request

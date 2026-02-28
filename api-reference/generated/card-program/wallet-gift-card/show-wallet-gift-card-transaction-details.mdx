@@ -1,20 +1,45 @@
 ---
 title: 'Show Wallet Gift Card Transaction Details'
 api: 'GET /card-program/{cardProgramId}/transactions'
+authMethod: 'bearer'
 ---
 
 This API endpoint retrieves the transaction history and details for a specific gift card linked to a wallet using the card ID.
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Path parameters
 
 <ParamField path="cardProgramId" type="string" required>
   Path parameter `cardProgramId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="meta" type="object">
+  Request body field `meta`.
+</ParamField>
+
+<ParamField body="meta.total" type="number">
+  Request body field `meta.total`.
+</ParamField>
+
+<ParamField body="meta.perPage" type="number">
+  Request body field `meta.perPage`.
+</ParamField>
+
+<ParamField body="meta.currentPage" type="number">
+  Request body field `meta.currentPage`.
+</ParamField>
+
+<ParamField body="meta.lastPage" type="number">
+  Request body field `meta.lastPage`.
+</ParamField>
+
+<ParamField body="data" type="object[]">
+  Request body field `data`.
 </ParamField>
 
 ## Request

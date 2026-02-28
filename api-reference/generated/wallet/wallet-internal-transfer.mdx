@@ -1,15 +1,10 @@
 ---
 title: 'Wallet Internal Transfer'
 api: 'POST /wallet/internal-transfer'
+authMethod: 'bearer'
 ---
 
 You can transfer funds from one wallet to another within the same account using this endpoint.
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

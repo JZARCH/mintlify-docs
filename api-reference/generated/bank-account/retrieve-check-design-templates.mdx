@@ -1,14 +1,19 @@
 ---
 title: 'Retrieve check design templates'
 api: 'GET /bankAccounts/templates'
+authMethod: 'bearer'
 ---
 
 List all check design templates
 
-## Authorization
+## Body parameters
 
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object[]">
+  Request body field `data`.
 </ParamField>
 
 ## Request

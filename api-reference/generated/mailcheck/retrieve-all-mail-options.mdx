@@ -1,14 +1,31 @@
 ---
 title: 'Retrieve all mail options'
 api: 'GET /mailchecks/mailingOptions'
+authMethod: 'bearer'
 ---
 
 Retrieve all available mail options,including shipping types,Paper types and Inform types,You can use this data to create mail check.
 
-## Authorization
+## Body parameters
 
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.informTypes" type="object[]">
+  Request body field `data.informTypes`.
+</ParamField>
+
+<ParamField body="data.shippingTypes" type="object[]">
+  Request body field `data.shippingTypes`.
+</ParamField>
+
+<ParamField body="data.paperTypes" type="object[]">
+  Request body field `data.paperTypes`.
 </ParamField>
 
 ## Request

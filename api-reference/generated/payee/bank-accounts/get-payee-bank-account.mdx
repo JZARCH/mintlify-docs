@@ -1,13 +1,8 @@
 ---
 title: 'Get Payee Bank Account'
 api: 'GET /payees/{payee_id}/bank-accounts/{payee-bankaccount-id}'
+authMethod: 'bearer'
 ---
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Path parameters
 
@@ -17,6 +12,100 @@ api: 'GET /payees/{payee_id}/bank-accounts/{payee-bankaccount-id}'
 
 <ParamField path="payee-bankaccount-id" type="string" required>
   Path parameter `payee-bankaccount-id`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.id" type="string">
+  Request body field `data.id`.
+</ParamField>
+
+<ParamField body="data.bankName" type="string">
+  Request body field `data.bankName`.
+</ParamField>
+
+<ParamField body="data.accountNumber" type="string">
+  Request body field `data.accountNumber`.
+</ParamField>
+
+<ParamField body="data.routingNumber" type="string">
+  Request body field `data.routingNumber`.
+</ParamField>
+
+<ParamField body="data.accountType" type="string">
+  Request body field `data.accountType`.
+</ParamField>
+
+<ParamField body="data.isAllowWire" type="number">
+  Request body field `data.isAllowWire`.
+</ParamField>
+
+<ParamField body="data.bankAccountFirstName" type="string">
+  Request body field `data.bankAccountFirstName`.
+</ParamField>
+
+<ParamField body="data.bankAccountLastName" type="string">
+  Request body field `data.bankAccountLastName`.
+</ParamField>
+
+<ParamField body="data.bankAccountAddress1" type="string">
+  Request body field `data.bankAccountAddress1`.
+</ParamField>
+
+<ParamField body="data.bankAccountAddress2" type="string">
+  Request body field `data.bankAccountAddress2`.
+</ParamField>
+
+<ParamField body="data.bankAccountCity" type="string">
+  Request body field `data.bankAccountCity`.
+</ParamField>
+
+<ParamField body="data.bankAccountState" type="string">
+  Request body field `data.bankAccountState`.
+</ParamField>
+
+<ParamField body="data.bankAccountZip" type="string">
+  Request body field `data.bankAccountZip`.
+</ParamField>
+
+<ParamField body="data.bankAccountCountry" type="string">
+  Request body field `data.bankAccountCountry`.
+</ParamField>
+
+<ParamField body="data.bankingInstituteName" type="string">
+  Request body field `data.bankingInstituteName`.
+</ParamField>
+
+<ParamField body="data.bankingInstituteAddressLine1" type="string">
+  Request body field `data.bankingInstituteAddressLine1`.
+</ParamField>
+
+<ParamField body="data.bankingInstituteAddressLine2" type="string">
+  Request body field `data.bankingInstituteAddressLine2`.
+</ParamField>
+
+<ParamField body="data.bankingInstituteCity" type="string">
+  Request body field `data.bankingInstituteCity`.
+</ParamField>
+
+<ParamField body="data.bankingInstituteState" type="string">
+  Request body field `data.bankingInstituteState`.
+</ParamField>
+
+<ParamField body="data.bankingInstituteZip" type="string">
+  Request body field `data.bankingInstituteZip`.
+</ParamField>
+
+<ParamField body="data.bankingInstituteCountry" type="string">
+  Request body field `data.bankingInstituteCountry`.
 </ParamField>
 
 ## Request

@@ -1,20 +1,21 @@
 ---
 title: 'Delete Attachment'
 api: 'DELETE /attachment/{attachment_id}'
+authMethod: 'bearer'
 ---
 
 This API deletes an uploaded attachment using the provided `attachment_id`.Once deleted, the file cannot be accessed or retrieved again.
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Path parameters
 
 <ParamField path="attachment_id" type="string" required>
   Path parameter `attachment_id`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
 </ParamField>
 
 ## Request

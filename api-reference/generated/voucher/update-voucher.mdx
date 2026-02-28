@@ -1,6 +1,7 @@
 ---
 title: 'Update Voucher'
 api: 'PUT /vouchers/{voucherId}'
+authMethod: 'bearer'
 ---
 
 Update existing voucher details
@@ -103,12 +104,6 @@ voucherItems attributes
  
 
 
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Path parameters
 

@@ -1,6 +1,7 @@
 ---
 title: 'Add new mail attachment'
 api: 'POST /mailchecks/{checkId}/attachments'
+authMethod: 'bearer'
 ---
 
 This API allows you to upload PDF file as attachment,
@@ -40,16 +41,52 @@ Payload parameters
 
 
 
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
-
 ## Path parameters
 
 <ParamField path="checkId" type="string" required>
   Path parameter `checkId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="message" type="string">
+  Request body field `message`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.mailAttachmentId" type="string">
+  Request body field `data.mailAttachmentId`.
+</ParamField>
+
+<ParamField body="data.checkId" type="string">
+  Request body field `data.checkId`.
+</ParamField>
+
+<ParamField body="data.fileName" type="string">
+  Request body field `data.fileName`.
+</ParamField>
+
+<ParamField body="data.fileNickName" type="number">
+  Request body field `data.fileNickName`.
+</ParamField>
+
+<ParamField body="data.fileUrl" type="string">
+  Request body field `data.fileUrl`.
+</ParamField>
+
+<ParamField body="data.pageCount" type="number">
+  Request body field `data.pageCount`.
+</ParamField>
+
+<ParamField body="data.createdDate" type="string">
+  Request body field `data.createdDate`.
 </ParamField>
 
 ## Request

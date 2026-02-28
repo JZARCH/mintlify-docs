@@ -1,18 +1,75 @@
 ---
 title: 'Get Customer'
 api: 'GET /getpaid-by-form/customer/{customerId}'
+authMethod: 'bearer'
 ---
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Path parameters
 
 <ParamField path="customerId" type="string" required>
   Path parameter `customerId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="customer" type="object">
+  Request body field `customer`.
+</ParamField>
+
+<ParamField body="customer.id" type="string">
+  Request body field `customer.id`.
+</ParamField>
+
+<ParamField body="customer.identity" type="string">
+  Request body field `customer.identity`.
+</ParamField>
+
+<ParamField body="customer.customerName" type="string">
+  Request body field `customer.customerName`.
+</ParamField>
+
+<ParamField body="customer.customerEmail" type="string">
+  Request body field `customer.customerEmail`.
+</ParamField>
+
+<ParamField body="customer.customerAdderessLine1" type="string">
+  Request body field `customer.customerAdderessLine1`.
+</ParamField>
+
+<ParamField body="customer.customerPhone" type="string">
+  Request body field `customer.customerPhone`.
+</ParamField>
+
+<ParamField body="customer.customerCity" type="string">
+  Request body field `customer.customerCity`.
+</ParamField>
+
+<ParamField body="customer.customerState" type="string">
+  Request body field `customer.customerState`.
+</ParamField>
+
+<ParamField body="customer.customerZip" type="string">
+  Request body field `customer.customerZip`.
+</ParamField>
+
+<ParamField body="customer.bankAccounts" type="object[]">
+  Request body field `customer.bankAccounts`.
+</ParamField>
+
+<ParamField body="customer.createdAt" type="string">
+  Request body field `customer.createdAt`.
+</ParamField>
+
+<ParamField body="customer.updatedAt" type="string">
+  Request body field `customer.updatedAt`.
+</ParamField>
+
+<ParamField body="statusCode" type="number">
+  Request body field `statusCode`.
 </ParamField>
 
 ## Request

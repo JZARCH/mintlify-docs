@@ -1,16 +1,11 @@
 ---
 title: 'Send Virtual Card'
 api: 'POST /send-payment/virtualCard'
+authMethod: 'bearer'
 ---
 
 Send a Virtual Card to your payee.  
 Allowed sourceType : `wallet` , `bankAccount`
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

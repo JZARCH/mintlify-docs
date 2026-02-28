@@ -1,6 +1,7 @@
 ---
 title: 'Retrieve a attachment details'
 api: 'GET /checks/{checkId}/attachments/{checkAttachmentId}'
+authMethod: 'bearer'
 ---
 
 Retrieve details of existing attachment.
@@ -20,12 +21,6 @@ Path parameters
 
 
 
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
-
 ## Path parameters
 
 <ParamField path="checkId" type="string" required>
@@ -34,6 +29,40 @@ Path parameters
 
 <ParamField path="checkAttachmentId" type="string" required>
   Path parameter `checkAttachmentId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.checkAttachmentId" type="string">
+  Request body field `data.checkAttachmentId`.
+</ParamField>
+
+<ParamField body="data.checkId" type="string">
+  Request body field `data.checkId`.
+</ParamField>
+
+<ParamField body="data.fileName" type="string">
+  Request body field `data.fileName`.
+</ParamField>
+
+<ParamField body="data.fileNickName" type="string">
+  Request body field `data.fileNickName`.
+</ParamField>
+
+<ParamField body="data.pageCount" type="number">
+  Request body field `data.pageCount`.
+</ParamField>
+
+<ParamField body="data.createdDate" type="string">
+  Request body field `data.createdDate`.
 </ParamField>
 
 ## Request

@@ -1,6 +1,7 @@
 ---
 title: 'Update Wallet Spend Card'
 api: 'PUT /card-program/card/b093ef67-c6d5-4c9a-ae84-154c7c8558a'
+authMethod: 'bearer'
 ---
 
 Use this endpoint to update a wallet spend card’s limit, interval, label, and restrictions, including allowed Merchant names, category codes, countries, cities, and permitted transaction times.
@@ -19,12 +20,6 @@ Use this endpoint to update a wallet spend card’s limit, interval, label, and 
 | `limitInterval` | `string` | Time interval for resetting the card limit. Accepted values: 'monthly', 'allTime', 'daily', 'weekly', 'perTransaction', 'yearly' |
 | `label` | `string` | A user-defined label or nickname to help identify the card. |
 | restrictionSettings | `object` | Additional rules and controls to limit how and where the card can be used. |
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

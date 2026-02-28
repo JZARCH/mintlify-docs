@@ -1,18 +1,131 @@
 ---
 title: 'Retrieve Received Payment'
 api: 'GET /receive-payments/{receivedPaymentId}/info'
+authMethod: 'bearer'
 ---
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Path parameters
 
 <ParamField path="receivedPaymentId" type="string" required>
   Path parameter `receivedPaymentId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.id" type="string">
+  Request body field `data.id`.
+</ParamField>
+
+<ParamField body="data.payerEmail" type="string">
+  Request body field `data.payerEmail`.
+</ParamField>
+
+<ParamField body="data.amount" type="string">
+  Request body field `data.amount`.
+</ParamField>
+
+<ParamField body="data.description" type="string">
+  Request body field `data.description`.
+</ParamField>
+
+<ParamField body="data.paymentType" type="object">
+  Request body field `data.paymentType`.
+</ParamField>
+
+<ParamField body="data.paymentType.typeCode" type="number">
+  Request body field `data.paymentType.typeCode`.
+</ParamField>
+
+<ParamField body="data.paymentType.typeDescription" type="string">
+  Request body field `data.paymentType.typeDescription`.
+</ParamField>
+
+<ParamField body="data.paymentStatus" type="object">
+  Request body field `data.paymentStatus`.
+</ParamField>
+
+<ParamField body="data.paymentStatus.statusCode" type="number">
+  Request body field `data.paymentStatus.statusCode`.
+</ParamField>
+
+<ParamField body="data.paymentStatus.statusDescription" type="string">
+  Request body field `data.paymentStatus.statusDescription`.
+</ParamField>
+
+<ParamField body="data.paidByLinkCheckTransfer" type="object">
+  Request body field `data.paidByLinkCheckTransfer`.
+</ParamField>
+
+<ParamField body="data.paidByLinkCheckTransfer.linkId" type="string">
+  Request body field `data.paidByLinkCheckTransfer.linkId`.
+</ParamField>
+
+<ParamField body="data.paidByLinkCheckTransfer.payerName" type="string">
+  Request body field `data.paidByLinkCheckTransfer.payerName`.
+</ParamField>
+
+<ParamField body="data.paidByLinkCheckTransfer.payerCompanyName" type="string">
+  Request body field `data.paidByLinkCheckTransfer.payerCompanyName`.
+</ParamField>
+
+<ParamField body="data.paidByLinkCheckTransfer.payerAddressLine1" type="string">
+  Request body field `data.paidByLinkCheckTransfer.payerAddressLine1`.
+</ParamField>
+
+<ParamField body="data.paidByLinkCheckTransfer.payerCity" type="string">
+  Request body field `data.paidByLinkCheckTransfer.payerCity`.
+</ParamField>
+
+<ParamField body="data.paidByLinkCheckTransfer.payerState" type="string">
+  Request body field `data.paidByLinkCheckTransfer.payerState`.
+</ParamField>
+
+<ParamField body="data.paidByLinkCheckTransfer.payerZip" type="string">
+  Request body field `data.paidByLinkCheckTransfer.payerZip`.
+</ParamField>
+
+<ParamField body="data.paidByLinkCheckTransfer.payerEmail" type="string">
+  Request body field `data.paidByLinkCheckTransfer.payerEmail`.
+</ParamField>
+
+<ParamField body="data.paidByLinkCheckTransfer.payerAccountNumber" type="string">
+  Request body field `data.paidByLinkCheckTransfer.payerAccountNumber`.
+</ParamField>
+
+<ParamField body="data.paidByLinkCheckTransfer.payerRoutingNumber" type="string">
+  Request body field `data.paidByLinkCheckTransfer.payerRoutingNumber`.
+</ParamField>
+
+<ParamField body="data.paidByLinkCheckTransfer.checkIssueDate" type="string">
+  Request body field `data.paidByLinkCheckTransfer.checkIssueDate`.
+</ParamField>
+
+<ParamField body="data.paidByLinkCheckTransfer.checkSerialNumber" type="number">
+  Request body field `data.paidByLinkCheckTransfer.checkSerialNumber`.
+</ParamField>
+
+<ParamField body="data.paidByLinkCheckTransfer.bankName" type="string">
+  Request body field `data.paidByLinkCheckTransfer.bankName`.
+</ParamField>
+
+<ParamField body="data.paidByLinkCardTransfer" type="string">
+  Request body field `data.paidByLinkCardTransfer`.
+</ParamField>
+
+<ParamField body="data.createdAt" type="string">
+  Request body field `data.createdAt`.
+</ParamField>
+
+<ParamField body="data.updatedAt" type="string">
+  Request body field `data.updatedAt`.
 </ParamField>
 
 ## Request

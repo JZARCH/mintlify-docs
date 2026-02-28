@@ -1,6 +1,7 @@
 ---
 title: 'Retrieve all Custom to addresses'
 api: 'GET /customToAddresses'
+authMethod: 'bearer'
 ---
 
 List of all custom to address records
@@ -21,10 +22,26 @@ Query parameters
 
 
 
-## Authorization
+## Body parameters
 
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.meta" type="object">
+  Request body field `data.meta`.
+</ParamField>
+
+<ParamField body="data.meta.total" type="number">
+  Request body field `data.meta.total`.
+</ParamField>
+
+<ParamField body="data.addresses" type="object[]">
+  Request body field `data.addresses`.
 </ParamField>
 
 ## Request

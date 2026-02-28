@@ -1,22 +1,51 @@
 ---
 title: 'Track Mail Check'
 api: 'GET /mailchecks/{checkId}/tracking'
+authMethod: 'bearer'
 ---
 
 **Response Data**
 
 carrierCarrier name (USPS,Fedex)trackingCodeTracking code numberstatusCurrent status of the tracking ('pre_transit','in_transit','delivered','error','unknown','out_for_delivery','return_to_sender' or 'cancelled')estimatedDeliveryDateEstimated delivery datetrackingDetailsTracking updates details
 
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
-
 ## Path parameters
 
 <ParamField path="checkId" type="string" required>
   Path parameter `checkId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.carrier" type="string">
+  Request body field `data.carrier`.
+</ParamField>
+
+<ParamField body="data.trackingCode" type="string">
+  Request body field `data.trackingCode`.
+</ParamField>
+
+<ParamField body="data.status" type="string">
+  Request body field `data.status`.
+</ParamField>
+
+<ParamField body="data.estimatedDeliveryDate" type="string">
+  Request body field `data.estimatedDeliveryDate`.
+</ParamField>
+
+<ParamField body="data.trackingUrl" type="string">
+  Request body field `data.trackingUrl`.
+</ParamField>
+
+<ParamField body="data.trackingDetails" type="object[]">
+  Request body field `data.trackingDetails`.
 </ParamField>
 
 ## Request

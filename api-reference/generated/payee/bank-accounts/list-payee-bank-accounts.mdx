@@ -1,18 +1,23 @@
 ---
 title: 'List Payee Bank Accounts'
 api: 'GET /payees/{payee_id}/bank-accounts'
+authMethod: 'bearer'
 ---
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Path parameters
 
 <ParamField path="payee_id" type="string" required>
   Path parameter `payee_id`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object[]">
+  Request body field `data`.
 </ParamField>
 
 ## Request

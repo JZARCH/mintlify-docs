@@ -1,6 +1,7 @@
 ---
 title: 'Update a bank Account'
 api: 'PUT /bankAccounts/{bankAccountId}'
+authMethod: 'bearer'
 ---
 
 Update an existing bank account
@@ -86,12 +87,6 @@ Payload parameters
 
 
 
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Path parameters
 

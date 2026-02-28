@@ -1,6 +1,8 @@
 ---
 title: 'wallet.funding.ach.updated'
-api: 'POST /'
+api: 'POST /webhooks/zilmoney'
+authMethod: 'none'
+playground: 'none'
 ---
 
 ## wallet.funding.ach.updated
@@ -9,84 +11,46 @@ Triggered when the status of a **wallet ACH funding transfer** changes.
 
 **Trigger:** The ACH funding transfer status is updated (e.g., bank settles the pull, or it is returned/failed).
 
-**Source:** `BankingAchTransferRequestObserver::updated()` — fires only when `status` field changes.
 
 ---
 
 Same schema as `wallet.funding.ach.initiated`. The `data.status` and `data.updatedAt` fields will reflect the latest state.
 
-## Authorization
+## HEADERS
 
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
+| Header | Value |
+| --- | --- |
+| Content-Type | application/json |
+| Signature | {{hmac_signature}}<br/>HMAC-SHA256 of the raw JSON request body, signed with your webhook_secret: hash_hmac('sha256', rawJsonBody, webhookSecret) |
 
-## Body parameters
+## Example Request
 
-<ParamField body="event" type="object">
-  Request body field `event`.
-</ParamField>
+```http
+POST /webhooks/zilmoney HTTP/1.1
+Host: your-server.com
+Content-Type: application/json
+Signature: {{hmac_signature}}
+```
 
-<ParamField body="event.type" type="string">
-  Request body field `event.type`.
-</ParamField>
+## Example Response
 
-<ParamField body="event.id" type="string">
-  Request body field `event.id`.
-</ParamField>
-
-<ParamField body="event.createdAt" type="string">
-  Request body field `event.createdAt`.
-</ParamField>
-
-<ParamField body="event.data" type="object">
-  Request body field `event.data`.
-</ParamField>
-
-<ParamField body="event.data.id" type="string">
-  Request body field `event.data.id`.
-</ParamField>
-
-<ParamField body="event.data.fromWallet" type="string">
-  Request body field `event.data.fromWallet`.
-</ParamField>
-
-<ParamField body="event.data.toWallet" type="string">
-  Request body field `event.data.toWallet`.
-</ParamField>
-
-<ParamField body="event.data.bankAccountId" type="string">
-  Request body field `event.data.bankAccountId`.
-</ParamField>
-
-<ParamField body="event.data.amount" type="string">
-  Request body field `event.data.amount`.
-</ParamField>
-
-<ParamField body="event.data.description" type="string">
-  Request body field `event.data.description`.
-</ParamField>
-
-<ParamField body="event.data.status" type="string">
-  Request body field `event.data.status`.
-</ParamField>
-
-<ParamField body="event.data.updatedAt" type="string">
-  Request body field `event.data.updatedAt`.
-</ParamField>
-
-<ParamField body="event.data.createdAt" type="string">
-  Request body field `event.data.createdAt`.
-</ParamField>
-
-## Request
-
-Endpoint: `POST /`
-
-### Example
-
-```bash
-curl --location "$BASE_URL/" \
-  --header "Authorization: Bearer $AUTH_TOKEN" \
-  --header "Accept: application/json"
+```json
+{
+  "event": {
+    "type": "wallet.funding.ach.updated",
+    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567891",
+    "createdAt": "2024-01-16T11:00:00.000000Z",
+    "data": {
+      "id": "c3d4e5f6-a7b8-9012-cdef-345678901234",
+      "fromWallet": null,
+      "toWallet": "deab2f42-8b8b-47ad-b766-eacc632df634",
+      "bankAccountId": "BA_enc_a1b2c3d4e5f6",
+      "amount": "2000.00",
+      "description": "Funding wallet from bank account",
+      "status": "COMPLETED",
+      "updatedAt": "2024-01-16T11:00:00.000000Z",
+      "createdAt": "2024-01-15T09:00:00.000000Z"
+    }
+  }
+}
 ```

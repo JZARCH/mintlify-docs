@@ -1,6 +1,7 @@
 ---
 title: 'Create Bundle Mail'
 api: 'POST /quickpay/bundle-mail'
+authMethod: 'bearer'
 ---
 
 | Keys | Desc |
@@ -35,12 +36,6 @@ api: 'POST /quickpay/bundle-mail'
 | 4 | Priority |
 | 5 | Express |
 | 12 | Fedex overnight |
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

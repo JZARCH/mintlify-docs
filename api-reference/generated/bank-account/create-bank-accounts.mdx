@@ -1,6 +1,7 @@
 ---
 title: 'Create bank accounts'
 api: 'POST /bankAccounts'
+authMethod: 'bearer'
 ---
 
 You can create multiple bank accounts in one single request by passing bank accounts attributes.
@@ -12,12 +13,6 @@ bankAccountsRequiredArrayAn array of bankaccount attributes (Maximum 20 bank acc
 `_bankaccount_` _attributes_
 
 nameRequiredStringThe name of the bank account,Must be no longer than 100 characters.nickNameOptionalStringNick name that identifies this bank account. Must be no longer than 100 characters.accountNumberRequiredStringMust be no longer than 20 characters.addressLine1RequiredStringAddress line 1 for bank account ,Must be no longer than 180 characters.addressLine2OptionalStringAddress line 2 for bank account ,Must be no longer than 180 characters.phoneOptionalStringMust be no longer than 15 characters.cityRequiredStringThe name of the city.StateRequiredStringThe name of the State.zipRequiredStringZip of bank accountbankNameOptionalStringThe name of the bank,Must be no longer than 100 characters.bankRoutingNumberRequiredStringMust be a valid US routing number of 9 characters.bankAddress1OptionalStringAddress line 2 for bank ,Must be no longer than 180 characters.bankCityOptionalStringCity of bankbankStateOptionalStringState of bankbankZipOptionalStringZip of banktemplateIdOptionalStringAssociate check design template Id
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

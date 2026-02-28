@@ -1,6 +1,7 @@
 ---
 title: 'Create Email Check'
 api: 'POST /emailchecks'
+authMethod: 'bearer'
 ---
 
 You can create multiple Email check in one single request.
@@ -12,12 +13,6 @@ emailChecksRequiredAn array of emailCheck attributes
 _`emailCheck`_ _attributes_
 
 checkIdRequiredStringMust be a check IDpayeeEmailOptionalStringRequired if not exist any email on associated payeeenableSmsInformOptionalBooleanNotify your payee through SMS, By default falsepayeePhoneOptionalStringRequired if enableSmsInform is true and if not exist any phone on associated payeesendAttachmentOptionalPossible values : 0 or 1.This will send added attachments along with the check.
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

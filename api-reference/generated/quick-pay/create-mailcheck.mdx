@@ -1,6 +1,7 @@
 ---
 title: 'Create MailCheck'
 api: 'POST /quickpay/mailcheck'
+authMethod: 'bearer'
 ---
 
 | Source |  |
@@ -30,12 +31,6 @@ api: 'POST /quickpay/mailcheck'
 | 4 | Priority Mail |
 | 5 | Express Mail |
 | 12 | Standard Overnight -Fedex-By 3pm the next business day |
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

@@ -1,6 +1,7 @@
 ---
 title: 'Create Virtual Card'
 api: 'POST /card-program/card/create'
+authMethod: 'bearer'
 ---
 
 This API endpoint allows you to create a virtual or physical spend card linked to a specified wallet, with configurable spending limits and reset intervals for enhanced expense control.
@@ -27,12 +28,6 @@ This API endpoint allows you to create a virtual or physical spend card linked t
 | allowedMerchantCountry | array of strings | alpha-2 country codes. Card will be restricted to use in these countries. |
 | allowedMerchantCity | array of strings | List of allowed cities for card usage. |
 | allowedTime | object | Defines time-based usage restrictions for the card. |
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

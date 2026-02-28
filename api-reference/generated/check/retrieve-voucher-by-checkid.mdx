@@ -1,6 +1,7 @@
 ---
 title: 'Retrieve voucher by checkId'
 api: 'GET /checks/{checkId}/voucher'
+authMethod: 'bearer'
 ---
 
 Details of an existing voucher. It can be retrieve by passing checkId as well as retrieve directly by passing voucherId.
@@ -15,16 +16,40 @@ Path parameters
 
 
 
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
-
 ## Path parameters
 
 <ParamField path="checkId" type="string" required>
   Path parameter `checkId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.voucherNumber" type="string">
+  Request body field `data.voucherNumber`.
+</ParamField>
+
+<ParamField body="data.totalAmount" type="string">
+  Request body field `data.totalAmount`.
+</ParamField>
+
+<ParamField body="data.memo" type="string">
+  Request body field `data.memo`.
+</ParamField>
+
+<ParamField body="data.date" type="string">
+  Request body field `data.date`.
+</ParamField>
+
+<ParamField body="data.voucherItems" type="object[]">
+  Request body field `data.voucherItems`.
 </ParamField>
 
 ## Request

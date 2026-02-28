@@ -1,6 +1,7 @@
 ---
 title: 'Print  checks'
 api: 'POST /checks/print'
+authMethod: 'bearer'
 ---
 
 You can print checks by passing check id and paper type,if you would like to print multiple checks you need to pass checkId as array.
@@ -63,12 +64,6 @@ Simple print
 
 
 
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

@@ -1,6 +1,7 @@
 ---
 title: 'Create voucher'
 api: 'POST /vouchers'
+authMethod: 'bearer'
 ---
 
 Create New Voucher
@@ -93,12 +94,6 @@ voucherItems attributes
  
 
 
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

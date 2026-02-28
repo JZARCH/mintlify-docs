@@ -1,18 +1,91 @@
 ---
 title: 'Retrieve Manual ACH request'
 api: 'GET /manual-ach/{manualAchId}'
+authMethod: 'bearer'
 ---
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Path parameters
 
 <ParamField path="manualAchId" type="string" required>
   Path parameter `manualAchId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.id" type="string">
+  Request body field `data.id`.
+</ParamField>
+
+<ParamField body="data.bankAccountId" type="string">
+  Request body field `data.bankAccountId`.
+</ParamField>
+
+<ParamField body="data.payeeId" type="string">
+  Request body field `data.payeeId`.
+</ParamField>
+
+<ParamField body="data.amount" type="string">
+  Request body field `data.amount`.
+</ParamField>
+
+<ParamField body="data.fromAccount" type="object">
+  Request body field `data.fromAccount`.
+</ParamField>
+
+<ParamField body="data.fromAccount.account_number" type="string">
+  Request body field `data.fromAccount.account_number`.
+</ParamField>
+
+<ParamField body="data.fromAccount.routing_number" type="string">
+  Request body field `data.fromAccount.routing_number`.
+</ParamField>
+
+<ParamField body="data.description" type="string">
+  Request body field `data.description`.
+</ParamField>
+
+<ParamField body="data.referenceNumber" type="string">
+  Request body field `data.referenceNumber`.
+</ParamField>
+
+<ParamField body="data.status" type="string">
+  Request body field `data.status`.
+</ParamField>
+
+<ParamField body="data.customMetaData" type="object">
+  Request body field `data.customMetaData`.
+</ParamField>
+
+<ParamField body="data.customMetaData.key1" type="string">
+  Request body field `data.customMetaData.key1`.
+</ParamField>
+
+<ParamField body="data.customMetaData.key2" type="string">
+  Request body field `data.customMetaData.key2`.
+</ParamField>
+
+<ParamField body="data.achPullReturnCode" type="string">
+  Request body field `data.achPullReturnCode`.
+</ParamField>
+
+<ParamField body="data.achPullReturnDescription" type="string">
+  Request body field `data.achPullReturnDescription`.
+</ParamField>
+
+<ParamField body="data.updatedAt" type="string">
+  Request body field `data.updatedAt`.
+</ParamField>
+
+<ParamField body="data.createdAt" type="string">
+  Request body field `data.createdAt`.
 </ParamField>
 
 ## Request

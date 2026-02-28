@@ -1,6 +1,7 @@
 ---
 title: 'Mail'
 api: 'POST /documentmailing/mail'
+authMethod: 'bearer'
 ---
 
 | From Addrss |  |
@@ -26,12 +27,6 @@ api: 'POST /documentmailing/mail'
 | 5 | Express Mail |
 | 11 | Fedex 2 days Shipping |
 | 12 | Standard Overnight -Fedex-By 3pm the next business day |
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Request
 

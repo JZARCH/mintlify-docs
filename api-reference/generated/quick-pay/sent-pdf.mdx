@@ -1,6 +1,7 @@
 ---
 title: 'Sent Pdf'
 api: 'POST /quickpay/mailpdf'
+authMethod: 'bearer'
 ---
 
 This is not a payment method. Sometimes you may want to send a QuickPDF to your employee, and this feature allows you to do that.
@@ -10,12 +11,6 @@ We also support an HTML to PDF document mailing feature. If you need a more adva
 For more examples, visit: [How to Send PDF to Your Recipient Easily](https://support.onlinecheckwriter.com/portal/en/kb/articles/how-to-sent-pdf-to-your-recipient-easily).
 
 Shipping Type ID: 1, for regular USPS First Class mailing
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

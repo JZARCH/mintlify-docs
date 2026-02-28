@@ -1,12 +1,29 @@
 ---
 title: 'Upload Document'
 api: 'POST /documentmailing/upload'
+authMethod: 'bearer'
 ---
 
-## Authorization
+## Body parameters
 
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.id" type="string">
+  Request body field `data.id`.
+</ParamField>
+
+<ParamField body="data.document_title" type="string">
+  Request body field `data.document_title`.
+</ParamField>
+
+<ParamField body="data.document_name" type="string">
+  Request body field `data.document_name`.
 </ParamField>
 
 ## Request

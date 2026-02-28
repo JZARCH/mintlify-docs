@@ -1,0 +1,68 @@
+---
+title: 'wallet.withdraw.ach.initiated'
+api: 'POST /webhooks/zilmoney'
+authMethod: 'none'
+playground: 'none'
+---
+
+## wallet.withdraw.ach.initiated
+
+Triggered when a user initiates an **ACH withdrawal from their Zil Money wallet** to a linked bank account.
+
+**Trigger:** User withdraws funds from their Zil Money wallet to an external bank account via ACH.
+
+
+---
+
+## Payload Field Reference
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `data.id` | string (UUID) | Unique identifier for this withdrawal transfer |
+| `data.fromWallet` | string | Source wallet UUID (e.g., `"deab2f42-8b8b-47ad-b766-eacc632df634"`) |
+| `data.toWallet` | string\|null | Destination wallet (null for withdrawals — funds go to bank) |
+| `data.bankAccountId` | string | Encrypted ID of the destination bank account |
+| `data.amount` | string | Withdrawal amount. Note: the `initiated` event may send the raw value without decimal formatting (e.g., `"100"`), while `updated` events are formatted to 2 decimal places (e.g., `"100.00"`) |
+| `data.description` | string | Withdrawal description |
+| `data.status` | string | `PENDING`, `PROCESSING`, `COMPLETED`, `CANCELED`, `FAILED`, `RETURNED` |
+| `data.updatedAt` | ISO 8601 datetime | Last updated timestamp |
+| `data.createdAt` | ISO 8601 datetime | Creation timestamp |
+
+## HEADERS
+
+| Header | Value |
+| --- | --- |
+| Content-Type | application/json |
+| Signature | {{hmac_signature}}<br/>HMAC-SHA256 of the raw JSON request body, signed with your webhook_secret: hash_hmac('sha256', rawJsonBody, webhookSecret) |
+
+## Example Request
+
+```http
+POST /webhooks/zilmoney HTTP/1.1
+Host: your-server.com
+Content-Type: application/json
+Signature: {{hmac_signature}}
+```
+
+## Example Response
+
+```json
+{
+  "event": {
+    "type": "wallet.withdraw.ach.initiated",
+    "id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    "createdAt": "2024-01-15T13:45:00.000000Z",
+    "data": {
+      "id": "d4e5f6a7-b8c9-0123-def0-456789012345",
+      "fromWallet": "deab2f42-8b8b-47ad-b766-eacc632df634",
+      "toWallet": null,
+      "bankAccountId": "BA_enc_b2c3d4e5f6a7",
+      "amount": "100",
+      "description": "Withdrawal to business checking account",
+      "status": "PENDING",
+      "updatedAt": "2024-01-15T13:45:00.000000Z",
+      "createdAt": "2024-01-15T13:45:00.000000Z"
+    }
+  }
+}
+```

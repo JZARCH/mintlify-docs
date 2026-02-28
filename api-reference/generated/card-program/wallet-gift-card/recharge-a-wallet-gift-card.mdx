@@ -1,6 +1,7 @@
 ---
 title: 'Recharge a Wallet Gift Card'
 api: 'POST /card-program/gift-card/add-fund'
+authMethod: 'bearer'
 ---
 
 Add funds to an existing gift card using its unique ID. Specify the amount to recharge the card balance.
@@ -11,12 +12,6 @@ Add funds to an existing gift card using its unique ID. Specify the amount to re
 | --- | --- | --- |
 | id | String | The unique identifier of the gift card. |
 | amount | Number | The amount to be added to the gift card. |
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

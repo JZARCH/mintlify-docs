@@ -1,6 +1,7 @@
 ---
 title: 'Send Check Mail Payment'
 api: 'POST /send-payment/checkMail'
+authMethod: 'bearer'
 ---
 
 ### Send Payment CheckMail
@@ -29,12 +30,6 @@ This API endpoint allows you to initiate a check mailing payment directly from a
 | USPS Express Mail | USPS_EXPRESS_MAIL |
 | USPS Priority Mail | USPS_PRIORITY_MAIL |
 | FedEx Next Day PM | FEDEX_NEXT_DAY_PM |
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

@@ -1,12 +1,37 @@
 ---
 title: 'List ACH wallet funding'
 api: 'GET /wallet/fund/ach'
+authMethod: 'bearer'
 ---
 
-## Authorization
+## Body parameters
 
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="meta" type="object">
+  Request body field `meta`.
+</ParamField>
+
+<ParamField body="meta.total" type="number">
+  Request body field `meta.total`.
+</ParamField>
+
+<ParamField body="meta.perPage" type="number">
+  Request body field `meta.perPage`.
+</ParamField>
+
+<ParamField body="meta.currentPage" type="number">
+  Request body field `meta.currentPage`.
+</ParamField>
+
+<ParamField body="meta.lastPage" type="number">
+  Request body field `meta.lastPage`.
+</ParamField>
+
+<ParamField body="data" type="object[]">
+  Request body field `data`.
 </ParamField>
 
 ## Request

@@ -1,16 +1,11 @@
 ---
 title: 'Send ACH Payment'
 api: 'POST /send-payment/ach'
+authMethod: 'bearer'
 ---
 
 Initiate an ACH Payment from a wallet or bank account.  
 Allowed sourceType : `wallet` , `bankAccount`
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

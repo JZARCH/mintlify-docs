@@ -1,6 +1,7 @@
 ---
 title: 'Bulk Delete'
 api: 'POST /checks/bulk-delete'
+authMethod: 'bearer'
 ---
 
 This API allows you to delete multiple checks at once by passing their IDs in a single request.
@@ -8,12 +9,6 @@ This API allows you to delete multiple checks at once by passing their IDs in a 
 **Parameters**
 
 FieldRequiredDescriptioncheckIds✅A list of unique check IDs to be deleted in bulk.
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

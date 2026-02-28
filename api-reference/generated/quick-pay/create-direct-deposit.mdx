@@ -1,6 +1,7 @@
 ---
 title: 'Create Direct Deposit'
 api: 'POST /quickpay/directdeposit'
+authMethod: 'bearer'
 ---
 
 If you want to test this feature talk with our customer support team.
@@ -18,12 +19,6 @@ If you want to test this feature talk with our customer support team.
 | **Payment Details** |  |
 | --- | --- |
 | amount | required |
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

@@ -1,12 +1,17 @@
 ---
 title: 'Retrieve All Payments'
 api: 'GET /getpaid-by-form/check'
+authMethod: 'bearer'
 ---
 
-## Authorization
+## Body parameters
 
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+<ParamField body="current_page" type="number">
+  Request body field `current_page`.
+</ParamField>
+
+<ParamField body="data" type="object[]">
+  Request body field `data`.
 </ParamField>
 
 ## Request

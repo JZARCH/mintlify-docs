@@ -1,6 +1,7 @@
 ---
 title: 'Delete a Payee'
 api: 'DELETE /payees/{payeeId}'
+authMethod: 'bearer'
 ---
 
 Permanently deletes a payee. 
@@ -15,16 +16,20 @@ Path parameters
 
 
 
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
-
 ## Path parameters
 
 <ParamField path="payeeId" type="string" required>
   Path parameter `payeeId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="message" type="string">
+  Request body field `message`.
 </ParamField>
 
 ## Request

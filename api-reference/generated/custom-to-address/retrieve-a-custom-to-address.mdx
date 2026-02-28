@@ -1,6 +1,7 @@
 ---
 title: 'Retrieve a custom to address'
 api: 'GET /customToAddresses/{customToAddressId}'
+authMethod: 'bearer'
 ---
 
 Details of custom to address.
@@ -15,16 +16,64 @@ Path parameters
 
 
 
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
-
 ## Path parameters
 
 <ParamField path="customToAddressId" type="string" required>
   Path parameter `customToAddressId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="success" type="boolean">
+  Request body field `success`.
+</ParamField>
+
+<ParamField body="data" type="object">
+  Request body field `data`.
+</ParamField>
+
+<ParamField body="data.id" type="string">
+  Request body field `data.id`.
+</ParamField>
+
+<ParamField body="data.name" type="string">
+  Request body field `data.name`.
+</ParamField>
+
+<ParamField body="data.companyName" type="string">
+  Request body field `data.companyName`.
+</ParamField>
+
+<ParamField body="data.addressLine1" type="string">
+  Request body field `data.addressLine1`.
+</ParamField>
+
+<ParamField body="data.addressLine2" type="string">
+  Request body field `data.addressLine2`.
+</ParamField>
+
+<ParamField body="data.city" type="string">
+  Request body field `data.city`.
+</ParamField>
+
+<ParamField body="data.state" type="string">
+  Request body field `data.state`.
+</ParamField>
+
+<ParamField body="data.zip" type="string">
+  Request body field `data.zip`.
+</ParamField>
+
+<ParamField body="data.phone" type="string">
+  Request body field `data.phone`.
+</ParamField>
+
+<ParamField body="data.email" type="string">
+  Request body field `data.email`.
+</ParamField>
+
+<ParamField body="data.note" type="string">
+  Request body field `data.note`.
 </ParamField>
 
 ## Request

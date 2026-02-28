@@ -6,6 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");
 const POSTMAN_PATH = "C:/Users/Jasmon/Downloads/Online Check Writer API V3.postman_collection.json";
+const WEBHOOK_POSTMAN_PATH = "C:/Users/Jasmon/Downloads/New Collection.postman_collection (1).json";
 const OUTPUT_ROOT = path.join(ROOT, "api-reference", "generated");
 
 function slugify(text) {
@@ -220,6 +221,23 @@ function extractBodyFields(item) {
   }
 }
 
+function safeParseJson(raw) {
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+function extractRequestUrlParts(item) {
+  const req = item.request || {};
+  const url = req.url || {};
+  const host = Array.isArray(url.host) && url.host.length ? url.host.join(".") : "your-server.com";
+  const pathParts = Array.isArray(url.path) ? url.path : [];
+  const reqPath = "/" + pathParts.join("/");
+  return { host, reqPath: reqPath === "/" ? "/webhooks/zilmoney" : reqPath };
+}
+
 function extractPathParamsFromApiPath(apiPath) {
   const matches = apiPath.match(/\{([^}]+)\}/g) || [];
   return matches.map((m) => m.slice(1, -1));
@@ -233,8 +251,21 @@ function writeEndpointPage(groupSegments, item, indexEntries) {
     typeof req.description === "string" ? req.description.trim() : "";
   const example = extractExampleResponse(item);
   const queryParams = extractQueryParams(item);
-  const bodyFields = extractBodyFields(item);
+  let bodyFields = extractBodyFields(item);
   const pathParams = extractPathParamsFromApiPath(apiPath);
+  const isWebhook = groupSegments.includes("Zil Money Webhook Integration");
+
+  if (!bodyFields.length && example) {
+    const parsedExample = safeParseJson(example);
+    if (parsedExample && typeof parsedExample === "object") {
+      const flat = flattenBodyFields(parsedExample);
+      const dedup = new Map();
+      flat.forEach((f) => {
+        if (!dedup.has(f.path)) dedup.set(f.path, normalizeFieldType(f.type));
+      });
+      bodyFields = Array.from(dedup.entries()).map(([path, type]) => ({ path, type }));
+    }
+  }
 
   const groupSlugParts = groupSegments.map((seg) => slugify(seg)).filter(Boolean);
   const fileSlug = slugify(name);
@@ -252,6 +283,8 @@ function writeEndpointPage(groupSegments, item, indexEntries) {
   lines.push("---");
   lines.push(`title: '${title}'`);
   lines.push(`api: '${apiValue}'`);
+  lines.push(`authMethod: '${isWebhook ? "none" : "bearer"}'`);
+  if (isWebhook) lines.push("playground: 'none'");
   lines.push("---");
   lines.push("");
   if (description) {
@@ -259,65 +292,100 @@ function writeEndpointPage(groupSegments, item, indexEntries) {
     lines.push("");
   }
 
-  lines.push("## Authorization");
-  lines.push("");
-  lines.push('<ParamField header="Authorization" type="string" required>');
-  lines.push("  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.");
-  lines.push("</ParamField>");
-  lines.push("");
+  if (isWebhook) {
+    const reqHeaders = Array.isArray(req.header) ? req.header : [];
+    const { host, reqPath } = extractRequestUrlParts(item);
 
-  if (pathParams.length) {
-    lines.push("## Path parameters");
+    lines.push("## HEADERS");
     lines.push("");
-    pathParams.forEach((p) => {
-      lines.push(`<ParamField path="${p}" type="string" required>`);
-      lines.push(`  Path parameter \`${p}\`.`);
-      lines.push("</ParamField>");
-      lines.push("");
+    lines.push("| Header | Value |");
+    lines.push("| --- | --- |");
+    reqHeaders.forEach((h) => {
+      const key = h?.key ? String(h.key) : "";
+      if (!key) return;
+      const value = h?.value ? String(h.value) : "";
+      const desc = h?.description ? String(h.description) : "";
+      const cell = value ? `${value}${desc ? `<br/>${desc}` : ""}` : (desc || "-");
+      lines.push(`| ${key} | ${cell} |`);
     });
-  }
-
-  if (queryParams.length) {
-    lines.push("## Query parameters");
     lines.push("");
-    queryParams.forEach((q) => {
-      lines.push(`<ParamField query="${q.name}" type="string">`);
-      lines.push(`  ${q.description || `Query parameter \`${q.name}\`.`}`);
-      lines.push("</ParamField>");
-      lines.push("");
+
+    lines.push("## Example Request");
+    lines.push("");
+    lines.push("```http");
+    lines.push(`${method} ${reqPath} HTTP/1.1`);
+    lines.push(`Host: ${host}`);
+    reqHeaders.forEach((h) => {
+      const key = h?.key ? String(h.key) : "";
+      if (!key) return;
+      const value = h?.value ? String(h.value) : "";
+      lines.push(`${key}: ${value}`);
     });
-  }
-
-  if (bodyFields.length) {
-    lines.push("## Body parameters");
-    lines.push("");
-    bodyFields.forEach((f) => {
-      lines.push(`<ParamField body="${f.path}" type="${f.type}">`);
-      lines.push(`  Request body field \`${f.path}\`.`);
-      lines.push("</ParamField>");
-      lines.push("");
-    });
-  }
-
-  lines.push("## Request");
-  lines.push("");
-  lines.push(`Endpoint: \`${apiValue}\``);
-  lines.push("");
-  lines.push("### Example");
-  lines.push("");
-  lines.push("```bash");
-  lines.push(`curl --location "$BASE_URL${apiPath}" \\`);
-  lines.push('  --header "Authorization: Bearer $AUTH_TOKEN" \\');
-  lines.push('  --header "Accept: application/json"');
-  lines.push("```");
-  lines.push("");
-  if (example) {
-    lines.push("## Response example");
-    lines.push("");
-    lines.push("```json");
-    lines.push(example);
     lines.push("```");
     lines.push("");
+
+    if (example) {
+      lines.push("## Example Response");
+      lines.push("");
+      lines.push("```json");
+      lines.push(example);
+      lines.push("```");
+      lines.push("");
+    }
+  } else {
+    if (pathParams.length) {
+      lines.push("## Path parameters");
+      lines.push("");
+      pathParams.forEach((p) => {
+        lines.push(`<ParamField path="${p}" type="string" required>`);
+        lines.push(`  Path parameter \`${p}\`.`);
+        lines.push("</ParamField>");
+        lines.push("");
+      });
+    }
+
+    if (queryParams.length) {
+      lines.push("## Query parameters");
+      lines.push("");
+      queryParams.forEach((q) => {
+        lines.push(`<ParamField query="${q.name}" type="string">`);
+        lines.push(`  ${q.description || `Query parameter \`${q.name}\`.`}`);
+        lines.push("</ParamField>");
+        lines.push("");
+      });
+    }
+
+    if (bodyFields.length) {
+      lines.push("## Body parameters");
+      lines.push("");
+      bodyFields.forEach((f) => {
+        lines.push(`<ParamField body="${f.path}" type="${f.type}">`);
+        lines.push(`  Request body field \`${f.path}\`.`);
+        lines.push("</ParamField>");
+        lines.push("");
+      });
+    }
+
+    lines.push("## Request");
+    lines.push("");
+    lines.push(`Endpoint: \`${apiValue}\``);
+    lines.push("");
+    lines.push("### Example");
+    lines.push("");
+    lines.push("```bash");
+    lines.push(`curl --location "$BASE_URL${apiPath}" \\`);
+    lines.push('  --header "Authorization: Bearer $AUTH_TOKEN" \\');
+    lines.push('  --header "Accept: application/json"');
+    lines.push("```");
+    lines.push("");
+    if (example) {
+      lines.push("## Response example");
+      lines.push("");
+      lines.push("```json");
+      lines.push(example);
+      lines.push("```");
+      lines.push("");
+    }
   }
 
   fs.writeFileSync(filePath, lines.join("\n"), "utf8");
@@ -487,9 +555,17 @@ function main() {
   const raw = fs.readFileSync(POSTMAN_PATH, "utf8");
   const data = JSON.parse(raw);
 
-  const items = data.item || [];
+  const items = (data.item || []).filter((it) => (it?.name || "") !== "Zil Money Webhook Integration");
   const indexEntries = [];
   walkItems(items, [], indexEntries);
+
+  if (fs.existsSync(WEBHOOK_POSTMAN_PATH)) {
+    const webhookRaw = fs.readFileSync(WEBHOOK_POSTMAN_PATH, "utf8");
+    const webhookData = JSON.parse(webhookRaw);
+    const webhookItems = webhookData.item || [];
+    walkItems(webhookItems, ["Zil Money Webhook Integration"], indexEntries);
+  }
+
   writeFolderPages(indexEntries);
   writeIndexPage(indexEntries);
   writeNavJson(indexEntries);

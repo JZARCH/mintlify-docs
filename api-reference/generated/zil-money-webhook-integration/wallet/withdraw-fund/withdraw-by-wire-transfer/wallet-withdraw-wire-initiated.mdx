@@ -1,0 +1,65 @@
+---
+title: 'wallet.withdraw.wire.initiated'
+api: 'POST /webhooks/zilmoney'
+authMethod: 'none'
+playground: 'none'
+---
+
+## wallet.withdraw.wire.initiated
+
+Triggered when a user initiates a **wire transfer withdrawal from their Zil Money wallet** to a linked bank account.
+
+**Trigger:** User submits a wire withdrawal from their wallet.
+
+---
+
+## Payload Field Reference
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `data.id` | string (UUID) | Unique identifier for this wire withdrawal |
+| `data.fromWallet` | string (UUID) | Source wallet UUID |
+| `data.toBankAccount` | string | Encrypted destination bank account ID |
+| `data.amount` | string | Withdrawal amount (2 decimal places) |
+| `data.description` | string | Transfer description |
+| `data.status` | string | `PENDING`, `PROCESSING`, `COMPLETED`, `CANCELED`, `FAILED`, `RETURNED` |
+| `data.updatedAt` | ISO 8601 datetime | Last updated timestamp |
+| `data.createdAt` | ISO 8601 datetime | Creation timestamp |
+
+## HEADERS
+
+| Header | Value |
+| --- | --- |
+| Content-Type | application/json |
+| Signature | {{hmac_signature}}<br/>HMAC-SHA256 of the raw JSON request body, signed with your webhook_secret: hash_hmac('sha256', rawJsonBody, webhookSecret) |
+
+## Example Request
+
+```http
+POST /webhooks/zilmoney HTTP/1.1
+Host: your-server.com
+Content-Type: application/json
+Signature: {{hmac_signature}}
+```
+
+## Example Response
+
+```json
+{
+  "event": {
+    "type": "wallet.withdraw.wire.initiated",
+    "id": "45eddb32-cb82-45a3-983d-963a9976df21",
+    "createdAt": "2025-03-14T09:46:43.000000Z",
+    "data": {
+      "id": "97e49c39-f141-48c7-a8c2-248507f43a87",
+      "fromWallet": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+      "toBankAccount": "Jy7VeBw8yQjzn1m",
+      "amount": "50.01",
+      "description": "Wallet withdrawal",
+      "status": "PENDING",
+      "updatedAt": "2025-03-14T09:46:43.000000Z",
+      "createdAt": "2025-03-14T09:46:43.000000Z"
+    }
+  }
+}
+```

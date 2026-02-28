@@ -1,6 +1,7 @@
 ---
 title: 'Create Physical Card'
 api: 'POST /card-program/card/create'
+authMethod: 'bearer'
 ---
 
 This API endpoint allows you to create a virtual or physical spend card linked to a specified wallet, with configurable spending limits and reset intervals for enhanced expense control.
@@ -35,12 +36,6 @@ This API endpoint allows you to create a virtual or physical spend card linked t
 | Standard | standard |
 | Express | express |
 | International | international |
-
-## Authorization
-
-<ParamField header="Authorization" type="string" required>
-  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
-</ParamField>
 
 ## Body parameters
 

@@ -1,0 +1,56 @@
+---
+title: 'wallet.withdraw.ach.updated'
+api: 'POST /webhooks/zilmoney'
+authMethod: 'none'
+playground: 'none'
+---
+
+## wallet.withdraw.ach.updated
+
+Triggered when the status of a **wallet ACH withdrawal** changes.
+
+**Trigger:** The withdrawal transfer status is updated by the banking network.
+
+
+---
+
+Same schema as `wallet.withdraw.ach.initiated`. The `data.status` and `data.updatedAt` fields reflect the new state.
+
+## HEADERS
+
+| Header | Value |
+| --- | --- |
+| Content-Type | application/json |
+| Signature | {{hmac_signature}}<br/>HMAC-SHA256 of the raw JSON request body, signed with your webhook_secret: hash_hmac('sha256', rawJsonBody, webhookSecret) |
+
+## Example Request
+
+```http
+POST /webhooks/zilmoney HTTP/1.1
+Host: your-server.com
+Content-Type: application/json
+Signature: {{hmac_signature}}
+```
+
+## Example Response
+
+```json
+{
+  "event": {
+    "type": "wallet.withdraw.ach.updated",
+    "id": "b2c3d4e5-f6a7-8901-bcde-f12345678902",
+    "createdAt": "2024-01-16T09:30:00.000000Z",
+    "data": {
+      "id": "d4e5f6a7-b8c9-0123-def0-456789012345",
+      "fromWallet": "deab2f42-8b8b-47ad-b766-eacc632df634",
+      "toWallet": null,
+      "bankAccountId": "BA_enc_b2c3d4e5f6a7",
+      "amount": "100.00",
+      "description": "Withdrawal to business checking account",
+      "status": "COMPLETED",
+      "updatedAt": "2024-01-16T09:30:00.000000Z",
+      "createdAt": "2024-01-15T13:45:00.000000Z"
+    }
+  }
+}
+```
