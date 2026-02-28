@@ -448,8 +448,9 @@
     ]
   },
   "logo": {
-    "light": "https://zilmoney.com/wp-content/uploads/2025/11/Zil-Money-Logo.svg",
-    "dark": "https://zilmoney.com/wp-content/uploads/2025/11/Zil-Money-Logo.svg"
+    "light": "/logo/zil-money-logo.png",
+    "dark": "/logo/zil-money-logo.png",
+    "href": "/api-reference/introduction"
   },
   "fonts": {
     "family": "Inter",
