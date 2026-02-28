@@ -1,0 +1,194 @@
+---
+title: 'List All ACH Payments'
+api: 'GET /send-payment/ach'
+---
+
+Get all the ACH payments you have initiated.
+
+**Query parameters**
+
+referenceNoFilter records by referenceNo
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /send-payment/ach`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/send-payment/ach" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "meta": {
+    "total": 612,
+    "perPage": 10,
+    "currentPage": 1,
+    "lastPage": 62
+  },
+  "data": [
+    {
+      "id": "c83d9d76-55b0-47ab-ba9a-24edac4e84f7",
+      "amount": "5.57",
+      "payeeId": "36gYVewEo4dx7bD",
+      "transferType": "ach",
+      "referenceNo": "12326",
+      "status": "PROCESSING",
+      "description": "v3 pay 1",
+      "source": {
+        "sourceType": "bankAccount",
+        "sourceId": "rRBQPA4m375qe7gxqXW"
+      },
+      "createdAt": "2024-08-25T07:01:38.000000Z",
+      "updatedAt": "2024-08-25T07:01:39.000000Z"
+    },
+    {
+      "id": "60d87fb8-2965-4696-a593-4863420f0f0d",
+      "amount": "4.56",
+      "payeeId": "36gYVewEo4dx7bD",
+      "transferType": "ach",
+      "referenceNo": "12326",
+      "status": "PROCESSING",
+      "description": "v3 pay 1",
+      "source": {
+        "sourceType": "bankAccount",
+        "sourceId": "rRBQPA4m375qe7gxqXW"
+      },
+      "createdAt": "2024-08-25T07:01:27.000000Z",
+      "updatedAt": "2024-08-25T07:01:28.000000Z"
+    },
+    {
+      "id": "ceb6ed05-9988-431c-971a-c66a9e1c03c3",
+      "amount": "3.56",
+      "payeeId": "36gYVewEo4dx7bD",
+      "transferType": "ach",
+      "referenceNo": "12316",
+      "status": "PROCESSING",
+      "description": "v3 pay 1",
+      "source": {
+        "sourceType": "bankAccount",
+        "sourceId": "rRBQPA4m375qe7gxqXW"
+      },
+      "createdAt": "2024-08-25T07:01:18.000000Z",
+      "updatedAt": "2024-08-25T07:01:19.000000Z"
+    },
+    {
+      "id": "b489c9c0-e9e8-4ae0-bd84-f672f7e1d1df",
+      "amount": "2.56",
+      "payeeId": "36gYVewEo4dx7bD",
+      "transferType": "ach",
+      "referenceNo": "12316",
+      "status": "PROCESSING",
+      "description": "v3 pay 1",
+      "source": {
+        "sourceType": "bankAccount",
+        "sourceId": "rRBQPA4m375qe7gxqXW"
+      },
+      "createdAt": "2024-08-25T07:01:11.000000Z",
+      "updatedAt": "2024-08-25T07:01:13.000000Z"
+    },
+    {
+      "id": "463a5baa-2d13-419d-81c7-6d134c3a6e17",
+      "amount": "2.55",
+      "payeeId": "36gYVewEo4dx7bD",
+      "transferType": "ach",
+      "referenceNo": "12315",
+      "status": "PROCESSING",
+      "description": "v3 pay 1",
+      "source": {
+        "sourceType": "bankAccount",
+        "sourceId": "rRBQPA4m375qe7gxqXW"
+      },
+      "createdAt": "2024-08-25T07:01:03.000000Z",
+      "updatedAt": "2024-08-25T07:01:04.000000Z"
+    },
+    {
+      "id": "f68180fb-2e1f-4d0a-9976-e5c50b854d4f",
+      "amount": "2.53",
+      "payeeId": "36gYVewEo4dx7bD",
+      "transferType": "ach",
+      "referenceNo": "12314",
+      "status": "PROCESSING",
+      "description": "v3 pay 1",
+      "source": {
+        "sourceType": "bankAccount",
+        "sourceId": "rRBQPA4m375qe7gxqXW"
+      },
+      "createdAt": "2024-08-25T07:00:55.000000Z",
+      "updatedAt": "2024-08-25T07:00:56.000000Z"
+    },
+    {
+      "id": "9b4de7a8-9cef-4e3a-9d58-827645abdae7",
+      "amount": "2.52",
+      "payeeId": "36gYVewEo4dx7bD",
+      "transferType": "ach",
+      "referenceNo": "12313",
+      "status": "PROCESSING",
+      "description": "v3 pay 1",
+      "source": {
+        "sourceType": "bankAccount",
+        "sourceId": "rRBQPA4m375qe7gxqXW"
+      },
+      "createdAt": "2024-08-25T07:00:48.000000Z",
+      "updatedAt": "2024-08-25T07:00:49.000000Z"
+    },
+    {
+      "id": "7513c223-193e-4967-9614-b1939a453cc2",
+      "amount": "2.51",
+      "payeeId": "36gYVewEo4dx7bD",
+      "transferType": "ach",
+      "referenceNo": "12313",
+      "status": "PROCESSING",
+      "description": "v3 pay 1",
+      "source": {
+        "sourceType": "bankAccount",
+        "sourceId": "rRBQPA4m375qe7gxqXW"
+      },
+      "createdAt": "2024-08-25T07:00:42.000000Z",
+      "updatedAt": "2024-08-25T07:00:43.000000Z"
+    },
+    {
+      "id": "6091bee3-9c16-449f-a7ff-7478db0754ce",
+      "amount": "2.50",
+      "payeeId": "36gYVewEo4dx7bD",
+      "transferType": "ach",
+      "referenceNo": "12313",
+      "status": "PROCESSING",
+      "description": "v3 pay 1",
+      "source": {
+        "sourceType": "bankAccount",
+        "sourceId": "rRBQPA4m375qe7gxqXW"
+      },
+      "createdAt": "2024-08-25T06:58:34.000000Z",
+      "updatedAt": "2024-08-25T06:58:35.000000Z"
+    },
+    {
+      "id": "a32093b6-6332-4003-9d92-b5f972d55930",
+      "amount": "2.23",
+      "payeeId": "903wmjY5Yj71bkv",
+      "transferType": "ach",
+      "referenceNo": "12312",
+      "status": "PROCESSING",
+      "description": "payment #123",
+      "source": {
+        "sourceType": "bankAccount",
+        "sourceId": "rRBQPA4m375qe7gxqXW"
+      },
+      "createdAt": "2024-08-25T06:52:05.000000Z",
+      "updatedAt": "2024-08-25T06:52:06.000000Z"
+    }
+  ]
+}
+```

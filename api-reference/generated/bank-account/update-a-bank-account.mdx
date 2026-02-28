@@ -1,0 +1,157 @@
+---
+title: 'Update a bank Account'
+api: 'PUT /bankAccounts/{bankAccountId}'
+---
+
+Update an existing bank account
+
+Path parameters
+
+ 
+  bankAccountId
+  Required    
+         The id of the Bank account to update.
+  
+
+
+
+Payload parameters
+
+ 
+  name
+  Required
+     String  
+     The name of the bank account,Must be no longer than 100 characters.
+  
+
+
+
+  nickName
+   Optional   
+    String 
+    Nick name that identifies this bank account. Must be no longer than 100 characters.
+  
+
+
+
+  accountNumber
+  Required  
+  String
+   Must be no longer than 20 characters,This will be ignored if bank account is verified
+  
+
+
+  addressLine1
+  Required   
+  String
+   Address line 1 for bank account ,Must be no longer than 180 characters.
+  
+
+
+  addressLine2
+   Optional  
+  String   
+  Address line 2 for bank account ,Must be no longer than 180 characters. 
+  
+
+
+  phone
+   Optional   
+  String   
+  Must be no longer than 15 characters.   
+  
+
+
+  city
+   Required  
+    String 
+    Name of the city  
+  
+
+
+  state
+   Required  
+    String 
+    Name of the state  
+  
+
+
+
+  zip
+  Required 
+   String   
+   valid zip code  
+  
+
+
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="bankAccountId" type="string" required>
+  Path parameter `bankAccountId`.
+</ParamField>
+
+## Query parameters
+
+<ParamField query="name" type="string">
+  Query parameter `name`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="name" type="string">
+  Request body field `name`.
+</ParamField>
+
+<ParamField body="accountNumber" type="string">
+  Request body field `accountNumber`.
+</ParamField>
+
+<ParamField body="addressLine1" type="string">
+  Request body field `addressLine1`.
+</ParamField>
+
+<ParamField body="addressLine2" type="string">
+  Request body field `addressLine2`.
+</ParamField>
+
+<ParamField body="city" type="string">
+  Request body field `city`.
+</ParamField>
+
+<ParamField body="state" type="string">
+  Request body field `state`.
+</ParamField>
+
+<ParamField body="zip" type="string">
+  Request body field `zip`.
+</ParamField>
+
+## Request
+
+Endpoint: `PUT /bankAccounts/{bankAccountId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/bankAccounts/{bankAccountId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Bank account updated succesfully"
+}
+```

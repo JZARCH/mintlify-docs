@@ -1,0 +1,71 @@
+---
+title: 'Retrieve Wallet Gift Card'
+api: 'GET /card-program/gift-card/{giftCardId}'
+---
+
+Retrieves the details of a specific gift card using its unique ID.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="giftCardId" type="string" required>
+  Path parameter `giftCardId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /card-program/gift-card/{giftCardId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/card-program/gift-card/{giftCardId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "ad51a361-cb91-4d69-a2d6-66a62867f232",
+    "walletId": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+    "status": "COMPLETED",
+    "card": {
+      "id": "d009d218-c5f1-4fac-8d08-facb47766582",
+      "cardProgramIssuingRecordId": "ad51a361-cb91-4d69-a2d6-66a62867f232",
+      "cardType": "virtual",
+      "label": "Ethan Harris",
+      "nameOnCard": "Ethan Harris",
+      "limitAmount": "75.00",
+      "limitInterval": "allTime",
+      "last4": "6204",
+      "cardStatus": "pending_activation",
+      "expiryMonth": "11",
+      "expiryYear": "2031",
+      "holder": {
+        "payeeId": "dNDOGnBn2oG0oMX",
+        "name": "Ethan Harris",
+        "email": "ethan.harris@email.com",
+        "address1": "1111 Franklin Avenue",
+        "address2": null,
+        "city": "Valley Stream",
+        "state": "NY",
+        "country": "US",
+        "zip": "11580"
+      },
+      "cardIssueType": "RECHARGEABLE_GIFT_CARD"
+    },
+    "availableBalance": "75.00",
+    "updatedAt": "2025-03-20T04:55:28.000000Z",
+    "createdAt": "2025-03-20T04:55:23.000000Z"
+  }
+}
+```

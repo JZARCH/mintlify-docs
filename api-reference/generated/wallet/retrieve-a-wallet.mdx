@@ -1,0 +1,48 @@
+---
+title: 'Retrieve a wallet'
+api: 'GET /wallet/{uuid}'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="uuid" type="string" required>
+  Path parameter `uuid`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /wallet/{uuid}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/wallet/{uuid}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "838f298c-24f0-4638-8af4-479f39e4a228",
+    "availableBalance": "18804.92",
+    "currentBalance": "18894.92",
+    "bankAccount_id": null,
+    "walletName": "Master Wallet",
+    "walletType": 2,
+    "bankAccountName": null,
+    "bankAccountNickName": null,
+    "bankAccountNumber": "X",
+    "bankAccountNatureType": null
+  }
+}
+```

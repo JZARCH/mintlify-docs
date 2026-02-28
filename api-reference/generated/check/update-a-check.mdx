@@ -1,0 +1,231 @@
+---
+title: 'Update a check'
+api: 'PUT /checks/{checkId}'
+---
+
+Update details of an existing check
+
+Path parameters
+
+ 
+  checkId
+  Required    
+         The id of the check to update.
+  
+
+
+
+Payload parameters
+
+ 
+  bankAccountId
+    Required 
+         String 
+        Must be a bank account ID
+  
+    
+
+
+
+  payeeId
+   Required    
+       String 
+   Must be a payee ID
+      Optional if noPayee is true, otherwise required.
+   
+  
+
+
+
+  categoryId
+   Optional 
+      String 
+   Must be a category ID
+  
+
+
+  serialNumber
+   Optional 
+    String 
+    By default increment every time a check is created, If a serialNumber is passed, that will override any default.
+  
+
+
+
+  issueDate
+   Optional 
+    String yyyy-mm-dd 
+ By default it will be current date, If a issueDate is passed, that will 
+    override any default.
+  
+
+
+
+  amount
+  Required  
+    Decimal 
+    Optional if noAmount  is  true, otherwise required.
+  
+
+
+
+  memo
+   Optional 
+    String 
+   Max of 150 characters to be included on the memo line of the check.
+  
+
+
+
+  note
+   Optional 
+     String 
+     An internal note that identifies this check. Must be no longer than 150 characters.
+  
+
+
+
+  accountNumber
+   Optional 
+    String 
+    Any account number associated with this check
+  
+
+
+
+  invoiceNumber
+   Optional  
+    String 
+    Any invoice number associated with this check
+  
+
+
+
+  noSign
+   Optional 
+    Boolean 
+   if true ,check will create without signature ,By default false
+  
+
+
+
+  noAmount
+   Optional  
+    Boolean 
+    iftrue ,check will create without amount,By default false
+  
+
+
+
+
+  noDate
+   Optional 
+     Boolean 
+     if true ,check will create without date,By default false  
+  
+
+
+
+  noPayee
+   Optional 
+    Boolean 
+    if true ,check will create without payee,By default false
+  
+
+
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="checkId" type="string" required>
+  Path parameter `checkId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="bankAccountId" type="string">
+  Request body field `bankAccountId`.
+</ParamField>
+
+<ParamField body="payeeId" type="string">
+  Request body field `payeeId`.
+</ParamField>
+
+<ParamField body="categoryId" type="string">
+  Request body field `categoryId`.
+</ParamField>
+
+<ParamField body="serialNumber" type="string">
+  Request body field `serialNumber`.
+</ParamField>
+
+<ParamField body="issueDate" type="string">
+  Request body field `issueDate`.
+</ParamField>
+
+<ParamField body="amount" type="number">
+  Request body field `amount`.
+</ParamField>
+
+<ParamField body="memo" type="string">
+  Request body field `memo`.
+</ParamField>
+
+<ParamField body="note" type="string">
+  Request body field `note`.
+</ParamField>
+
+<ParamField body="accountNumber" type="string">
+  Request body field `accountNumber`.
+</ParamField>
+
+<ParamField body="invoiceNumber" type="string">
+  Request body field `invoiceNumber`.
+</ParamField>
+
+<ParamField body="noSign" type="number">
+  Request body field `noSign`.
+</ParamField>
+
+<ParamField body="noAmount" type="number">
+  Request body field `noAmount`.
+</ParamField>
+
+<ParamField body="noDate" type="number">
+  Request body field `noDate`.
+</ParamField>
+
+<ParamField body="noPayee" type="number">
+  Request body field `noPayee`.
+</ParamField>
+
+## Request
+
+Endpoint: `PUT /checks/{checkId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/checks/{checkId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "successfully updated",
+  "data": {
+    "checkId": "RJ6qGAm5r5GE1rD"
+  }
+}
+```

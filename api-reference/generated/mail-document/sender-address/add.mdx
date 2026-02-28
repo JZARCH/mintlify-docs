@@ -1,0 +1,64 @@
+---
+title: 'add'
+api: 'POST /documentmailing/sender/add'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="name" type="string">
+  Request body field `name`.
+</ParamField>
+
+<ParamField body="nickName" type="string">
+  Request body field `nickName`.
+</ParamField>
+
+<ParamField body="company" type="string">
+  Request body field `company`.
+</ParamField>
+
+<ParamField body="address1" type="string">
+  Request body field `address1`.
+</ParamField>
+
+<ParamField body="address2" type="string">
+  Request body field `address2`.
+</ParamField>
+
+<ParamField body="city" type="string">
+  Request body field `city`.
+</ParamField>
+
+<ParamField body="state" type="string">
+  Request body field `state`.
+</ParamField>
+
+<ParamField body="zip" type="string">
+  Request body field `zip`.
+</ParamField>
+
+<ParamField body="phone" type="string">
+  Request body field `phone`.
+</ParamField>
+
+<ParamField body="email" type="string">
+  Request body field `email`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /documentmailing/sender/add`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/documentmailing/sender/add" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```

@@ -1,0 +1,156 @@
+---
+title: 'gpbf.check.updated'
+api: 'POST /'
+---
+
+## gpbf.check.updated
+
+Triggered whenever the **status** of a GPBF eCheck/digital check payment changes.
+
+**Trigger:** The received check status is updated in the system (e.g., payment clears, fails, or is returned). Fires only when the `status` field changes on a `ReceivedCheckList` record with `received_type = 4`.
+
+**Source:** `ReceivedCheckUpdateWebHook::handle()` → `ReceivedCheckListResource`
+
+---
+
+Same schema as `gpbf.check.created`. Key fields that change on update:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `data.status.statusCode` | integer | Updated numeric status code from `central_received_check_status` table |
+| `data.status.statusShortDescription` | string | Updated short description matching the new status code |
+
+## Notes on status fields
+
+- `statusCode` is a **database-driven integer** — not a fixed enum. The value depends on the `central_received_check_status` table entries for `received_type = 4`
+- `statusShortDescription` is the `status_short_description` column from the same table
+- `metaData` is always an **array** (`[]` when empty, not an object `{}`)
+- `serialNumber` is always an **integer**, not a string
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="event" type="object">
+  Request body field `event`.
+</ParamField>
+
+<ParamField body="event.type" type="string">
+  Request body field `event.type`.
+</ParamField>
+
+<ParamField body="event.id" type="string">
+  Request body field `event.id`.
+</ParamField>
+
+<ParamField body="event.createdAt" type="string">
+  Request body field `event.createdAt`.
+</ParamField>
+
+<ParamField body="event.data" type="object">
+  Request body field `event.data`.
+</ParamField>
+
+<ParamField body="event.data.referenceId" type="string">
+  Request body field `event.data.referenceId`.
+</ParamField>
+
+<ParamField body="event.data.memo" type="string">
+  Request body field `event.data.memo`.
+</ParamField>
+
+<ParamField body="event.data.amount" type="string">
+  Request body field `event.data.amount`.
+</ParamField>
+
+<ParamField body="event.data.serialNumber" type="number">
+  Request body field `event.data.serialNumber`.
+</ParamField>
+
+<ParamField body="event.data.createdAt" type="string">
+  Request body field `event.data.createdAt`.
+</ParamField>
+
+<ParamField body="event.data.invoiceNumber" type="string">
+  Request body field `event.data.invoiceNumber`.
+</ParamField>
+
+<ParamField body="event.data.transactionId" type="string">
+  Request body field `event.data.transactionId`.
+</ParamField>
+
+<ParamField body="event.data.customerDetails" type="object">
+  Request body field `event.data.customerDetails`.
+</ParamField>
+
+<ParamField body="event.data.customerDetails.customerEmail" type="string">
+  Request body field `event.data.customerDetails.customerEmail`.
+</ParamField>
+
+<ParamField body="event.data.customerDetails.customerName" type="string">
+  Request body field `event.data.customerDetails.customerName`.
+</ParamField>
+
+<ParamField body="event.data.customerDetails.customerAddressLine1" type="string">
+  Request body field `event.data.customerDetails.customerAddressLine1`.
+</ParamField>
+
+<ParamField body="event.data.customerDetails.customerPhone" type="string">
+  Request body field `event.data.customerDetails.customerPhone`.
+</ParamField>
+
+<ParamField body="event.data.customerDetails.customerCity" type="string">
+  Request body field `event.data.customerDetails.customerCity`.
+</ParamField>
+
+<ParamField body="event.data.customerDetails.customerState" type="string">
+  Request body field `event.data.customerDetails.customerState`.
+</ParamField>
+
+<ParamField body="event.data.customerDetails.customerZip" type="string">
+  Request body field `event.data.customerDetails.customerZip`.
+</ParamField>
+
+<ParamField body="event.data.metaData" type="object[]">
+  Request body field `event.data.metaData`.
+</ParamField>
+
+<ParamField body="event.data.customField1" type="string">
+  Request body field `event.data.customField1`.
+</ParamField>
+
+<ParamField body="event.data.customField2" type="string">
+  Request body field `event.data.customField2`.
+</ParamField>
+
+<ParamField body="event.data.customField3" type="string">
+  Request body field `event.data.customField3`.
+</ParamField>
+
+<ParamField body="event.data.status" type="object">
+  Request body field `event.data.status`.
+</ParamField>
+
+<ParamField body="event.data.status.statusCode" type="number">
+  Request body field `event.data.status.statusCode`.
+</ParamField>
+
+<ParamField body="event.data.status.statusShortDescription" type="string">
+  Request body field `event.data.status.statusShortDescription`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```

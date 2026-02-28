@@ -1,0 +1,53 @@
+---
+title: 'Get Cards'
+api: 'GET /payments/card'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /payments/card`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/payments/card" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "cardId": "Mw9OXJ75mQ0bRG2q4ZdP3xY6EqD2g",
+      "card": "XXXXXXXXXXXXXX4444",
+      "nickName": "mastercard",
+      "bgColor": "#E5F8F2",
+      "isLatest": 0
+    },
+    {
+      "cardId": "8da1YJLEXw2lx4804MzWyDpQB60gP",
+      "card": "XXXXXXXXXXXXXX1007",
+      "nickName": "amex",
+      "bgColor": "#E5F8F2",
+      "isLatest": 0
+    },
+    {
+      "cardId": "YW5VkJl8X0Kmz47g4LOM27dnNbx93",
+      "card": "XXXXXXXXXXXXXX0007",
+      "nickName": "visa",
+      "bgColor": "#EDEBFF",
+      "isLatest": 1
+    }
+  ]
+}
+```

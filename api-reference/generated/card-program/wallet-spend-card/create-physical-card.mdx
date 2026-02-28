@@ -1,0 +1,153 @@
+---
+title: 'Create Physical Card'
+api: 'POST /card-program/card/create'
+---
+
+This API endpoint allows you to create a virtual or physical spend card linked to a specified wallet, with configurable spending limits and reset intervals for enhanced expense control.
+
+**Payload Parameters**
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| walletId | string | ✅ Yes | Unique identifier for the wallet to which the new card should be linked. |
+| limitAmount | number | ✅ Yes | Maximum allowable spending amount on the card, per the defined limitInterval. |
+| nameOnCard | string | ✅ Yes | nameOnCardThe name to be printed on the card |
+| label | string | ✅ Yes | A user-defined label or nickname to help identify the card. |
+| cardType | string | ✅ Yes | Type of the card being issued. Accepted values: virtual, physical. |
+| limitInterval | string | ✅ Yes | Time interval for resetting the card limit. Accepted values: 'monthly', 'allTime', 'daily', 'weekly', 'perTransaction', 'yearly' |
+| restrictionSettings | object | ⬜ Optional | Additional rules and controls to limit how and where the card can be used. |
+
+**restrictionSettings Object**
+
+| **Field** | **Type** | Description |
+| --- | --- | --- |
+| validTill | string (YYYY-MM-DD) | Expiration date for the card's usability. Transactions beyond this date will be declined. |
+| allowedMerchantNames | array of strings | List of allowed merchant names where the card can be used. |
+| allowedMerchantCategoryCode |  | List of allowed Merchant Category Codes (MCCs). Only merchants with these MCCs can accept payments from this card. |
+| allowedMerchantCountry | array of strings | alpha-2 country codes. Card will be restricted to use in these countries. |
+| allowedMerchantCity | array of strings | List of allowed cities for card usage. |
+| allowedTime | object | Defines time-based usage restrictions for the card. |
+
+**Allowed shipping methods for physical cards**
+
+| Shipping Method | Allowed Values |
+| --- | --- |
+| Standard | standard |
+| Express | express |
+| International | international |
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="walletId" type="string">
+  Request body field `walletId`.
+</ParamField>
+
+<ParamField body="limitAmount" type="number">
+  Request body field `limitAmount`.
+</ParamField>
+
+<ParamField body="nameOnCard" type="string">
+  Request body field `nameOnCard`.
+</ParamField>
+
+<ParamField body="label" type="string">
+  Request body field `label`.
+</ParamField>
+
+<ParamField body="cardType" type="string">
+  Request body field `cardType`.
+</ParamField>
+
+<ParamField body="limitInterval" type="string">
+  Request body field `limitInterval`.
+</ParamField>
+
+<ParamField body="restrictionSettings" type="object">
+  Request body field `restrictionSettings`.
+</ParamField>
+
+<ParamField body="restrictionSettings.validTill" type="string">
+  Request body field `restrictionSettings.validTill`.
+</ParamField>
+
+<ParamField body="restrictionSettings.allowedMerchantNames" type="string[]">
+  Request body field `restrictionSettings.allowedMerchantNames`.
+</ParamField>
+
+<ParamField body="restrictionSettings.allowedMerchantCategoryCode" type="string[]">
+  Request body field `restrictionSettings.allowedMerchantCategoryCode`.
+</ParamField>
+
+<ParamField body="restrictionSettings.allowedMerchantCountry" type="string[]">
+  Request body field `restrictionSettings.allowedMerchantCountry`.
+</ParamField>
+
+<ParamField body="restrictionSettings.allowedMerchantCity" type="string[]">
+  Request body field `restrictionSettings.allowedMerchantCity`.
+</ParamField>
+
+<ParamField body="restrictionSettings.allowedTime" type="object">
+  Request body field `restrictionSettings.allowedTime`.
+</ParamField>
+
+<ParamField body="restrictionSettings.allowedTime.timezone" type="string">
+  Request body field `restrictionSettings.allowedTime.timezone`.
+</ParamField>
+
+<ParamField body="restrictionSettings.allowedTime.times" type="object[]">
+  Request body field `restrictionSettings.allowedTime.times`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /card-program/card/create`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/card-program/card/create" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "96afd13e-dbcc-4179-8f61-1aab4e9f156a",
+    "walletId": "deab2f42-8b8b-47ad-b766-eacc632df634",
+    "status": "PENDING",
+    "card": {
+      "id": "ec459130-4aba-4ff2-b2f5-141908614f92",
+      "cardProgramIssuingRecordId": "96afd13e-dbcc-4179-8f61-1aab4e9f156a",
+      "cardType": "physical",
+      "label": "Gold Card",
+      "nameOnCard": "Jane Smith",
+      "limitAmount": "100.00",
+      "limitInterval": "monthly",
+      "last4": "0940",
+      "cardStatus": "pending_activation",
+      "expiryMonth": "4",
+      "expiryYear": "2030",
+      "cardIssueType": "WALLET_CARD",
+      "wallet": {
+        "id": "deab2f42-8b8b-47ad-b766-eacc632df634",
+        "availableBalance": "4644227.77",
+        "currentBalance": "4666255.11",
+        "walletName": "Master Wallet"
+      },
+      "restrictionSettings": []
+    },
+    "updatedAt": "2025-09-03T09:22:02.000000Z",
+    "createdAt": "2025-09-03T09:22:02.000000Z"
+  }
+}
+```

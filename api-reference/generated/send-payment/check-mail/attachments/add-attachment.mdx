@@ -1,0 +1,42 @@
+---
+title: 'Add Attachment'
+api: 'POST /attachment'
+---
+
+This API uploads an attachment file (example: PDF,document) and returns a unique attachment ID.
+
+Supported File Types
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| image | file | Optional | Supported file formats: pdf, xls, xlsx, rtf, doc, docx, txt, jpg, png. |
+| fileUrl | Text | Optional | Public URL of the file to upload or process. Supported file formats: pdf, xls, xlsx, rtf, doc, docx, txt, jpg, png. |
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /attachment`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/attachment" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "OYxZqXGKdeRzVvJ"
+  }
+}
+```

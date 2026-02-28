@@ -1,0 +1,50 @@
+---
+title: 'Bulk Delete'
+api: 'POST /checks/bulk-delete'
+---
+
+This API allows you to delete multiple checks at once by passing their IDs in a single request.
+
+**Parameters**
+
+FieldRequiredDescriptioncheckIds✅A list of unique check IDs to be deleted in bulk.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="checkIds" type="string[]">
+  Request body field `checkIds`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /checks/bulk-delete`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/checks/bulk-delete" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Bulk delete processed",
+  "data": {
+    "deleted": [
+      "bz3Aj3W0KwjJw6E",
+      "7zLdjvyJrleJEz6"
+    ],
+    "failed": []
+  }
+}
+```

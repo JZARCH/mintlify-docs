@@ -1,0 +1,61 @@
+---
+title: 'Get bank accounts'
+api: 'GET /bankAccounts'
+---
+
+Retrieve a paginated list of bank accounts associated with your Online Check Writer account.
+
+## Request
+
+### Query parameters
+
+<ParamField query="perPage" type="number">
+  Number of records to return per page. If omitted, a default page size is used.
+</ParamField>
+
+<ParamField query="page" type="number">
+  Page number to retrieve. Defaults to the first page.
+</ParamField>
+
+<ParamField query="term" type="string">
+  Optional search term to filter bank accounts.
+</ParamField>
+
+## Example
+
+```bash
+curl --location "$BASE_URL/bankAccounts?perPage=10&page=1&term=" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response
+
+On success, the API returns a paginated list of bank accounts.
+
+```json
+{
+  "success": true,
+  "data": {
+    "meta": {
+      "total": 2,
+      "currentPage": 1,
+      "perPage": 10
+    },
+    "bankAccounts": [
+      {
+        "bankAccountId": "RYkWx8ePPNMKeK2Xz05",
+        "name": "Demo Bank Account 1",
+        "nickName": "Demo Bank Account 1",
+        "accountNumber": "78978900",
+        "bankId": "dqyYjOWOv3jRJol",
+        "city": "Garden City",
+        "state": "NY",
+        "zip": "11530-1617",
+        "isVerified": true
+      }
+    ]
+  }
+}
+```
+

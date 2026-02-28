@@ -1,0 +1,84 @@
+---
+title: 'Retrieve All Payments'
+api: 'GET /getpaid-by-form/check'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /getpaid-by-form/check`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/getpaid-by-form/check" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "current_page": 1,
+  "data": [
+    {
+      "referenceId": "DgpNlkQ4rKAGwnOV0Z9",
+      "memo": "test fro g pbl collectiion fee",
+      "amount": "104.00",
+      "serialNumber": 1001,
+      "createdAt": "2024-06-15T09:37:04.000000Z",
+      "invoiceNumber": "",
+      "transactionId": "",
+      "customerDetails": {
+        "customerEmail": "john@test.com",
+        "customerName": "John",
+        "customerAddressLine1": "1451 Ondulado Road",
+        "customerPhone": "111111111",
+        "customerCity": "Del Monte Forest",
+        "customerState": "CA",
+        "customerZip": "93953"
+      },
+      "metaData": [],
+      "customField1": "",
+      "customField2": "",
+      "customField3": "",
+      "status": {
+        "statusCode": 51,
+        "statusShortDescription": "DD-COMPLETED"
+      }
+    },
+    {
+      "referenceId": "l8X0Kmz47MweLOM27dn",
+      "memo": "test gpbl colllection fee",
+      "amount": "102.23",
+      "serialNumber": 1000,
+      "createdAt": "2024-06-15T09:25:05.000000Z",
+      "invoiceNumber": "",
+      "transactionId": "",
+      "customerDetails": {
+        "customerEmail": "john@test.com",
+        "customerName": "John",
+        "customerAddressLine1": "1 Infinite Loop",
+        "customerPhone": "1111111111",
+        "customerCity": "Cupertino",
+        "customerState": "CA",
+        "customerZip": "95014"
+      },
+      "metaData": [],
+      "customField1": "",
+      "customField2": "",
+      "customField3": "",
+      "status": {
+        "statusCode": 51,
+        "statusShortDescription": "DD-COMPLETED"
+      }
+    }
+  ]
+}
+```

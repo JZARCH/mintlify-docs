@@ -1,0 +1,102 @@
+---
+title: 'Create Wallet Gift Card'
+api: 'POST /card-program/gift-card/create'
+---
+
+This API endpoint allows you to create a gift card linked to a specified wallet, with customizable spending limits. Choose between onetime or rechargeable cards and assign it to a payee.
+
+**Payload Parameters**
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| walletId | String | Unique identifier for the wallet to which the new card should be linked. |
+| limitAmount | Number | The limit amount for the gift card |
+| cardType | String | The type of the gift card (e.g. virtual) |
+| cardLimitType | String | The limit type of the gift card. Accepted values - "onetime", "rechargeable" |
+| payeeId | String | The ID of the payee for the gift card program |
+| payeeEmail | String | The email of the payee for the gift card program |
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="walletId" type="string">
+  Request body field `walletId`.
+</ParamField>
+
+<ParamField body="limitAmount" type="number">
+  Request body field `limitAmount`.
+</ParamField>
+
+<ParamField body="cardType" type="string">
+  Request body field `cardType`.
+</ParamField>
+
+<ParamField body="cardLimitType" type="string">
+  Request body field `cardLimitType`.
+</ParamField>
+
+<ParamField body="payeeId" type="string">
+  Request body field `payeeId`.
+</ParamField>
+
+<ParamField body="payeeEmail" type="string">
+  Request body field `payeeEmail`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /card-program/gift-card/create`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/card-program/gift-card/create" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "ad51a361-cb91-4d69-a2d6-66a62867f232",
+    "walletId": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+    "status": "COMPLETED",
+    "card": {
+      "id": "d009d218-c5f1-4fac-8d08-facb47766582",
+      "cardProgramIssuingRecordId": "ad51a361-cb91-4d69-a2d6-66a62867f232",
+      "cardType": "virtual",
+      "label": "Ethan Harris",
+      "nameOnCard": "Ethan Harris",
+      "limitAmount": "75.00",
+      "limitInterval": "allTime",
+      "last4": "6204",
+      "cardStatus": "pending_activation",
+      "expiryMonth": "11",
+      "expiryYear": "2031",
+      "holder": {
+        "payeeId": "dNDOGnBn2oG0oMX",
+        "name": "Ethan Harris",
+        "email": "ethan.harris@email.com",
+        "address1": "1111 Franklin Avenue",
+        "address2": null,
+        "city": "Valley Stream",
+        "state": "NY",
+        "country": "US",
+        "zip": "11580"
+      },
+      "cardIssueType": "RECHARGEABLE_GIFT_CARD"
+    },
+    "availableBalance": "75.00",
+    "updatedAt": "2025-03-20T04:55:28.000000Z",
+    "createdAt": "2025-03-20T04:55:23.000000Z"
+  }
+}
+```

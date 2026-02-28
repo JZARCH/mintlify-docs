@@ -1,0 +1,72 @@
+---
+title: 'Update customer'
+api: 'PUT /getpaid-by-form/customer/{id}'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="id" type="string" required>
+  Path parameter `id`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="identity" type="string">
+  Request body field `identity`.
+</ParamField>
+
+<ParamField body="customerName" type="string">
+  Request body field `customerName`.
+</ParamField>
+
+<ParamField body="customerEmail" type="string">
+  Request body field `customerEmail`.
+</ParamField>
+
+<ParamField body="customerPhone" type="string">
+  Request body field `customerPhone`.
+</ParamField>
+
+<ParamField body="customerAdderessLine1" type="string">
+  Request body field `customerAdderessLine1`.
+</ParamField>
+
+<ParamField body="customerCity" type="string">
+  Request body field `customerCity`.
+</ParamField>
+
+<ParamField body="customerState" type="string">
+  Request body field `customerState`.
+</ParamField>
+
+<ParamField body="customerZip" type="string">
+  Request body field `customerZip`.
+</ParamField>
+
+## Request
+
+Endpoint: `PUT /getpaid-by-form/customer/{id}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/getpaid-by-form/customer/{id}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Updated.",
+  "statusCode": 202
+}
+```

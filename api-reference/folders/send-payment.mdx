@@ -1,0 +1,23 @@
+---
+title: 'Send Payment API'
+description: 'Endpoints in the Send Payment section of the Online Check Writer API v3'
+---
+
+This page lists all endpoints that belong to the **Send Payment** folder in the Postman collection.
+
+| Method | Path | Endpoint |
+| --- | --- | --- |
+| `POST` | `/attachment` | [Add Attachment](/api-reference/generated/send-payment/check-mail/attachments/add-attachment) |
+| `DELETE` | `/attachment/{attachment_id}` | [Delete Attachment](/api-reference/generated/send-payment/check-mail/attachments/delete-attachment) |
+| `GET` | `/attachment/{attachment_id}` | [View Attachment](/api-reference/generated/send-payment/check-mail/attachments/view-attachment) |
+| `GET` | `/send-payment/{paymentId}/info` | [Retrieve Payment Info](/api-reference/generated/send-payment/retrieve-payment-info) |
+| `GET` | `/send-payment/ach` | [List All ACH Payments](/api-reference/generated/send-payment/ach/list-all-ach-payments) |
+| `POST` | `/send-payment/ach` | [Send ACH Payment](/api-reference/generated/send-payment/ach/send-ach-payment) |
+| `GET` | `/send-payment/checkMail` | [List All Check Mail Payments](/api-reference/generated/send-payment/check-mail/list-all-check-mail-payments) |
+| `POST` | `/send-payment/checkMail` | [Send Check Mail Payment](/api-reference/generated/send-payment/check-mail/send-check-mail-payment) |
+| `GET` | `/send-payment/instant_transfer` | [List All Instant Payments](/api-reference/generated/send-payment/instant-transfer-rtp/list-all-instant-payments) |
+| `POST` | `/send-payment/instant_transfer` | [Send Instant Payment/RTP](/api-reference/generated/send-payment/instant-transfer-rtp/send-instant-payment-rtp) |
+| `GET` | `/send-payment/virtualCard` | [List All Virtual Card Sent](/api-reference/generated/send-payment/virtual-card/list-all-virtual-card-sent) |
+| `POST` | `/send-payment/virtualCard` | [Send Virtual Card](/api-reference/generated/send-payment/virtual-card/send-virtual-card) |
+| `GET` | `/send-payment/wire` | [List All Wire Payments](/api-reference/generated/send-payment/wire/list-all-wire-payments) |
+| `POST` | `/send-payment/wire` | [Send Wire Payment](/api-reference/generated/send-payment/wire/send-wire-payment) |

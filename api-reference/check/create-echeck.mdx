@@ -1,0 +1,81 @@
+---
+title: 'Create eCheck'
+api: 'POST /quickpay/echeck'
+---
+
+Send an electronic check (eCheck) to a recipient by email.
+
+## Request
+
+### Body
+
+<ParamField body="source.accountType" type="string" required>
+  Funding account type. For example, `"bankaccount"`.
+</ParamField>
+
+<ParamField body="source.accountId" type="string" required>
+  ID of the funding bank account. This corresponds to `{{bankAccountId}}` in the Postman collection.
+</ParamField>
+
+<ParamField body="destination.name" type="string" required>
+  Recipient name.
+</ParamField>
+
+<ParamField body="destination.email" type="string" required>
+  Recipient email address where the eCheck will be delivered.
+</ParamField>
+
+<ParamField body="payment_details.amount" type="number" required>
+  eCheck amount.
+</ParamField>
+
+<ParamField body="payment_details.memo" type="string">
+  Optional memo printed on the eCheck.
+</ParamField>
+
+<ParamField body="payment_details.note" type="string">
+  Optional internal note.
+</ParamField>
+
+<ParamField body="payment_details.issueDate" type="string">
+  Optional issue date in `YYYY-MM-DD` format.
+</ParamField>
+
+## Example
+
+```bash
+curl --location "$BASE_URL/quickpay/echeck" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "source": {
+      "accountType": "bankaccount",
+      "accountId": "{{$bankAccountId}}"
+    },
+    "destination": {
+      "name": "John Myres",
+      "email": "support@onlinecheckwriter.com"
+    },
+    "payment_details": {
+      "amount": 984,
+      "memo": "for game",
+      "note": "Note For Internal Purpose",
+      "issueDate": "2024-07-01"
+    }
+  }'
+```
+
+## Response
+
+On success, the API returns a JSON object indicating success and the created eCheck ID.
+
+```json
+{
+  "success": true,
+  "message": "Successfully Sent",
+  "data": {
+    "checkId": "VPXre6L8pZ4zl9Z"
+  }
+}
+```
+

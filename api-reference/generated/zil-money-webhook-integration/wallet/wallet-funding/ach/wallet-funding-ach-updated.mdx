@@ -1,0 +1,92 @@
+---
+title: 'wallet.funding.ach.updated'
+api: 'POST /'
+---
+
+## wallet.funding.ach.updated
+
+Triggered when the status of a **wallet ACH funding transfer** changes.
+
+**Trigger:** The ACH funding transfer status is updated (e.g., bank settles the pull, or it is returned/failed).
+
+**Source:** `BankingAchTransferRequestObserver::updated()` — fires only when `status` field changes.
+
+---
+
+Same schema as `wallet.funding.ach.initiated`. The `data.status` and `data.updatedAt` fields will reflect the latest state.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="event" type="object">
+  Request body field `event`.
+</ParamField>
+
+<ParamField body="event.type" type="string">
+  Request body field `event.type`.
+</ParamField>
+
+<ParamField body="event.id" type="string">
+  Request body field `event.id`.
+</ParamField>
+
+<ParamField body="event.createdAt" type="string">
+  Request body field `event.createdAt`.
+</ParamField>
+
+<ParamField body="event.data" type="object">
+  Request body field `event.data`.
+</ParamField>
+
+<ParamField body="event.data.id" type="string">
+  Request body field `event.data.id`.
+</ParamField>
+
+<ParamField body="event.data.fromWallet" type="string">
+  Request body field `event.data.fromWallet`.
+</ParamField>
+
+<ParamField body="event.data.toWallet" type="string">
+  Request body field `event.data.toWallet`.
+</ParamField>
+
+<ParamField body="event.data.bankAccountId" type="string">
+  Request body field `event.data.bankAccountId`.
+</ParamField>
+
+<ParamField body="event.data.amount" type="string">
+  Request body field `event.data.amount`.
+</ParamField>
+
+<ParamField body="event.data.description" type="string">
+  Request body field `event.data.description`.
+</ParamField>
+
+<ParamField body="event.data.status" type="string">
+  Request body field `event.data.status`.
+</ParamField>
+
+<ParamField body="event.data.updatedAt" type="string">
+  Request body field `event.data.updatedAt`.
+</ParamField>
+
+<ParamField body="event.data.createdAt" type="string">
+  Request body field `event.data.createdAt`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```

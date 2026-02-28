@@ -1,0 +1,58 @@
+---
+title: 'Delete a attachment'
+api: 'DELETE /checks/{checkId}/attachments/{checkAttachmentId}'
+---
+
+Remove attachment.
+
+Path parameters
+
+ 
+  checkId
+  Required    
+         The id of the check.
+  
+ 
+  checkAttachmentId
+  Required    
+         The id of the check attachment.
+  
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="checkId" type="string" required>
+  Path parameter `checkId`.
+</ParamField>
+
+<ParamField path="checkAttachmentId" type="string" required>
+  Path parameter `checkAttachmentId`.
+</ParamField>
+
+## Request
+
+Endpoint: `DELETE /checks/{checkId}/attachments/{checkAttachmentId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/checks/{checkId}/attachments/{checkAttachmentId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "errorMsg": "Succesfully deleted"
+}
+```

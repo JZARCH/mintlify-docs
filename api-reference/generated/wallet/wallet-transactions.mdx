@@ -1,0 +1,210 @@
+---
+title: 'Wallet Transactions'
+api: 'GET /wallet/{uuid}/transactions'
+---
+
+List all transactions of a wallet.
+
+**Query parameters**
+
+pageFor navigating through pages ,By default first page will be listedstatusCodeFilter statements by statusCodetermFilter statements by using any keywords
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="uuid" type="string" required>
+  Path parameter `uuid`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /wallet/{uuid}/transactions`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/wallet/{uuid}/transactions" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "meta": {
+    "total": 38,
+    "perPage": 10,
+    "currentPage": 1,
+    "lastPage": 4
+  },
+  "data": [
+    {
+      "id": "d91c0cb1-aeed-4994-b99c-b5a943eedda1",
+      "txnRefId": 1617,
+      "walletId": "2e9f03a3-2cea-42d4-b355-e280bd541a24",
+      "walletName": "Master Wallet",
+      "date": "02/17/2024",
+      "description": "Refill credit",
+      "credit": "0.00",
+      "debit": "30.00",
+      "initialBalance": "54.31",
+      "currentBalance": "24.31",
+      "status": "success",
+      "statusCode": 2,
+      "categoryTypeCode": 18,
+      "categoryTypeName": "SUBS"
+    },
+    {
+      "id": "53dba934-7c80-492d-8467-1f20c61bd2c4",
+      "txnRefId": 1597,
+      "walletId": "2e9f03a3-2cea-42d4-b355-e280bd541a24",
+      "walletName": "Master Wallet",
+      "date": "12/06/2023",
+      "description": "FUNDING-sd",
+      "credit": "20.00",
+      "debit": "0.00",
+      "initialBalance": "34.31",
+      "currentBalance": "54.31",
+      "status": "processing",
+      "statusCode": 1,
+      "categoryTypeCode": 7,
+      "categoryTypeName": "P/F"
+    },
+    {
+      "id": "675bb009-3740-4bc0-be3d-4c96501ce5f8",
+      "txnRefId": 1595,
+      "walletId": "2e9f03a3-2cea-42d4-b355-e280bd541a24",
+      "walletName": "Master Wallet",
+      "date": "11/18/2023",
+      "description": "WF -tyty",
+      "credit": "0.00",
+      "debit": "30.00",
+      "initialBalance": "64.31",
+      "currentBalance": "34.31",
+      "status": "processing",
+      "statusCode": 1,
+      "categoryTypeCode": 4,
+      "categoryTypeName": "W/F"
+    },
+    {
+      "id": "56e1c5ed-80df-45d2-8f59-0f6b6dad8b2e",
+      "txnRefId": 1594,
+      "walletId": "2e9f03a3-2cea-42d4-b355-e280bd541a24",
+      "walletName": "Master Wallet",
+      "date": "11/18/2023",
+      "description": "Subscritption charge/Premium",
+      "credit": "0.00",
+      "debit": "499.99",
+      "initialBalance": "564.30",
+      "currentBalance": "64.31",
+      "status": "success",
+      "statusCode": 2,
+      "categoryTypeCode": 18,
+      "categoryTypeName": "SUBS"
+    },
+    {
+      "id": "3fc3be28-fe28-49fc-bf84-788f4bdb4866",
+      "txnRefId": 1593,
+      "walletId": "2e9f03a3-2cea-42d4-b355-e280bd541a24",
+      "walletName": "Master Wallet",
+      "date": "11/15/2023",
+      "description": "CARD_TX_GENERATOR   REMOT",
+      "credit": "0.00",
+      "debit": "11.35",
+      "initialBalance": "575.65",
+      "currentBalance": "564.30",
+      "status": "success",
+      "statusCode": 2,
+      "categoryTypeCode": 8,
+      "categoryTypeName": "B/R"
+    },
+    {
+      "id": "eb51a27a-8a09-4c7b-b576-e2df6b838ebb",
+      "txnRefId": 1592,
+      "walletId": "2e9f03a3-2cea-42d4-b355-e280bd541a24",
+      "walletName": "Master Wallet",
+      "date": "11/04/2023",
+      "description": "Subscritption charge/my test addon",
+      "credit": "0.00",
+      "debit": "373.28",
+      "initialBalance": "948.93",
+      "currentBalance": "575.65",
+      "status": "success",
+      "statusCode": 2,
+      "categoryTypeCode": 18,
+      "categoryTypeName": "SUBS"
+    },
+    {
+      "id": "a682b5a0-14a0-4d99-a8be-770196c00e78",
+      "txnRefId": 1591,
+      "walletId": "2e9f03a3-2cea-42d4-b355-e280bd541a24",
+      "walletName": "Master Wallet",
+      "date": "11/04/2023",
+      "description": "Subscritption charge/QB /Com Mnthl 6.99",
+      "credit": "0.00",
+      "debit": "69.07",
+      "initialBalance": "1018.00",
+      "currentBalance": "948.93",
+      "status": "success",
+      "statusCode": 2,
+      "categoryTypeCode": 18,
+      "categoryTypeName": "SUBS"
+    },
+    {
+      "id": "996b63b1-9c9b-4b3e-93e6-b20a86189876",
+      "txnRefId": 1590,
+      "walletId": "2e9f03a3-2cea-42d4-b355-e280bd541a24",
+      "walletName": "Master Wallet",
+      "date": "11/04/2023",
+      "description": "WT-sdc",
+      "credit": "1000.00",
+      "debit": "0.00",
+      "initialBalance": "18.00",
+      "currentBalance": "1018.00",
+      "status": "success",
+      "statusCode": 2,
+      "categoryTypeCode": 10,
+      "categoryTypeName": "WT"
+    },
+    {
+      "id": "88021c87-dc38-49fb-8d1e-52387959f5b8",
+      "txnRefId": 1587,
+      "walletId": "2e9f03a3-2cea-42d4-b355-e280bd541a24",
+      "walletName": "Master Wallet",
+      "date": "11/04/2023",
+      "description": "WT-test",
+      "credit": "0.00",
+      "debit": "3300.00",
+      "initialBalance": "3318.00",
+      "currentBalance": "18.00",
+      "status": "success",
+      "statusCode": 2,
+      "categoryTypeCode": 10,
+      "categoryTypeName": "WT"
+    },
+    {
+      "id": "9e968569-74cd-4fc5-a915-20927d2d5f34",
+      "txnRefId": 1584,
+      "walletId": "2e9f03a3-2cea-42d4-b355-e280bd541a24",
+      "walletName": "Master Wallet",
+      "date": "10/26/2023",
+      "description": "WF -dfdfd",
+      "credit": "0.00",
+      "debit": "30.00",
+      "initialBalance": "3348.00",
+      "currentBalance": "3318.00",
+      "status": "processing",
+      "statusCode": 1,
+      "categoryTypeCode": 4,
+      "categoryTypeName": "W/F"
+    }
+  ]
+}
+```

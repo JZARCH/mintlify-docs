@@ -1,0 +1,61 @@
+---
+title: 'Add Logo'
+api: 'POST /bankAccounts/{bankAccountId}/logos'
+---
+
+Add logo to existing bank account
+
+
+Path parameters
+
+ 
+  bankAccountId
+  Required    
+         The id of the Bank account to update.
+  
+
+
+
+Payload parameters
+
+ 
+  logo
+  Required    
+        File
+        Accepted file types are PNG,JPG and JPEG and  must be no more than 40960Kb
+  
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="bankAccountId" type="string" required>
+  Path parameter `bankAccountId`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /bankAccounts/{bankAccountId}/logos`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/bankAccounts/{bankAccountId}/logos" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Succesfuly uploaded"
+}
+```

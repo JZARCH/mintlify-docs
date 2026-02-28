@@ -1,0 +1,64 @@
+---
+title: 'List ACH Withdrawals'
+api: 'GET /wallet/withdraw/ach'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Query parameters
+
+<ParamField query="limit" type="string">
+  Query parameter `limit`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /wallet/withdraw/ach`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/wallet/withdraw/ach" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "meta": {
+    "total": 2,
+    "perPage": "2",
+    "currentPage": 1,
+    "lastPage": 1
+  },
+  "data": [
+    {
+      "id": "963008f3-b085-4060-8580-b9d2d6bd39ce",
+      "fromWallet": "ea85fdfe-1e6b-4be6-8245-28bd3543777b",
+      "bankAccountId": "KmQaMdjZlvELGzLxbWy",
+      "amount": "19.50",
+      "description": "wallet withdrawel 2",
+      "status": "PROCESSING",
+      "updatedAt": "2023-10-25T07:45:07.000000Z",
+      "createdAt": "2023-10-25T07:45:06.000000Z"
+    },
+    {
+      "id": "5c04a346-00db-48bb-bb5d-b1e06165eac0",
+      "fromWallet": "ea85fdfe-1e6b-4be6-8245-28bd3543777b",
+      "bankAccountId": "KmQaMdjZlvELGzLxbWy",
+      "amount": "15.25",
+      "description": "wallet withdrawel",
+      "status": "PROCESSING",
+      "updatedAt": "2023-10-25T07:43:27.000000Z",
+      "createdAt": "2023-10-25T07:43:27.000000Z"
+    }
+  ]
+}
+```

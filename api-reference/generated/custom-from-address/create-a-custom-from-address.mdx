@@ -1,0 +1,173 @@
+---
+title: 'Create a custom from address'
+api: 'POST /customFromAddresses'
+---
+
+Create a custom from address
+
+Payload parameters
+
+ 
+  name
+  Required
+     String  
+     Must be no longer than 50 characters.
+  
+
+
+
+  companyName
+  Optional    
+  String
+   Must be no longer than 50 characters.
+  
+
+
+
+  addressLine1
+  Required
+  String
+   Must be no longer than 100 characters.
+  
+
+
+
+  addressLine2
+  Required    
+  String
+   Must be no longer than 100 characters.
+  
+
+
+
+  city
+  Required  
+  String
+  Must be no longer than 100 characters.
+  
+
+
+
+  state
+  Required   
+  String
+   Must be a 2 letter state short-name code 
+  
+
+
+
+  zip
+  Required 
+  String
+   Must be no longer than 15 characters.
+  
+
+
+
+  phone
+  Optional     
+  String
+   Must be no longer than 15 characters. 
+  
+
+
+
+
+  email
+  Optional   
+  String
+   Must be no longer than 15 characters.
+  
+
+
+
+  note
+  Optional   
+  String
+   An internal note that identifies this address,Must be no longer than 200 characters.
+  
+
+
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="name" type="string">
+  Request body field `name`.
+</ParamField>
+
+<ParamField body="companyName" type="string">
+  Request body field `companyName`.
+</ParamField>
+
+<ParamField body="addressLine1" type="string">
+  Request body field `addressLine1`.
+</ParamField>
+
+<ParamField body="addressLine2" type="string">
+  Request body field `addressLine2`.
+</ParamField>
+
+<ParamField body="city" type="string">
+  Request body field `city`.
+</ParamField>
+
+<ParamField body="state" type="string">
+  Request body field `state`.
+</ParamField>
+
+<ParamField body="zip" type="string">
+  Request body field `zip`.
+</ParamField>
+
+<ParamField body="phone" type="string">
+  Request body field `phone`.
+</ParamField>
+
+<ParamField body="email" type="string">
+  Request body field `email`.
+</ParamField>
+
+<ParamField body="note" type="string">
+  Request body field `note`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /customFromAddresses`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/customFromAddresses" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "gpNlkQ4rqjwnOV0",
+    "name": "Stella R Pelton",
+    "companyName": null,
+    "addressLine1": "2915  Frederick Street",
+    "addressLine2": "9466 Del Monte Ave.Lindenhurst, NY 11757",
+    "city": "SAINT PETERS",
+    "state": "MO",
+    "zip": "63376",
+    "phone": "900244400",
+    "email": "email@test.com",
+    "note": null
+  }
+}
+```

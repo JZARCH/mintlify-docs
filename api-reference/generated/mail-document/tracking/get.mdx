@@ -1,0 +1,28 @@
+---
+title: 'Get'
+api: 'GET /documentmailing/tracking/{documentId}'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="documentId" type="string" required>
+  Path parameter `documentId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /documentmailing/tracking/{documentId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/documentmailing/tracking/{documentId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```

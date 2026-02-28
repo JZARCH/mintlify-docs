@@ -1,0 +1,144 @@
+---
+title: 'Update Wallet Spend Card'
+api: 'PUT /card-program/card/b093ef67-c6d5-4c9a-ae84-154c7c8558a'
+---
+
+Use this endpoint to update a wallet spend card’s limit, interval, label, and restrictions, including allowed Merchant names, category codes, countries, cities, and permitted transaction times.
+
+### **Path Parameters**
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `cardId` | `string` | ✅ | Unique identifier of the card to be updated. |
+
+**Payload Parameters**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `limitAmount` | `number` | Maximum allowable spending amount on the card, per the defined limitInterval. |
+| `limitInterval` | `string` | Time interval for resetting the card limit. Accepted values: 'monthly', 'allTime', 'daily', 'weekly', 'perTransaction', 'yearly' |
+| `label` | `string` | A user-defined label or nickname to help identify the card. |
+| restrictionSettings | `object` | Additional rules and controls to limit how and where the card can be used. |
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="limitAmount" type="number">
+  Request body field `limitAmount`.
+</ParamField>
+
+<ParamField body="limitInterval" type="string">
+  Request body field `limitInterval`.
+</ParamField>
+
+<ParamField body="label" type="string">
+  Request body field `label`.
+</ParamField>
+
+<ParamField body="restrictionSettings" type="object">
+  Request body field `restrictionSettings`.
+</ParamField>
+
+<ParamField body="restrictionSettings.validTill" type="string">
+  Request body field `restrictionSettings.validTill`.
+</ParamField>
+
+<ParamField body="restrictionSettings.allowedMerchantNames" type="string[]">
+  Request body field `restrictionSettings.allowedMerchantNames`.
+</ParamField>
+
+<ParamField body="restrictionSettings.allowedMerchantCategoryCode" type="string[]">
+  Request body field `restrictionSettings.allowedMerchantCategoryCode`.
+</ParamField>
+
+<ParamField body="restrictionSettings.allowedMerchantCountry" type="string[]">
+  Request body field `restrictionSettings.allowedMerchantCountry`.
+</ParamField>
+
+<ParamField body="restrictionSettings.allowedMerchantCity" type="string[]">
+  Request body field `restrictionSettings.allowedMerchantCity`.
+</ParamField>
+
+<ParamField body="restrictionSettings.allowedTime" type="object">
+  Request body field `restrictionSettings.allowedTime`.
+</ParamField>
+
+<ParamField body="restrictionSettings.allowedTime.timezone" type="string">
+  Request body field `restrictionSettings.allowedTime.timezone`.
+</ParamField>
+
+<ParamField body="restrictionSettings.allowedTime.times" type="object[]">
+  Request body field `restrictionSettings.allowedTime.times`.
+</ParamField>
+
+## Request
+
+Endpoint: `PUT /card-program/card/b093ef67-c6d5-4c9a-ae84-154c7c8558a`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/card-program/card/b093ef67-c6d5-4c9a-ae84-154c7c8558a" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "2ad46340-88f2-4c9a-809b-55304f98da43",
+    "cardProgramIssuingRecordId": "",
+    "cardType": "virtual",
+    "label": "Eric Samuel",
+    "nameOnCard": "Eric Abidal",
+    "limitAmount": "250.00",
+    "limitInterval": "weekly",
+    "last4": "8309",
+    "cardStatus": "active",
+    "expiryMonth": "11",
+    "expiryYear": "2030",
+    "restrictionSettings": {
+      "validTill": "2026-01-01",
+      "allowedMerchantNames": [
+        "amazon",
+        "flipkart"
+      ],
+      "allowedMerchantCategoryCode": [
+        "700",
+        "3350",
+        "7852"
+      ],
+      "allowedMerchantCountry": [
+        "US",
+        "IN",
+        "GB"
+      ],
+      "allowedMerchantCity": [
+        "newyork",
+        "Chicago"
+      ],
+      "allowedTime": {
+        "timezone": "America/Chicago",
+        "times": [
+          {
+            "from": "11:00",
+            "to": "12:00"
+          },
+          {
+            "from": "17:00",
+            "to": "23:59"
+          }
+        ]
+      }
+    }
+  }
+}
+```

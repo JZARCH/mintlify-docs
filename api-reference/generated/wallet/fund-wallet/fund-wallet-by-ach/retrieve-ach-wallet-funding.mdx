@@ -1,0 +1,58 @@
+---
+title: 'Retrieve ACH wallet funding'
+api: 'GET /wallet/fund-wallet/{walletId}'
+---
+
+_**STATUS AND DESCRIPTIONS**_
+
+- **PENDING**: Once the fund wallet request is created, the status will be PENDING.
+    
+- **PROCESSING**: Once the request is created, the transaction will start to process, and the status will change to PROCESSING instantly.
+    
+- **COMPLETED**: Once the transaction process is successfully completed, the funds will be available in the wallet.
+    
+- **FAILED**: When the transaction is rejected, failed, or returned during processing, the status will be FAILED.
+    
+- **RETURNED**: After the funds are released, if the transaction is returned as an ACH return, the amount will be deducted from the wallet at this time.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="walletId" type="string" required>
+  Path parameter `walletId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /wallet/fund-wallet/{walletId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/wallet/fund-wallet/{walletId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "a8c04af1-001b-4e76-aebd-f3c1a45a8d5b",
+    "toWallet": "ea85fdfe-1e6b-4be6-8245-28bd3543777b",
+    "bankAccountId": "xZqXGK2kgd4RzVv",
+    "amount": "20.36",
+    "description": "wallet funding test",
+    "status": "PROCESSING",
+    "updatedAt": "2023-10-25T09:22:52.000000Z",
+    "createdAt": "2023-10-25T09:22:51.000000Z"
+  }
+}
+```

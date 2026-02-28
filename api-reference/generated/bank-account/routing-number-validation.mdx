@@ -1,0 +1,28 @@
+---
+title: 'Routing Number Validation'
+api: 'POST /bankAccounts/routing-number/{routingNumber}'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="routingNumber" type="string" required>
+  Path parameter `routingNumber`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /bankAccounts/routing-number/{routingNumber}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/bankAccounts/routing-number/{routingNumber}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```

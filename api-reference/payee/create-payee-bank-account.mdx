@@ -1,0 +1,100 @@
+---
+title: 'Create payee bank account'
+api: 'POST /payees/{payee_id}/bank-accounts'
+---
+
+Create a bank account for an existing payee.
+
+## Request
+
+### Path parameters
+
+<ParamField path="payee_id" type="string" required>
+  Identifier of the payee to attach the bank account to.
+</ParamField>
+
+### Body
+
+<ParamField body="bankName" type="string" required>
+  Bank name.
+</ParamField>
+
+<ParamField body="routingNumber" type="string" required>
+  9-digit routing number.
+</ParamField>
+
+<ParamField body="accountNumber" type="string" required>
+  Bank account number.
+</ParamField>
+
+<ParamField body="accountType" type="string" required>
+  Type of account. For example `businessChecking`, `businessSavings`, `personalChecking`, or `personalSavings`.
+</ParamField>
+
+<ParamField body="isAllowWire" type="number">
+  Whether wire transfers are allowed (1 to enable).
+</ParamField>
+
+<ParamField body="bankAccountFirstName" type="string" required>
+  First name on the bank account.
+</ParamField>
+
+<ParamField body="bankAccountLastName" type="string" required>
+  Last name on the bank account.
+</ParamField>
+
+<ParamField body="bankAccountAddress1" type="string" required>
+  Address line 1 for the account holder.
+</ParamField>
+
+<ParamField body="bankAccountCity" type="string" required>
+  City for the account holder address.
+</ParamField>
+
+<ParamField body="bankAccountState" type="string" required>
+  State or region code such as `CA`.
+</ParamField>
+
+<ParamField body="bankAccountZip" type="string" required>
+  Postal or ZIP code.
+</ParamField>
+
+## Example
+
+```bash
+curl --location "$BASE_URL/payees/$PAYEE_ID/bank-accounts" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "bankName": "TestPayeeBankAccountOne",
+    "routingNumber": "011000015",
+    "accountNumber": "765432109876",
+    "accountType": "businessChecking",
+    "isAllowWire": 1,
+    "bankAccountFirstName": "David",
+    "bankAccountLastName": "Miller",
+    "bankAccountAddress1": "321 Oak Avenue",
+    "bankAccountCity": "Boston",
+    "bankAccountState": "MA",
+    "bankAccountZip": "02118",
+    "bankAccountCountry": "US"
+  }'
+```
+
+## Response
+
+On success, the API returns the created payee bank account.
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "nv1byeVRoeOQgrB",
+    "bankName": "TestPayeeBankAccountOne",
+    "routingNumber": "011000015",
+    "accountNumber": "765432109876",
+    "accountType": "businessChecking"
+  }
+}
+```
+

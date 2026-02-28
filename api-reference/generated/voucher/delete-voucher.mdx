@@ -1,0 +1,49 @@
+---
+title: 'Delete voucher'
+api: 'DELETE /vouchers/{voucherId}'
+---
+
+Permanently deletes a voucher.
+
+Path parameters
+
+ 
+  voucherId
+  Required    
+         The id of the voucher to be delete.
+  
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="voucherId" type="string" required>
+  Path parameter `voucherId`.
+</ParamField>
+
+## Request
+
+Endpoint: `DELETE /vouchers/{voucherId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/vouchers/{voucherId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "errorMsg": "Voucher deleted succesfully"
+}
+```

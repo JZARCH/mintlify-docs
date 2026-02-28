@@ -1,0 +1,62 @@
+---
+title: 'Initiate ACH Withdrawal'
+api: 'POST /wallet/withdraw/ach/initiate'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="fromWallet" type="string">
+  Request body field `fromWallet`.
+</ParamField>
+
+<ParamField body="toBankAccountId" type="string">
+  Request body field `toBankAccountId`.
+</ParamField>
+
+<ParamField body="amount" type="string">
+  Request body field `amount`.
+</ParamField>
+
+<ParamField body="description" type="string">
+  Request body field `description`.
+</ParamField>
+
+<ParamField body="isSameDay" type="number">
+  Request body field `isSameDay`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /wallet/withdraw/ach/initiate`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/wallet/withdraw/ach/initiate" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "5c04a346-00db-48bb-bb5d-b1e06165eac0",
+    "fromWallet": "ea85fdfe-1e6b-4be6-8245-28bd3543777b",
+    "bankAccountId": "KmQaMdjZlvELGzLxbWy",
+    "amount": "15.25",
+    "description": "wallet withdrawel",
+    "status": "PENDING",
+    "updatedAt": "2023-10-25T07:43:27.000000Z",
+    "createdAt": "2023-10-25T07:43:27.000000Z"
+  }
+}
+```

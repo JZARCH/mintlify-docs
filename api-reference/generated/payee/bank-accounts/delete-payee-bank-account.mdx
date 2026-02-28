@@ -1,0 +1,41 @@
+---
+title: 'Delete Payee Bank Account'
+api: 'DELETE /payees/{payee_id}/bank-accounts/{payee-bankaccount-id}'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="payee_id" type="string" required>
+  Path parameter `payee_id`.
+</ParamField>
+
+<ParamField path="payee-bankaccount-id" type="string" required>
+  Path parameter `payee-bankaccount-id`.
+</ParamField>
+
+## Request
+
+Endpoint: `DELETE /payees/{payee_id}/bank-accounts/{payee-bankaccount-id}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/payees/{payee_id}/bank-accounts/{payee-bankaccount-id}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": "Deleted Successfully"
+}
+```

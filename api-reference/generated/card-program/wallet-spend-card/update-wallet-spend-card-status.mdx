@@ -1,0 +1,103 @@
+---
+title: 'Update Wallet Spend Card Status'
+api: 'POST /card-program/card/{cardId}/change-status'
+---
+
+Use this endpoint to update the status of a wallet spend card.
+
+### **Path Parameters**
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `cardId` | `string` | ✅ | Unique identifier of the card whose status is to be changed. |
+
+### **Request Body Parameters**
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `status` | `string` | ✅ | New card status. Possible Accepdted values: `active` and `inactive` |
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="cardId" type="string" required>
+  Path parameter `cardId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="status" type="string">
+  Request body field `status`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /card-program/card/{cardId}/change-status`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/card-program/card/{cardId}/change-status" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "2ad46340-88f2-4c9a-809b-55304f98da43",
+    "cardProgramIssuingRecordId": "",
+    "cardType": "virtual",
+    "label": "Eric Samuel",
+    "nameOnCard": "Eric Samuel",
+    "limitAmount": "250.00",
+    "limitInterval": "weekly",
+    "last4": "8309",
+    "cardStatus": "active",
+    "expiryMonth": "11",
+    "expiryYear": "2030",
+    "restrictionSettings": {
+      "validTill": "2026-01-01",
+      "allowedMerchantNames": [
+        "amazon",
+        "flipkart"
+      ],
+      "allowedMerchantCategoryCode": [
+        "700",
+        "3350",
+        "7852"
+      ],
+      "allowedMerchantCountry": [
+        "US",
+        "IN",
+        "GB"
+      ],
+      "allowedMerchantCity": [
+        "newyork",
+        "Chicago"
+      ],
+      "allowedTime": {
+        "timezone": "America/Chicago",
+        "times": [
+          {
+            "from": "11:00",
+            "to": "12:00"
+          },
+          {
+            "from": "17:00",
+            "to": "23:59"
+          }
+        ]
+      }
+    }
+  }
+}
+```

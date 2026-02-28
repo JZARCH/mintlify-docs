@@ -1,0 +1,101 @@
+---
+title: 'Retrieve all payees'
+api: 'GET /payees'
+---
+
+List all payee records.
+
+Query parameters
+
+ 
+  perPage
+     Number of records that you want to receive in the response,By default 10 records will be 
+          listed
+   
+  
+  page
+    For navigating through pages ,By default first page will be listed 
+  
+  
+    term
+     Filter records by using any keywords
+   
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Query parameters
+
+<ParamField query="perPage" type="string">
+  Number of records that you want to receive in the response,By default 10 records will be listed
+</ParamField>
+
+<ParamField query="page" type="string">
+  By default first page will be listed
+</ParamField>
+
+<ParamField query="term" type="string">
+  Filter records by using any keywords
+</ParamField>
+
+## Request
+
+Endpoint: `GET /payees`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/payees" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "meta": {
+      "total": 2,
+      "currentPage": 1,
+      "perPage": 10
+    },
+    "payees": [
+      {
+        "payeeId": "Xw2lx48MdGMzWyD",
+        "name": "Alison",
+        "nickName": null,
+        "company": null,
+        "email": "email@test.com",
+        "phone": "900244400",
+        "address1": "95113 mark street rod",
+        "address2": null,
+        "city": "Sanjose",
+        "state": "CA",
+        "zip": "95113",
+        "country": "US"
+      },
+      {
+        "payeeId": "mQ0bRG235eZdP3x",
+        "name": "Alison Gambala",
+        "nickName": null,
+        "company": null,
+        "email": "email@test.com",
+        "phone": "900244400",
+        "address1": "95113 mark street rod",
+        "address2": null,
+        "city": "Sanjose",
+        "state": "CA",
+        "zip": "95113",
+        "country": "US"
+      }
+    ]
+  }
+}
+```

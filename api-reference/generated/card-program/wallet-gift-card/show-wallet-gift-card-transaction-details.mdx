@@ -1,0 +1,60 @@
+---
+title: 'Show Wallet Gift Card Transaction Details'
+api: 'GET /card-program/{cardProgramId}/transactions'
+---
+
+This API endpoint retrieves the transaction history and details for a specific gift card linked to a wallet using the card ID.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="cardProgramId" type="string" required>
+  Path parameter `cardProgramId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /card-program/{cardProgramId}/transactions`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/card-program/{cardProgramId}/transactions" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "meta": {
+    "total": 1,
+    "perPage": 10,
+    "currentPage": 1,
+    "lastPage": 1
+  },
+  "data": [
+    {
+      "id": "91b8f94c-ad88-4b00-ab74-3364727be61b",
+      "cardProgramIssuingRecordId": "e624997b-83d7-48a1-8f57-8787e8de61ff",
+      "cardId": "dd1123c4-3160-4e88-8dca-13ea58b9e675",
+      "amount": "50.00",
+      "description": "Amazone                  ",
+      "status": "declined",
+      "transactionDate": "2025-03-26 10:43:51",
+      "merchantName": "Amazone                  ",
+      "merchantCity": null,
+      "merchantState": null,
+      "merchantCountry": null,
+      "merchantCategoryCode": ""
+    }
+  ]
+}
+```

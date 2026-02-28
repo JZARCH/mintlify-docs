@@ -1,0 +1,121 @@
+---
+title: 'card-program.card.transaction.updated'
+api: 'POST /'
+---
+
+## card-program.card.transaction.updated
+
+Triggered when a **card transaction status changes** — e.g., an authorization settles, is reversed, or is declined after initially pending.
+
+**Trigger:** A `CardProgramCardTransaction` record is updated with a new status or reviewed state.
+
+**Source:** `CardProgramCardTransaction::boot()::updated()` → `CardProgramCardTransactionResource`
+
+---
+
+Same schema as `card-program.card.transaction.created`. The `data.status` field reflects the new transaction state.
+
+## Status Transitions
+
+```
+APPROVED → SETTLED       (authorization settles, typically T+1)
+APPROVED → REVERSED      (merchant voids/reverses the transaction)
+PENDING  → APPROVED      (authorization completes)
+PENDING  → DECLINED      (authorization denied)
+```
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="event" type="object">
+  Request body field `event`.
+</ParamField>
+
+<ParamField body="event.type" type="string">
+  Request body field `event.type`.
+</ParamField>
+
+<ParamField body="event.id" type="string">
+  Request body field `event.id`.
+</ParamField>
+
+<ParamField body="event.createdAt" type="string">
+  Request body field `event.createdAt`.
+</ParamField>
+
+<ParamField body="event.data" type="object">
+  Request body field `event.data`.
+</ParamField>
+
+<ParamField body="event.data.id" type="string">
+  Request body field `event.data.id`.
+</ParamField>
+
+<ParamField body="event.data.cardProgramIssuingRecordId" type="string">
+  Request body field `event.data.cardProgramIssuingRecordId`.
+</ParamField>
+
+<ParamField body="event.data.cardId" type="string">
+  Request body field `event.data.cardId`.
+</ParamField>
+
+<ParamField body="event.data.amount" type="string">
+  Request body field `event.data.amount`.
+</ParamField>
+
+<ParamField body="event.data.description" type="string">
+  Request body field `event.data.description`.
+</ParamField>
+
+<ParamField body="event.data.status" type="string">
+  Request body field `event.data.status`.
+</ParamField>
+
+<ParamField body="event.data.is_reviewed" type="number">
+  Request body field `event.data.is_reviewed`.
+</ParamField>
+
+<ParamField body="event.data.transactionDate" type="string">
+  Request body field `event.data.transactionDate`.
+</ParamField>
+
+<ParamField body="event.data.merchantName" type="string">
+  Request body field `event.data.merchantName`.
+</ParamField>
+
+<ParamField body="event.data.merchantCity" type="string">
+  Request body field `event.data.merchantCity`.
+</ParamField>
+
+<ParamField body="event.data.merchantState" type="string">
+  Request body field `event.data.merchantState`.
+</ParamField>
+
+<ParamField body="event.data.merchantCountry" type="string">
+  Request body field `event.data.merchantCountry`.
+</ParamField>
+
+<ParamField body="event.data.merchantCategoryCode" type="string">
+  Request body field `event.data.merchantCategoryCode`.
+</ParamField>
+
+<ParamField body="event.data.merchantCategory" type="string">
+  Request body field `event.data.merchantCategory`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```

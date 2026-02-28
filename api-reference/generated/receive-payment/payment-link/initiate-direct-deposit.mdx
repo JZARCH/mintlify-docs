@@ -1,0 +1,34 @@
+---
+title: 'Initiate Direct Deposit'
+api: 'POST /getpaid-by-form/check/{referenceId}/direct-deposit'
+---
+
+You can initiate direct deposit using check `referenceId`
+
+The allowed statuses are GPBL Acpt/Rej , GPBL Viewed , GPBL Accepted & GPBL TTP
+
+The associated deposit bank account should be approved for ACH .
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="referenceId" type="string" required>
+  Path parameter `referenceId`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /getpaid-by-form/check/{referenceId}/direct-deposit`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/getpaid-by-form/check/{referenceId}/direct-deposit" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```

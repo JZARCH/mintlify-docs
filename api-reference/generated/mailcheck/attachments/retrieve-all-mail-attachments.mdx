@@ -1,0 +1,68 @@
+---
+title: 'Retrieve all mail attachments'
+api: 'GET /mailchecks/{checkId}/attachments'
+---
+
+List of all mail attachments on a check,This attachments will include when create mail with this check.
+
+Path parameters
+
+ 
+  checkId
+  Required    
+         Id of the Check.
+  
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="checkId" type="string" required>
+  Path parameter `checkId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /mailchecks/{checkId}/attachments`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/mailchecks/{checkId}/attachments" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": false,
+  "data": [
+    {
+      "mailAttachmentId": "JB1y3GLy6epX8z6",
+      "checkId": "LRko4z7YLVGbY7y",
+      "fileName": "82825_sample.pdf",
+      "fileNickName": "1",
+      "fileUrl": null,
+      "pageCount": 2,
+      "createdDate": "07-24-2020"
+    },
+    {
+      "mailAttachmentId": "z6VoW41Yk4589lK",
+      "checkId": "LRko4z7YLVGbY7y",
+      "fileName": "82825_1599133050_Online Check Writer (25).pdf",
+      "fileNickName": "2",
+      "fileUrl": null,
+      "pageCount": 1,
+      "createdDate": "09-03-2020"
+    }
+  ]
+}
+```

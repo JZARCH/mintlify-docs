@@ -1,0 +1,16 @@
+---
+title: 'MailCheck API'
+description: 'Endpoints in the MailCheck section of the Online Check Writer API v3'
+---
+
+This page lists all endpoints that belong to the **MailCheck** folder in the Postman collection.
+
+| Method | Path | Endpoint |
+| --- | --- | --- |
+| `POST` | `/mailchecks` | [Create new mail check](/api-reference/generated/mailcheck/create-new-mail-check) |
+| `GET` | `/mailchecks/{checkId}/attachments` | [Retrieve all mail attachments](/api-reference/generated/mailcheck/attachments/retrieve-all-mail-attachments) |
+| `POST` | `/mailchecks/{checkId}/attachments` | [Add new mail attachment](/api-reference/generated/mailcheck/attachments/add-new-mail-attachment) |
+| `DELETE` | `/mailchecks/{checkId}/attachments/{mailAttachmentId}` | [Delete mail attachment](/api-reference/generated/mailcheck/attachments/delete-mail-attachment) |
+| `GET` | `/mailchecks/{checkId}/tracking` | [Track Mail Check](/api-reference/generated/mailcheck/track-mail-check) |
+| `POST` | `/mailchecks/calculateFee` | [Calculate Fee](/api-reference/generated/mailcheck/calculate-fee) |
+| `GET` | `/mailchecks/mailingOptions` | [Retrieve all mail options](/api-reference/generated/mailcheck/retrieve-all-mail-options) |

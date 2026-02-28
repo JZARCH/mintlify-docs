@@ -1,0 +1,79 @@
+---
+title: 'Retrieve Payment Info'
+api: 'GET /send-payment/{paymentId}/info'
+---
+
+You can retrieve the payment status by passing the payment ID.
+
+**PAYMENT STATUS**
+
+| **Status** | **Description** |
+| --- | --- |
+| PENDING | The payment request has been created but not initiated yet. |
+| PROCESSING | The payment has been initiated and is in progress. |
+| COMPLETED | The payment has been successfully executed and finalized. |
+| FAILED | Payment was rejected or returned |
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="paymentId" type="string" required>
+  Path parameter `paymentId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /send-payment/{paymentId}/info`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/send-payment/{paymentId}/info" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "26d94501-04ad-40f8-9ce4-03624fd0fbf2",
+    "amount": "1.25",
+    "payeeId": "36gYVewEo4dx7bD",
+    "transferType": "wire",
+    "referenceNo": "",
+    "status": "PROCESSING",
+    "description": "Payroll",
+    "source": {
+      "sourceType": "bankAccount",
+      "sourceId": "rRBQPA4m375qe7gxqXW"
+    },
+    "virtualCard": null,
+    "wire": {
+      "imad": "",
+      "beneficiary": {
+        "name": "GolbalTech Solution ",
+        "account_number": "123456789",
+        "routing_number": "113103276",
+        "account_type": "CHECKING",
+        "address1": "1234 East Elm Street",
+        "address2": "",
+        "city": "Springfield",
+        "state": "MO",
+        "zip": "65802",
+        "country": "US"
+      }
+    },
+    "ach": null,
+    "createdAt": "2024-08-25T06:45:56.000000Z",
+    "updatedAt": "2024-08-25T06:46:08.000000Z"
+  }
+}
+```

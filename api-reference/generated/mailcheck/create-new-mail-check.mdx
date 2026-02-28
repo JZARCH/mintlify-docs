@@ -1,0 +1,59 @@
+---
+title: 'Create new mail check'
+api: 'POST /mailchecks'
+---
+
+You can create multiple checks in one single request
+
+**Payload parameters**
+
+isShippingToCustomAddressOptionalBooleanValue is true if sending mail to custom address,By default falsecustomFromAddressIdOptionalStringMust be custom from address ID ,Required if isShippingToCustomAddress is truecustomToAddressIdOptionalStringMust be custom to address ID ,Required if isShippingToCustomAddress istruecustomShippingTypeIdOptionalStringMust be valid customShippingTypeId ,Required ifisShippingToCustomAddress is truemailChecksRequiredArrayAn array of mailChecks attributes
+
+`_mailChecks_` _attributes_
+
+checkIdRequiredStringMust be a check IDshippingTypeIdRequiredIntegerMust be a valid shippingTypeIdpaperTypeIdRequiredIntegerMust be a valid paperTypeIdinformTypeIdOptionalIntegerMust be a valid informTypeIdenableSmsInformOptionalBooleanBy default falseenableEmailInformOptionalBooleanBy default falsepayeeEmailOptionalStringRequired if enableEmailInform is true and not exist any email on associated payee,payeePhoneOptionalStringRequired if enableSmsInform is true and not exist any phone onassociated payee
+
+Shipping Types
+
+Shipping Type IdDescription1First Class3First Class with Tracking4Priority Mail5Express Mail12Standard Overnight -Fedex-By 3pm the next business day20Fedex Satureday Delivery
+
+Paper Types
+
+Paper Type IdDescription7Regular Check Paper8Hollogram Check Paper9Ultra Hollogram Check Paper
+
+Inform Types
+
+Inform Type IdDescription10Notify Receiver by Sms
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="mailChecks" type="object[]">
+  Request body field `mailChecks`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /mailchecks`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/mailchecks" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "successfully mailed"
+}
+```

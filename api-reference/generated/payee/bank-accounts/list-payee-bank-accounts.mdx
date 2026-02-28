@@ -1,0 +1,48 @@
+---
+title: 'List Payee Bank Accounts'
+api: 'GET /payees/{payee_id}/bank-accounts'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="payee_id" type="string" required>
+  Path parameter `payee_id`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /payees/{payee_id}/bank-accounts`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/payees/{payee_id}/bank-accounts" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "36gYVewQb4dx7bD",
+      "bankName": "TestPayeeBankAccount",
+      "accountNumber": "65543457875487",
+      "routingNumber": "011000015",
+      "accountType": "SAVINGS",
+      "defaultDDAccount": 1,
+      "defaultCDAccount": 0,
+      "verified": null
+    }
+  ]
+}
+```

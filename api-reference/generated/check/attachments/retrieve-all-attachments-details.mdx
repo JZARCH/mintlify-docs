@@ -1,0 +1,66 @@
+---
+title: 'Retrieve all attachments details'
+api: 'GET /checks/{checkId}/attachments'
+---
+
+Retrieve all attachments of a existing check.
+
+Path parameters
+
+ 
+  checkId
+  Required    
+         The id of the check.
+  
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="checkId" type="string" required>
+  Path parameter `checkId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /checks/{checkId}/attachments`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/checks/{checkId}/attachments" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "checkAttachmentId": "RdJM5Gb3JeY329A",
+      "checkId": "7rLdjvvqx2jJEz6",
+      "fileName": "check_attachment_1603187841_OnlineCheckWriter.pdf",
+      "fileNickName": "1",
+      "pageCount": 1,
+      "createdDate": "10-20-2020"
+    },
+    {
+      "checkAttachmentId": "MRJ6qGAX84E1rDZ",
+      "checkId": "7rLdjvvqx2jJEz6",
+      "fileName": "check_attachment_1603187883_OnlineCheckWriter.pdf",
+      "fileNickName": "2",
+      "pageCount": 1,
+      "createdDate": "10-20-2020"
+    }
+  ]
+}
+```

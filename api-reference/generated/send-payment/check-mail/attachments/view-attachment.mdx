@@ -1,0 +1,39 @@
+---
+title: 'View Attachment'
+api: 'GET /attachment/{attachment_id}'
+---
+
+This API retrieves the uploaded attachment using the provided `attachment_id` and returns a **secure pre-signed URL** to view or download the file.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="attachment_id" type="string" required>
+  Path parameter `attachment_id`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /attachment/{attachment_id}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/attachment/{attachment_id}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+    "success": true,
+    "data": "https://ocw-local-s3.s3.amazonaws.com/allattachments/zilpayment/1770804208-pdf-v-558c7fbd-8f98-4bf3-817d-335b06611a68-1.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential={{vault:aws-access-key}}%2F20260211%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260211T100427Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Signature=3274026c04adf618415a3d896b21525c313d2cd041b514a7a12d76860536845c%22
+}
+```

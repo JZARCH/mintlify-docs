@@ -1,0 +1,49 @@
+---
+title: 'Delete a Payee'
+api: 'DELETE /payees/{payeeId}'
+---
+
+Permanently deletes a payee. 
+
+Path parameters
+
+ 
+  payeeId
+  Required    
+         The id of the payee to delete
+  
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="payeeId" type="string" required>
+  Path parameter `payeeId`.
+</ParamField>
+
+## Request
+
+Endpoint: `DELETE /payees/{payeeId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/payees/{payeeId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Succesfully deleted"
+}
+```

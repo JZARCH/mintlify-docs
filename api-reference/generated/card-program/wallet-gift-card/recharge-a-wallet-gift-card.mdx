@@ -1,0 +1,50 @@
+---
+title: 'Recharge a Wallet Gift Card'
+api: 'POST /card-program/gift-card/add-fund'
+---
+
+Add funds to an existing gift card using its unique ID. Specify the amount to recharge the card balance.
+
+**Payload Parameters**
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| id | String | The unique identifier of the gift card. |
+| amount | Number | The amount to be added to the gift card. |
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="id" type="string">
+  Request body field `id`.
+</ParamField>
+
+<ParamField body="amount" type="number">
+  Request body field `amount`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /card-program/gift-card/add-fund`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/card-program/gift-card/add-fund" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Success"
+}
+```

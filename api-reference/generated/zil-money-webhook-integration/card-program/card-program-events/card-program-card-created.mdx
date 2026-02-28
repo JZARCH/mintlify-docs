@@ -1,0 +1,218 @@
+---
+title: 'card-program.card.created'
+api: 'POST /'
+---
+
+## card-program.card.created
+
+Triggered when a new **card program issuing record** (virtual or physical card) is successfully created for a user.
+
+**Trigger:** A `CardProgramIssuingRecord` is created and the card is issued via the card network.
+
+**Source:** `CardProgramCardDetail::boot()::created()` → `DebitCardResources`
+
+---
+
+## Payload Field Reference
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `data.id` | string (UUID) | Unique identifier for the card issuing record |
+| `data.walletId` | string (UUID) | UUID of the wallet associated with this card |
+| `data.status` | string | Issuing record status: `PENDING` at creation, then `ACTIVE`, `INACTIVE`, `BLOCKED`, `CANCELED` |
+| `data.card.id` | string (UUID) | UUID of the card detail record |
+| `data.card.cardProgramIssuingRecordId` | string (UUID) | UUID of the parent issuing record |
+| `data.card.cardType` | string | `virtual` or `physical` (lowercase) |
+| `data.card.label` | string | User-defined card label (often the cardholder name) |
+| `data.card.nameOnCard` | string | Name printed on the card |
+| `data.card.limitAmount` | string | Spending limit amount |
+| `data.card.limitInterval` | string | Limit interval: `daily`, `weekly`, `monthly`, `yearly`, `lifetime`, `per_authorization` (lowercase) |
+| `data.card.last4` | string | Last 4 digits of the card number |
+| `data.card.cardStatus` | string | Card network status: `active`, `inactive`, `blocked`, `canceled` (lowercase) |
+| `data.card.expiryMonth` | string | Card expiry month (no leading zero, e.g., `"5"`) |
+| `data.card.expiryYear` | string | Card expiry year (4 digits) |
+| `data.card.cardIssueType` | string | Issuance type: `WALLET_CARD`, `EMPLOYEE`, `VENDOR`, `PERSONAL`, `RECHARGEABLE_GIFT_CARD` |
+| `data.card.wallet` | object\|null | Associated wallet: `id`, `availableBalance`, `currentBalance`, `walletName` (no `walletType` in V3) |
+| `data.card.restrictionSettings` | object | Spending restrictions (empty object `{}` when none configured; see structure below) |
+| `data.updatedAt` | ISO 8601 datetime | Last updated timestamp |
+| `data.createdAt` | ISO 8601 datetime | Creation timestamp |
+
+## restrictionSettings Object
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `validTill` | string (date) | Card expiry/validity date in `YYYY-MM-DD` format |
+| `allowedMerchantNames` | array of strings | Whitelisted merchant names (lowercase) |
+| `allowedMerchantCategoryCode` | array of strings | Whitelisted MCC codes |
+| `allowedMerchantCountry` | array of strings | Whitelisted 2-letter country codes |
+| `allowedMerchantCity` | array of strings | Whitelisted city names |
+| `allowedTime.timezone` | string | IANA timezone (e.g., `"America/Chicago"`) |
+| `allowedTime.times` | array of objects | Allowed time windows: `[{ "from": "HH:MM", "to": "HH:MM" }]` |
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="event" type="object">
+  Request body field `event`.
+</ParamField>
+
+<ParamField body="event.type" type="string">
+  Request body field `event.type`.
+</ParamField>
+
+<ParamField body="event.id" type="string">
+  Request body field `event.id`.
+</ParamField>
+
+<ParamField body="event.createdAt" type="string">
+  Request body field `event.createdAt`.
+</ParamField>
+
+<ParamField body="event.data" type="object">
+  Request body field `event.data`.
+</ParamField>
+
+<ParamField body="event.data.id" type="string">
+  Request body field `event.data.id`.
+</ParamField>
+
+<ParamField body="event.data.walletId" type="string">
+  Request body field `event.data.walletId`.
+</ParamField>
+
+<ParamField body="event.data.status" type="string">
+  Request body field `event.data.status`.
+</ParamField>
+
+<ParamField body="event.data.card" type="object">
+  Request body field `event.data.card`.
+</ParamField>
+
+<ParamField body="event.data.card.id" type="string">
+  Request body field `event.data.card.id`.
+</ParamField>
+
+<ParamField body="event.data.card.cardProgramIssuingRecordId" type="string">
+  Request body field `event.data.card.cardProgramIssuingRecordId`.
+</ParamField>
+
+<ParamField body="event.data.card.cardType" type="string">
+  Request body field `event.data.card.cardType`.
+</ParamField>
+
+<ParamField body="event.data.card.label" type="string">
+  Request body field `event.data.card.label`.
+</ParamField>
+
+<ParamField body="event.data.card.nameOnCard" type="string">
+  Request body field `event.data.card.nameOnCard`.
+</ParamField>
+
+<ParamField body="event.data.card.limitAmount" type="string">
+  Request body field `event.data.card.limitAmount`.
+</ParamField>
+
+<ParamField body="event.data.card.limitInterval" type="string">
+  Request body field `event.data.card.limitInterval`.
+</ParamField>
+
+<ParamField body="event.data.card.last4" type="string">
+  Request body field `event.data.card.last4`.
+</ParamField>
+
+<ParamField body="event.data.card.cardStatus" type="string">
+  Request body field `event.data.card.cardStatus`.
+</ParamField>
+
+<ParamField body="event.data.card.expiryMonth" type="string">
+  Request body field `event.data.card.expiryMonth`.
+</ParamField>
+
+<ParamField body="event.data.card.expiryYear" type="string">
+  Request body field `event.data.card.expiryYear`.
+</ParamField>
+
+<ParamField body="event.data.card.cardIssueType" type="string">
+  Request body field `event.data.card.cardIssueType`.
+</ParamField>
+
+<ParamField body="event.data.card.wallet" type="object">
+  Request body field `event.data.card.wallet`.
+</ParamField>
+
+<ParamField body="event.data.card.wallet.id" type="string">
+  Request body field `event.data.card.wallet.id`.
+</ParamField>
+
+<ParamField body="event.data.card.wallet.availableBalance" type="string">
+  Request body field `event.data.card.wallet.availableBalance`.
+</ParamField>
+
+<ParamField body="event.data.card.wallet.currentBalance" type="string">
+  Request body field `event.data.card.wallet.currentBalance`.
+</ParamField>
+
+<ParamField body="event.data.card.wallet.walletName" type="string">
+  Request body field `event.data.card.wallet.walletName`.
+</ParamField>
+
+<ParamField body="event.data.card.restrictionSettings" type="object">
+  Request body field `event.data.card.restrictionSettings`.
+</ParamField>
+
+<ParamField body="event.data.card.restrictionSettings.validTill" type="string">
+  Request body field `event.data.card.restrictionSettings.validTill`.
+</ParamField>
+
+<ParamField body="event.data.card.restrictionSettings.allowedMerchantNames" type="string[]">
+  Request body field `event.data.card.restrictionSettings.allowedMerchantNames`.
+</ParamField>
+
+<ParamField body="event.data.card.restrictionSettings.allowedMerchantCategoryCode" type="string[]">
+  Request body field `event.data.card.restrictionSettings.allowedMerchantCategoryCode`.
+</ParamField>
+
+<ParamField body="event.data.card.restrictionSettings.allowedMerchantCountry" type="string[]">
+  Request body field `event.data.card.restrictionSettings.allowedMerchantCountry`.
+</ParamField>
+
+<ParamField body="event.data.card.restrictionSettings.allowedMerchantCity" type="string[]">
+  Request body field `event.data.card.restrictionSettings.allowedMerchantCity`.
+</ParamField>
+
+<ParamField body="event.data.card.restrictionSettings.allowedTime" type="object">
+  Request body field `event.data.card.restrictionSettings.allowedTime`.
+</ParamField>
+
+<ParamField body="event.data.card.restrictionSettings.allowedTime.timezone" type="string">
+  Request body field `event.data.card.restrictionSettings.allowedTime.timezone`.
+</ParamField>
+
+<ParamField body="event.data.card.restrictionSettings.allowedTime.times" type="object[]">
+  Request body field `event.data.card.restrictionSettings.allowedTime.times`.
+</ParamField>
+
+<ParamField body="event.data.updatedAt" type="string">
+  Request body field `event.data.updatedAt`.
+</ParamField>
+
+<ParamField body="event.data.createdAt" type="string">
+  Request body field `event.data.createdAt`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```

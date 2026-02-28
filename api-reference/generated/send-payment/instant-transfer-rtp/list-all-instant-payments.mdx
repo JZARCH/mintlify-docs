@@ -1,0 +1,74 @@
+---
+title: 'List All Instant Payments'
+api: 'GET /send-payment/instant_transfer'
+---
+
+Get all the Wire payments you have initiated.
+
+**Query parameters**
+
+referenceNoFilter records by referenceNo
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /send-payment/instant_transfer`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/send-payment/instant_transfer" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "meta": {
+    "total": 2,
+    "perPage": 10,
+    "currentPage": 1,
+    "lastPage": 1
+  },
+  "data": [
+    {
+      "id": "d78696d8-f7e8-40df-953c-c27f1cafe2bd",
+      "amount": "11.11",
+      "payeeId": "903wmjY5Yj71bkv",
+      "transferType": "RTP",
+      "referenceNo": "78",
+      "status": "COMPLETED",
+      "description": "test",
+      "source": {
+        "sourceType": "wallet",
+        "sourceId": "e9633880-6b23-466f-87bb-93832d38191c"
+      },
+      "createdAt": "2024-08-21T13:55:07.000000Z",
+      "updatedAt": "2024-08-21T13:55:37.000000Z"
+    },
+    {
+      "id": "a8e32f49-6d0d-4ef1-8d85-277e7ae017c6",
+      "amount": "15.25",
+      "payeeId": "JB1y3GLaOepX8z6",
+      "transferType": "RTP",
+      "referenceNo": "",
+      "status": "FAILED",
+      "description": "test",
+      "source": {
+        "sourceType": "wallet",
+        "sourceId": "e9633880-6b23-466f-87bb-93832d38191c"
+      },
+      "createdAt": "2024-08-21T12:59:29.000000Z",
+      "updatedAt": "2024-08-21T12:59:58.000000Z"
+    }
+  ]
+}
+```

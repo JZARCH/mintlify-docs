@@ -1,0 +1,35 @@
+---
+title: 'Upload Document'
+api: 'POST /documentmailing/upload'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /documentmailing/upload`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/documentmailing/upload" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "Xw2lx4820eMzWyD",
+    "document_title": "Certificate of Completion 2023",
+    "document_name": "document_mailing/819096/1709586314-dummy.pdf"
+  }
+}
+```

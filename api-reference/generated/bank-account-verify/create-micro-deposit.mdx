@@ -1,0 +1,31 @@
+---
+title: 'Create Micro Deposit'
+api: 'POST /bank-account-verify/micro-deposit'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /bank-account-verify/micro-deposit`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/bank-account-verify/micro-deposit" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Your application has been submitted"
+}
+```

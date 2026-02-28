@@ -1,0 +1,45 @@
+---
+title: 'Confirm Micro Deposit'
+api: 'POST /bank-account-verify/confirm-micro-deposit'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="bankAccountId" type="string">
+  Request body field `bankAccountId`.
+</ParamField>
+
+<ParamField body="amount1" type="number">
+  Request body field `amount1`.
+</ParamField>
+
+<ParamField body="amount2" type="number">
+  Request body field `amount2`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /bank-account-verify/confirm-micro-deposit`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/bank-account-verify/confirm-micro-deposit" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Your account has been verified successfully"
+}
+```

@@ -1,0 +1,92 @@
+---
+title: 'Send Instant Payment/RTP'
+api: 'POST /send-payment/instant_transfer'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="sourceType" type="string">
+  Request body field `sourceType`.
+</ParamField>
+
+<ParamField body="sourceId" type="string">
+  Request body field `sourceId`.
+</ParamField>
+
+<ParamField body="amount" type="string">
+  Request body field `amount`.
+</ParamField>
+
+<ParamField body="description" type="string">
+  Request body field `description`.
+</ParamField>
+
+<ParamField body="payeeId" type="string">
+  Request body field `payeeId`.
+</ParamField>
+
+<ParamField body="payeeBankAccount" type="string">
+  Request body field `payeeBankAccount`.
+</ParamField>
+
+<ParamField body="referenceNo" type="string">
+  Request body field `referenceNo`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /send-payment/instant_transfer`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/send-payment/instant_transfer" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "d14a2933-bdc0-4527-b719-2f12d1f23bf3",
+    "amount": "2.00",
+    "payeeId": "36gYVewEo4dx7bD",
+    "transferType": "RTP",
+    "referenceNo": "12312",
+    "status": "PROCESSING",
+    "description": "v3 pay 1",
+    "source": {
+      "sourceType": "wallet",
+      "sourceId": "e9633880-6b23-466f-87bb-93832d38191c"
+    },
+    "virtualCard": null,
+    "wire": null,
+    "instant_transfer": {
+      "beneficiary": {
+        "name": "GolbalTech Solution ",
+        "account_number": "123456789",
+        "routing_number": "113103276",
+        "account_type": "CHECKING",
+        "address1": "1234 East Elm Street",
+        "address2": "",
+        "city": "Springfield",
+        "state": "MO",
+        "zip": "65802",
+        "country": "US"
+      }
+    },
+    "ach": null,
+    "createdAt": "2024-08-25T07:32:15.000000Z",
+    "updatedAt": "2024-08-25T07:32:15.000000Z"
+  }
+}
+```

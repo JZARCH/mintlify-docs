@@ -1,0 +1,148 @@
+---
+title: 'manual-ach.initiated'
+api: 'POST /'
+---
+
+## manual-ach.initiated
+
+Triggered when a **manual ACH pull** transfer is created by a Zil Money user.
+
+**Trigger:** User initiates a manual ACH pull from a connected bank account into their Zil Money wallet.
+
+**Source:** `BankingAchTransferRequestObserver::created()` → `BankingAchPullTransferRequestResource`
+
+---
+
+## Payload Field Reference
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `data.id` | string (UUID) | Unique identifier for this ACH transfer request |
+| `data.achEnabledBankAccountId` | string | Encrypted ID of the ACH-enabled bank account being pulled from |
+| `data.payeeId` | string | Encrypted ID of the payee associated with this transfer |
+| `data.amount` | string | Transfer amount — sent as raw value without guaranteed decimal formatting (e.g., `"423.1"` not `"423.10"`) |
+| `data.toWallet` | string | Destination wallet UUID (e.g., `"deab2f42-8b8b-47ad-b766-eacc632df634"`) |
+| `data.fromAccount.account_number` | string | Source bank account number — **full unmasked number** |
+| `data.fromAccount.routing_number` | string | ABA routing number of the source bank |
+| `data.description` | string | User-provided transfer description |
+| `data.referenceNumber` | string | Customer-provided reference number for reconciliation |
+| `data.status` | string | Current status: `PENDING`, `PROCESSING`, `COMPLETED`, `CANCELED`, `FAILED`, `RETURNED` |
+| `data.customMetaData` | object\|null | Optional user-defined metadata attached to the transfer (object when set, `null` when not provided) |
+| `data.achPullReturnCode` | string\|null | ACH return reason code if returned (e.g., `R01`) — `null` until returned |
+| `data.achPullReturnDescription` | string\|null | Human-readable description of the ACH return reason — `null` until returned |
+| `data.updatedAt` | ISO 8601 datetime | Last updated timestamp |
+| `data.createdAt` | ISO 8601 datetime | Creation timestamp |
+
+> ⚠️ **Security Note:** `data.fromAccount.account_number` contains the **full unmasked bank account number**. Treat this field as sensitive — store encrypted, never log in plaintext, and restrict access accordingly.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="event" type="object">
+  Request body field `event`.
+</ParamField>
+
+<ParamField body="event.type" type="string">
+  Request body field `event.type`.
+</ParamField>
+
+<ParamField body="event.id" type="string">
+  Request body field `event.id`.
+</ParamField>
+
+<ParamField body="event.createdAt" type="string">
+  Request body field `event.createdAt`.
+</ParamField>
+
+<ParamField body="event.data" type="object">
+  Request body field `event.data`.
+</ParamField>
+
+<ParamField body="event.data.id" type="string">
+  Request body field `event.data.id`.
+</ParamField>
+
+<ParamField body="event.data.achEnabledBankAccountId" type="string">
+  Request body field `event.data.achEnabledBankAccountId`.
+</ParamField>
+
+<ParamField body="event.data.payeeId" type="string">
+  Request body field `event.data.payeeId`.
+</ParamField>
+
+<ParamField body="event.data.amount" type="string">
+  Request body field `event.data.amount`.
+</ParamField>
+
+<ParamField body="event.data.toWallet" type="string">
+  Request body field `event.data.toWallet`.
+</ParamField>
+
+<ParamField body="event.data.fromAccount" type="object">
+  Request body field `event.data.fromAccount`.
+</ParamField>
+
+<ParamField body="event.data.fromAccount.account_number" type="string">
+  Request body field `event.data.fromAccount.account_number`.
+</ParamField>
+
+<ParamField body="event.data.fromAccount.routing_number" type="string">
+  Request body field `event.data.fromAccount.routing_number`.
+</ParamField>
+
+<ParamField body="event.data.description" type="string">
+  Request body field `event.data.description`.
+</ParamField>
+
+<ParamField body="event.data.referenceNumber" type="string">
+  Request body field `event.data.referenceNumber`.
+</ParamField>
+
+<ParamField body="event.data.status" type="string">
+  Request body field `event.data.status`.
+</ParamField>
+
+<ParamField body="event.data.customMetaData" type="object">
+  Request body field `event.data.customMetaData`.
+</ParamField>
+
+<ParamField body="event.data.customMetaData.key1" type="string">
+  Request body field `event.data.customMetaData.key1`.
+</ParamField>
+
+<ParamField body="event.data.customMetaData.key2" type="string">
+  Request body field `event.data.customMetaData.key2`.
+</ParamField>
+
+<ParamField body="event.data.achPullReturnCode" type="string">
+  Request body field `event.data.achPullReturnCode`.
+</ParamField>
+
+<ParamField body="event.data.achPullReturnDescription" type="string">
+  Request body field `event.data.achPullReturnDescription`.
+</ParamField>
+
+<ParamField body="event.data.updatedAt" type="string">
+  Request body field `event.data.updatedAt`.
+</ParamField>
+
+<ParamField body="event.data.createdAt" type="string">
+  Request body field `event.data.createdAt`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```

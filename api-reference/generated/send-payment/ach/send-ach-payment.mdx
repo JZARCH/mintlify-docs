@@ -1,0 +1,86 @@
+---
+title: 'Send ACH Payment'
+api: 'POST /send-payment/ach'
+---
+
+Initiate an ACH Payment from a wallet or bank account.  
+Allowed sourceType : `wallet` , `bankAccount`
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="sourceType" type="string">
+  Request body field `sourceType`.
+</ParamField>
+
+<ParamField body="sourceId" type="string">
+  Request body field `sourceId`.
+</ParamField>
+
+<ParamField body="amount" type="string">
+  Request body field `amount`.
+</ParamField>
+
+<ParamField body="description" type="string">
+  Request body field `description`.
+</ParamField>
+
+<ParamField body="payeeId" type="string">
+  Request body field `payeeId`.
+</ParamField>
+
+<ParamField body="payeeBankAccount" type="string">
+  Request body field `payeeBankAccount`.
+</ParamField>
+
+<ParamField body="referenceNo" type="string">
+  Request body field `referenceNo`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /send-payment/ach`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/send-payment/ach" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "6091bee3-9c16-449f-a7ff-7478db0754ce",
+    "amount": "2.50",
+    "payeeId": "36gYVewEo4dx7bD",
+    "transferType": "ach",
+    "referenceNo": "12313",
+    "status": "PROCESSING",
+    "description": "Invoice payment for order #98765",
+    "source": {
+      "sourceType": "bankAccount",
+      "sourceId": "rRBQPA4m375qe7gxqXW"
+    },
+    "virtualCard": null,
+    "wire": null,
+    "ach": {
+      "name": "GlobalTech Solutions",
+      "account_number": "123456789",
+      "routing_number": "113103276",
+      "ach_trace_number": null
+    },
+    "createdAt": "2024-08-25T06:58:34.000000Z",
+    "updatedAt": "2024-08-25T06:58:35.000000Z"
+  }
+}
+```

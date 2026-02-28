@@ -1,0 +1,46 @@
+---
+title: 'Mail'
+api: 'POST /documentmailing/mail'
+---
+
+| From Addrss |  |
+| --- | --- |
+|  |  |
+
+| Destination |  |
+| --- | --- |
+| name | required |
+| address1 | required |
+| city | required |
+| state | required . 2 characters. Use 'Tx' instead of 'Texas' for example. |
+| zip | required |
+| shippingTypeId | required |
+
+**shippingTypeId**
+
+| Shipping Type Id | Description |
+| --- | --- |
+| 1 | First Class |
+| 3 | First Class with Tracking |
+| 4 | Priority Mail |
+| 5 | Express Mail |
+| 11 | Fedex 2 days Shipping |
+| 12 | Standard Overnight -Fedex-By 3pm the next business day |
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /documentmailing/mail`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/documentmailing/mail" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```

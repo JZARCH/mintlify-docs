@@ -1,0 +1,65 @@
+---
+title: 'Retrieve Wallet Spend Card'
+api: 'GET /card-program/card/{cardId}'
+---
+
+Retrieves the details of a specific spend card using its unique ID.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="cardId" type="string" required>
+  Path parameter `cardId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /card-program/card/{cardId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/card-program/card/{cardId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "19e28f3b-c3ac-4e6a-b1f9-956d4611c18d",
+    "walletId": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+    "status": "PENDING",
+    "card": {
+      "id": "4f0abb73-1e64-4e53-82b4-835d0ecbd412",
+      "cardProgramIssuingRecordId": "19e28f3b-c3ac-4e6a-b1f9-956d4611c18d",
+      "cardType": "virtual",
+      "label": "Daniel Richardson",
+      "nameOnCard": "Daniel Richardson",
+      "limitAmount": "110.00",
+      "limitInterval": "monthly",
+      "last4": "8151",
+      "cardStatus": "active",
+      "expiryMonth": "2",
+      "expiryYear": "2029",
+      "cardIssueType": "WALLET_CARD",
+      "wallet": {
+        "id": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+        "availableBalance": "485.73",
+        "currentBalance": "495.73",
+        "walletName": "Master Wallet"
+      }
+    },
+    "updatedAt": "2025-03-25T12:18:15.000000Z",
+    "createdAt": "2025-03-25T12:18:15.000000Z"
+  }
+}
+```

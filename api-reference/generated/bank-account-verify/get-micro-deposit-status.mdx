@@ -1,0 +1,39 @@
+---
+title: 'Get Micro Deposit Status'
+api: 'GET /bank-account-verify/{bankAccountId}/status'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="bankAccountId" type="string" required>
+  Path parameter `bankAccountId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /bank-account-verify/{bankAccountId}/status`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/bank-account-verify/{bankAccountId}/status" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "status": "Pending"
+  }
+}
+```

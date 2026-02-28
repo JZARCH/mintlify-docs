@@ -1,0 +1,177 @@
+---
+title: 'Create voucher'
+api: 'POST /vouchers'
+---
+
+Create New Voucher
+
+Payload parameters
+
+ 
+  voucherNumber
+  Required  
+       String  
+         Must be no longer than 50 characters.
+  
+ 
+ 
+  memo
+  Optional  
+       String  
+          Must be no longer than 100 characters.
+  
+ 
+ 
+  date
+  Optional  
+       String yyyy-mm-dd  
+         By default it will be voucher creation date, If a date is passed, that will
+             override any default.
+  
+ 
+
+  payeeId
+  Required  
+       String  
+         Must be a payee ID
+  
+ 
+
+  voucherItems
+  Optional  
+       Array  
+         An array of voucherItems attributes
+  
+ 
+
+
+
+voucherItems attributes
+
+
+ 
+  invoiceNumber
+  Required  
+       String  
+         Must be no longer than 50 characters.
+  
+ 
+ 
+  name
+  Optional  
+       String  
+          Must be no longer than 100 characters.
+  
+ 
+ 
+  description
+  Optional  
+       String   
+          Must be no longer than 100 characters.
+  
+ 
+
+  quantity
+  Optional  
+       Integer  
+         
+  
+ 
+
+  unitCost
+  Optional  
+       Decimal  
+         
+  
+ 
+
+  total
+  Required  
+       Decimal  
+         
+  
+ 
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="voucherNumber" type="string">
+  Request body field `voucherNumber`.
+</ParamField>
+
+<ParamField body="memo" type="string">
+  Request body field `memo`.
+</ParamField>
+
+<ParamField body="date" type="string">
+  Request body field `date`.
+</ParamField>
+
+<ParamField body="payeeId" type="string">
+  Request body field `payeeId`.
+</ParamField>
+
+<ParamField body="voucherItems" type="object[]">
+  Request body field `voucherItems`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /vouchers`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/vouchers" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Created succesfully",
+  "data": {
+    "voucherId": "36gYVewBzGdx7bD",
+    "voucherNumber": "1000",
+    "totalAmount": "700.00",
+    "memo": "Test Memo",
+    "date": "2020-10-20",
+    "voucherItems": [
+      {
+        "invoiceNumber": "540",
+        "name": "Product 1",
+        "description": "Product Description 1",
+        "quantity": 0,
+        "unitCost": 0,
+        "total": "200.00"
+      },
+      {
+        "invoiceNumber": "541",
+        "name": "Product 2",
+        "description": "Product Description 2",
+        "quantity": 4,
+        "unitCost": 0,
+        "total": "200.00"
+      },
+      {
+        "invoiceNumber": "545",
+        "name": "Product 2",
+        "description": "Product Description 2",
+        "quantity": 5,
+        "unitCost": 0,
+        "total": "300.00"
+      }
+    ]
+  }
+}
+```

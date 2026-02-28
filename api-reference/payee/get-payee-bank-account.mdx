@@ -1,0 +1,52 @@
+---
+title: 'Get payee bank account'
+api: 'GET /payees/{payee_id}/bank-accounts/{payee-bankaccount-id}'
+---
+
+Retrieve a single bank account for a given payee.
+
+## Request
+
+### Path parameters
+
+<ParamField path="payee_id" type="string" required>
+  Identifier of the payee.
+</ParamField>
+
+<ParamField path="payee-bankaccount-id" type="string" required>
+  Identifier of the payee bank account.
+</ParamField>
+
+## Example
+
+```bash
+curl --location "$BASE_URL/payees/$PAYEE_ID/bank-accounts/$PAYEE_BANKACCOUNT_ID" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response
+
+On success, the API returns details of the payee bank account.
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "mQaMdjZR5jzLxbW",
+    "bankName": "TestPayeeBankAccount",
+    "accountNumber": "65543457175487",
+    "routingNumber": "011000015",
+    "accountType": "SAVINGS",
+    "isAllowWire": 1,
+    "bankAccountFirstName": "TestFirstName",
+    "bankAccountLastName": "TestLastName",
+    "bankAccountAddress1": "1 Apple Park Way",
+    "bankAccountCity": "Cupertino",
+    "bankAccountState": "CA",
+    "bankAccountZip": "95014",
+    "bankAccountCountry": "US"
+  }
+}
+```
+

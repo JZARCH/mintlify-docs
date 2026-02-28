@@ -1,0 +1,370 @@
+---
+title: 'List Wallet Gift Cards'
+api: 'GET /card-program/gift-card'
+---
+
+List all the wallet gift cards linked to your account, along with their details.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /card-program/gift-card`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/card-program/gift-card" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "meta": {
+    "total": 84,
+    "perPage": 10,
+    "currentPage": 1,
+    "lastPage": 9
+  },
+  "data": [
+    {
+      "id": "95e8ed87-d31e-4147-bdf1-a3a6fffd53af",
+      "walletId": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+      "status": "COMPLETED",
+      "card": {
+        "id": "7e6518a6-c01f-407f-a5a1-0515e381362e",
+        "cardProgramIssuingRecordId": "95e8ed87-d31e-4147-bdf1-a3a6fffd53af",
+        "cardType": "virtual",
+        "label": "Daniel Anderson",
+        "nameOnCard": "Daniel Anderson",
+        "limitAmount": "10.00",
+        "limitInterval": "allTime",
+        "last4": "9391",
+        "cardStatus": "pending_activation",
+        "expiryMonth": "9",
+        "expiryYear": "2031",
+        "holder": {
+          "payeeId": "QaMdjZLBb7GzLxb",
+          "name": "Daniel Anderson",
+          "email": "daniel.anderson@email.com",
+          "address1": null,
+          "address2": null,
+          "city": null,
+          "state": null,
+          "country": null,
+          "zip": null
+        },
+        "cardIssueType": "RECHARGEABLE_GIFT_CARD"
+      },
+      "availableBalance": "10.00",
+      "updatedAt": "2025-03-25T12:10:09.000000Z",
+      "createdAt": "2025-03-25T12:10:05.000000Z"
+    },
+    {
+      "id": "c949fdd9-b6e7-4200-a22a-d0b8e09a5189",
+      "walletId": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+      "status": "COMPLETED",
+      "card": {
+        "id": "a0eee8dc-b9e3-45ad-a25d-5e8776e24e9b",
+        "cardProgramIssuingRecordId": "c949fdd9-b6e7-4200-a22a-d0b8e09a5189",
+        "cardType": "virtual",
+        "label": "Daniel Anderson",
+        "nameOnCard": "Daniel Anderson",
+        "limitAmount": "5.00",
+        "limitInterval": "allTime",
+        "last4": "0611",
+        "cardStatus": "pending_activation",
+        "expiryMonth": "8",
+        "expiryYear": "2030",
+        "holder": {
+          "payeeId": "QaMdjZLBb7GzLxb",
+          "name": "Daniel Anderson",
+          "email": "daniel.anderson@email.com",
+          "address1": null,
+          "address2": null,
+          "city": null,
+          "state": null,
+          "country": null,
+          "zip": null
+        },
+        "cardIssueType": "RECHARGEABLE_GIFT_CARD"
+      },
+      "availableBalance": "5.00",
+      "updatedAt": "2025-03-25T11:58:29.000000Z",
+      "createdAt": "2025-03-25T11:58:24.000000Z"
+    },
+    {
+      "id": "f2a27295-4baa-464d-a85b-318be393f5e5",
+      "walletId": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+      "status": "COMPLETED",
+      "card": {
+        "id": "136726b8-2a1b-4465-909c-259f332f6393",
+        "cardProgramIssuingRecordId": "f2a27295-4baa-464d-a85b-318be393f5e5",
+        "cardType": "virtual",
+        "label": "Daniel Anderson",
+        "nameOnCard": "Daniel Anderson",
+        "limitAmount": "5.00",
+        "limitInterval": "allTime",
+        "last4": "6874",
+        "cardStatus": "pending_activation",
+        "expiryMonth": "8",
+        "expiryYear": "2029",
+        "holder": {
+          "payeeId": "QaMdjZLBb7GzLxb",
+          "name": "Daniel Anderson",
+          "email": "daniel.anderson@email.com",
+          "address1": null,
+          "address2": null,
+          "city": null,
+          "state": null,
+          "country": null,
+          "zip": null
+        },
+        "cardIssueType": "RECHARGEABLE_GIFT_CARD"
+      },
+      "availableBalance": "5.00",
+      "updatedAt": "2025-03-25T05:00:57.000000Z",
+      "createdAt": "2025-03-25T05:00:52.000000Z"
+    },
+    {
+      "id": "8535b6c1-6a41-432e-9da0-c7fb94d658f7",
+      "walletId": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+      "status": "COMPLETED",
+      "card": {
+        "id": "aa3e5c80-4149-488a-b246-6b769fb50219",
+        "cardProgramIssuingRecordId": "8535b6c1-6a41-432e-9da0-c7fb94d658f7",
+        "cardType": "virtual",
+        "label": "Daniel Anderson",
+        "nameOnCard": "Daniel Anderson",
+        "limitAmount": "75.00",
+        "limitInterval": "allTime",
+        "last4": "6691",
+        "cardStatus": "pending_activation",
+        "expiryMonth": "5",
+        "expiryYear": "2031",
+        "holder": {
+          "payeeId": "QaMdjZLBb7GzLxb",
+          "name": "Daniel Anderson",
+          "email": "daniel.anderson@email.com",
+          "address1": null,
+          "address2": null,
+          "city": null,
+          "state": null,
+          "country": null,
+          "zip": null
+        },
+        "cardIssueType": "RECHARGEABLE_GIFT_CARD"
+      },
+      "availableBalance": "75.00",
+      "updatedAt": "2025-03-24T08:11:59.000000Z",
+      "createdAt": "2025-03-24T08:11:54.000000Z"
+    },
+    {
+      "id": "1b9f75f5-58e6-4275-9ba2-c49d58950e86",
+      "walletId": "0315658a-fc3c-4ceb-a7b0-bff48dcb1e22",
+      "status": "COMPLETED",
+      "card": {
+        "id": "857ed334-ce51-44fe-808d-469d743391f0",
+        "cardProgramIssuingRecordId": "1b9f75f5-58e6-4275-9ba2-c49d58950e86",
+        "cardType": "virtual",
+        "label": "Alison Gambala k",
+        "nameOnCard": "Alison Gambala k",
+        "limitAmount": "10.00",
+        "limitInterval": "allTime",
+        "last4": "8938",
+        "cardStatus": "pending_activation",
+        "expiryMonth": "11",
+        "expiryYear": "2031",
+        "holder": {
+          "payeeId": "6VoW418D3oj589l",
+          "name": "Alison Gambala k",
+          "email": "email@test.com",
+          "address1": "111 Broadway",
+          "address2": null,
+          "city": "Paterson",
+          "state": "NJ",
+          "country": "US",
+          "zip": "07505"
+        },
+        "cardIssueType": "RECHARGEABLE_GIFT_CARD"
+      },
+      "availableBalance": "10.00",
+      "updatedAt": "2025-03-22T04:46:35.000000Z",
+      "createdAt": "2025-03-22T04:46:22.000000Z"
+    },
+    {
+      "id": "0668d415-ff95-45ca-af34-344ffd2e7d50",
+      "walletId": "0315658a-fc3c-4ceb-a7b0-bff48dcb1e22",
+      "status": "COMPLETED",
+      "card": {
+        "id": "d184f62b-26ca-4304-8439-5dda5594e9b0",
+        "cardProgramIssuingRecordId": "0668d415-ff95-45ca-af34-344ffd2e7d50",
+        "cardType": "virtual",
+        "label": "Johnathan Reed",
+        "nameOnCard": "Johnathan Reed",
+        "limitAmount": "10.00",
+        "limitInterval": "allTime",
+        "last4": "6255",
+        "cardStatus": "pending_activation",
+        "expiryMonth": "9",
+        "expiryYear": "2029",
+        "holder": {
+          "payeeId": "v1byeVgN2djOQgr",
+          "name": "Johnathan Reed",
+          "email": "john.reed@example.com",
+          "address1": null,
+          "address2": "",
+          "city": null,
+          "state": null,
+          "country": null,
+          "zip": null
+        },
+        "cardIssueType": "RECHARGEABLE_GIFT_CARD"
+      },
+      "availableBalance": "10.00",
+      "updatedAt": "2025-03-21T09:46:19.000000Z",
+      "createdAt": "2025-03-21T09:46:14.000000Z"
+    },
+    {
+      "id": "ea1756a9-0f8a-4841-af77-96a4ec06b788",
+      "walletId": "0315658a-fc3c-4ceb-a7b0-bff48dcb1e22",
+      "status": "COMPLETED",
+      "card": {
+        "id": "fef420b7-e045-4693-8d72-9ee5f773162b",
+        "cardProgramIssuingRecordId": "ea1756a9-0f8a-4841-af77-96a4ec06b788",
+        "cardType": "virtual",
+        "label": "Johnathan Reed",
+        "nameOnCard": "Johnathan Reed",
+        "limitAmount": "22.55",
+        "limitInterval": "allTime",
+        "last4": "4035",
+        "cardStatus": "pending_activation",
+        "expiryMonth": "8",
+        "expiryYear": "2030",
+        "holder": {
+          "payeeId": "v1byeVgN2djOQgr",
+          "name": "Johnathan Reed",
+          "email": "john.reed@example.com",
+          "address1": null,
+          "address2": "",
+          "city": null,
+          "state": null,
+          "country": null,
+          "zip": null
+        },
+        "cardIssueType": "RECHARGEABLE_GIFT_CARD"
+      },
+      "availableBalance": "22.55",
+      "updatedAt": "2025-03-21T09:44:25.000000Z",
+      "createdAt": "2025-03-21T09:44:16.000000Z"
+    },
+    {
+      "id": "ad51a361-cb91-4d69-a2d6-66a62867f232",
+      "walletId": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+      "status": "COMPLETED",
+      "card": {
+        "id": "d009d218-c5f1-4fac-8d08-facb47766582",
+        "cardProgramIssuingRecordId": "ad51a361-cb91-4d69-a2d6-66a62867f232",
+        "cardType": "virtual",
+        "label": "Ethan Harris",
+        "nameOnCard": "Ethan Harris",
+        "limitAmount": "75.00",
+        "limitInterval": "allTime",
+        "last4": "6204",
+        "cardStatus": "pending_activation",
+        "expiryMonth": "11",
+        "expiryYear": "2031",
+        "holder": {
+          "payeeId": "dNDOGnBn2oG0oMX",
+          "name": "Ethan Harris",
+          "email": "ethan.harris@email.com",
+          "address1": "1111 Franklin Avenue",
+          "address2": null,
+          "city": "Valley Stream",
+          "state": "NY",
+          "country": "US",
+          "zip": "11580"
+        },
+        "cardIssueType": "RECHARGEABLE_GIFT_CARD"
+      },
+      "availableBalance": "75.00",
+      "updatedAt": "2025-03-20T04:55:28.000000Z",
+      "createdAt": "2025-03-20T04:55:23.000000Z"
+    },
+    {
+      "id": "0309f6d7-d2f8-4a8d-9a0a-e342edea8a3b",
+      "walletId": "0315658a-fc3c-4ceb-a7b0-bff48dcb1e22",
+      "status": "COMPLETED",
+      "card": {
+        "id": "0a3e9242-646f-4863-ac89-3db5935a2144",
+        "cardProgramIssuingRecordId": "0309f6d7-d2f8-4a8d-9a0a-e342edea8a3b",
+        "cardType": "virtual",
+        "label": "Ethan Harris",
+        "nameOnCard": "Ethan Harris",
+        "limitAmount": "49.99",
+        "limitInterval": "allTime",
+        "last4": "8484",
+        "cardStatus": "pending_activation",
+        "expiryMonth": "7",
+        "expiryYear": "2031",
+        "holder": {
+          "payeeId": "dNDOGnBn2oG0oMX",
+          "name": "Ethan Harris",
+          "email": "ethan.harris@email.com",
+          "address1": null,
+          "address2": null,
+          "city": null,
+          "state": null,
+          "country": null,
+          "zip": null
+        },
+        "cardIssueType": "RECHARGEABLE_GIFT_CARD"
+      },
+      "availableBalance": "49.99",
+      "updatedAt": "2025-03-19T12:39:31.000000Z",
+      "createdAt": "2025-03-19T12:39:23.000000Z"
+    },
+    {
+      "id": "f5f54e2f-c3b9-44c1-8e0a-f07834a28cc9",
+      "walletId": "0315658a-fc3c-4ceb-a7b0-bff48dcb1e22",
+      "status": "COMPLETED",
+      "card": {
+        "id": "24831ddf-ae94-4452-8270-0465908c2774",
+        "cardProgramIssuingRecordId": "f5f54e2f-c3b9-44c1-8e0a-f07834a28cc9",
+        "cardType": "virtual",
+        "label": "Ava Lopez",
+        "nameOnCard": "Ava Lopez",
+        "limitAmount": "15.25",
+        "limitInterval": "allTime",
+        "last4": "1544",
+        "cardStatus": "pending_activation",
+        "expiryMonth": "10",
+        "expiryYear": "2030",
+        "holder": {
+          "payeeId": "kWx8ePyqd5jK2Xz",
+          "name": "Ava Lopez",
+          "email": "ava.lopez@email.com",
+          "address1": null,
+          "address2": null,
+          "city": null,
+          "state": null,
+          "country": null,
+          "zip": null
+        },
+        "cardIssueType": "RECHARGEABLE_GIFT_CARD"
+      },
+      "availableBalance": "15.25",
+      "updatedAt": "2025-03-19T12:39:23.000000Z",
+      "createdAt": "2025-03-19T12:39:15.000000Z"
+    }
+  ]
+}
+```

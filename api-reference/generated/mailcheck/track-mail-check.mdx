@@ -1,0 +1,185 @@
+---
+title: 'Track Mail Check'
+api: 'GET /mailchecks/{checkId}/tracking'
+---
+
+**Response Data**
+
+carrierCarrier name (USPS,Fedex)trackingCodeTracking code numberstatusCurrent status of the tracking ('pre_transit','in_transit','delivered','error','unknown','out_for_delivery','return_to_sender' or 'cancelled')estimatedDeliveryDateEstimated delivery datetrackingDetailsTracking updates details
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="checkId" type="string" required>
+  Path parameter `checkId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /mailchecks/{checkId}/tracking`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/mailchecks/{checkId}/tracking" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "carrier": "USPS",
+    "trackingCode": "EZ4000000004",
+    "status": "delivered",
+    "estimatedDeliveryDate": "Mar 25,2024 05:46:19 PM",
+    "trackingUrl": "https://live.onlinecheckwriter.com/external/mail-track/EZ4000000004",
+    "trackingDetails": [
+      {
+        "object": "TrackingDetail",
+        "message": "Pre-Shipment Info Sent to USPS",
+        "description": "",
+        "status": "pre_transit",
+        "statusDetail": "status_update",
+        "Date": "Mar 23,2024 03:55:19 AM",
+        "source": "USPS",
+        "carrierCode": "",
+        "trackingLocation": {
+          "object": "TrackingLocation",
+          "city": null,
+          "state": null,
+          "country": null,
+          "zip": null
+        }
+      },
+      {
+        "object": "TrackingDetail",
+        "message": "Shipping Label Created",
+        "description": "",
+        "status": "pre_transit",
+        "statusDetail": "status_update",
+        "Date": "Mar 23,2024 04:32:19 PM",
+        "source": "USPS",
+        "carrierCode": "",
+        "trackingLocation": {
+          "object": "TrackingLocation",
+          "city": "HOUSTON",
+          "state": "TX",
+          "country": null,
+          "zip": "77063"
+        }
+      },
+      {
+        "object": "TrackingDetail",
+        "message": "Arrived at USPS Origin Facility",
+        "description": "",
+        "status": "in_transit",
+        "statusDetail": "arrived_at_facility",
+        "Date": "Mar 24,2024 02:37:19 AM",
+        "source": "USPS",
+        "carrierCode": "",
+        "trackingLocation": {
+          "object": "TrackingLocation",
+          "city": "NORTH HOUSTON",
+          "state": "TX",
+          "country": null,
+          "zip": "77315"
+        }
+      },
+      {
+        "object": "TrackingDetail",
+        "message": "Arrived at USPS Facility",
+        "description": "",
+        "status": "in_transit",
+        "statusDetail": "arrived_at_facility",
+        "Date": "Mar 25,2024 04:13:19 AM",
+        "source": "USPS",
+        "carrierCode": "",
+        "trackingLocation": {
+          "object": "TrackingLocation",
+          "city": "COLUMBIA",
+          "state": "SC",
+          "country": null,
+          "zip": "29201"
+        }
+      },
+      {
+        "object": "TrackingDetail",
+        "message": "Arrived at Post Office",
+        "description": "",
+        "status": "in_transit",
+        "statusDetail": "arrived_at_facility",
+        "Date": "Mar 25,2024 07:04:19 AM",
+        "source": "USPS",
+        "carrierCode": "",
+        "trackingLocation": {
+          "object": "TrackingLocation",
+          "city": "CHARLESTON",
+          "state": "SC",
+          "country": null,
+          "zip": "29407"
+        }
+      },
+      {
+        "object": "TrackingDetail",
+        "message": "Sorting Complete",
+        "description": "",
+        "status": "in_transit",
+        "statusDetail": "status_update",
+        "Date": "Mar 25,2024 12:44:19 PM",
+        "source": "USPS",
+        "carrierCode": "",
+        "trackingLocation": {
+          "object": "TrackingLocation",
+          "city": "CHARLESTON",
+          "state": "SC",
+          "country": null,
+          "zip": "29407"
+        }
+      },
+      {
+        "object": "TrackingDetail",
+        "message": "Out for Delivery",
+        "description": "",
+        "status": "out_for_delivery",
+        "statusDetail": "out_for_delivery",
+        "Date": "Mar 25,2024 12:54:19 PM",
+        "source": "USPS",
+        "carrierCode": "",
+        "trackingLocation": {
+          "object": "TrackingLocation",
+          "city": "CHARLESTON",
+          "state": "SC",
+          "country": null,
+          "zip": "29407"
+        }
+      },
+      {
+        "object": "TrackingDetail",
+        "message": "Delivered",
+        "description": "",
+        "status": "delivered",
+        "statusDetail": "arrived_at_destination",
+        "Date": "Mar 25,2024 05:46:19 PM",
+        "source": "USPS",
+        "carrierCode": "",
+        "trackingLocation": {
+          "object": "TrackingLocation",
+          "city": "CHARLESTON",
+          "state": "SC",
+          "country": null,
+          "zip": "29407"
+        }
+      }
+    ]
+  }
+}
+```

@@ -1,0 +1,49 @@
+---
+title: 'Get All status'
+api: 'GET /ach/{checkId}/statusAll'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="checkId" type="string" required>
+  Path parameter `checkId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /ach/{checkId}/statusAll`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/ach/{checkId}/statusAll" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "w2lx48K3LVjMzWy",
+    "status": [
+      {
+        "status": "DD",
+        "created_at": "2021-07-15 07:31:06"
+      },
+      {
+        "status": "created",
+        "created_at": "2021-07-14 09:32:43"
+      }
+    ]
+  }
+}
+```

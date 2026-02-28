@@ -1,0 +1,62 @@
+---
+title: 'List All Wallets'
+api: 'GET /wallet'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /wallet`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/wallet" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "meta": {
+    "total": 2,
+    "perPage": 20,
+    "currentPage": 1,
+    "lastPage": 1
+  },
+  "data": [
+    {
+      "id": "838f298c-24f0-4638-8af4-479f39e4a228",
+      "availableBalance": "18804.92",
+      "currentBalance": "18894.92",
+      "bankAccount_id": null,
+      "walletName": "Master Wallet",
+      "walletType": 2,
+      "bankAccountName": null,
+      "bankAccountNickName": null,
+      "bankAccountNumber": "X",
+      "bankAccountNatureType": null
+    },
+    {
+      "id": "f1cd8693-02df-47af-8fbc-fc7a9ded88ec",
+      "availableBalance": "4959019.81",
+      "currentBalance": "5017049.26",
+      "bankAccount_id": "bz3Aj30gvw4Vw6E",
+      "walletName": "Wallet 1",
+      "walletType": 1,
+      "bankAccountName": "Wallet 1",
+      "bankAccountNickName": "Wallet 1",
+      "bankAccountNumber": "X6456",
+      "bankAccountNatureType": null
+    }
+  ]
+}
+```

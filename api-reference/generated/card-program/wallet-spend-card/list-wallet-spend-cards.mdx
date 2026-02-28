@@ -1,0 +1,310 @@
+---
+title: 'List Wallet Spend Cards'
+api: 'GET /card-program/card'
+---
+
+List all the wallet spend cards linked to your account, along with their details.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /card-program/card`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/card-program/card" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "meta": {
+    "total": 52,
+    "perPage": 10,
+    "currentPage": 1,
+    "lastPage": 6
+  },
+  "data": [
+    {
+      "id": "19e28f3b-c3ac-4e6a-b1f9-956d4611c18d",
+      "walletId": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+      "status": "COMPLETED",
+      "card": {
+        "id": "4f0abb73-1e64-4e53-82b4-835d0ecbd412",
+        "cardProgramIssuingRecordId": "19e28f3b-c3ac-4e6a-b1f9-956d4611c18d",
+        "cardType": "virtual",
+        "label": "Daniel Richardson",
+        "nameOnCard": "Daniel Richardson",
+        "limitAmount": "110.00",
+        "limitInterval": "monthly",
+        "last4": "8151",
+        "cardStatus": "active",
+        "expiryMonth": "2",
+        "expiryYear": "2029",
+        "cardIssueType": "WALLET_CARD",
+        "wallet": {
+          "id": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+          "availableBalance": "485.73",
+          "currentBalance": "495.73",
+          "walletName": "Master Wallet"
+        }
+      },
+      "updatedAt": "2025-03-25T12:18:19.000000Z",
+      "createdAt": "2025-03-25T12:18:15.000000Z"
+    },
+    {
+      "id": "44069e7f-c27f-48ca-818c-de66d97a8c26",
+      "walletId": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+      "status": "COMPLETED",
+      "card": {
+        "id": "af76976f-6d9a-465e-aca6-f140c7a6d687",
+        "cardProgramIssuingRecordId": "44069e7f-c27f-48ca-818c-de66d97a8c26",
+        "cardType": "virtual",
+        "label": "Daniel Richardson",
+        "nameOnCard": "Daniel Richardson",
+        "limitAmount": "110.00",
+        "limitInterval": "monthly",
+        "last4": "8754",
+        "cardStatus": "active",
+        "expiryMonth": "2",
+        "expiryYear": "2031",
+        "cardIssueType": "WALLET_CARD",
+        "wallet": {
+          "id": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+          "availableBalance": "485.73",
+          "currentBalance": "495.73",
+          "walletName": "Master Wallet"
+        }
+      },
+      "updatedAt": "2025-03-25T04:43:24.000000Z",
+      "createdAt": "2025-03-25T04:43:20.000000Z"
+    },
+    {
+      "id": "61a7ef4a-9185-475e-a914-ba259ee7162e",
+      "walletId": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+      "status": "COMPLETED",
+      "card": {
+        "id": "5cac1db4-bbde-4bed-8b18-ac6d02ba6d43",
+        "cardProgramIssuingRecordId": "61a7ef4a-9185-475e-a914-ba259ee7162e",
+        "cardType": "virtual",
+        "label": "Daniel Richardson",
+        "nameOnCard": "Daniel Richardson",
+        "limitAmount": "55.00",
+        "limitInterval": "monthly",
+        "last4": "0018",
+        "cardStatus": "active",
+        "expiryMonth": "2",
+        "expiryYear": "2031",
+        "cardIssueType": "WALLET_CARD",
+        "wallet": {
+          "id": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+          "availableBalance": "485.73",
+          "currentBalance": "495.73",
+          "walletName": "Master Wallet"
+        }
+      },
+      "updatedAt": "2025-03-25T04:42:06.000000Z",
+      "createdAt": "2025-03-25T04:42:01.000000Z"
+    },
+    {
+      "id": "7d6c9e87-3d2f-40d0-b637-b89d7fd78f2f",
+      "walletId": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+      "status": "COMPLETED",
+      "card": {
+        "id": "0fde7804-f5d4-4407-8def-f441ae312cbb",
+        "cardProgramIssuingRecordId": "7d6c9e87-3d2f-40d0-b637-b89d7fd78f2f",
+        "cardType": "virtual",
+        "label": "Daniel Richardson",
+        "nameOnCard": "Daniel Richardson",
+        "limitAmount": "35.00",
+        "limitInterval": "monthly",
+        "last4": "6162",
+        "cardStatus": "active",
+        "expiryMonth": "11",
+        "expiryYear": "2029",
+        "cardIssueType": "WALLET_CARD",
+        "wallet": {
+          "id": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+          "availableBalance": "485.73",
+          "currentBalance": "495.73",
+          "walletName": "Master Wallet"
+        }
+      },
+      "updatedAt": "2025-03-24T07:58:28.000000Z",
+      "createdAt": "2025-03-24T07:58:23.000000Z"
+    },
+    {
+      "id": "142b4fcb-4fb0-462f-b63b-e71e0b9282d8",
+      "walletId": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+      "status": "COMPLETED",
+      "card": {
+        "id": "a6cef449-2463-4d9b-a739-7ab707342515",
+        "cardProgramIssuingRecordId": "142b4fcb-4fb0-462f-b63b-e71e0b9282d8",
+        "cardType": "virtual",
+        "label": "Daniel Richardson",
+        "nameOnCard": "Daniel Richardson",
+        "limitAmount": "45.00",
+        "limitInterval": "monthly",
+        "last4": "7427",
+        "cardStatus": "active",
+        "expiryMonth": "12",
+        "expiryYear": "2029",
+        "cardIssueType": "WALLET_CARD",
+        "wallet": {
+          "id": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+          "availableBalance": "485.73",
+          "currentBalance": "495.73",
+          "walletName": "Master Wallet"
+        }
+      },
+      "updatedAt": "2025-03-24T07:00:24.000000Z",
+      "createdAt": "2025-03-24T07:00:20.000000Z"
+    },
+    {
+      "id": "cbd349c9-cb90-443e-b9f5-0624fb28ffa2",
+      "walletId": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+      "status": "COMPLETED",
+      "card": {
+        "id": "31d3c82b-a15c-43cf-9895-fa7620218216",
+        "cardProgramIssuingRecordId": "cbd349c9-cb90-443e-b9f5-0624fb28ffa2",
+        "cardType": "virtual",
+        "label": "Daniel Richardson",
+        "nameOnCard": "Daniel Richardson",
+        "limitAmount": "45.00",
+        "limitInterval": "monthly",
+        "last4": "1976",
+        "cardStatus": "active",
+        "expiryMonth": "2",
+        "expiryYear": "2029",
+        "cardIssueType": "WALLET_CARD",
+        "wallet": {
+          "id": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+          "availableBalance": "485.73",
+          "currentBalance": "495.73",
+          "walletName": "Master Wallet"
+        }
+      },
+      "updatedAt": "2025-03-24T06:35:29.000000Z",
+      "createdAt": "2025-03-24T06:35:24.000000Z"
+    },
+    {
+      "id": "7070c60b-6e68-444d-bc94-5850ffbb4abe",
+      "walletId": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+      "status": "COMPLETED",
+      "card": {
+        "id": "a114911e-097b-409b-9022-ca4dce155136",
+        "cardProgramIssuingRecordId": "7070c60b-6e68-444d-bc94-5850ffbb4abe",
+        "cardType": "virtual",
+        "label": "AJANYA",
+        "nameOnCard": "ajanya tk",
+        "limitAmount": "9000.00",
+        "limitInterval": "monthly",
+        "last4": "1620",
+        "cardStatus": "active",
+        "expiryMonth": "1",
+        "expiryYear": "2030",
+        "cardIssueType": "WALLET_CARD",
+        "wallet": {
+          "id": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+          "availableBalance": "485.73",
+          "currentBalance": "495.73",
+          "walletName": "Master Wallet"
+        }
+      },
+      "updatedAt": "2025-03-19T04:19:05.000000Z",
+      "createdAt": "2025-03-19T04:19:00.000000Z"
+    },
+    {
+      "id": "cc3f8458-1348-465b-a2ce-c75f07779024",
+      "walletId": "0315658a-fc3c-4ceb-a7b0-bff48dcb1e22",
+      "status": "COMPLETED",
+      "card": {
+        "id": "92a6e8d5-87bb-4d95-858f-ea04cee290c6",
+        "cardProgramIssuingRecordId": "cc3f8458-1348-465b-a2ce-c75f07779024",
+        "cardType": "physical",
+        "label": "Emma Richardson",
+        "nameOnCard": "Emma Richardson",
+        "limitAmount": "200.00",
+        "limitInterval": "allTime",
+        "last4": "6197",
+        "cardStatus": "active",
+        "expiryMonth": "3",
+        "expiryYear": "2029",
+        "cardIssueType": "WALLET_CARD",
+        "wallet": {
+          "id": "0315658a-fc3c-4ceb-a7b0-bff48dcb1e22",
+          "availableBalance": "345.96",
+          "currentBalance": "345.96",
+          "walletName": "RAIN WALLET"
+        }
+      },
+      "updatedAt": "2025-03-18T10:23:56.000000Z",
+      "createdAt": "2025-03-18T10:23:52.000000Z"
+    },
+    {
+      "id": "76691fcf-e535-4128-a81e-25874268ec32",
+      "walletId": "0315658a-fc3c-4ceb-a7b0-bff48dcb1e22",
+      "status": "COMPLETED",
+      "card": {
+        "id": "b02b93f5-a399-4211-a600-feb3ce347c51",
+        "cardProgramIssuingRecordId": "76691fcf-e535-4128-a81e-25874268ec32",
+        "cardType": "virtual",
+        "label": "Olivia Hayes",
+        "nameOnCard": "Olivia Hayes",
+        "limitAmount": "200.00",
+        "limitInterval": "monthly",
+        "last4": "4373",
+        "cardStatus": "active",
+        "expiryMonth": "6",
+        "expiryYear": "2031",
+        "cardIssueType": "WALLET_CARD",
+        "wallet": {
+          "id": "0315658a-fc3c-4ceb-a7b0-bff48dcb1e22",
+          "availableBalance": "345.96",
+          "currentBalance": "345.96",
+          "walletName": "RAIN WALLET"
+        }
+      },
+      "updatedAt": "2025-03-18T10:22:53.000000Z",
+      "createdAt": "2025-03-18T10:22:49.000000Z"
+    },
+    {
+      "id": "7efba893-5c87-4223-b9e8-bdfd904aa969",
+      "walletId": "470a545d-650b-4a9a-9167-58d899519e11",
+      "status": "COMPLETED",
+      "card": {
+        "id": "e5e6180b-6797-4bb6-b786-cf3b2ca3d459",
+        "cardProgramIssuingRecordId": "7efba893-5c87-4223-b9e8-bdfd904aa969",
+        "cardType": "physical",
+        "label": "Sophia Reynolds",
+        "nameOnCard": "Sophia Reynolds",
+        "limitAmount": "120.00",
+        "limitInterval": "perTransaction",
+        "last4": "2625",
+        "cardStatus": "active",
+        "expiryMonth": "6",
+        "expiryYear": "2031",
+        "cardIssueType": "WALLET_CARD",
+        "wallet": {
+          "id": "470a545d-650b-4a9a-9167-58d899519e11",
+          "availableBalance": "903.00",
+          "currentBalance": "903.00",
+          "walletName": "MY BANK 2"
+        }
+      },
+      "updatedAt": "2025-03-18T10:11:03.000000Z",
+      "createdAt": "2025-03-18T10:11:00.000000Z"
+    }
+  ]
+}
+```

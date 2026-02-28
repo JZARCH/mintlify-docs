@@ -1,0 +1,31 @@
+---
+title: 'Pay'
+api: 'POST /payments/card'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /payments/card`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/payments/card" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": false,
+  "errorMsg": "Maximum allowed amount limit is 1000. Please contact support for increased limit"
+}
+```

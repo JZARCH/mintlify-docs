@@ -1,0 +1,50 @@
+---
+title: 'Get Payment Link'
+api: 'GET /getpaid-by-form'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /getpaid-by-form`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/getpaid-by-form" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "l3B8pJReapmGW51EoDN",
+      "name": "short-url-demo",
+      "bankAccountId": "Ow6YmZjqDJoJe5MXrx1",
+      "short_url": "short-url-demo",
+      "bottom_text": "Test Text",
+      "created_at": "2021-07-01T06:49:28.000000Z",
+      "paymentLink": "https://paybycheck.io/short-url-demo"
+    },
+    {
+      "id": "pOw6YmZjq2A45MXrx19",
+      "name": "payment-url-demo",
+      "bankAccountId": "yx5qvgjD5dnr40mYNPD",
+      "short_url": "payment-url-demo",
+      "bottom_text": null,
+      "created_at": "2021-07-01T06:52:02.000000Z",
+      "paymentLink": "https://paybycheck.io/payment-url-demo"
+    }
+  ]
+}
+```

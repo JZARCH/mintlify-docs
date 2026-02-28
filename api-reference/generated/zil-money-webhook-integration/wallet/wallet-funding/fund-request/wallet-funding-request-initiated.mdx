@@ -1,0 +1,143 @@
+---
+title: 'wallet.funding.request.initiated'
+api: 'POST /'
+---
+
+## wallet.funding.request.initiated
+
+Triggered when a **wallet fund request is created** — a request for an external party to wire funds into a Zil Money wallet. The `depositInformation` object contains the beneficiary bank details that the depositor should use to complete the wire transfer.
+
+**Trigger:** A fund request is created via the Zil Money platform or API.
+
+---
+
+## Payload Field Reference
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `data.id` | string (UUID) | Unique identifier for this fund request |
+| `data.depositorName` | string | Name of the person/entity sending the funds |
+| `data.toWallet` | string (UUID) | Destination wallet UUID |
+| `data.amount` | string | Expected deposit amount (2 decimal places) |
+| `data.description` | string | Fund request description / memo |
+| `data.status` | string | `PENDING`, `COMPLETED`, `CANCELED`, `FAILED` |
+| `data.transferType` | string | Transfer method — e.g., `"domestic-wire"` |
+| `data.depositInformation.beneficiaryName` | string | Account holder name at the receiving bank |
+| `data.depositInformation.beneficiaryRoutingNumber` | string | ABA routing number of the receiving bank |
+| `data.depositInformation.beneficiaryAccountNumber` | string | Receiving bank account number |
+| `data.depositInformation.beneficiaryAccountType` | string | Account type (e.g., `"Business Checking"`) |
+| `data.depositInformation.beneficiaryBankAddress` | string | Physical address of the receiving bank |
+| `data.depositInformation.beneficiaryBankSwift` | string | SWIFT/BIC code of the receiving bank |
+| `data.depositInformation.specialInstruction` | string | Memo/reference the depositor must include in the wire |
+| `data.updatedAt` | ISO 8601 datetime | Last updated timestamp |
+| `data.createdAt` | ISO 8601 datetime | Creation timestamp |
+
+> **Important:** Share the `depositInformation` fields with the depositor so they can correctly initiate the wire. The `specialInstruction` must be included in the wire memo to ensure the funds are credited to the correct wallet.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="event" type="object">
+  Request body field `event`.
+</ParamField>
+
+<ParamField body="event.type" type="string">
+  Request body field `event.type`.
+</ParamField>
+
+<ParamField body="event.id" type="string">
+  Request body field `event.id`.
+</ParamField>
+
+<ParamField body="event.createdAt" type="string">
+  Request body field `event.createdAt`.
+</ParamField>
+
+<ParamField body="event.data" type="object">
+  Request body field `event.data`.
+</ParamField>
+
+<ParamField body="event.data.id" type="string">
+  Request body field `event.data.id`.
+</ParamField>
+
+<ParamField body="event.data.depositorName" type="string">
+  Request body field `event.data.depositorName`.
+</ParamField>
+
+<ParamField body="event.data.toWallet" type="string">
+  Request body field `event.data.toWallet`.
+</ParamField>
+
+<ParamField body="event.data.amount" type="string">
+  Request body field `event.data.amount`.
+</ParamField>
+
+<ParamField body="event.data.description" type="string">
+  Request body field `event.data.description`.
+</ParamField>
+
+<ParamField body="event.data.status" type="string">
+  Request body field `event.data.status`.
+</ParamField>
+
+<ParamField body="event.data.transferType" type="string">
+  Request body field `event.data.transferType`.
+</ParamField>
+
+<ParamField body="event.data.depositInformation" type="object">
+  Request body field `event.data.depositInformation`.
+</ParamField>
+
+<ParamField body="event.data.depositInformation.beneficiaryName" type="string">
+  Request body field `event.data.depositInformation.beneficiaryName`.
+</ParamField>
+
+<ParamField body="event.data.depositInformation.beneficiaryRoutingNumber" type="string">
+  Request body field `event.data.depositInformation.beneficiaryRoutingNumber`.
+</ParamField>
+
+<ParamField body="event.data.depositInformation.beneficiaryAccountNumber" type="string">
+  Request body field `event.data.depositInformation.beneficiaryAccountNumber`.
+</ParamField>
+
+<ParamField body="event.data.depositInformation.beneficiaryAccountType" type="string">
+  Request body field `event.data.depositInformation.beneficiaryAccountType`.
+</ParamField>
+
+<ParamField body="event.data.depositInformation.beneficiaryBankAddress" type="string">
+  Request body field `event.data.depositInformation.beneficiaryBankAddress`.
+</ParamField>
+
+<ParamField body="event.data.depositInformation.beneficiaryBankSwift" type="string">
+  Request body field `event.data.depositInformation.beneficiaryBankSwift`.
+</ParamField>
+
+<ParamField body="event.data.depositInformation.specialInstruction" type="string">
+  Request body field `event.data.depositInformation.specialInstruction`.
+</ParamField>
+
+<ParamField body="event.data.updatedAt" type="string">
+  Request body field `event.data.updatedAt`.
+</ParamField>
+
+<ParamField body="event.data.createdAt" type="string">
+  Request body field `event.data.createdAt`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```

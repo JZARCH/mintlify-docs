@@ -1,0 +1,102 @@
+---
+title: 'Create checks'
+api: 'POST /checks'
+---
+
+You can create multiple checks in one single request by passing check attributes.  
+If you would like to create check with advance stub you need to pass voucherId or voucher data as follow sample request.
+
+**Payload parameters**
+
+checksRequiredArrayAn array of check attributes
+
+`_check_` _attributes_
+
+OptionalObject
+
+Must be an object of voucher attributes
+
+bankAccountIdRequiredStringMust be a bank account IDpayeeIdRequiredStringMust be a payee IDOptional if noPayee is true, otherwise required.categoryIdOptionalStringMust be a category IDserialNumberOptionalStringBy default increment every time a check is created, If a serialNumber is passed, that will override any default.issueDateOptionalString yyyy-mm-ddBy default it will be check creation date, If a issueDate is passed, that willoverride any default.amountRequiredDecimalOptional if noAmount is true, otherwise required.memoOptionalStringMax of 150 characters to be included on the memo line of the check.noteOptionalStringAn internal note that identifies this check. Must be no longer than 150 characters.accountNumberOptionalStringAny account number associated with this checkinvoiceNumberOptionalStringAny invoice number associated with this checknoSignOptionalBooleanif true ,check will create without signature ,By default falsenoAmountOptionalBooleaniftrue ,check will create without amount,By default falsenoDateOptionalBooleanif true ,check will create without date,By default falsenoPayeeOptionalBooleanif true ,check will create without payee,By default falsevoucherIdOptionalStringMust be an voucher ID, It will be ignored if object of voucher attributes passed.voucherOptionalObjectMust be an object of voucher attributescustomElementsOptionalMust be a key-value pair where both the key and value are stringshtmlStubOptionalCustom stub from htmlreferenceIdOptionalUnique reference id for check
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="checks" type="object[]">
+  Request body field `checks`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /checks`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/checks" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "succesfully created",
+  "data": {
+    "checks": [
+      {
+        "checkId": "yd6LeMEkVYeE8Dx",
+        "serialNumber": "1001",
+        "amount": "100.00",
+        "amountInWord": " one hundred ",
+        "date": "10/25/20",
+        "status": 0,
+        "memo": "First, Test check using API",
+        "accountNumber": "458756",
+        "invoiceNumber": "2545",
+        "bankAccount": {
+          "bankAccountId": "yd6LeMYmdQeE8Dx",
+          "name": "Demo Bank Account 1"
+        },
+        "payee": {
+          "payeeId": "Xw2lx48MdGMzWyD",
+          "name": "Alison"
+        },
+        "category": {
+          "categoryId": "MLbz3Aj3ReVw6Ev",
+          "name": null
+        }
+      },
+      {
+        "checkId": "9MqkGWW2gPGD7Ry",
+        "serialNumber": "1002",
+        "amount": "200.00",
+        "amountInWord": " two hundred ",
+        "date": "10/25/20",
+        "status": 0,
+        "memo": "First, Test check using API...",
+        "accountNumber": "458757",
+        "invoiceNumber": "2546",
+        "bankAccount": {
+          "bankAccountId": "yd6LeMYmdQeE8Dx",
+          "name": "Demo Bank Account 1"
+        },
+        "payee": {
+          "payeeId": "Xw2lx48MdGMzWyD",
+          "name": "Alison"
+        },
+        "category": {
+          "categoryId": "MLbz3Aj3ReVw6Ev",
+          "name": null
+        }
+      }
+    ]
+  }
+}
+```

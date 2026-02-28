@@ -1,0 +1,58 @@
+---
+title: 'Retrieve check design templates'
+api: 'GET /bankAccounts/templates'
+---
+
+List all check design templates
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /bankAccounts/templates`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/bankAccounts/templates" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "qx5NrWjymj2n3l6",
+      "category_name": "Payroll Check",
+      "design_name": "payroll-final",
+      "image": "https://ocw-local-s3.s3.amazonaws.com/3/payroll-final.png",
+      "premium": false,
+      "price": "0.00"
+    },
+    {
+      "id": "rz6VoW41dj589lK",
+      "category_name": "Personal Checks",
+      "design_name": "personal-final",
+      "image": "https://ocw-local-s3.s3.amazonaws.com/2/personal-final.png",
+      "premium": false,
+      "price": "0.00"
+    },
+    {
+      "id": "OYxZqXGKdeRzVvJ",
+      "category_name": "Business Checks",
+      "design_name": "Business checks two",
+      "image": "https://ocw-local-s3.s3.amazonaws.com/1/Business%20checks%20two.png",
+      "premium": true,
+      "price": "0.50"
+    }
+  ]
+}
+```

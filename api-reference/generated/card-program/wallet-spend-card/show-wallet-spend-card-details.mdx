@@ -1,0 +1,163 @@
+---
+title: 'Show Wallet Spend Card Details'
+api: 'GET /card-program/card/show-card/{showCardId}'
+---
+
+This endpoint returns encrypted sensitive card information, including PAN and CVC.
+
+⚠️ **IMPORTANT**: We don't encourage viewing or storing sensitive user card information. While we expose the last 4 digits of the card and expiry date, there are compliance requirements involved with viewing the full card number and CVC.
+
+**Client-Side Implementation**
+
+```
+async function decryptSecret(base64Secret, base64Iv, secretKey) {
+  if (!base64Secret) throw new Error("base64Secret is required");
+  if (!base64Iv) throw new Error("base64Iv is required");
+  if (!secretKey || !/^[0-9A-Fa-f]+$/.test(secretKey)) {
+    throw new Error("secretKey must be a hex string");
+  }
+  const secret = Uint8Array.from(window.atob(base64Secret), (c) =>
+    c.charCodeAt(0)
+  );
+  const iv = Uint8Array.from(window.atob(base64Iv), (c) => c.charCodeAt(0));
+  const secretKeyArrayBuffer = Uint8Array.from(
+    secretKey.match(/.{1,2}/g).map((byte) => parseInt(byte, 16))
+  );
+  const cryptoKey = await window.crypto.subtle.importKey(
+    "raw",
+    secretKeyArrayBuffer,
+    { name: "AES-GCM" },
+    false,
+    ["decrypt"]
+  );
+  const decrypted = await window.crypto.subtle.decrypt(
+    {
+      name: "AES-GCM",
+      iv: iv,
+    },
+    cryptoKey,
+    secret
+  );
+  return new TextDecoder().decode(decrypted);
+}
+const token = {
+  secretKey: "1e5c75798c126759cef12d51a3cf91d0",
+  token: {
+    encryptedPan: {
+      iv: "5j5clFu1W6e2QScs+AcfcQ==",
+      data: "0lTRFZ1P/1SSPsM0BgmgYaN7nmW74Er1L0VO97jV+eI=",
+    },
+    encryptedCvc: {
+      iv: "cSD3OKIi9/j612N5vnEHgw==",
+      data: "tPPyZfmBN96t9xsMRp7LgYz9Vw==",
+    },
+  },
+};
+// Wrap the decryption code in an async function
+async function decryptAndDisplay() {
+  try {
+    let pan = await decryptSecret(
+      token.token.encryptedPan.data,
+      token.token.encryptedPan.iv,
+      token.secretKey
+    );
+    let cvc = await decryptSecret(
+      token.token.encryptedCvc.data,
+      token.token.encryptedCvc.iv,
+      token.secretKey
+    );
+    pan = pan.match(/.{1,4}/g).join(" ");
+    document.querySelector(".PAN").textContent = `CARD: ${pan}`;
+    document.querySelector(".CVC").textContent = `CVC: ${cvc}`;
+  } catch (error) {
+    console.error("Decryption error:", error);
+  }
+}
+// Call the function when the page loads
+decryptAndDisplay();
+
+ ```
+
+**Response Format**
+
+When successful, the decryption functions will return:
+
+- For PAN: The full card number
+    
+- For CVC: The 3 or 4 digit security code
+    
+
+The script then formats the card number with spaces between each group of 4 digits before displaying.
+
+## Implementation Notes
+
+1. **HTML Requirements**
+    
+    - Elements with classes `.PAN` and `.CVC` must exist in the DOM
+        
+    - Example:
+        
+2. **Security Considerations**
+    
+    - This implementation should only be used in PCI-DSS compliant environments
+        
+    - Adhere to all security requirements when handling card data
+        
+    - Minimize storage and display of card information
+        
+    - Ensure secure transmission of decryption keys
+        
+3. **Error Handling**
+    
+    - The script validates required parameters
+        
+    - Validates the secret key format
+        
+    - Catches and logs decryption errors to the console
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="showCardId" type="string" required>
+  Path parameter `showCardId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /card-program/card/show-card/{showCardId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/card-program/card/show-card/{showCardId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "secretKey": "a405c747270d1ce7bbce5f502438814d",
+    "token": {
+      "encryptedPan": {
+        "iv": "QcUgjIkF5CUz1SzrLNBIIA==",
+        "data": "K87wxLvdV8uKj3oEuL9Sjw4xV29M4GdT9xL4ZVCHd6s="
+      },
+      "encryptedCvc": {
+        "iv": "dQbhEqH5dI4L8r4AjnD6Fg==",
+        "data": "L6+/O5olpNFuAZB/amncA3uqrQ=="
+      }
+    },
+    "expiryMonth": "11",
+    "expiryYear": "2029"
+  }
+}
+```

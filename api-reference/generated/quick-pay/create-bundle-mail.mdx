@@ -1,0 +1,168 @@
+---
+title: 'Create Bundle Mail'
+api: 'POST /quickpay/bundle-mail'
+---
+
+| Keys | Desc |
+| --- | --- |
+| checkIds | Required, array |
+| shippingTypeId | Required |
+| fromAddress.customFromAddressId | Required (if fromAddress.name is absent) |
+| fromAddress.name | Required (if customFromAddressId is absent), string (max 150) |
+| fromAddress.companyName | Optional, string (max 100) |
+| fromAddress.addressLine1 | Required (if customFromAddressId is absent), string (max 100) |
+| fromAddress.addressLine2 | string (max 100) |
+| fromAddress.city | Required (if customFromAddressId is absent) |
+| fromAddress.state | Required (if customFromAddressId is absent) |
+| fromAddress.zip | Required (if customFromAddressId is absent) |
+| fromAddress.phone | Optional |
+| fromAddress.email | Optional, email |
+| toAddress.customToAddressId | Required (if customToAddressId .name is absent) |
+| toAddress.name | Required (if customToAddressId is absent), string (max 150) |
+| toAddress.companyName | Optional, string (max 100) |
+| toAddress.addressLine1 | Required (if customToAddressId is absent), string (max 100) |
+| toAddress.addressLine2 | string (max 100) |
+| toAddress.city | Required (if customToAddressId is absent) |
+| toAddress.state | Required (if customToAddressId is absent) |
+| toAddress.zip | Required (if customToAddressId is absent) |
+| toAddress.phone | Optional |
+| toAddress.email | Optional, email |
+
+##### **Availiable Shipping Types**
+
+| Shipping Type Id | **Description** |
+| --- | --- |
+| 4 | Priority |
+| 5 | Express |
+| 12 | Fedex overnight |
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="checkIds" type="string[]">
+  Request body field `checkIds`.
+</ParamField>
+
+<ParamField body="fromAddress" type="object">
+  Request body field `fromAddress`.
+</ParamField>
+
+<ParamField body="fromAddress.name" type="string">
+  Request body field `fromAddress.name`.
+</ParamField>
+
+<ParamField body="fromAddress.companyName" type="string">
+  Request body field `fromAddress.companyName`.
+</ParamField>
+
+<ParamField body="fromAddress.addressLine1" type="string">
+  Request body field `fromAddress.addressLine1`.
+</ParamField>
+
+<ParamField body="fromAddress.addressLine2" type="string">
+  Request body field `fromAddress.addressLine2`.
+</ParamField>
+
+<ParamField body="fromAddress.city" type="string">
+  Request body field `fromAddress.city`.
+</ParamField>
+
+<ParamField body="fromAddress.state" type="string">
+  Request body field `fromAddress.state`.
+</ParamField>
+
+<ParamField body="fromAddress.zip" type="string">
+  Request body field `fromAddress.zip`.
+</ParamField>
+
+<ParamField body="fromAddress.phone" type="string">
+  Request body field `fromAddress.phone`.
+</ParamField>
+
+<ParamField body="fromAddress.email" type="string">
+  Request body field `fromAddress.email`.
+</ParamField>
+
+<ParamField body="fromAddress.note" type="string">
+  Request body field `fromAddress.note`.
+</ParamField>
+
+<ParamField body="toAddress" type="object">
+  Request body field `toAddress`.
+</ParamField>
+
+<ParamField body="toAddress.name" type="string">
+  Request body field `toAddress.name`.
+</ParamField>
+
+<ParamField body="toAddress.companyName" type="string">
+  Request body field `toAddress.companyName`.
+</ParamField>
+
+<ParamField body="toAddress.addressLine1" type="string">
+  Request body field `toAddress.addressLine1`.
+</ParamField>
+
+<ParamField body="toAddress.addressLine2" type="string">
+  Request body field `toAddress.addressLine2`.
+</ParamField>
+
+<ParamField body="toAddress.city" type="string">
+  Request body field `toAddress.city`.
+</ParamField>
+
+<ParamField body="toAddress.state" type="string">
+  Request body field `toAddress.state`.
+</ParamField>
+
+<ParamField body="toAddress.zip" type="string">
+  Request body field `toAddress.zip`.
+</ParamField>
+
+<ParamField body="toAddress.phone" type="string">
+  Request body field `toAddress.phone`.
+</ParamField>
+
+<ParamField body="toAddress.email" type="string">
+  Request body field `toAddress.email`.
+</ParamField>
+
+<ParamField body="toAddress.note" type="string">
+  Request body field `toAddress.note`.
+</ParamField>
+
+<ParamField body="shippingTypeId" type="number">
+  Request body field `shippingTypeId`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /quickpay/bundle-mail`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/quickpay/bundle-mail" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Successfully Sent",
+  "data": {
+    "checkIds": [
+      "xZqXGKdxpzeRzVv",
+      "03wmjYd393e71bk"
+    ]
+  }
+}
+```

@@ -1,0 +1,48 @@
+---
+title: 'List ACH wallet funding'
+api: 'GET /wallet/fund/ach'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /wallet/fund/ach`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/wallet/fund/ach" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "meta": {
+    "total": 1,
+    "perPage": 10,
+    "currentPage": 1,
+    "lastPage": 1
+  },
+  "data": [
+    {
+      "id": "a8c04af1-001b-4e76-aebd-f3c1a45a8d5b",
+      "toWallet": "ea85fdfe-1e6b-4be6-8245-28bd3543777b",
+      "bankAccountId": "xZqXGK2kgd4RzVv",
+      "amount": "20.36",
+      "description": "wallet funding test",
+      "status": "PROCESSING",
+      "updatedAt": "2023-10-25T09:22:52.000000Z",
+      "createdAt": "2023-10-25T09:22:51.000000Z"
+    }
+  ]
+}
+```

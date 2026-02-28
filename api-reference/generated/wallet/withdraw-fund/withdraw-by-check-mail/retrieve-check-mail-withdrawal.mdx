@@ -1,0 +1,70 @@
+---
+title: 'Retrieve Check Mail Withdrawal'
+api: 'GET /wallet/withdraw/mail/{mailId}'
+---
+
+status :`PENDING` ,`PROCESSING` , `COMPLETED`,`CANCELED`,`FAILED`
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="mailId" type="string" required>
+  Path parameter `mailId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /wallet/withdraw/mail/{mailId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/wallet/withdraw/mail/{mailId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "499d42a2-5dc0-444e-9f15-c3adcfc907ec",
+    "fromWallet": "7ed806cf-7ccb-4aa2-9ae8-d1118f2f048b",
+    "amount": "10.00",
+    "description": "Wallet Withdraw :Mail",
+    "shippingType": "FEDEX_NEXT_DAY_PM",
+    "shippingInfo": {
+      "trackingNumber": null,
+      "trackingUrl": ""
+    },
+    "status": "COMPLETED",
+    "clearingFile": "https://ocw-local-s3.s3.amazonaws.com/checkmail/clearing/clearing-338--1747662268.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential={{vault:aws-access-key}}%2F20250519%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250519T134521Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Signature=0ed83c8c07653c47807ae745e59850403b8836e59f04819b5747150b36bb1786",
+    "previewFile": "https://ocw-local-s3.s3.amazonaws.com/checkmail/preview/preview-338--1747662286.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential={{vault:aws-access-key}}%2F20250519%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250519T134521Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Signature=0935430a9077451880befb27c5567f6e6bca84f4a01997abab5f0b2474ed781e",
+    "updatedAt": "2025-05-19T13:44:35.000000Z",
+    "createdAt": "2025-05-19T13:42:19.000000Z",
+    "fromAddress": {
+      "name": "FinCraft",
+      "addressLine1": "1111 Franklin Avenue",
+      "addressLine2": "",
+      "city": "Garden City",
+      "state": "NY",
+      "zip": "11530"
+    },
+    "toAddress": {
+      "name": "BluePeak Systems",
+      "addressLine1": "1 Apple Park Way",
+      "addressLine2": "",
+      "city": "Cupertino",
+      "state": "CA",
+      "zip": "95014"
+    }
+  }
+}
+```

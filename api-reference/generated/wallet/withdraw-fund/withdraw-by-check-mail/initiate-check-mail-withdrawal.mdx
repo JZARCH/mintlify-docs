@@ -1,0 +1,103 @@
+---
+title: 'Initiate Check Mail Withdrawal'
+api: 'POST /wallet/withdraw/mail/initiate'
+---
+
+**Payload Parameter**
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| fromWallet | string | ✅ Yes | ID of the wallet from which funds will be withdrawn. |
+| amount | string | ✅ Yes | Amount to withdraw |
+| description | string | ✅ Yes | Description for the withdrawal transaction. |
+| customFromAddressId | string | ✅ Yes | Custom address ID from which the check will be mailed. |
+| customToAddressId | string | ✅ Yes | Custom recipient address ID to which the check will be sent. |
+| shippingType | string | ✅ Yes | Type of mailing service used (e.g., FEDEX_NEXT_DAY_PM, USPS_FIRST_CLASS_MAIL). |
+
+**Available Shipping Types**
+
+| **Shipping Type** | **Shipping Type Code** |
+| --- | --- |
+| USPS First Class Mail | USPS_FIRST_CLASS_MAIL |
+| USPS First Class With Tracking | USPS_FIRST_CLASS_WITH_TRACKING |
+| USPS Express Mail | USPS_EXPRESS_MAIL |
+| USPS Priority Mail | USPS_PRIORITY_MAIL |
+| FedEx Next Day PM | FEDEX_NEXT_DAY_PM |
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="fromWallet" type="string">
+  Request body field `fromWallet`.
+</ParamField>
+
+<ParamField body="amount" type="string">
+  Request body field `amount`.
+</ParamField>
+
+<ParamField body="description" type="string">
+  Request body field `description`.
+</ParamField>
+
+<ParamField body="customFromAddressId" type="string">
+  Request body field `customFromAddressId`.
+</ParamField>
+
+<ParamField body="customToAddressId" type="string">
+  Request body field `customToAddressId`.
+</ParamField>
+
+<ParamField body="shippingType" type="string">
+  Request body field `shippingType`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /wallet/withdraw/mail/initiate`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/wallet/withdraw/mail/initiate" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "c6f98d19-4bd8-4a10-a758-05e0a9f2eabd",
+    "fromWallet": "86f24597-a2a4-489d-b18d-c2bfb9b8b452",
+    "amount": "1.25",
+    "description": "Wallet Withdraw :Mail",
+    "shippingType": "FEDEX_NEXT_DAY_PM",
+    "status": "PENDING",
+    "updatedAt": "2024-12-21T08:19:57.000000Z",
+    "createdAt": "2024-12-21T08:19:57.000000Z",
+    "fromAddress": {
+      "name": "GolbalTech Solution",
+      "addressLine1": "1234 East Elm Street",
+      "addressLine2": "",
+      "city": "Springfield",
+      "state": "MO",
+      "zip": "65802"
+    },
+    "toAddress": {
+      "name": "John",
+      "addressLine1": "4787 Rhode Island Avenue",
+      "addressLine2": "",
+      "city": "Springfield",
+      "state": "MO",
+      "zip": "65802"
+    }
+  }
+}
+```

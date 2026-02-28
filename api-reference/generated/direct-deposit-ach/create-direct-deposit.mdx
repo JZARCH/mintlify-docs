@@ -1,0 +1,119 @@
+---
+title: 'Create Direct Deposit'
+api: 'POST /directDeposit/create'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="sourceAccount" type="string">
+  Request body field `sourceAccount`.
+</ParamField>
+
+<ParamField body="destinationAccount" type="object">
+  Request body field `destinationAccount`.
+</ParamField>
+
+<ParamField body="destinationAccount.routingNumber" type="string">
+  Request body field `destinationAccount.routingNumber`.
+</ParamField>
+
+<ParamField body="destinationAccount.accountNumber" type="string">
+  Request body field `destinationAccount.accountNumber`.
+</ParamField>
+
+<ParamField body="destinationAccount.accountType" type="string">
+  Request body field `destinationAccount.accountType`.
+</ParamField>
+
+<ParamField body="payToInfo" type="object">
+  Request body field `payToInfo`.
+</ParamField>
+
+<ParamField body="payToInfo.name" type="string">
+  Request body field `payToInfo.name`.
+</ParamField>
+
+<ParamField body="payToInfo.nickName" type="string">
+  Request body field `payToInfo.nickName`.
+</ParamField>
+
+<ParamField body="payToInfo.company" type="string">
+  Request body field `payToInfo.company`.
+</ParamField>
+
+<ParamField body="payToInfo.email" type="string">
+  Request body field `payToInfo.email`.
+</ParamField>
+
+<ParamField body="payToInfo.phone" type="string">
+  Request body field `payToInfo.phone`.
+</ParamField>
+
+<ParamField body="payToInfo.address1" type="string">
+  Request body field `payToInfo.address1`.
+</ParamField>
+
+<ParamField body="payToInfo.address2" type="string">
+  Request body field `payToInfo.address2`.
+</ParamField>
+
+<ParamField body="payToInfo.city" type="string">
+  Request body field `payToInfo.city`.
+</ParamField>
+
+<ParamField body="payToInfo.state" type="string">
+  Request body field `payToInfo.state`.
+</ParamField>
+
+<ParamField body="payToInfo.zip" type="string">
+  Request body field `payToInfo.zip`.
+</ParamField>
+
+<ParamField body="payToInfo.country" type="string">
+  Request body field `payToInfo.country`.
+</ParamField>
+
+<ParamField body="description" type="string">
+  Request body field `description`.
+</ParamField>
+
+<ParamField body="amount" type="string">
+  Request body field `amount`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /directDeposit/create`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/directDeposit/create" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Successfully done",
+  "data": {
+    "checkId": "dN03WlEkLbpOw6YmZjqnmzw45MXrx19aJvRy8APq",
+    "amount": 551,
+    "payeeName": "TEST RECEIVER",
+    "destinationAccount": {
+      "routingNumber": "113110612",
+      "accountNumber": "1234567897890",
+      "accountType": "CHECKING"
+    }
+  }
+}
+```

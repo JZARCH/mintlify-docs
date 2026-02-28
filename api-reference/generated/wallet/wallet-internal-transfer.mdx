@@ -1,0 +1,60 @@
+---
+title: 'Wallet Internal Transfer'
+api: 'POST /wallet/internal-transfer'
+---
+
+You can transfer funds from one wallet to another within the same account using this endpoint.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="fromWallet" type="string">
+  Request body field `fromWallet`.
+</ParamField>
+
+<ParamField body="toWallet" type="string">
+  Request body field `toWallet`.
+</ParamField>
+
+<ParamField body="amount" type="string">
+  Request body field `amount`.
+</ParamField>
+
+<ParamField body="description" type="string">
+  Request body field `description`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /wallet/internal-transfer`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/wallet/internal-transfer" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "6bb62abd-4a7c-4bed-b51f-4243da319733",
+    "fromWallet": "86f24597-a2a4-489d-b18d-c2bfb9b8b452",
+    "toWallet": "4fa68199-1cf8-43c8-9df4-eb2b9ae20af7",
+    "amount": "1.25",
+    "description": "Transfer to second wallet",
+    "status": "COMPLETED",
+    "updatedAt": "2024-10-17T11:24:41.000000Z",
+    "createdAt": "2024-10-17T11:24:41.000000Z"
+  }
+}
+```

@@ -1,0 +1,72 @@
+---
+title: 'Retrieve voucher by checkId'
+api: 'GET /checks/{checkId}/voucher'
+---
+
+Details of an existing voucher. It can be retrieve by passing checkId as well as retrieve directly by passing voucherId.
+
+Path parameters
+
+ 
+  checkId
+  Required    
+         The id of the check to retrieve associated voucher.
+  
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="checkId" type="string" required>
+  Path parameter `checkId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /checks/{checkId}/voucher`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/checks/{checkId}/voucher" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "voucherNumber": "1000",
+    "totalAmount": "550.00",
+    "memo": "Test Memo",
+    "date": "2020-10-20",
+    "voucherItems": [
+      {
+        "invoiceNumber": "858",
+        "name": "Product 1",
+        "description": "Product Description 1",
+        "quantity": 10,
+        "unitCost": 5,
+        "total": "200.00"
+      },
+      {
+        "invoiceNumber": "540",
+        "name": "Product 1",
+        "description": "Product Description 1",
+        "quantity": 0,
+        "unitCost": 0,
+        "total": "350.00"
+      }
+    ]
+  }
+}
+```

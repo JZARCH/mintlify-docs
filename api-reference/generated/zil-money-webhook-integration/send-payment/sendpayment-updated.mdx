@@ -1,0 +1,190 @@
+---
+title: 'sendPayment.updated'
+api: 'POST /'
+---
+
+## sendPayment.updated
+
+Triggered whenever an **outgoing payment status changes**. The event fires for all payment methods — only the `transferType`, `source`, and a few additional fields differ per method. The rest of the payload structure is identical.
+
+**Source:** `ZilPaymentObserver::updated()` → `ZilPaymentV3Resource`
+
+---
+
+## Base Payload (ACH example — real verified)
+
+The sample body shows an ACH payment. All other payment methods share this same envelope.
+
+---
+
+## Common Fields (same across all payment types)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `data.id` | string (UUID) | Unique identifier for this payment |
+| `data.amount` | string | Payment amount |
+| `data.payeeId` | string | Encrypted payee ID |
+| `data.transferType` | string | Payment method — see variations below |
+| `data.referenceNo` | string | User-provided reference number — empty string `""` if not set |
+| `data.status` | string | `PENDING`, `PROCESSING`, `COMPLETED`, `FAILED`, `RETURNED`, `CANCELED`, `REVIEW` |
+| `data.description` | string | Payment description / memo — empty string `""` if not set |
+| `data.source.sourceType` | string | Funding source type — see variations below |
+| `data.source.sourceId` | string | Encrypted source ID or wallet UUID — see variations below |
+| `data.createdAt` | ISO 8601 datetime | Payment creation timestamp |
+| `data.updatedAt` | ISO 8601 datetime | Last updated timestamp |
+
+---
+
+## Payment Method Variations
+
+Only the fields shown below differ between payment types. All other fields remain identical.
+
+### ACH
+
+```json
+{
+  "data": {
+    "transferType": "ach",
+    "source": {
+      "sourceType": "bankAccount",
+      "sourceId": ""
+    },
+    "reviewMessage": ""  // populated with ACH return reason on FAILED status
+  }
+}
+```
+
+### Wire Transfer
+
+```json
+{
+  "data": {
+    "transferType": "wire",
+    "source": {
+      "sourceType": "bankAccount",
+      "sourceId": ""
+    },
+    "reviewMessage": ""  // populated with wire return description on FAILED status
+  }
+}
+```
+
+### Check Mail
+
+```json
+{
+  "data": {
+    "transferType": "checkMail",
+    "source": {
+      "sourceType": "wallet",
+      "sourceId": ""  // wallet UUID, not encrypted ID
+    },
+    "reviewMessage": null,
+    "clearingFile": null,   // pre-signed S3 URL after printing
+    "previewFile": null,    // pre-signed S3 URL after printing
+    "tracking": null        // tracking object after carrier pickup
+  }
+}
+```
+
+> **Check Mail only:** `clearingFile`, `previewFile`, and `tracking` are extra fields not present in ACH or Wire payloads.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="event" type="object">
+  Request body field `event`.
+</ParamField>
+
+<ParamField body="event.type" type="string">
+  Request body field `event.type`.
+</ParamField>
+
+<ParamField body="event.id" type="string">
+  Request body field `event.id`.
+</ParamField>
+
+<ParamField body="event.createdAt" type="string">
+  Request body field `event.createdAt`.
+</ParamField>
+
+<ParamField body="event.data" type="object">
+  Request body field `event.data`.
+</ParamField>
+
+<ParamField body="event.data.id" type="string">
+  Request body field `event.data.id`.
+</ParamField>
+
+<ParamField body="event.data.amount" type="string">
+  Request body field `event.data.amount`.
+</ParamField>
+
+<ParamField body="event.data.payeeId" type="string">
+  Request body field `event.data.payeeId`.
+</ParamField>
+
+<ParamField body="event.data.transferType" type="string">
+  Request body field `event.data.transferType`.
+</ParamField>
+
+<ParamField body="event.data.referenceNo" type="string">
+  Request body field `event.data.referenceNo`.
+</ParamField>
+
+<ParamField body="event.data.status" type="string">
+  Request body field `event.data.status`.
+</ParamField>
+
+<ParamField body="event.data.description" type="string">
+  Request body field `event.data.description`.
+</ParamField>
+
+<ParamField body="event.data.source" type="object">
+  Request body field `event.data.source`.
+</ParamField>
+
+<ParamField body="event.data.source.sourceType" type="string">
+  Request body field `event.data.source.sourceType`.
+</ParamField>
+
+<ParamField body="event.data.source.sourceId" type="string">
+  Request body field `event.data.source.sourceId`.
+</ParamField>
+
+<ParamField body="event.data.reviewMessage" type="string">
+  Request body field `event.data.reviewMessage`.
+</ParamField>
+
+<ParamField body="event.data.createdAt" type="string">
+  Request body field `event.data.createdAt`.
+</ParamField>
+
+<ParamField body="event.data.updatedAt" type="string">
+  Request body field `event.data.updatedAt`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "status": "ok"
+}
+```

@@ -1,0 +1,68 @@
+---
+title: 'Update Bank Account'
+api: 'PUT /getpaid-by-form/bank-account/{customerBankAccountId}'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="customerBankAccountId" type="string" required>
+  Path parameter `customerBankAccountId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="customerId" type="string">
+  Request body field `customerId`.
+</ParamField>
+
+<ParamField body="accountName" type="string">
+  Request body field `accountName`.
+</ParamField>
+
+<ParamField body="routingNumber" type="string">
+  Request body field `routingNumber`.
+</ParamField>
+
+<ParamField body="accountNumber" type="string">
+  Request body field `accountNumber`.
+</ParamField>
+
+<ParamField body="accountType" type="string">
+  Request body field `accountType`.
+</ParamField>
+
+## Request
+
+Endpoint: `PUT /getpaid-by-form/bank-account/{customerBankAccountId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/getpaid-by-form/bank-account/{customerBankAccountId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "4ace9721-58cb-410a-b938-efc12ce2c55d",
+    "accountName": "Alison Gambala KRa",
+    "accountNumber": "123654789534",
+    "routingNumber": "121000358",
+    "accountType": "SAVINGS",
+    "createdAt": "2021-09-21T14:36:03.000000Z",
+    "updatedAt": "2021-09-21T14:36:03.000000Z"
+  },
+  "statusCode": 202
+}
+```

@@ -1,0 +1,88 @@
+---
+title: 'Show Wallet Spend Card Transaction Details'
+api: 'GET /card-program/{cardProgramId}/transactions'
+---
+
+This API endpoint retrieves the transaction history and details for a specific spend card linked to a wallet using the card ID.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="cardProgramId" type="string" required>
+  Path parameter `cardProgramId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /card-program/{cardProgramId}/transactions`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/card-program/{cardProgramId}/transactions" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "meta": {
+    "total": 3,
+    "perPage": 10,
+    "currentPage": 1,
+    "lastPage": 1
+  },
+  "data": [
+    {
+      "id": "ebf36450-cce6-4624-a5ac-1290da6857f9",
+      "cardProgramIssuingRecordId": "44069e7f-c27f-48ca-818c-de66d97a8c26",
+      "cardId": "af76976f-6d9a-465e-aca6-f140c7a6d687",
+      "amount": "10.00",
+      "description": "Paypal                   ",
+      "status": "declined",
+      "transactionDate": "2025-03-26 06:11:52",
+      "merchantName": "Paypal                   ",
+      "merchantCity": null,
+      "merchantState": null,
+      "merchantCountry": null,
+      "merchantCategoryCode": ""
+    },
+    {
+      "id": "0156ca31-e5ae-4522-b84e-6a5d2934418b",
+      "cardProgramIssuingRecordId": "44069e7f-c27f-48ca-818c-de66d97a8c26",
+      "cardId": "af76976f-6d9a-465e-aca6-f140c7a6d687",
+      "amount": "10.00",
+      "description": "Amazon                   ",
+      "status": "declined",
+      "transactionDate": "2025-03-26 05:20:19",
+      "merchantName": "Amazon                   ",
+      "merchantCity": null,
+      "merchantState": null,
+      "merchantCountry": null,
+      "merchantCategoryCode": ""
+    },
+    {
+      "id": "fdead0da-e96d-48a2-a477-980aa3416123",
+      "cardProgramIssuingRecordId": "44069e7f-c27f-48ca-818c-de66d97a8c26",
+      "cardId": "af76976f-6d9a-465e-aca6-f140c7a6d687",
+      "amount": "25.00",
+      "description": "Spotify                  ",
+      "status": "declined",
+      "transactionDate": "2025-03-26 05:19:56",
+      "merchantName": "Spotify                  ",
+      "merchantCity": null,
+      "merchantState": null,
+      "merchantCountry": null,
+      "merchantCategoryCode": ""
+    }
+  ]
+}
+```

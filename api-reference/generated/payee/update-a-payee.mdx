@@ -1,0 +1,100 @@
+---
+title: 'Update a payee'
+api: 'PUT /payees/{payeeId}'
+---
+
+Update details of an existing payee.
+
+**Path parameters**
+
+payeeIdRequiredThe id of the payee to update
+
+**Payload parameters**
+
+nameRequiredStringName of payee,Must be no longer than 100 characters.nickNameOptionalStringNick name of payee,Must be no longer than 50 characters.companyOptionalStringCompany name,Must be no longer than 50 characters.emailOptionalStringMust be no longer than 90 characters.phoneOptionalStringMust be no longer than 15 characters.address1OptionalStringMust be no longer than 180 characters.address2OptionalStringMust be no longer than 180 characters.cityOptionalStringMust be no longer than 180 characters.stateOptionalStringMust be a 2 letter state short-name codezipOptionalStringMust be no longer than 15 characters.countryOptionalStringMust be no longer than 40 characters.dobOptional StringDate of birth, Must be in the format YYYY-MM-DD.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="payeeId" type="string" required>
+  Path parameter `payeeId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="name" type="string">
+  Request body field `name`.
+</ParamField>
+
+<ParamField body="nickName" type="string">
+  Request body field `nickName`.
+</ParamField>
+
+<ParamField body="company" type="string">
+  Request body field `company`.
+</ParamField>
+
+<ParamField body="email" type="string">
+  Request body field `email`.
+</ParamField>
+
+<ParamField body="phone" type="string">
+  Request body field `phone`.
+</ParamField>
+
+<ParamField body="address1" type="string">
+  Request body field `address1`.
+</ParamField>
+
+<ParamField body="address2" type="string">
+  Request body field `address2`.
+</ParamField>
+
+<ParamField body="city" type="string">
+  Request body field `city`.
+</ParamField>
+
+<ParamField body="state" type="string">
+  Request body field `state`.
+</ParamField>
+
+<ParamField body="zip" type="string">
+  Request body field `zip`.
+</ParamField>
+
+<ParamField body="country" type="string">
+  Request body field `country`.
+</ParamField>
+
+<ParamField body="dob" type="string">
+  Request body field `dob`.
+</ParamField>
+
+## Request
+
+Endpoint: `PUT /payees/{payeeId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/payees/{payeeId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Succesfully updated",
+  "data": {
+    "payeeId": "mQ0bRG235eZdP3x"
+  }
+}
+```

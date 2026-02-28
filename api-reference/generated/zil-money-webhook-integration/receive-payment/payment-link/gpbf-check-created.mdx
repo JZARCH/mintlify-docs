@@ -1,0 +1,167 @@
+---
+title: 'gpbf.check.created'
+api: 'POST /'
+---
+
+## gpbf.check.created
+
+Triggered when a customer submits a **Get Paid By Form** (GPBF) payment, creating a new eCheck/digital check record.
+
+**Trigger:** A customer fills out and submits the payment form sent by a Zil Money user. A `GetPaidByFormCheck` record is created in the system.
+
+**Source:** `GetPaidByFormCheck::boot()::created()` → `GetPaidByFormCheckResource`
+
+---
+
+## Payload Field Reference
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `data.referenceId` | string | Encrypted unique check reference ID |
+| `data.memo` | string | Check memo / payment note |
+| `data.amount` | string | Payment amount formatted to 2 decimal places |
+| `data.serialNumber` | integer | Check serial number |
+| `data.invoiceNumber` | string | Invoice number (empty string if not provided) |
+| `data.transactionId` | string | Associated transaction ID (empty string if not set) |
+| `data.customerDetails.customerEmail` | string | Payer's email address |
+| `data.customerDetails.customerName` | string | Payer's full name |
+| `data.customerDetails.customerAddressLine1` | string | Payer's street address |
+| `data.customerDetails.customerPhone` | string | Payer's phone number |
+| `data.customerDetails.customerCity` | string | Payer's city |
+| `data.customerDetails.customerState` | string | Payer's state (2-letter code) |
+| `data.customerDetails.customerZip` | string | Payer's ZIP code |
+| `data.metaData` | array | Additional metadata attached to the payment form (empty array `[]` when not set) |
+| `data.customField1` | string | Custom field 1 configured on the payment form |
+| `data.customField2` | string | Custom field 2 |
+| `data.customField3` | string | Custom field 3 |
+| `data.status.statusCode` | integer | Numeric status code from `central_received_check_status` table (e.g., `1`) |
+| `data.status.statusShortDescription` | string | Short description from DB (e.g., `"GPBL Acpt/Rej"`) |
+| `data.createdAt` | ISO 8601 datetime | Check creation timestamp |
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="event" type="object">
+  Request body field `event`.
+</ParamField>
+
+<ParamField body="event.type" type="string">
+  Request body field `event.type`.
+</ParamField>
+
+<ParamField body="event.id" type="string">
+  Request body field `event.id`.
+</ParamField>
+
+<ParamField body="event.createdAt" type="string">
+  Request body field `event.createdAt`.
+</ParamField>
+
+<ParamField body="event.data" type="object">
+  Request body field `event.data`.
+</ParamField>
+
+<ParamField body="event.data.referenceId" type="string">
+  Request body field `event.data.referenceId`.
+</ParamField>
+
+<ParamField body="event.data.memo" type="string">
+  Request body field `event.data.memo`.
+</ParamField>
+
+<ParamField body="event.data.amount" type="string">
+  Request body field `event.data.amount`.
+</ParamField>
+
+<ParamField body="event.data.serialNumber" type="number">
+  Request body field `event.data.serialNumber`.
+</ParamField>
+
+<ParamField body="event.data.createdAt" type="string">
+  Request body field `event.data.createdAt`.
+</ParamField>
+
+<ParamField body="event.data.invoiceNumber" type="string">
+  Request body field `event.data.invoiceNumber`.
+</ParamField>
+
+<ParamField body="event.data.transactionId" type="string">
+  Request body field `event.data.transactionId`.
+</ParamField>
+
+<ParamField body="event.data.customerDetails" type="object">
+  Request body field `event.data.customerDetails`.
+</ParamField>
+
+<ParamField body="event.data.customerDetails.customerEmail" type="string">
+  Request body field `event.data.customerDetails.customerEmail`.
+</ParamField>
+
+<ParamField body="event.data.customerDetails.customerName" type="string">
+  Request body field `event.data.customerDetails.customerName`.
+</ParamField>
+
+<ParamField body="event.data.customerDetails.customerAddressLine1" type="string">
+  Request body field `event.data.customerDetails.customerAddressLine1`.
+</ParamField>
+
+<ParamField body="event.data.customerDetails.customerPhone" type="string">
+  Request body field `event.data.customerDetails.customerPhone`.
+</ParamField>
+
+<ParamField body="event.data.customerDetails.customerCity" type="string">
+  Request body field `event.data.customerDetails.customerCity`.
+</ParamField>
+
+<ParamField body="event.data.customerDetails.customerState" type="string">
+  Request body field `event.data.customerDetails.customerState`.
+</ParamField>
+
+<ParamField body="event.data.customerDetails.customerZip" type="string">
+  Request body field `event.data.customerDetails.customerZip`.
+</ParamField>
+
+<ParamField body="event.data.metaData" type="object[]">
+  Request body field `event.data.metaData`.
+</ParamField>
+
+<ParamField body="event.data.customField1" type="string">
+  Request body field `event.data.customField1`.
+</ParamField>
+
+<ParamField body="event.data.customField2" type="string">
+  Request body field `event.data.customField2`.
+</ParamField>
+
+<ParamField body="event.data.customField3" type="string">
+  Request body field `event.data.customField3`.
+</ParamField>
+
+<ParamField body="event.data.status" type="object">
+  Request body field `event.data.status`.
+</ParamField>
+
+<ParamField body="event.data.status.statusCode" type="number">
+  Request body field `event.data.status.statusCode`.
+</ParamField>
+
+<ParamField body="event.data.status.statusShortDescription" type="string">
+  Request body field `event.data.status.statusShortDescription`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```

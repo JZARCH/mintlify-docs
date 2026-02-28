@@ -1,0 +1,100 @@
+---
+title: 'Retrieve all mail options'
+api: 'GET /mailchecks/mailingOptions'
+---
+
+Retrieve all available mail options,including shipping types,Paper types and Inform types,You can use this data to create mail check.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /mailchecks/mailingOptions`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/mailchecks/mailingOptions" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "informTypes": [
+      {
+        "informTypeId": 10,
+        "name": "Notify Receiver by Sms",
+        "amount": "0.50",
+        "shortCode": ""
+      }
+    ],
+    "shippingTypes": [
+      {
+        "shippingTypeId": 3,
+        "name": "First Class with Tracking",
+        "amount": "3.50",
+        "shortCode": "F-T"
+      },
+      {
+        "shippingTypeId": 1,
+        "name": "First Class",
+        "amount": "1.00",
+        "shortCode": "F"
+      },
+      {
+        "shippingTypeId": 11,
+        "name": "Fedex 2 days Shipping",
+        "amount": "49.99",
+        "shortCode": "F_2_D"
+      },
+      {
+        "shippingTypeId": 12,
+        "name": "Standard Overnight -Fedex-By 3pm the next business day",
+        "amount": "69.99",
+        "shortCode": "F_S_O"
+      },
+      {
+        "shippingTypeId": 4,
+        "name": "Priority Mail",
+        "amount": "8.99",
+        "shortCode": "P"
+      },
+      {
+        "shippingTypeId": 5,
+        "name": "Express Mail",
+        "amount": "29.99",
+        "shortCode": "E"
+      }
+    ],
+    "paperTypes": [
+      {
+        "paperTypeId": 7,
+        "name": "Regular Check Paper",
+        "amount": "0.00",
+        "shortCode": "N"
+      },
+      {
+        "paperTypeId": 8,
+        "name": "Hollogram Check Paper",
+        "amount": "0.50",
+        "shortCode": "H"
+      },
+      {
+        "paperTypeId": 9,
+        "name": "Ultra Hollogram Check Paper",
+        "amount": "0.99",
+        "shortCode": "U"
+      }
+    ]
+  }
+}
+```

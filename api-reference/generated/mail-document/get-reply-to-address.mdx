@@ -1,0 +1,88 @@
+---
+title: 'Get Reply To Address'
+api: 'GET /documentmailing/getreplyto'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Query parameters
+
+<ParamField query="perPage" type="string">
+  The default value is 10, with a maximum of 100.
+</ParamField>
+
+<ParamField query="terms" type="string">
+  We will search using these terms or keywords within the name, company name, phone, and email. If there's a match, you will receive results. This helps narrow down your search.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /documentmailing/getreplyto`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/documentmailing/getreplyto" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "meta": {
+      "total": 3,
+      "currentPage": 1,
+      "perPage": "10"
+    },
+    "relyToAddress": [
+      {
+        "id": "rz6VoW41dj589lK",
+        "name": "1123",
+        "company": null,
+        "email": null,
+        "phone": "(123) 132-1231",
+        "address1": "32132",
+        "address2": "132123",
+        "city": "1231",
+        "state": "2313",
+        "zip": "7546556564",
+        "country": "US"
+      },
+      {
+        "id": "qx5NrWjymj2n3l6",
+        "name": "Tyker Petroleum Inc-2",
+        "company": null,
+        "email": null,
+        "phone": "(901) 456-4564",
+        "address1": "5005 Old Jacksonville Highway",
+        "address2": null,
+        "city": "Tyler",
+        "state": "TX",
+        "zip": "75703",
+        "country": "US"
+      },
+      {
+        "id": "y0bL3YGdLG1X7wA",
+        "name": "Sabeer Nc",
+        "company": null,
+        "email": "support@onlinecheckwriter.com",
+        "phone": "9032454511",
+        "address1": "47 W 13th St",
+        "address2": null,
+        "city": "New York",
+        "state": "NY",
+        "zip": "10011",
+        "country": "US"
+      }
+    ]
+  }
+}
+```

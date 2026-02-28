@@ -1,0 +1,123 @@
+---
+title: 'Edit Payee Bank Account'
+api: 'PUT /payees/{payee_id}/bank-accounts/{payee-bankaccount-id}'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="payee_id" type="string" required>
+  Path parameter `payee_id`.
+</ParamField>
+
+<ParamField path="payee-bankaccount-id" type="string" required>
+  Path parameter `payee-bankaccount-id`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="bankName" type="string">
+  Request body field `bankName`.
+</ParamField>
+
+<ParamField body="routingNumber" type="string">
+  Request body field `routingNumber`.
+</ParamField>
+
+<ParamField body="accountNumber" type="string">
+  Request body field `accountNumber`.
+</ParamField>
+
+<ParamField body="accountType" type="string">
+  Request body field `accountType`.
+</ParamField>
+
+<ParamField body="isAllowWire" type="number">
+  Request body field `isAllowWire`.
+</ParamField>
+
+<ParamField body="bankAccountFirstName" type="string">
+  Request body field `bankAccountFirstName`.
+</ParamField>
+
+<ParamField body="bankAccountLastName" type="string">
+  Request body field `bankAccountLastName`.
+</ParamField>
+
+<ParamField body="bankAccountAddress1" type="string">
+  Request body field `bankAccountAddress1`.
+</ParamField>
+
+<ParamField body="bankAccountAddress2" type="string">
+  Request body field `bankAccountAddress2`.
+</ParamField>
+
+<ParamField body="bankAccountCity" type="string">
+  Request body field `bankAccountCity`.
+</ParamField>
+
+<ParamField body="bankAccountState" type="string">
+  Request body field `bankAccountState`.
+</ParamField>
+
+<ParamField body="bankAccountZip" type="string">
+  Request body field `bankAccountZip`.
+</ParamField>
+
+<ParamField body="bankAccountCountry" type="string">
+  Request body field `bankAccountCountry`.
+</ParamField>
+
+<ParamField body="bankingInstituteName" type="string">
+  Request body field `bankingInstituteName`.
+</ParamField>
+
+<ParamField body="bankingInstituteAddressLine1" type="string">
+  Request body field `bankingInstituteAddressLine1`.
+</ParamField>
+
+<ParamField body="bankingInstituteAddressLine2" type="string">
+  Request body field `bankingInstituteAddressLine2`.
+</ParamField>
+
+<ParamField body="bankingInstituteCity" type="string">
+  Request body field `bankingInstituteCity`.
+</ParamField>
+
+<ParamField body="bankingInstituteState" type="string">
+  Request body field `bankingInstituteState`.
+</ParamField>
+
+<ParamField body="bankingInstituteZip" type="string">
+  Request body field `bankingInstituteZip`.
+</ParamField>
+
+<ParamField body="bankingInstituteCountry" type="string">
+  Request body field `bankingInstituteCountry`.
+</ParamField>
+
+## Request
+
+Endpoint: `PUT /payees/{payee_id}/bank-accounts/{payee-bankaccount-id}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/payees/{payee_id}/bank-accounts/{payee-bankaccount-id}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": "Successfully updated"
+}
+```

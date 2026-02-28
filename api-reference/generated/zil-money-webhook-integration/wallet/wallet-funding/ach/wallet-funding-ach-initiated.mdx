@@ -1,0 +1,104 @@
+---
+title: 'wallet.funding.ach.initiated'
+api: 'POST /'
+---
+
+## wallet.funding.ach.initiated
+
+Triggered when a user initiates an **ACH transfer to fund their Zil Money wallet** from a linked bank account.
+
+**Trigger:** User adds funds to their Zil Money wallet via ACH bank pull.
+
+**Source:** `BankingAchTransferRequestObserver::created()` → `BankingAchWalletWithdrawalTransferRequestResource`
+
+---
+
+## Payload Field Reference
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `data.id` | string (UUID) | Unique identifier for this ACH transfer |
+| `data.fromWallet` | string\|null | Source wallet (null for funding — funds come from bank) |
+| `data.toWallet` | string | Destination wallet name (e.g., `"primary"`) |
+| `data.bankAccountId` | string | Encrypted ID of the linked bank account being debited |
+| `data.amount` | string | Amount being transferred (2 decimal places) |
+| `data.description` | string | Transfer description |
+| `data.status` | string | `PENDING`, `PROCESSING`, `COMPLETED`, `CANCELED`, `FAILED`, `RETURNED` |
+| `data.updatedAt` | ISO 8601 datetime | Last updated timestamp |
+| `data.createdAt` | ISO 8601 datetime | Creation timestamp |
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="event" type="object">
+  Request body field `event`.
+</ParamField>
+
+<ParamField body="event.type" type="string">
+  Request body field `event.type`.
+</ParamField>
+
+<ParamField body="event.id" type="string">
+  Request body field `event.id`.
+</ParamField>
+
+<ParamField body="event.createdAt" type="string">
+  Request body field `event.createdAt`.
+</ParamField>
+
+<ParamField body="event.data" type="object">
+  Request body field `event.data`.
+</ParamField>
+
+<ParamField body="event.data.id" type="string">
+  Request body field `event.data.id`.
+</ParamField>
+
+<ParamField body="event.data.fromWallet" type="string">
+  Request body field `event.data.fromWallet`.
+</ParamField>
+
+<ParamField body="event.data.toWallet" type="string">
+  Request body field `event.data.toWallet`.
+</ParamField>
+
+<ParamField body="event.data.bankAccountId" type="string">
+  Request body field `event.data.bankAccountId`.
+</ParamField>
+
+<ParamField body="event.data.amount" type="string">
+  Request body field `event.data.amount`.
+</ParamField>
+
+<ParamField body="event.data.description" type="string">
+  Request body field `event.data.description`.
+</ParamField>
+
+<ParamField body="event.data.status" type="string">
+  Request body field `event.data.status`.
+</ParamField>
+
+<ParamField body="event.data.updatedAt" type="string">
+  Request body field `event.data.updatedAt`.
+</ParamField>
+
+<ParamField body="event.data.createdAt" type="string">
+  Request body field `event.data.createdAt`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```

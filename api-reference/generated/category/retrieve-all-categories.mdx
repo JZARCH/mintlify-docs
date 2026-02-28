@@ -1,0 +1,68 @@
+---
+title: 'Retrieve all Categories'
+api: 'GET /categories'
+---
+
+List of all category records.
+
+
+Query parameters
+
+ 
+  perPage
+     Number of records that you want to receive in the response,By default 10 records will be 
+          listed
+   
+  
+  page
+    For navigating through pages ,By default first page will be listed 
+  
+  
+    term
+     Filter records by using any keywords
+   
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /categories`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/categories" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "meta": {
+      "total": 2
+    },
+    "categories": [
+      {
+        "categoryId": "OJapb4kd9GY1Ewm",
+        "name": "Category 1",
+        "type": "expense"
+      },
+      {
+        "categoryId": "yEMKgGNB8GwvnQ8",
+        "name": "Category 2",
+        "type": "income"
+      }
+    ]
+  }
+}
+```

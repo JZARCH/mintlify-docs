@@ -1,0 +1,427 @@
+---
+title: 'Retrieve all checks'
+api: 'GET /checks'
+---
+
+List all check records
+
+**Query parameters**
+
+perPageNumber of records that you want to receive in the response,By default 10 records will belistedpageFor navigating through pages ,By default first page will be listedtermFilter records by using any keywordsstatusFilter records by using check status ,Eg:new , void ,mailed ,refunded , emailed , eprinted ,printedreferenceIdFilter records by referenceIdcolumnThe column name to be used for filtering records. Supported columns include payee_name,payee_nick_name,serial_number,amount,bank_account_account_name,bank_account_nick_name,memo,noteSearchTypeDefines how the search is applied to the chosen column. Eg- exact or like
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Query parameters
+
+<ParamField query="perPage" type="string">
+  Number of records that you want to receive in the response,By default 10 records will be listed
+</ParamField>
+
+<ParamField query="page" type="string">
+  By default first page will be listed
+</ParamField>
+
+<ParamField query="status" type="string">
+  Filter record by using check status 
+</ParamField>
+
+<ParamField query="term" type="string">
+  Filter records by using any keywords
+</ParamField>
+
+<ParamField query="referenceId" type="string">
+  Query parameter `referenceId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /checks`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/checks" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "meta": {
+      "total": 10,
+      "currentPage": 1,
+      "perPage": 10
+    },
+    "checks": [
+      {
+        "checkId": "9MqkGWW2gPGD7Ry",
+        "serialNumber": "1002",
+        "amount": "200.00",
+        "amountInWord": " two hundred ",
+        "date": "10/25/20",
+        "status": 1,
+        "memo": "First, Test check using API...",
+        "accountNumber": "458757",
+        "invoiceNumber": "2546",
+        "referenceId": null,
+        "bankAccount": {
+          "bankAccountId": "yd6LeMYmdQeE8Dx",
+          "name": "Demo Bank Account 1"
+        },
+        "payee": {
+          "payeeId": "Xw2lx48MdGMzWyD",
+          "name": "Alison"
+        },
+        "category": {
+          "categoryId": "MLbz3Aj3ReVw6Ev",
+          "name": null
+        },
+        "checkStatus": {
+          "status": 1,
+          "description": "Printed"
+        },
+        "checkStatements": [
+          {
+            "status": "Printed",
+            "date": "11/18/2020",
+            "time": "06:03 am"
+          },
+          {
+            "status": "created",
+            "date": "10/15/2020",
+            "time": "05:53 am"
+          }
+        ]
+      },
+      {
+        "checkId": "yd6LeMEkVYeE8Dx",
+        "serialNumber": "1001",
+        "amount": "100.00",
+        "amountInWord": " one hundred ",
+        "date": "10/25/20",
+        "status": 0,
+        "memo": "First, Test check using API",
+        "accountNumber": "458756",
+        "invoiceNumber": "2545",
+        "referenceId": null,
+        "bankAccount": {
+          "bankAccountId": "yd6LeMYmdQeE8Dx",
+          "name": "Demo Bank Account 1"
+        },
+        "payee": {
+          "payeeId": "Xw2lx48MdGMzWyD",
+          "name": "Alison"
+        },
+        "category": {
+          "categoryId": "MLbz3Aj3ReVw6Ev",
+          "name": null
+        },
+        "checkStatus": {
+          "status": 0,
+          "description": "New"
+        },
+        "checkStatements": [
+          {
+            "status": "created",
+            "date": "10/15/2020",
+            "time": "05:53 am"
+          }
+        ]
+      },
+      {
+        "checkId": "Jy7VeB0lv74zn1m",
+        "serialNumber": "1002",
+        "amount": "200.00",
+        "amountInWord": " two hundred ",
+        "date": "10/25/20",
+        "status": 0,
+        "memo": "First, Test check using API...",
+        "accountNumber": "458757",
+        "invoiceNumber": "2546",
+        "referenceId": null,
+        "bankAccount": {
+          "bankAccountId": "yd6LeMYmdQeE8Dx",
+          "name": "Demo Bank Account 1"
+        },
+        "payee": {
+          "payeeId": "Xw2lx48MdGMzWyD",
+          "name": "Alison"
+        },
+        "category": {
+          "categoryId": "MLbz3Aj3ReVw6Ev",
+          "name": null
+        },
+        "checkStatus": {
+          "status": 0,
+          "description": "New"
+        },
+        "checkStatements": [
+          {
+            "status": "created",
+            "date": "10/15/2020",
+            "time": "05:52 am"
+          }
+        ]
+      },
+      {
+        "checkId": "BQPA4mPYE2j7gxq",
+        "serialNumber": "1001",
+        "amount": "100.00",
+        "amountInWord": " one hundred ",
+        "date": "10/25/20",
+        "status": 0,
+        "memo": "First, Test check using API",
+        "accountNumber": "458756",
+        "invoiceNumber": "2545",
+        "referenceId": null,
+        "bankAccount": {
+          "bankAccountId": "yd6LeMYmdQeE8Dx",
+          "name": "Demo Bank Account 1"
+        },
+        "payee": {
+          "payeeId": "Xw2lx48MdGMzWyD",
+          "name": "Alison"
+        },
+        "category": {
+          "categoryId": "MLbz3Aj3ReVw6Ev",
+          "name": null
+        },
+        "checkStatus": {
+          "status": 0,
+          "description": "New"
+        },
+        "checkStatements": [
+          {
+            "status": "created",
+            "date": "10/15/2020",
+            "time": "05:52 am"
+          }
+        ]
+      },
+      {
+        "checkId": "v1byeVnlwEeOQgr",
+        "serialNumber": "1006",
+        "amount": "120.00",
+        "amountInWord": " one hundred  twenty   ",
+        "date": "10/25/20",
+        "status": 0,
+        "memo": "First, Test check using API",
+        "accountNumber": "458756",
+        "invoiceNumber": "2545",
+        "referenceId": null,
+        "bankAccount": {
+          "bankAccountId": "yd6LeMYmdQeE8Dx",
+          "name": "Demo Bank Account 1"
+        },
+        "payee": {
+          "payeeId": "Xw2lx48MdGMzWyD",
+          "name": "Alison"
+        },
+        "category": {
+          "categoryId": "MLbz3Aj3ReVw6Ev",
+          "name": null
+        },
+        "checkStatus": {
+          "status": 0,
+          "description": "New"
+        },
+        "checkStatements": [
+          {
+            "status": "updated",
+            "date": "10/15/2020",
+            "time": "05:48 am"
+          },
+          {
+            "status": "created",
+            "date": "09/17/2020",
+            "time": "07:58 am"
+          }
+        ]
+      },
+      {
+        "checkId": "6VoW41y7Oo4589l",
+        "serialNumber": "1001",
+        "amount": "100.00",
+        "amountInWord": " one hundred ",
+        "date": "10/25/20",
+        "status": 0,
+        "memo": "First, Test check using API",
+        "accountNumber": "458756",
+        "invoiceNumber": "2545",
+        "referenceId": null,
+        "bankAccount": {
+          "bankAccountId": "yd6LeMYmdQeE8Dx",
+          "name": "Demo Bank Account 1"
+        },
+        "payee": {
+          "payeeId": "Xw2lx48MdGMzWyD",
+          "name": "Alison"
+        },
+        "category": {
+          "categoryId": "OJapb4kd9GY1Ewm",
+          "name": "Category 1"
+        },
+        "checkStatus": {
+          "status": 0,
+          "description": "New"
+        },
+        "checkStatements": [
+          {
+            "status": "created",
+            "date": "09/17/2020",
+            "time": "07:58 am"
+          }
+        ]
+      },
+      {
+        "checkId": "5NrWjy8Yl3e2n3l",
+        "serialNumber": "1002",
+        "amount": "200.00",
+        "amountInWord": " two hundred ",
+        "date": "10/25/20",
+        "status": 0,
+        "memo": "First, Test check using API",
+        "accountNumber": "458757",
+        "invoiceNumber": "2546",
+        "referenceId": null,
+        "bankAccount": {
+          "bankAccountId": "yd6LeMYmdQeE8Dx",
+          "name": "Demo Bank Account 1"
+        },
+        "payee": {
+          "payeeId": "Xw2lx48MdGMzWyD",
+          "name": "Alison"
+        },
+        "category": {
+          "categoryId": "OJapb4kd9GY1Ewm",
+          "name": "Category 1"
+        },
+        "checkStatus": {
+          "status": 0,
+          "description": "New"
+        },
+        "checkStatements": [
+          {
+            "status": "created",
+            "date": "09/17/2020",
+            "time": "07:58 am"
+          }
+        ]
+      },
+      {
+        "checkId": "bL3YGddx1yG1X7w",
+        "serialNumber": "1001",
+        "amount": "100.00",
+        "amountInWord": " one hundred ",
+        "date": "10/25/20",
+        "status": 0,
+        "memo": "First, Test check using API",
+        "accountNumber": "458756",
+        "invoiceNumber": "2545",
+        "referenceId": null,
+        "bankAccount": {
+          "bankAccountId": "yd6LeMYmdQeE8Dx",
+          "name": "Demo Bank Account 1"
+        },
+        "payee": {
+          "payeeId": "Xw2lx48MdGMzWyD",
+          "name": "Alison"
+        },
+        "category": {
+          "categoryId": "OJapb4kd9GY1Ewm",
+          "name": "Category 1"
+        },
+        "checkStatus": {
+          "status": 0,
+          "description": "New"
+        },
+        "checkStatements": [
+          {
+            "status": "created",
+            "date": "09/17/2020",
+            "time": "07:58 am"
+          }
+        ]
+      },
+      {
+        "checkId": "NlkQ4rOYo8GwnOV",
+        "serialNumber": "1002",
+        "amount": "200.00",
+        "amountInWord": " two hundred ",
+        "date": "10/25/20",
+        "status": 0,
+        "memo": "First, Test check using API",
+        "accountNumber": "458757",
+        "invoiceNumber": "2546",
+        "referenceId": null,
+        "bankAccount": {
+          "bankAccountId": "yd6LeMYmdQeE8Dx",
+          "name": "Demo Bank Account 1"
+        },
+        "payee": {
+          "payeeId": "n1ZoVelylj8pwba",
+          "name": "Payee Name"
+        },
+        "category": {
+          "categoryId": "OJapb4kd9GY1Ewm",
+          "name": "Category 1"
+        },
+        "checkStatus": {
+          "status": 0,
+          "description": "New"
+        },
+        "checkStatements": [
+          {
+            "status": "created",
+            "date": "09/17/2020",
+            "time": "04:53 am"
+          }
+        ]
+      },
+      {
+        "checkId": "0Kmz47R1YmjLOM2",
+        "serialNumber": "1001",
+        "amount": "100.00",
+        "amountInWord": " one hundred ",
+        "date": "10/25/20",
+        "status": 0,
+        "memo": "First, Test check using API",
+        "accountNumber": "458756",
+        "invoiceNumber": "2545",
+        "referenceId": null,
+        "bankAccount": {
+          "bankAccountId": "yd6LeMYmdQeE8Dx",
+          "name": "Demo Bank Account 1"
+        },
+        "payee": {
+          "payeeId": "n1ZoVelylj8pwba",
+          "name": "Payee Name"
+        },
+        "category": {
+          "categoryId": "OJapb4kd9GY1Ewm",
+          "name": "Category 1"
+        },
+        "checkStatus": {
+          "status": 0,
+          "description": "New"
+        },
+        "checkStatements": [
+          {
+            "status": "created",
+            "date": "09/17/2020",
+            "time": "04:53 am"
+          }
+        ]
+      }
+    ]
+  }
+}
+```

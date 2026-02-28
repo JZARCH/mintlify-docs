@@ -1,0 +1,65 @@
+---
+title: 'Retrieve all Custom from addresses'
+api: 'GET /customFromAddresses'
+---
+
+List of all custom from address records.
+
+Query parameters
+
+ 
+  perPage
+     Number of records that you want to receive in the response,By default 10 records will be 
+          listed
+   
+  
+  page
+    For navigating through pages ,By default first page will be listed 
+  
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /customFromAddresses`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/customFromAddresses" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "meta": {
+      "total": 1
+    },
+    "addresses": [
+      {
+        "id": "8X0Kmz47g4LOM27",
+        "name": "Stella R Pelton",
+        "companyName": null,
+        "addressLine1": "2915  Frederick Street",
+        "addressLine2": "9466 Del Monte Ave.Lindenhurst, NY 11757",
+        "city": "SAINT PETERS",
+        "state": "MO",
+        "zip": "63376",
+        "phone": "900244400",
+        "email": "email@test.com",
+        "note": null
+      }
+    ]
+  }
+}
+```

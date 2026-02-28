@@ -1,0 +1,108 @@
+---
+title: 'Send Check Mail Payment'
+api: 'POST /send-payment/checkMail'
+---
+
+### Send Payment CheckMail
+
+This API endpoint allows you to initiate a check mailing payment directly from a specified wallet.
+
+**Payload Parameter**
+
+| Key | Type | Required | Description |
+| --- | --- | --- | --- |
+| sourceType | String | ✅ Yes | Type of payment source (e.g., "wallet"). |
+| sourceId | String | ✅ Yes | ID of the wallet |
+| amount | String | ✅ Yes | Amount to initiate check mailing. |
+| description | String | ✅ Yes | Description for the transaction |
+| payeeId | String | ✅ Yes | ID of the recipient/payee to whom the amount will be sent. |
+| referenceNo | String | ⬜ Optional | Custom reference number for tracking or identifying the transaction. |
+| shippingType | String | ✅ Yes | Type of mailing service used (e.g., USPS_PRIORITY_MAIL, FEDEX_NEXT_DAY_PM). |
+| attachmentIds | array | ⬜ Optional | List of uploaded attachment IDs |
+
+**Available Shipping Types**
+
+| Shipping Type | Shipping Type Code |
+| --- | --- |
+| USPS First Class Mail | USPS_FIRST_CLASS_MAIL |
+| USPS First Class With Tracking | USPS_FIRST_CLASS_WITH_TRACKING |
+| USPS Express Mail | USPS_EXPRESS_MAIL |
+| USPS Priority Mail | USPS_PRIORITY_MAIL |
+| FedEx Next Day PM | FEDEX_NEXT_DAY_PM |
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="sourceType" type="string">
+  Request body field `sourceType`.
+</ParamField>
+
+<ParamField body="sourceId" type="string">
+  Request body field `sourceId`.
+</ParamField>
+
+<ParamField body="amount" type="string">
+  Request body field `amount`.
+</ParamField>
+
+<ParamField body="description" type="string">
+  Request body field `description`.
+</ParamField>
+
+<ParamField body="payeeId" type="string">
+  Request body field `payeeId`.
+</ParamField>
+
+<ParamField body="referenceNo" type="string">
+  Request body field `referenceNo`.
+</ParamField>
+
+<ParamField body="shippingType" type="string">
+  Request body field `shippingType`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /send-payment/checkMail`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/send-payment/checkMail" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "bf3f8335-405c-4ea5-8cca-0e2063869408",
+    "amount": "55.00",
+    "payeeId": "9MqkGWLnKveD7Ry",
+    "transferType": "checkMail",
+    "referenceNo": "1234",
+    "status": "PROCESSING",
+    "description": "VC to GolbalTech",
+    "source": {
+      "sourceType": "wallet",
+      "sourceId": "7ed806cf-7ccb-4aa2-9ae8-d1118f2f048b"
+    },
+    "clearingFile": null,
+    "previewFile": null,
+    "virtualCard": null,
+    "wire": null,
+    "ach": null,
+    "instant_transfer": null,
+    "createdAt": "2025-05-19T08:59:01.000000Z",
+    "updatedAt": "2025-05-19T08:59:01.000000Z"
+  }
+}
+```

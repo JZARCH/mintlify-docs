@@ -3,89 +3,348 @@
   "theme": "mint",
   "name": "Mint Starter Kit",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#20319D",
+    "light": "#00F889",
+    "dark": "#15236D"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
         "tab": "API reference",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Get started",
             "pages": [
-              "api-reference/introduction"
+              "api-reference/introduction",
+              "api-reference/environments",
+              "api-reference/authentication"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Quick Pay",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "api-reference/generated/quick-pay/create-check",
+              "api-reference/generated/quick-pay/create-echeck",
+              "api-reference/generated/quick-pay/create-mailcheck",
+              "api-reference/generated/quick-pay/create-bundle-mail",
+              "api-reference/generated/quick-pay/create-direct-deposit",
+              "api-reference/generated/quick-pay/create-virtual-card",
+              "api-reference/generated/quick-pay/create-wire-transfer",
+              "api-reference/generated/quick-pay/sent-pdf"
+            ]
+          },
+          {
+            "group": "Bank Account",
+            "pages": [
+              "api-reference/generated/bank-account/retrieve-all-bank-accounts",
+              "api-reference/generated/bank-account/retrieve-check-design-templates",
+              "api-reference/generated/bank-account/retrieve-a-bank-account",
+              "api-reference/generated/bank-account/delete-a-bank-account",
+              "api-reference/generated/bank-account/update-a-bank-account",
+              "api-reference/generated/bank-account/create-bank-accounts",
+              "api-reference/generated/bank-account/add-signature",
+              "api-reference/generated/bank-account/get-signature",
+              "api-reference/generated/bank-account/add-logo",
+              "api-reference/generated/bank-account/routing-number-validation"
+            ]
+          },
+          {
+            "group": "Wallet",
+            "pages": [
+              "api-reference/generated/wallet/list-all-wallets",
+              "api-reference/generated/wallet/retrieve-a-wallet",
+              "api-reference/generated/wallet/wallet-transactions",
+              "api-reference/generated/wallet/wallet-internal-transfer",
+              {
+                "group": "Fund Wallet",
+                "pages": [
+                  "api-reference/generated/wallet/fund-wallet/fund-wallet-by-ach/retrieve-ach-wallet-funding",
+                  "api-reference/generated/wallet/fund-wallet/fund-wallet-by-ach/list-ach-wallet-funding",
+                  "api-reference/generated/wallet/fund-wallet/fund-wallet-by-ach/initiate-ach-wallet-funding",
+                  "api-reference/generated/wallet/fund-wallet/fund-wallet-by-request/list-all-fund-requests",
+                  "api-reference/generated/wallet/fund-wallet/fund-wallet-by-request/retrieve-fund-wallet-request",
+                  "api-reference/generated/wallet/fund-wallet/fund-wallet-by-request/create-fund-wallet-request"
+                ]
+              },
+              {
+                "group": "Withdraw Fund",
+                "pages": [
+                  "api-reference/generated/wallet/withdraw-fund/withdraw-by-ach/list-ach-withdrawals",
+                  "api-reference/generated/wallet/withdraw-fund/withdraw-by-ach/retrieve-ach-withdrawal",
+                  "api-reference/generated/wallet/withdraw-fund/withdraw-by-ach/initiate-ach-withdrawal",
+                  "api-reference/generated/wallet/withdraw-fund/withdraw-by-check-mail/retrieve-check-mail-withdrawal",
+                  "api-reference/generated/wallet/withdraw-fund/withdraw-by-check-mail/initiate-check-mail-withdrawal",
+                  "api-reference/generated/wallet/withdraw-fund/withdraw-by-wire-transfer/list-wire-withdrawal",
+                  "api-reference/generated/wallet/withdraw-fund/withdraw-by-wire-transfer/retrieve-wire-withdrawal",
+                  "api-reference/generated/wallet/withdraw-fund/withdraw-by-wire-transfer/initiate-wire-withdrawal"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Card Program",
+            "pages": [
+              {
+                "group": "Wallet Gift Card",
+                "pages": [
+                  "api-reference/generated/card-program/wallet-gift-card/show-wallet-gift-card-transaction-details",
+                  "api-reference/generated/card-program/wallet-gift-card/list-wallet-gift-cards",
+                  "api-reference/generated/card-program/wallet-gift-card/retrieve-wallet-gift-card",
+                  "api-reference/generated/card-program/wallet-gift-card/recharge-a-wallet-gift-card",
+                  "api-reference/generated/card-program/wallet-gift-card/create-wallet-gift-card"
+                ]
+              },
+              {
+                "group": "Wallet Spend Card",
+                "pages": [
+                  "api-reference/generated/card-program/wallet-spend-card/show-wallet-spend-card-transaction-details",
+                  "api-reference/generated/card-program/wallet-spend-card/list-wallet-spend-cards",
+                  "api-reference/generated/card-program/wallet-spend-card/update-wallet-spend-card-status",
+                  "api-reference/generated/card-program/wallet-spend-card/retrieve-wallet-spend-card",
+                  "api-reference/generated/card-program/wallet-spend-card/update-wallet-spend-card",
+                  "api-reference/generated/card-program/wallet-spend-card/create-virtual-card",
+                  "api-reference/generated/card-program/wallet-spend-card/create-physical-card",
+                  "api-reference/generated/card-program/wallet-spend-card/show-wallet-spend-card-details"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Check",
+            "pages": [
+              "api-reference/generated/check/retrieve-all-checks",
+              "api-reference/generated/check/create-checks",
+              "api-reference/generated/check/delete-a-check",
+              "api-reference/generated/check/retrieve-a-check",
+              "api-reference/generated/check/update-a-check",
+              "api-reference/generated/check/retrieve-voucher-by-checkid",
+              "api-reference/generated/check/mark-as-posted",
+              "api-reference/generated/check/void-a-check",
+              "api-reference/generated/check/bulk-delete",
+              "api-reference/generated/check/print-checks",
+              "api-reference/generated/check/print-checks-with-attachment",
+              {
+                "group": "Attachments",
+                "pages": [
+                  "api-reference/generated/check/attachments/retrieve-all-attachments-details",
+                  "api-reference/generated/check/attachments/add-new-attachment",
+                  "api-reference/generated/check/attachments/delete-a-attachment",
+                  "api-reference/generated/check/attachments/retrieve-a-attachment-details"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Payee",
+            "pages": [
+              "api-reference/generated/payee/retrieve-all-payees",
+              "api-reference/generated/payee/create-payees",
+              "api-reference/generated/payee/delete-a-payee",
+              "api-reference/generated/payee/retrieve-a-payee",
+              "api-reference/generated/payee/update-a-payee",
+              {
+                "group": "Bank Accounts",
+                "pages": [
+                  "api-reference/generated/payee/bank-accounts/list-payee-bank-accounts",
+                  "api-reference/generated/payee/bank-accounts/create-payee-bank-account",
+                  "api-reference/generated/payee/bank-accounts/delete-payee-bank-account",
+                  "api-reference/generated/payee/bank-accounts/get-payee-bank-account",
+                  "api-reference/generated/payee/bank-accounts/edit-payee-bank-account"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "MailCheck",
+            "pages": [
+              "api-reference/generated/mailcheck/create-new-mail-check",
+              "api-reference/generated/mailcheck/track-mail-check",
+              "api-reference/generated/mailcheck/calculate-fee",
+              "api-reference/generated/mailcheck/retrieve-all-mail-options",
+              {
+                "group": "Attachments",
+                "pages": [
+                  "api-reference/generated/mailcheck/attachments/retrieve-all-mail-attachments",
+                  "api-reference/generated/mailcheck/attachments/add-new-mail-attachment",
+                  "api-reference/generated/mailcheck/attachments/delete-mail-attachment"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Mail Document",
+            "pages": [
+              "api-reference/generated/mail-document/get-reply-to-address",
+              {
+                "group": "Html File Mailing",
+                "pages": [
+                  "api-reference/generated/mail-document/html-file-mailing/mail-html",
+                  "api-reference/generated/mail-document/html-file-mailing/create"
+                ]
+              },
+              {
+                "group": "Pdf Mailing",
+                "pages": [
+                  "api-reference/generated/mail-document/pdf-mailing/mail"
+                ]
+              },
+              {
+                "group": "Sender Address",
+                "pages": [
+                  "api-reference/generated/mail-document/sender-address/add",
+                  "api-reference/generated/mail-document/sender-address/delete"
+                ]
+              },
+              {
+                "group": "Tracking",
+                "pages": [
+                  "api-reference/generated/mail-document/tracking/get"
+                ]
+              },
+              {
+                "group": "Upload Doc",
+                "pages": [
+                  "api-reference/generated/mail-document/upload-doc/upload-document"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Custom From Address",
+            "pages": [
+              "api-reference/generated/custom-from-address/retrieve-all-custom-from-addresses",
+              "api-reference/generated/custom-from-address/create-a-custom-from-address",
+              "api-reference/generated/custom-from-address/delete-a-custom-from-address",
+              "api-reference/generated/custom-from-address/retrieve-a-custom-from-address",
+              "api-reference/generated/custom-from-address/update-a-custom-from-address"
+            ]
+          },
+          {
+            "group": "Custom To Address",
+            "pages": [
+              "api-reference/generated/custom-to-address/retrieve-all-custom-to-addresses",
+              "api-reference/generated/custom-to-address/create-a-custom-to-address",
+              "api-reference/generated/custom-to-address/delete-a-custom-to-address",
+              "api-reference/generated/custom-to-address/retrieve-a-custom-to-address",
+              "api-reference/generated/custom-to-address/update-a-custom-to-address"
+            ]
+          },
+          {
+            "group": "Email Check",
+            "pages": [
+              "api-reference/generated/email-check/create-email-check"
+            ]
+          },
+          {
+            "group": "Category",
+            "pages": [
+              "api-reference/generated/category/retrieve-all-categories",
+              "api-reference/generated/category/create-category"
+            ]
+          },
+          {
+            "group": "Voucher",
+            "pages": [
+              "api-reference/generated/voucher/create-voucher",
+              "api-reference/generated/voucher/delete-voucher",
+              "api-reference/generated/voucher/retrieve-voucher",
+              "api-reference/generated/voucher/update-voucher"
+            ]
+          },
+          {
+            "group": "Direct Deposit/ACH",
+            "pages": [
+              "api-reference/generated/direct-deposit-ach/get-status",
+              "api-reference/generated/direct-deposit-ach/get-all-status",
+              "api-reference/generated/direct-deposit-ach/create-direct-deposit"
+            ]
+          },
+          {
+            "group": "Send Payment",
+            "pages": [
+              "api-reference/generated/send-payment/retrieve-payment-info",
+              {
+                "group": "ACH",
+                "pages": [
+                  "api-reference/generated/send-payment/ach/list-all-ach-payments",
+                  "api-reference/generated/send-payment/ach/send-ach-payment"
+                ]
+              },
+              {
+                "group": "Check Mail",
+                "pages": [
+                  "api-reference/generated/send-payment/check-mail/list-all-check-mail-payments",
+                  "api-reference/generated/send-payment/check-mail/send-check-mail-payment",
+                  "api-reference/generated/send-payment/check-mail/attachments/add-attachment",
+                  "api-reference/generated/send-payment/check-mail/attachments/delete-attachment",
+                  "api-reference/generated/send-payment/check-mail/attachments/view-attachment"
+                ]
+              },
+              {
+                "group": "Instant Transfer/RTP",
+                "pages": [
+                  "api-reference/generated/send-payment/instant-transfer-rtp/list-all-instant-payments",
+                  "api-reference/generated/send-payment/instant-transfer-rtp/send-instant-payment-rtp"
+                ]
+              },
+              {
+                "group": "Virtual Card",
+                "pages": [
+                  "api-reference/generated/send-payment/virtual-card/list-all-virtual-card-sent",
+                  "api-reference/generated/send-payment/virtual-card/send-virtual-card"
+                ]
+              },
+              {
+                "group": "Wire",
+                "pages": [
+                  "api-reference/generated/send-payment/wire/list-all-wire-payments",
+                  "api-reference/generated/send-payment/wire/send-wire-payment"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Receive Payment",
+            "pages": [
+              "api-reference/generated/receive-payment/retrieve-received-payment",
+              {
+                "group": "Manual ACH",
+                "pages": [
+                  "api-reference/generated/receive-payment/manual-ach/manual-ach-request-lists",
+                  "api-reference/generated/receive-payment/manual-ach/initiate-manual-ach",
+                  "api-reference/generated/receive-payment/manual-ach/retrieve-manual-ach-request"
+                ]
+              },
+              {
+                "group": "Payment Link",
+                "pages": [
+                  "api-reference/generated/receive-payment/payment-link/get-payment-link",
+                  "api-reference/generated/receive-payment/payment-link/create-payment-link",
+                  "api-reference/generated/receive-payment/payment-link/create-bank-account",
+                  "api-reference/generated/receive-payment/payment-link/retrieve-bank-account",
+                  "api-reference/generated/receive-payment/payment-link/update-bank-account",
+                  "api-reference/generated/receive-payment/payment-link/retrieve-all-payments",
+                  "api-reference/generated/receive-payment/payment-link/create-payment",
+                  "api-reference/generated/receive-payment/payment-link/retrieve-single-payment",
+                  "api-reference/generated/receive-payment/payment-link/initiate-direct-deposit",
+                  "api-reference/generated/receive-payment/payment-link/create-customer",
+                  "api-reference/generated/receive-payment/payment-link/update-customer",
+                  "api-reference/generated/receive-payment/payment-link/get-customer"
+                ]
+              }
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "https://zilmoney.com/wp-content/uploads/2025/11/Zil-Money-Logo.svg",
+    "dark": "https://zilmoney.com/wp-content/uploads/2025/11/Zil-Money-Logo.svg"
+  },
+  "fonts": {
+    "family": "Funnel Display"
   },
   "navbar": {
     "links": [
@@ -113,10 +372,25 @@
    ]
   },
   "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+  "socials": {
+  "x": "https://x.com/mintlify",
+  "github": "https://github.com/mintlify",
+  "linkedin": "https://linkedin.com/company/mintlify"
+  }
+  },
+  "api": {
+    "playground": {
+      "display": "interactive"
+    },
+    "mdx": {
+      "server": "https://test.onlinecheckwriter.com/api/v3",
+      "servers": [
+        "https://test.onlinecheckwriter.com/api/v3",
+        "https://app.onlinecheckwriter.com/api/v3"
+      ],
+      "auth": {
+        "method": "bearer"
+      }
     }
   }
 }

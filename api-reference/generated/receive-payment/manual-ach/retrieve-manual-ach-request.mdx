@@ -1,0 +1,57 @@
+---
+title: 'Retrieve Manual ACH request'
+api: 'GET /manual-ach/{manualAchId}'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="manualAchId" type="string" required>
+  Path parameter `manualAchId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /manual-ach/{manualAchId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/manual-ach/{manualAchId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "c56cd07a-225f-4c56-8cc5-78159f9791f4",
+    "bankAccountId": "5EJy7VeBwbyljzn1m39",
+    "payeeId": "pzo54xqXoXGaXmL",
+    "amount": "423.10",
+    "fromAccount": {
+      "account_number": "12345",
+      "routing_number": "021000021"
+    },
+    "description": "pay from alison",
+    "referenceNumber": "",
+    "status": "PROCESSING",
+    "customMetaData": {
+      "key1": "value1",
+      "key2": "value2"
+    },
+    "achPullReturnCode": null,
+    "achPullReturnDescription": null,
+    "updatedAt": "2023-10-25T07:33:40.000000Z",
+    "createdAt": "2023-10-25T07:33:40.000000Z"
+  }
+}
+```

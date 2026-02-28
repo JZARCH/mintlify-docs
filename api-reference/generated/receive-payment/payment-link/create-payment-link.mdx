@@ -1,0 +1,60 @@
+---
+title: 'Create Payment Link'
+api: 'POST /getpaid-by-form'
+---
+
+Create Payment link.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="name" type="string">
+  Request body field `name`.
+</ParamField>
+
+<ParamField body="bankAccountId" type="string">
+  Request body field `bankAccountId`.
+</ParamField>
+
+<ParamField body="shortUrl" type="string">
+  Request body field `shortUrl`.
+</ParamField>
+
+<ParamField body="bottomText" type="string">
+  Request body field `bottomText`.
+</ParamField>
+
+<ParamField body="templateType" type="string">
+  Request body field `templateType`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /getpaid-by-form`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/getpaid-by-form" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "linkId": "y3n1ZoVelEBj8pwba62",
+    "shortUrl": "createlink",
+    "createdAt": "2022-09-16T13:13:16.000000Z",
+    "paymentLink": "https://paybycheck.io/createlink"
+  }
+}
+```

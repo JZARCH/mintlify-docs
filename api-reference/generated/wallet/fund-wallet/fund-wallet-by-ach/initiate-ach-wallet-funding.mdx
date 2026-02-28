@@ -1,0 +1,58 @@
+---
+title: 'Initiate ACH wallet funding'
+api: 'POST /wallet/fund/ach/initiate'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="toWallet" type="string">
+  Request body field `toWallet`.
+</ParamField>
+
+<ParamField body="fromBankAccountId" type="string">
+  Request body field `fromBankAccountId`.
+</ParamField>
+
+<ParamField body="amount" type="string">
+  Request body field `amount`.
+</ParamField>
+
+<ParamField body="description" type="string">
+  Request body field `description`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /wallet/fund/ach/initiate`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/wallet/fund/ach/initiate" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "a8c04af1-001b-4e76-aebd-f3c1a45a8d5b",
+    "toWallet": "ea85fdfe-1e6b-4be6-8245-28bd3543777b",
+    "bankAccountId": "xZqXGK2kgd4RzVv",
+    "amount": "20.36",
+    "description": "wallet funding test",
+    "status": "PENDING",
+    "updatedAt": "2023-10-25T09:22:51.000000Z",
+    "createdAt": "2023-10-25T09:22:51.000000Z"
+  }
+}
+```

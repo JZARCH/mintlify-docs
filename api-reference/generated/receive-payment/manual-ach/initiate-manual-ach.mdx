@@ -1,0 +1,96 @@
+---
+title: 'Initiate Manual ACH'
+api: 'POST /manual-ach'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="amount" type="string">
+  Request body field `amount`.
+</ParamField>
+
+<ParamField body="description" type="string">
+  Request body field `description`.
+</ParamField>
+
+<ParamField body="achEnabledBankAccountId" type="string">
+  Request body field `achEnabledBankAccountId`.
+</ParamField>
+
+<ParamField body="toWallet" type="string">
+  Request body field `toWallet`.
+</ParamField>
+
+<ParamField body="referenceNo" type="string">
+  Request body field `referenceNo`.
+</ParamField>
+
+<ParamField body="payeeId" type="string">
+  Request body field `payeeId`.
+</ParamField>
+
+<ParamField body="payeeBankAccount" type="string">
+  Request body field `payeeBankAccount`.
+</ParamField>
+
+<ParamField body="isSameDay" type="number">
+  Request body field `isSameDay`.
+</ParamField>
+
+<ParamField body="customMetaData" type="object">
+  Request body field `customMetaData`.
+</ParamField>
+
+<ParamField body="customMetaData.key1" type="string">
+  Request body field `customMetaData.key1`.
+</ParamField>
+
+<ParamField body="customMetaData.key2" type="string">
+  Request body field `customMetaData.key2`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /manual-ach`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/manual-ach" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "c56cd07a-225f-4c56-8cc5-78159f9791f4",
+    "achEnabledBankAccountId": "5EJy7VeBwbyljzn1m39",
+    "toWallet": "b6fbdf0d-d916-440a-8c03-c4ce404035e8",
+    "payeeId": "pzo54xqXoXGaXmL",
+    "amount": "423.1",
+    "fromAccount": {
+      "account_number": "12345",
+      "routing_number": "021000021"
+    },
+    "description": "pay from alison",
+    "referenceNumber": "",
+    "status": "PENDING",
+    "customMetaData": {
+      "key1": "value1",
+      "key2": "value2"
+    },
+    "updatedAt": "2023-10-25T07:33:40.000000Z",
+    "createdAt": "2023-10-25T07:33:40.000000Z"
+  }
+}
+```

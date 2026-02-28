@@ -1,0 +1,74 @@
+---
+title: 'List All Check Mail Payments'
+api: 'GET /send-payment/checkMail'
+---
+
+Get all the Check Mail payments you have initiated.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /send-payment/checkMail`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/send-payment/checkMail" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "meta": {
+    "total": 2,
+    "perPage": 10,
+    "currentPage": 1,
+    "lastPage": 1
+  },
+  "data": [
+    {
+      "id": "bf3f8335-405c-4ea5-8cca-0e2063869408",
+      "amount": "55.00",
+      "payeeId": "9MqkGWLnKveD7Ry",
+      "transferType": "checkMail",
+      "referenceNo": "1234",
+      "status": "PROCESSING",
+      "description": "VC to GolbalTech",
+      "source": {
+        "sourceType": "wallet",
+        "sourceId": "7ed806cf-7ccb-4aa2-9ae8-d1118f2f048b"
+      },
+      "clearingFile": null,
+      "previewFile": null,
+      "createdAt": "2025-05-19T08:59:01.000000Z",
+      "updatedAt": "2025-05-19T08:59:01.000000Z"
+    },
+    {
+      "id": "6eba569f-6438-479d-89dd-3c4f0304132c",
+      "amount": "20.00",
+      "payeeId": "9MqkGWLnKveD7Ry",
+      "transferType": "checkMail",
+      "referenceNo": "1234",
+      "status": "PROCESSING",
+      "description": "VC to GolbalTech",
+      "source": {
+        "sourceType": "wallet",
+        "sourceId": "7ed806cf-7ccb-4aa2-9ae8-d1118f2f048b"
+      },
+      "clearingFile": null,
+      "previewFile": null,
+      "createdAt": "2025-05-19T07:23:02.000000Z",
+      "updatedAt": "2025-05-19T07:23:03.000000Z"
+    }
+  ]
+}
+```

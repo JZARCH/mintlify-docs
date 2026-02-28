@@ -1,0 +1,185 @@
+---
+title: 'Update Voucher'
+api: 'PUT /vouchers/{voucherId}'
+---
+
+Update existing voucher details
+
+Path parameters
+
+ 
+  voucherId
+  Required    
+         The id of the voucher to be update.
+  
+
+
+
+Payload parameters
+
+ 
+  voucherNumber
+  Required  
+       String  
+         Must be no longer than 50 characters.
+  
+ 
+ 
+  memo
+  Optional  
+       String  
+          Must be no longer than 100 characters.
+  
+ 
+ 
+  date
+  Optional  
+       String yyyy-mm-dd  
+         By default it will be current date, If a date is passed, that will
+             override any default.
+  
+ 
+
+  payeeId
+  Required  
+       String  
+         Must be a payee ID
+  
+ 
+
+  voucherItems
+  Optional  
+       Array  
+         An array of voucherItems attributes
+  
+ 
+
+
+
+voucherItems attributes
+
+
+ 
+  invoiceNumber
+  Required  
+       String  
+         Must be no longer than 50 characters.
+  
+ 
+ 
+  name
+  Optional  
+       String  
+          Must be no longer than 100 characters.
+  
+ 
+ 
+  description
+  Optional  
+       String   
+          Must be no longer than 100 characters.
+  
+ 
+
+  quantity
+  Optional  
+       Integer  
+         
+  
+ 
+
+  unitCost
+  Optional  
+       Decimal  
+         
+  
+ 
+
+  total
+  Required  
+       Decimal  
+         
+  
+ 
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="voucherId" type="string" required>
+  Path parameter `voucherId`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="voucherNumber" type="string">
+  Request body field `voucherNumber`.
+</ParamField>
+
+<ParamField body="memo" type="string">
+  Request body field `memo`.
+</ParamField>
+
+<ParamField body="date" type="string">
+  Request body field `date`.
+</ParamField>
+
+<ParamField body="payeeId" type="string">
+  Request body field `payeeId`.
+</ParamField>
+
+<ParamField body="voucherItems" type="object[]">
+  Request body field `voucherItems`.
+</ParamField>
+
+## Request
+
+Endpoint: `PUT /vouchers/{voucherId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/vouchers/{voucherId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Updated succesfully",
+  "data": {
+    "voucherId": "bQEmZGEVmeaw3vN",
+    "voucherNumber": "1000",
+    "totalAmount": "550.00",
+    "memo": "Test Memo",
+    "date": "2020-10-20",
+    "voucherItems": [
+      {
+        "invoiceNumber": "858",
+        "name": "Product 1",
+        "description": "Product Description 1",
+        "quantity": 10,
+        "unitCost": 5,
+        "total": "200.00"
+      },
+      {
+        "invoiceNumber": "540",
+        "name": "Product 1",
+        "description": "Product Description 1",
+        "quantity": 0,
+        "unitCost": 0,
+        "total": "350.00"
+      }
+    ]
+  }
+}
+```

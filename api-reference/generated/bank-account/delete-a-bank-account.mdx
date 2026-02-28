@@ -1,0 +1,48 @@
+---
+title: 'Delete a bank Account'
+api: 'DELETE /bankAccounts/{bankAccountId}'
+---
+
+Delete an existing bank account.
+
+Path parameters
+
+  bankAccountId
+      Required  
+        The id of the Bank account to be deleted.
+  
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="bankAccountId" type="string" required>
+  Path parameter `bankAccountId`.
+</ParamField>
+
+## Request
+
+Endpoint: `DELETE /bankAccounts/{bankAccountId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/bankAccounts/{bankAccountId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Succesfully deleted"
+}
+```

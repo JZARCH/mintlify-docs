@@ -1,0 +1,56 @@
+---
+title: 'Retrieve Fund Wallet Request'
+api: 'GET /wallet/fund/requests/{requestId}'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="requestId" type="string" required>
+  Path parameter `requestId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /wallet/fund/requests/{requestId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/wallet/fund/requests/{requestId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "4750621f-b429-4766-a733-9aa243d6abe9",
+    "depositorName": "JOHN DOE",
+    "toWallet": "86f24597-a2a4-489d-b18d-c2bfb9b8b452",
+    "amount": "25000.00",
+    "description": "Wallet funding",
+    "status": "PENDING",
+    "transferType": "domestic-wire",
+    "depositInformation": {
+      "beneficiaryName": "ABC LLC",
+      "beneficiaryRoutingNumber": "121140399",
+      "beneficiaryAccountNumber": "3304236682",
+      "beneficiaryAccountType": "Business Checking",
+      "beneficiaryBankAddress": "3003 Tasman Drive, Santa Clara, CA 95054, USA",
+      "beneficiaryBankSwift": "SVBKUS6S",
+      "specialInstruction": "ZM OF33 OCW ABC LLC"
+    },
+    "updatedAt": "2024-10-29T06:13:34.000000Z",
+    "createdAt": "2024-10-29T06:13:34.000000Z"
+  }
+}
+```

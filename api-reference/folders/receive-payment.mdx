@@ -1,0 +1,25 @@
+---
+title: 'Receive Payment API'
+description: 'Endpoints in the Receive Payment section of the Online Check Writer API v3'
+---
+
+This page lists all endpoints that belong to the **Receive Payment** folder in the Postman collection.
+
+| Method | Path | Endpoint |
+| --- | --- | --- |
+| `GET` | `/getpaid-by-form` | [Get Payment Link](/api-reference/generated/receive-payment/payment-link/get-payment-link) |
+| `POST` | `/getpaid-by-form` | [Create Payment Link](/api-reference/generated/receive-payment/payment-link/create-payment-link) |
+| `POST` | `/getpaid-by-form/bank-account` | [Create Bank Account](/api-reference/generated/receive-payment/payment-link/create-bank-account) |
+| `GET` | `/getpaid-by-form/bank-account/{customerBankAccountId}` | [Retrieve Bank account](/api-reference/generated/receive-payment/payment-link/retrieve-bank-account) |
+| `PUT` | `/getpaid-by-form/bank-account/{customerBankAccountId}` | [Update Bank Account](/api-reference/generated/receive-payment/payment-link/update-bank-account) |
+| `GET` | `/getpaid-by-form/check` | [Retrieve All Payments](/api-reference/generated/receive-payment/payment-link/retrieve-all-payments) |
+| `POST` | `/getpaid-by-form/check` | [Create Payment](/api-reference/generated/receive-payment/payment-link/create-payment) |
+| `GET` | `/getpaid-by-form/check/{referenceId}` | [Retrieve Single Payment](/api-reference/generated/receive-payment/payment-link/retrieve-single-payment) |
+| `POST` | `/getpaid-by-form/check/{referenceId}/direct-deposit` | [Initiate Direct Deposit](/api-reference/generated/receive-payment/payment-link/initiate-direct-deposit) |
+| `POST` | `/getpaid-by-form/customer` | [Create customer](/api-reference/generated/receive-payment/payment-link/create-customer) |
+| `GET` | `/getpaid-by-form/customer/{customerId}` | [Get Customer](/api-reference/generated/receive-payment/payment-link/get-customer) |
+| `PUT` | `/getpaid-by-form/customer/{id}` | [Update customer](/api-reference/generated/receive-payment/payment-link/update-customer) |
+| `GET` | `/manual-ach` | [Manual ACH Request Lists](/api-reference/generated/receive-payment/manual-ach/manual-ach-request-lists) |
+| `POST` | `/manual-ach` | [Initiate Manual ACH](/api-reference/generated/receive-payment/manual-ach/initiate-manual-ach) |
+| `GET` | `/manual-ach/{manualAchId}` | [Retrieve Manual ACH request](/api-reference/generated/receive-payment/manual-ach/retrieve-manual-ach-request) |
+| `GET` | `/receive-payments/{receivedPaymentId}/info` | [Retrieve Received Payment](/api-reference/generated/receive-payment/retrieve-received-payment) |

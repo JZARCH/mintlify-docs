@@ -1,0 +1,181 @@
+---
+title: 'Create Payment'
+api: 'POST /getpaid-by-form/check'
+---
+
+You can initiate direct deposit using `referenceId`
+
+EndFragment
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="linkId" type="string">
+  Request body field `linkId`.
+</ParamField>
+
+<ParamField body="amount" type="string">
+  Request body field `amount`.
+</ParamField>
+
+<ParamField body="paymentType" type="string">
+  Request body field `paymentType`.
+</ParamField>
+
+<ParamField body="customField1" type="string">
+  Request body field `customField1`.
+</ParamField>
+
+<ParamField body="customField2" type="string">
+  Request body field `customField2`.
+</ParamField>
+
+<ParamField body="customField3" type="string">
+  Request body field `customField3`.
+</ParamField>
+
+<ParamField body="metaData" type="object">
+  Request body field `metaData`.
+</ParamField>
+
+<ParamField body="metaData.orderId" type="string">
+  Request body field `metaData.orderId`.
+</ParamField>
+
+<ParamField body="metaData.invoiceNo" type="string">
+  Request body field `metaData.invoiceNo`.
+</ParamField>
+
+<ParamField body="recurring" type="object">
+  Request body field `recurring`.
+</ParamField>
+
+<ParamField body="recurring.frequency" type="string">
+  Request body field `recurring.frequency`.
+</ParamField>
+
+<ParamField body="recurring.repeatFor" type="string">
+  Request body field `recurring.repeatFor`.
+</ParamField>
+
+<ParamField body="recurring.startingDate" type="string">
+  Request body field `recurring.startingDate`.
+</ParamField>
+
+<ParamField body="memo" type="string">
+  Request body field `memo`.
+</ParamField>
+
+<ParamField body="customerId" type="string">
+  Request body field `customerId`.
+</ParamField>
+
+<ParamField body="bankAccountId" type="string">
+  Request body field `bankAccountId`.
+</ParamField>
+
+<ParamField body="bankingInfo" type="object">
+  Request body field `bankingInfo`.
+</ParamField>
+
+<ParamField body="bankingInfo.accountName" type="string">
+  Request body field `bankingInfo.accountName`.
+</ParamField>
+
+<ParamField body="bankingInfo.routingNumber" type="string">
+  Request body field `bankingInfo.routingNumber`.
+</ParamField>
+
+<ParamField body="bankingInfo.accountNumber" type="string">
+  Request body field `bankingInfo.accountNumber`.
+</ParamField>
+
+<ParamField body="customerDetails" type="object">
+  Request body field `customerDetails`.
+</ParamField>
+
+<ParamField body="customerDetails.customerName" type="string">
+  Request body field `customerDetails.customerName`.
+</ParamField>
+
+<ParamField body="customerDetails.customerAdderessLine1" type="string">
+  Request body field `customerDetails.customerAdderessLine1`.
+</ParamField>
+
+<ParamField body="customerDetails.customerEmail" type="string">
+  Request body field `customerDetails.customerEmail`.
+</ParamField>
+
+<ParamField body="customerDetails.customerPhone" type="string">
+  Request body field `customerDetails.customerPhone`.
+</ParamField>
+
+<ParamField body="customerDetails.customerCity" type="string">
+  Request body field `customerDetails.customerCity`.
+</ParamField>
+
+<ParamField body="customerDetails.customerState" type="string">
+  Request body field `customerDetails.customerState`.
+</ParamField>
+
+<ParamField body="customerDetails.customerZip" type="string">
+  Request body field `customerDetails.customerZip`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /getpaid-by-form/check`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/getpaid-by-form/check" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "referenceId": "zbyd7ON4oV3jng5o0ap",
+  "data": {
+    "referenceId": "zbyd7ON4oV3jng5o0ap",
+    "memo": "From API",
+    "amount": "1000.00",
+    "serialNumber": 1005,
+    "createdAt": "2024-12-25T12:10:26.000000Z",
+    "invoiceNumber": "",
+    "transactionId": "",
+    "customerDetails": {
+      "customerEmail": "email@test.com",
+      "customerName": "customer Name",
+      "customerAddressLine1": "95113 mark street rod",
+      "customerPhone": "123456789",
+      "customerCity": "Sanjose",
+      "customerState": "CA",
+      "customerZip": ""
+    },
+    "metaData": {
+      "orderId": "65465465",
+      "invoiceNo": "5465465"
+    },
+    "customField1": "1234",
+    "customField2": "54545",
+    "customField3": "54545",
+    "status": {
+      "statusCode": 1,
+      "statusShortDescription": "HTML-FORM-PENDING"
+    }
+  },
+  "statusCode": 200,
+  "achApproval": [],
+  "receivedPaymentId": "054991f2-22a7-4caf-89c7-b40c2511fffc"
+}
+```

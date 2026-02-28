@@ -1,0 +1,126 @@
+---
+title: 'check.mailing.tracking'
+api: 'POST /'
+---
+
+## check.mailing.tracking
+
+Triggered each time a **carrier tracking update** is received for a mailed check. This event fires multiple times as the check moves through the postal network.
+
+**Trigger:** A new carrier tracking scan is recorded for the check's tracking number.
+
+**Source:** `SendCheckfloTrackingWebhookJob::handle()` → `ChequeTrackingServices`
+
+---
+
+## Payload Field Reference
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `data.id` | string | Encrypted check ID |
+| `data.mode` | string | Environment: `production` or `local` |
+| `data.carrier` | string | Carrier name: `USPS`, `UPS`, `FEDEX` |
+| `data.mailType` | string | Mail class ID (e.g., `"1"` = USPS First Class) |
+| `data.trackingUrl` | string | Public carrier tracking URL |
+| `data.trackingCode` | string | Carrier tracking number |
+| `data.trackingStatus` | string | Current tracking status (see below) |
+| `data.estimatedDeliveryDate` | string | Estimated delivery date (format: `"Jan 18,2024 12:00:00 PM"`) — empty if unknown |
+| `data.trackingStatusDesc` | string | Human-readable carrier status description |
+| `data.updatedDate` | string | Timestamp of the tracking scan (format: `"Jan 17,2024 02:20:00 PM"`) |
+| `data.groupId` | string\|null | Encrypted group ID (present if check is part of a batch mailing group) |
+
+## Tracking Status Values
+
+| Status | Description |
+|--------|-------------|
+| `ACCEPTED` | Accepted by carrier at facility |
+| `PRE_TRANSIT` | Label created, not yet picked up |
+| `IN_TRANSIT` | Package in transit between facilities |
+| `OUT_FOR_DELIVERY` | Out for delivery to recipient |
+| `DELIVERED` | Successfully delivered (`DE` status code) |
+| `RETURNED` | Returned to sender (undeliverable) |
+| `FAILURE` | Delivery failed or exception occurred |
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="event" type="object">
+  Request body field `event`.
+</ParamField>
+
+<ParamField body="event.type" type="string">
+  Request body field `event.type`.
+</ParamField>
+
+<ParamField body="event.id" type="string">
+  Request body field `event.id`.
+</ParamField>
+
+<ParamField body="event.createdAt" type="string">
+  Request body field `event.createdAt`.
+</ParamField>
+
+<ParamField body="event.data" type="object">
+  Request body field `event.data`.
+</ParamField>
+
+<ParamField body="event.data.id" type="string">
+  Request body field `event.data.id`.
+</ParamField>
+
+<ParamField body="event.data.mode" type="string">
+  Request body field `event.data.mode`.
+</ParamField>
+
+<ParamField body="event.data.carrier" type="string">
+  Request body field `event.data.carrier`.
+</ParamField>
+
+<ParamField body="event.data.mailType" type="string">
+  Request body field `event.data.mailType`.
+</ParamField>
+
+<ParamField body="event.data.trackingUrl" type="string">
+  Request body field `event.data.trackingUrl`.
+</ParamField>
+
+<ParamField body="event.data.trackingCode" type="string">
+  Request body field `event.data.trackingCode`.
+</ParamField>
+
+<ParamField body="event.data.trackingStatus" type="string">
+  Request body field `event.data.trackingStatus`.
+</ParamField>
+
+<ParamField body="event.data.estimatedDeliveryDate" type="string">
+  Request body field `event.data.estimatedDeliveryDate`.
+</ParamField>
+
+<ParamField body="event.data.trackingStatusDesc" type="string">
+  Request body field `event.data.trackingStatusDesc`.
+</ParamField>
+
+<ParamField body="event.data.updatedDate" type="string">
+  Request body field `event.data.updatedDate`.
+</ParamField>
+
+<ParamField body="event.data.groupId" type="string">
+  Request body field `event.data.groupId`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```

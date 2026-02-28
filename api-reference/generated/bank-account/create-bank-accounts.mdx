@@ -1,0 +1,83 @@
+---
+title: 'Create bank accounts'
+api: 'POST /bankAccounts'
+---
+
+You can create multiple bank accounts in one single request by passing bank accounts attributes.
+
+**Payload parameters**
+
+bankAccountsRequiredArrayAn array of bankaccount attributes (Maximum 20 bank accounts in single request)
+
+`_bankaccount_` _attributes_
+
+nameRequiredStringThe name of the bank account,Must be no longer than 100 characters.nickNameOptionalStringNick name that identifies this bank account. Must be no longer than 100 characters.accountNumberRequiredStringMust be no longer than 20 characters.addressLine1RequiredStringAddress line 1 for bank account ,Must be no longer than 180 characters.addressLine2OptionalStringAddress line 2 for bank account ,Must be no longer than 180 characters.phoneOptionalStringMust be no longer than 15 characters.cityRequiredStringThe name of the city.StateRequiredStringThe name of the State.zipRequiredStringZip of bank accountbankNameOptionalStringThe name of the bank,Must be no longer than 100 characters.bankRoutingNumberRequiredStringMust be a valid US routing number of 9 characters.bankAddress1OptionalStringAddress line 2 for bank ,Must be no longer than 180 characters.bankCityOptionalStringCity of bankbankStateOptionalStringState of bankbankZipOptionalStringZip of banktemplateIdOptionalStringAssociate check design template Id
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="bankAccounts" type="object[]">
+  Request body field `bankAccounts`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /bankAccounts`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/bankAccounts" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Successfully created",
+  "data": {
+    "bankAccounts": [
+      {
+        "bankAccountId": "EXw2lx482or0eMzWyDp",
+        "name": "Demo Bank 1",
+        "nickName": "Demo Nick Name",
+        "accountNumber": "1111111111",
+        "isVerified": false,
+        "bankId": "bz3Aj30n0w4Vw6E",
+        "addressLine1": "Test Address Line 1",
+        "addressLine2": "Test Address Line 2",
+        "city": "Sanjose",
+        "state": "CA",
+        "zip": "95113",
+        "phone": "900244400",
+        "walletId": "c7a9d9d4-00c1-43e6-84e0-420c73f9648c",
+        "createdDate": "08-13-2024"
+      },
+      {
+        "bankAccountId": "8X0Kmz47z5kgjLOM27d",
+        "name": "Demo Bank 2",
+        "nickName": "Demo Nick Name 2",
+        "accountNumber": "2222222222",
+        "isVerified": false,
+        "bankId": "7rLdjvJ9JljJEz6",
+        "addressLine1": "Test Address Line 1",
+        "addressLine2": "Test Address Line 2",
+        "city": "Sanjose",
+        "state": "CA",
+        "zip": "95113",
+        "phone": "900244400",
+        "walletId": "2f59e9ad-a71e-4cf5-9f03-e389031216b0",
+        "createdDate": "08-13-2024"
+      }
+    ]
+  }
+}
+```

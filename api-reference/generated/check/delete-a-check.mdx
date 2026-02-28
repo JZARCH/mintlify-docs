@@ -1,0 +1,49 @@
+---
+title: 'Delete a check'
+api: 'DELETE /checks/{checkId}'
+---
+
+Permanently deletes a check. 
+
+Path parameters
+
+ 
+  checkId
+  Required    
+         The id of the check to delete.
+  
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="checkId" type="string" required>
+  Path parameter `checkId`.
+</ParamField>
+
+## Request
+
+Endpoint: `DELETE /checks/{checkId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/checks/{checkId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Succesfully deleted"
+}
+```

@@ -1,0 +1,68 @@
+---
+title: 'Manual ACH Request Lists'
+api: 'GET /manual-ach'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /manual-ach`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/manual-ach" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "meta": {
+    "total": 2,
+    "perPage": 10,
+    "currentPage": 1,
+    "lastPage": 1
+  },
+  "data": [
+    {
+      "id": "c56cd07a-225f-4c56-8cc5-78159f9791f4",
+      "bankAccountId": "5EJy7VeBwbyljzn1m39",
+      "payeeId": "pzo54xqXoXGaXmL",
+      "amount": "423.10",
+      "fromAccount": {
+        "account_number": "12345",
+        "routing_number": "021000021"
+      },
+      "description": "pay from alison",
+      "referenceNumber": "",
+      "status": "PROCESSING",
+      "updatedAt": "2023-10-25T07:33:40.000000Z",
+      "createdAt": "2023-10-25T07:33:40.000000Z"
+    },
+    {
+      "id": "7de377be-26f3-4d78-9f6d-e2f9c1c19061",
+      "bankAccountId": "5EJy7VeBwbyljzn1m39",
+      "payeeId": "Jy7VeBkN5Bjzn1m",
+      "amount": "505.33",
+      "fromAccount": {
+        "account_number": "12345",
+        "routing_number": "011100892"
+      },
+      "description": "pay from alison",
+      "referenceNumber": "",
+      "status": "PROCESSING",
+      "updatedAt": "2023-10-25T07:26:05.000000Z",
+      "createdAt": "2023-10-25T07:26:04.000000Z"
+    }
+  ]
+}
+```

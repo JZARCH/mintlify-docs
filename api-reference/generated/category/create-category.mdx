@@ -1,0 +1,67 @@
+---
+title: 'Create Category'
+api: 'POST /categories'
+---
+
+Create a category
+
+Payload parameters
+
+ 
+  name
+  Required  
+       String  
+         Must be no longer than 50 characters.
+  
+ 
+ 
+  type
+  Required  
+       String  
+        Must be either income or expense
+  
+ 
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="name" type="string">
+  Request body field `name`.
+</ParamField>
+
+<ParamField body="type" type="string">
+  Request body field `type`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /categories`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/categories" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Succesfully created",
+  "data": {
+    "categoryId": "yEMKgGNB8GwvnQ8",
+    "name": "Category 2",
+    "type": "income"
+  }
+}
+```

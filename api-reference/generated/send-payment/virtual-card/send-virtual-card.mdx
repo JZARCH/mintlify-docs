@@ -1,0 +1,89 @@
+---
+title: 'Send Virtual Card'
+api: 'POST /send-payment/virtualCard'
+---
+
+Send a Virtual Card to your payee.  
+Allowed sourceType : `wallet` , `bankAccount`
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="sourceType" type="string">
+  Request body field `sourceType`.
+</ParamField>
+
+<ParamField body="sourceId" type="string">
+  Request body field `sourceId`.
+</ParamField>
+
+<ParamField body="amount" type="string">
+  Request body field `amount`.
+</ParamField>
+
+<ParamField body="description" type="string">
+  Request body field `description`.
+</ParamField>
+
+<ParamField body="payeeId" type="string">
+  Request body field `payeeId`.
+</ParamField>
+
+<ParamField body="referenceNo" type="string">
+  Request body field `referenceNo`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /send-payment/virtualCard`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/send-payment/virtualCard" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "c9867ae2-7ee9-4d27-82fd-c5e87fe587b8",
+    "amount": "10.00",
+    "payeeId": "36gYVewEo4dx7bD",
+    "transferType": "virtualCard",
+    "referenceNo": "12312",
+    "status": "PROCESSING",
+    "description": "VC to GolbalTech",
+    "source": {
+      "sourceType": "wallet",
+      "sourceId": "e9633880-6b23-466f-87bb-93832d38191c"
+    },
+    "virtualCard": {
+      "card_holder": {
+        "name": "GlobalTech Solutions",
+        "email": "globaltechsolution@test.com",
+        "phone": null,
+        "address1": null,
+        "address2": "",
+        "city": null,
+        "state": null,
+        "zip": null,
+        "country": null
+      }
+    },
+    "wire": null,
+    "ach": null,
+    "createdAt": "2024-08-25T07:19:47.000000Z",
+    "updatedAt": "2024-08-25T07:19:48.000000Z"
+  }
+}
+```

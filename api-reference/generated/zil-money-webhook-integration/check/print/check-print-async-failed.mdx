@@ -1,0 +1,96 @@
+---
+title: 'check.print.async (failed)'
+api: 'POST /'
+---
+
+## check.print.async (failed)
+
+Triggered when an **asynchronous check print job fails** — the PDF could not be generated.
+
+**Trigger:** `AsynchronousCheckPrintJob` encounters an error (PDF generation failure, page count mismatch, or upstream error).
+
+**Source:** `AsynchronousCheckPrintJob::handle()` → `postOcwUsersWebhook()`
+
+---
+
+## Payload Field Reference
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `data.status` | string | `"failed"` — print job failed |
+| `data.requestId` | string (UUID) | The async print request ID |
+| `data.url` | string | Empty string `""` on failure |
+| `data.checkIds` | array of strings | Encrypted IDs of the checks that failed to print |
+| `data.errorMsg` | string | Human-readable error message (present on page count mismatch) |
+| `data.msg` | string | Additional error detail from the PDF generation service |
+
+## Status Values
+
+| `data.status` | Meaning |
+|---------------|---------|
+| `success` | PDF generated — `url` is populated |
+| `failed` | Print failed — `url` is empty, check `errorMsg` / `msg` |
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="event" type="object">
+  Request body field `event`.
+</ParamField>
+
+<ParamField body="event.type" type="string">
+  Request body field `event.type`.
+</ParamField>
+
+<ParamField body="event.id" type="string">
+  Request body field `event.id`.
+</ParamField>
+
+<ParamField body="event.createdAt" type="string">
+  Request body field `event.createdAt`.
+</ParamField>
+
+<ParamField body="event.data" type="object">
+  Request body field `event.data`.
+</ParamField>
+
+<ParamField body="event.data.status" type="string">
+  Request body field `event.data.status`.
+</ParamField>
+
+<ParamField body="event.data.requestId" type="string">
+  Request body field `event.data.requestId`.
+</ParamField>
+
+<ParamField body="event.data.url" type="string">
+  Request body field `event.data.url`.
+</ParamField>
+
+<ParamField body="event.data.checkIds" type="string[]">
+  Request body field `event.data.checkIds`.
+</ParamField>
+
+<ParamField body="event.data.errorMsg" type="string">
+  Request body field `event.data.errorMsg`.
+</ParamField>
+
+<ParamField body="event.data.msg" type="string">
+  Request body field `event.data.msg`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```

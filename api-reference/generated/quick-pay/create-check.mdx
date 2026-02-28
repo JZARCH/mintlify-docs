@@ -1,0 +1,149 @@
+---
+title: 'Create Check'
+api: 'POST /quickpay/check'
+---
+
+| **Source** |  |
+| --- | --- |
+| accountId | Required |
+
+| **Destination** |  |
+| --- | --- |
+| name | Required , string (max 191) |
+| company | Optional, string (max 50) |
+| email | Optional |
+| phone | Optional |
+| address1 | Optional |
+| address2 | Optional |
+| state | Optional |
+| country | Optional |
+
+| **Payment Details** |  |
+| --- | --- |
+| amount | Required: Numeric. |
+| serialNumber | Optional. |
+| memo | Optional: String, max 150 characters. |
+| note | Optional: String, max 150 characters. |
+| issueDate | Optional: Date ,YYYY-MM-DD |
+| customElements | Optional : Must be key-value pair |
+| htmlStub | Optional : Custom stub from html |
+| referenceId | Optional |
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="source" type="object">
+  Request body field `source`.
+</ParamField>
+
+<ParamField body="source.accountType" type="string">
+  Request body field `source.accountType`.
+</ParamField>
+
+<ParamField body="source.accountId" type="string">
+  Request body field `source.accountId`.
+</ParamField>
+
+<ParamField body="destination" type="object">
+  Request body field `destination`.
+</ParamField>
+
+<ParamField body="destination.name" type="string">
+  Request body field `destination.name`.
+</ParamField>
+
+<ParamField body="destination.company" type="string">
+  Request body field `destination.company`.
+</ParamField>
+
+<ParamField body="destination.address1" type="string">
+  Request body field `destination.address1`.
+</ParamField>
+
+<ParamField body="destination.address2" type="string">
+  Request body field `destination.address2`.
+</ParamField>
+
+<ParamField body="destination.city" type="string">
+  Request body field `destination.city`.
+</ParamField>
+
+<ParamField body="destination.state" type="string">
+  Request body field `destination.state`.
+</ParamField>
+
+<ParamField body="destination.zip" type="string">
+  Request body field `destination.zip`.
+</ParamField>
+
+<ParamField body="destination.phone" type="string">
+  Request body field `destination.phone`.
+</ParamField>
+
+<ParamField body="destination.email" type="string">
+  Request body field `destination.email`.
+</ParamField>
+
+<ParamField body="payment_details" type="object">
+  Request body field `payment_details`.
+</ParamField>
+
+<ParamField body="payment_details.amount" type="number">
+  Request body field `payment_details.amount`.
+</ParamField>
+
+<ParamField body="payment_details.memo" type="string">
+  Request body field `payment_details.memo`.
+</ParamField>
+
+<ParamField body="payment_details.note" type="string">
+  Request body field `payment_details.note`.
+</ParamField>
+
+<ParamField body="payment_details.referenceID" type="string">
+  Request body field `payment_details.referenceID`.
+</ParamField>
+
+<ParamField body="payment_details.issueDate" type="string">
+  Request body field `payment_details.issueDate`.
+</ParamField>
+
+<ParamField body="payment_details.customElements" type="object">
+  Request body field `payment_details.customElements`.
+</ParamField>
+
+<ParamField body="payment_details.customElements.element1" type="string">
+  Request body field `payment_details.customElements.element1`.
+</ParamField>
+
+<ParamField body="payment_details.customElements.element2" type="string">
+  Request body field `payment_details.customElements.element2`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /quickpay/check`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/quickpay/check" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "checkId": "6gYVewMJO54dx7b"
+  }
+}
+```

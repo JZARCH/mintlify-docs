@@ -1,0 +1,46 @@
+---
+title: 'Get Signature'
+api: 'GET /bankAccounts/{bankAccountId}/signatures'
+---
+
+Add signature to existing bank account
+
+**Path parameters**
+
+bankAccountIdRequiredThe id of the Bank account to update.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="bankAccountId" type="string" required>
+  Path parameter `bankAccountId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /bankAccounts/{bankAccountId}/signatures`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/bankAccounts/{bankAccountId}/signatures" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "LRko4zNLbl4bY7y",
+    "signature": "https://ocw-local-s3.s3.amazonaws.com/122256_1721815104_8034.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential={{vault:aws-access-key}}%2F20240724%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240724T095829Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Signature=f9fd2251007aa2baa0d3346ffb4483abc7e89292c7354ec4529e2129a87d956c"
+  }
+}
+```

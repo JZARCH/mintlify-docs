@@ -1,0 +1,83 @@
+---
+title: 'Add new mail attachment'
+api: 'POST /mailchecks/{checkId}/attachments'
+---
+
+This API allows you to upload PDF file as attachment,
+There are two types of uploads you can perform:
+Upload via remote URL with, (fileUrl)
+You can provide any remote public accessible url as ’fileUrl’ parameter , this file will be fetched and will be added as attachment
+	
+Simple Upload (attachment), 		
+You can directly upload the file via post method
+
+Path parameters
+
+ 
+  checkId
+  Required    
+         Id of the Check.
+  
+
+
+
+Payload parameters
+
+ 
+  attachment
+  Required    
+        File
+        File of type pdf,Optional if fileUrl is passed
+  
+
+ 
+  fileUrl
+  Required    
+        String
+        Must be a public accessible url ,Optional if attachment is passed
+  
+
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="checkId" type="string" required>
+  Path parameter `checkId`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /mailchecks/{checkId}/attachments`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/mailchecks/{checkId}/attachments" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": false,
+  "message": "Succesfully added",
+  "data": {
+    "mailAttachmentId": "OJapb4kkA4Y1Ewm",
+    "checkId": "LRko4z7YLVGbY7y",
+    "fileName": "82825_1599133888_Online Check Writer (25).pdf",
+    "fileNickName": 4,
+    "fileUrl": null,
+    "pageCount": 1,
+    "createdDate": "09-03-2020"
+  }
+}
+```

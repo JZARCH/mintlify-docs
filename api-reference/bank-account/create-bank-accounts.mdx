@@ -1,0 +1,83 @@
+---
+title: 'Create bank accounts'
+api: 'POST /bankAccounts'
+---
+
+Create one or more bank accounts in a single request.
+
+## Request
+
+### Body
+
+<ParamField body="bankAccounts" type="object[]" required>
+  Array of bank account objects to create (maximum 20 per request).
+</ParamField>
+
+Each bank account object supports fields such as:
+
+- `name` – Account name (required, string, max 100 characters).
+- `nickName` – Optional display name.
+- `accountNumber` – Account number.
+- `addressLine1`, `addressLine2`, `city`, `state`, `zip`, `phone` – Contact details.
+- `bankName`, `bankRoutingNumber`, `bankAddress1`, `bankCity`, `bankState`, `bankZip` – Bank institution details.
+
+### Example body
+
+```json
+{
+  "bankAccounts": [
+    {
+      "name": "Demo Bank 1",
+      "nickName": "Demo Nick Name",
+      "accountNumber": "1111111111",
+      "addressLine1": "Test Address Line 1",
+      "addressLine2": "Test Address Line 2",
+      "phone": "900244400",
+      "city": "Sanjose",
+      "state": "CA",
+      "zip": "95113",
+      "bankName": "Demo Bank",
+      "bankRoutingNumber": "021000021",
+      "bankAddress1": "Address 1",
+      "bankCity": "Dallas",
+      "bankState": "CA",
+      "bankZip": "75001"
+    }
+  ]
+}
+```
+
+## Example
+
+```bash
+curl --location "$BASE_URL/bankAccounts" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Content-Type: application/json" \
+  --data @bank-accounts.json
+```
+
+## Response
+
+On success, the API returns the created bank accounts.
+
+```json
+{
+  "success": true,
+  "message": "Successfully created",
+  "data": {
+    "bankAccounts": [
+      {
+        "bankAccountId": "EXw2lx482or0eMzWyDp",
+        "name": "Demo Bank 1",
+        "nickName": "Demo Nick Name",
+        "accountNumber": "1111111111",
+        "isVerified": false,
+        "city": "Sanjose",
+        "state": "CA",
+        "zip": "95113"
+      }
+    ]
+  }
+}
+```
+

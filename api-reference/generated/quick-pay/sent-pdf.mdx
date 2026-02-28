@@ -1,0 +1,154 @@
+---
+title: 'Sent Pdf'
+api: 'POST /quickpay/mailpdf'
+---
+
+This is not a payment method. Sometimes you may want to send a QuickPDF to your employee, and this feature allows you to do that.
+
+We also support an HTML to PDF document mailing feature. If you need a more advanced way of sending documents, consider using our Mail Document API: [Mail Document API](https://apiv3.onlinecheckwriter.com/#366c6da3-4691-4233-9f3e-3b02da2817d2).
+
+For more examples, visit: [How to Send PDF to Your Recipient Easily](https://support.onlinecheckwriter.com/portal/en/kb/articles/how-to-sent-pdf-to-your-recipient-easily).
+
+Shipping Type ID: 1, for regular USPS First Class mailing
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="name" type="string">
+  Request body field `name`.
+</ParamField>
+
+<ParamField body="company" type="string">
+  Request body field `company`.
+</ParamField>
+
+<ParamField body="address1" type="string">
+  Request body field `address1`.
+</ParamField>
+
+<ParamField body="address2" type="string">
+  Request body field `address2`.
+</ParamField>
+
+<ParamField body="city" type="string">
+  Request body field `city`.
+</ParamField>
+
+<ParamField body="state" type="string">
+  Request body field `state`.
+</ParamField>
+
+<ParamField body="zip" type="string">
+  Request body field `zip`.
+</ParamField>
+
+<ParamField body="phone" type="string">
+  Request body field `phone`.
+</ParamField>
+
+<ParamField body="email" type="string">
+  Request body field `email`.
+</ParamField>
+
+<ParamField body="shippingTypeId" type="number">
+  Request body field `shippingTypeId`.
+</ParamField>
+
+<ParamField body="attachmentUrl" type="string">
+  Request body field `attachmentUrl`.
+</ParamField>
+
+<ParamField body="attachmentTitle" type="string">
+  Request body field `attachmentTitle`.
+</ParamField>
+
+<ParamField body="fromAddress" type="object">
+  Request body field `fromAddress`.
+</ParamField>
+
+<ParamField body="fromAddress.name" type="string">
+  Request body field `fromAddress.name`.
+</ParamField>
+
+<ParamField body="fromAddress.company" type="string">
+  Request body field `fromAddress.company`.
+</ParamField>
+
+<ParamField body="fromAddress.address1" type="string">
+  Request body field `fromAddress.address1`.
+</ParamField>
+
+<ParamField body="fromAddress.address2" type="string">
+  Request body field `fromAddress.address2`.
+</ParamField>
+
+<ParamField body="fromAddress.city" type="string">
+  Request body field `fromAddress.city`.
+</ParamField>
+
+<ParamField body="fromAddress.state" type="string">
+  Request body field `fromAddress.state`.
+</ParamField>
+
+<ParamField body="fromAddress.zip" type="string">
+  Request body field `fromAddress.zip`.
+</ParamField>
+
+<ParamField body="fromAddress.phone" type="string">
+  Request body field `fromAddress.phone`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /quickpay/mailpdf`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/quickpay/mailpdf" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "pNlkQ4rzd4wnOV0",
+    "title": "Invoice 1244",
+    "status": "Pending",
+    "shippingType": 3,
+    "toAddress": {
+      "id": "rWQ8GpJPkAjD0Zz",
+      "name": "New Payee",
+      "company": "Tyler Payment Technologist",
+      "phone": "111111111",
+      "email": "support@onlinecheckwriter.com",
+      "address1": "5007 richmond rd",
+      "address2": "",
+      "city": "Tyler",
+      "state": "TX",
+      "zip": "75701",
+      "country": null
+    },
+    "fromAddress": {
+      "id": "w6YmZjq0Pe5MXrx",
+      "name": "David Abraham",
+      "address1": "450 Sutter Street",
+      "address2": "",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94108",
+      "phone": "987564128",
+      "country": "US"
+    }
+  }
+}
+```

@@ -1,0 +1,53 @@
+---
+title: 'Get Customer'
+api: 'GET /getpaid-by-form/customer/{customerId}'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="customerId" type="string" required>
+  Path parameter `customerId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /getpaid-by-form/customer/{customerId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/getpaid-by-form/customer/{customerId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "customer": {
+    "id": "30aedb6c-5976-46e2-a229-030bc299bedb",
+    "identity": "545654",
+    "customerName": "Customer 1",
+    "customerEmail": "email@test.com",
+    "customerAdderessLine1": "95113 mark street rod",
+    "customerPhone": "900244400",
+    "customerCity": "Sanjose",
+    "customerState": "CA",
+    "customerZip": "95113",
+    "bankAccounts": [
+      []
+    ],
+    "createdAt": "2021-09-21T14:30:04.000000Z",
+    "updatedAt": "2021-09-21T14:30:04.000000Z"
+  },
+  "statusCode": 202
+}
+```

@@ -1,0 +1,78 @@
+---
+title: 'List All Fund Requests'
+api: 'GET /wallet/fund/requests'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /wallet/fund/requests`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/wallet/fund/requests" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "meta": {
+    "total": 23,
+    "perPage": 10,
+    "currentPage": 1,
+    "lastPage": 3
+  },
+  "data": [
+    {
+      "id": "4750621f-b429-4766-a733-9aa243d6abe9",
+      "depositorName": "JOHN DOE",
+      "toWallet": "86f24597-a2a4-489d-b18d-c2bfb9b8b452",
+      "amount": "25000.00",
+      "description": "Wallet funding",
+      "status": "PENDING",
+      "transferType": "domestic-wire",
+      "depositInformation": {
+        "beneficiaryName": "ABC LLC",
+        "beneficiaryRoutingNumber": "121140399",
+        "beneficiaryAccountNumber": "3304236682",
+        "beneficiaryAccountType": "Business Checking",
+        "beneficiaryBankAddress": "3003 Tasman Drive, Santa Clara, CA 95054, USA",
+        "beneficiaryBankSwift": "SVBKUS6S",
+        "specialInstruction": "ZM OF33 OCW ABC LLC"
+      },
+      "updatedAt": "2024-10-29T06:13:34.000000Z",
+      "createdAt": "2024-10-29T06:13:34.000000Z"
+    },
+    {
+      "id": "4ae9f79a-f66c-417b-bd44-abd89a8d55c1",
+      "depositorName": "JOHN DOE",
+      "toWallet": "86f24597-a2a4-489d-b18d-c2bfb9b8b452",
+      "amount": "144.00",
+      "description": "test from api",
+      "status": "PENDING",
+      "transferType": "domestic-wire",
+      "depositInformation": {
+        "beneficiaryName": "ABC LLC",
+        "beneficiaryRoutingNumber": "121140399",
+        "beneficiaryAccountNumber": "3304236682",
+        "beneficiaryAccountType": "Business Checking",
+        "beneficiaryBankAddress": "3003 Tasman Drive, Santa Clara, CA 95054, USA",
+        "beneficiaryBankSwift": "SVBKUS6S",
+        "specialInstruction": "ZM OF32 OCW ABC LLC"
+      },
+      "updatedAt": "2024-10-29T06:12:22.000000Z",
+      "createdAt": "2024-10-29T06:12:21.000000Z"
+    }
+  ]
+}
+```

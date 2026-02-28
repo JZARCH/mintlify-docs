@@ -1,0 +1,68 @@
+---
+title: 'Retrieve Received Payment'
+api: 'GET /receive-payments/{receivedPaymentId}/info'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="receivedPaymentId" type="string" required>
+  Path parameter `receivedPaymentId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /receive-payments/{receivedPaymentId}/info`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/receive-payments/{receivedPaymentId}/info" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "065a1ad0-9351-46a6-95d5-7e9ee3866c56",
+    "payerEmail": "email@test.com",
+    "amount": "6.99",
+    "description": "Test Check Payment",
+    "paymentType": {
+      "typeCode": 4,
+      "typeDescription": "GPBL/CHECK"
+    },
+    "paymentStatus": {
+      "statusCode": 6,
+      "statusDescription": "GPBL Printed"
+    },
+    "paidByLinkCheckTransfer": {
+      "linkId": "wgJB1y3GL5pmepX8z6r",
+      "payerName": "John",
+      "payerCompanyName": "",
+      "payerAddressLine1": "4787 Rhode Island Avenue",
+      "payerCity": "Springfield",
+      "payerState": "MO",
+      "payerZip": "65802",
+      "payerEmail": "email@test.com",
+      "payerAccountNumber": "********0230",
+      "payerRoutingNumber": "011111115",
+      "checkIssueDate": "12/21/2024",
+      "checkSerialNumber": 25601,
+      "bankName": "ABC BANK"
+    },
+    "paidByLinkCardTransfer": null,
+    "createdAt": "2024-12-21T04:55:23.000000Z",
+    "updatedAt": "2024-12-21T04:55:23.000000Z"
+  }
+}
+```

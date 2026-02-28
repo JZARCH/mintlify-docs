@@ -1,0 +1,61 @@
+---
+title: 'Retrieve a bank account'
+api: 'GET /bankAccounts/{bankAccountId}'
+---
+
+Details of an existing bank account.
+
+**Path parameters**
+
+bankAccountIdRequiredThe id of the Bank account to be retrieved.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="bankAccountId" type="string" required>
+  Path parameter `bankAccountId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /bankAccounts/{bankAccountId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/bankAccounts/{bankAccountId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "kY2VjXWXz8eNEmJ",
+    "bankId": "xZqXGK2xEz4RzVv",
+    "name": "Demo Bank Account",
+    "nickName": "Demo Bank Account 1",
+    "accountNumber": "111111111111",
+    "addressLine1": "1111 Franklin Avenue",
+    "addressLine2": null,
+    "city": "Garden City",
+    "state": "NY",
+    "zip": "11530-1617",
+    "phone": null,
+    "isVerified": false,
+    "isAchEnabled": false,
+    "createdDate": "02-27-2024",
+    "bankAccountId": "xQkY2VjXWXz8eNEmJ78",
+    "RoutingNumber": "011000015",
+    "webUrl": "{{BASE_URL}}/manage/bank-accounts/index?id=kY2VjXWXz8eNEmJ"
+  }
+}
+```

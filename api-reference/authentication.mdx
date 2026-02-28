@@ -1,0 +1,41 @@
+---
+title: 'Authentication'
+description: 'API key based authentication'
+---
+
+All API requests to Zil Money must be made over HTTPS and authenticated using an API key.
+
+Pass the API key in the header, with the authentication type set to Bearer Token. You can obtain your API key from the Developer Panel.
+
+```bash
+curl --location '/checks' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <Api Key>' \
+--header 'Accept: application/json' \
+--data '{
+  "checks": [
+    {
+      "bankAccountId": "yd6LeMYmdQeE8Dx",
+      "payeeId": "Xw2lx48MdGmzWyD",
+      "categoryId": null,
+      "serialNumber": "1001",
+      "issueDate": "2020-10-25",
+      "amount": 100,
+      "memo": "First, Test check using API",
+      "note": "",
+      "accountNumber": "458756",
+      "invoiceNumber": "2545",
+      "noSign": 0,
+      "noAmount": 0,
+      "noDate": 0,
+      "noPayee": 0,
+      "voucherId": null,
+      "customElements": {
+        "element1": "first class tracking",
+        "element2": "test sender"
+      }
+    }
+  ]
+}'
+```
+

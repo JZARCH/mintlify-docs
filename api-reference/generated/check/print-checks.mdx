@@ -1,0 +1,104 @@
+---
+title: 'Print  checks'
+api: 'POST /checks/print'
+---
+
+You can print checks by passing check id and paper type,if you would like to print multiple checks you need to pass checkId as array.
+
+Payload parameters
+
+ 
+  paperType
+  Required    
+        Integer
+        Must be an integer from Available paper types
+  
+ 
+  checkId
+  Required    
+        Array
+        An Array of check id to print
+  
+
+
+
+Available paper types
+
+
+
+
+
+Paper type
+Description
+
+
+
+1
+Check on Top
+
+
+
+2
+Check on Middle
+
+
+
+3
+Check on Bottom
+
+
+
+4
+Three per page
+
+
+
+5
+Wallet size
+
+
+
+6
+Simple print
+
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="paperType" type="number">
+  Request body field `paperType`.
+</ParamField>
+
+<ParamField body="checkId" type="string[]">
+  Request body field `checkId`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /checks/print`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/checks/print" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "url": "https://ocw-check-pdf.s3.amazonaws.com/__merge_pdf_v_f7112694-2623-4665-b309-1dd29eec43b5.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential={{vault:aws-access-key}}%2F20200905%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200905T061011Z&X-Amz-SignedHeaders=host&X-Amz-Expires=60&X-Amz-Signature=e88ade66cacecd2855e3f7ec8d3c0d3da4429b71fbfdbbfc0b06ef6aad4646e7"
+  }
+}
+```

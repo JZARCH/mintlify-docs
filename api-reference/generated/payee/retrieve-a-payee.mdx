@@ -1,0 +1,62 @@
+---
+title: 'Retrieve a payee'
+api: 'GET /payees/{payeeId}'
+---
+
+Details of an existing payee.
+
+Path parameters
+
+ 
+  payeeId
+  Required    
+         The id of the payee to retrieve
+  
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="payeeId" type="string" required>
+  Path parameter `payeeId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /payees/{payeeId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/payees/{payeeId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "Xw2lx48MdGMzWyD",
+    "name": "Alison",
+    "nickName": null,
+    "company": null,
+    "email": "email@test.com",
+    "phone": "900244400",
+    "address1": "95113 mark street rod",
+    "address2": null,
+    "city": "Sanjose",
+    "state": "CA",
+    "zip": "95113",
+    "country": "US"
+  }
+}
+```

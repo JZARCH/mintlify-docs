@@ -1,0 +1,132 @@
+---
+title: 'wallet.funding.request.updated'
+api: 'POST /'
+---
+
+## wallet.funding.request.updated
+
+Triggered when the **status of a wallet fund request changes** — typically when the wire is received and the wallet is credited.
+
+**Trigger:** The fund request status is updated (e.g., wire received and matched → `COMPLETED`).
+
+---
+
+## Status Lifecycle
+
+```
+PENDING → COMPLETED  (wire received and matched)
+        ↘ FAILED    (wire not received / rejected)
+        ↘ CANCELED  (request canceled)
+```
+
+---
+
+Same schema as `wallet.funding.request.initiated`. The `data.status` and `data.updatedAt` fields reflect the new state.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="event" type="object">
+  Request body field `event`.
+</ParamField>
+
+<ParamField body="event.type" type="string">
+  Request body field `event.type`.
+</ParamField>
+
+<ParamField body="event.id" type="string">
+  Request body field `event.id`.
+</ParamField>
+
+<ParamField body="event.createdAt" type="string">
+  Request body field `event.createdAt`.
+</ParamField>
+
+<ParamField body="event.data" type="object">
+  Request body field `event.data`.
+</ParamField>
+
+<ParamField body="event.data.id" type="string">
+  Request body field `event.data.id`.
+</ParamField>
+
+<ParamField body="event.data.depositorName" type="string">
+  Request body field `event.data.depositorName`.
+</ParamField>
+
+<ParamField body="event.data.toWallet" type="string">
+  Request body field `event.data.toWallet`.
+</ParamField>
+
+<ParamField body="event.data.amount" type="string">
+  Request body field `event.data.amount`.
+</ParamField>
+
+<ParamField body="event.data.description" type="string">
+  Request body field `event.data.description`.
+</ParamField>
+
+<ParamField body="event.data.status" type="string">
+  Request body field `event.data.status`.
+</ParamField>
+
+<ParamField body="event.data.transferType" type="string">
+  Request body field `event.data.transferType`.
+</ParamField>
+
+<ParamField body="event.data.depositInformation" type="object">
+  Request body field `event.data.depositInformation`.
+</ParamField>
+
+<ParamField body="event.data.depositInformation.beneficiaryName" type="string">
+  Request body field `event.data.depositInformation.beneficiaryName`.
+</ParamField>
+
+<ParamField body="event.data.depositInformation.beneficiaryRoutingNumber" type="string">
+  Request body field `event.data.depositInformation.beneficiaryRoutingNumber`.
+</ParamField>
+
+<ParamField body="event.data.depositInformation.beneficiaryAccountNumber" type="string">
+  Request body field `event.data.depositInformation.beneficiaryAccountNumber`.
+</ParamField>
+
+<ParamField body="event.data.depositInformation.beneficiaryAccountType" type="string">
+  Request body field `event.data.depositInformation.beneficiaryAccountType`.
+</ParamField>
+
+<ParamField body="event.data.depositInformation.beneficiaryBankAddress" type="string">
+  Request body field `event.data.depositInformation.beneficiaryBankAddress`.
+</ParamField>
+
+<ParamField body="event.data.depositInformation.beneficiaryBankSwift" type="string">
+  Request body field `event.data.depositInformation.beneficiaryBankSwift`.
+</ParamField>
+
+<ParamField body="event.data.depositInformation.specialInstruction" type="string">
+  Request body field `event.data.depositInformation.specialInstruction`.
+</ParamField>
+
+<ParamField body="event.data.updatedAt" type="string">
+  Request body field `event.data.updatedAt`.
+</ParamField>
+
+<ParamField body="event.data.createdAt" type="string">
+  Request body field `event.data.createdAt`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```

@@ -1,0 +1,137 @@
+---
+title: 'Create Payee  Bank Account'
+api: 'POST /payees/{payee_id}/bank-accounts'
+---
+
+This API endpoint allows you to create a bank account for a specified payee.
+
+_Available_ accountType  
+  
+
+| **Account Type** | Allowed Value |
+| --- | --- |
+| Business Checking | businessChecking |
+| Business Savings | businessSavings |
+| Personal Checking | personalChecking |
+| Personal Savings | personalSavings |
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="payee_id" type="string" required>
+  Path parameter `payee_id`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="bankName" type="string">
+  Request body field `bankName`.
+</ParamField>
+
+<ParamField body="routingNumber" type="string">
+  Request body field `routingNumber`.
+</ParamField>
+
+<ParamField body="accountNumber" type="string">
+  Request body field `accountNumber`.
+</ParamField>
+
+<ParamField body="accountType" type="string">
+  Request body field `accountType`.
+</ParamField>
+
+<ParamField body="isAllowWire" type="number">
+  Request body field `isAllowWire`.
+</ParamField>
+
+<ParamField body="bankAccountFirstName" type="string">
+  Request body field `bankAccountFirstName`.
+</ParamField>
+
+<ParamField body="bankAccountLastName" type="string">
+  Request body field `bankAccountLastName`.
+</ParamField>
+
+<ParamField body="bankAccountAddress1" type="string">
+  Request body field `bankAccountAddress1`.
+</ParamField>
+
+<ParamField body="bankAccountAddress2" type="string">
+  Request body field `bankAccountAddress2`.
+</ParamField>
+
+<ParamField body="bankAccountCity" type="string">
+  Request body field `bankAccountCity`.
+</ParamField>
+
+<ParamField body="bankAccountState" type="string">
+  Request body field `bankAccountState`.
+</ParamField>
+
+<ParamField body="bankAccountZip" type="string">
+  Request body field `bankAccountZip`.
+</ParamField>
+
+<ParamField body="bankAccountCountry" type="string">
+  Request body field `bankAccountCountry`.
+</ParamField>
+
+<ParamField body="bankingInstituteName" type="string">
+  Request body field `bankingInstituteName`.
+</ParamField>
+
+<ParamField body="bankingInstituteAddressLine1" type="string">
+  Request body field `bankingInstituteAddressLine1`.
+</ParamField>
+
+<ParamField body="bankingInstituteAddressLine2" type="string">
+  Request body field `bankingInstituteAddressLine2`.
+</ParamField>
+
+<ParamField body="bankingInstituteCity" type="string">
+  Request body field `bankingInstituteCity`.
+</ParamField>
+
+<ParamField body="bankingInstituteState" type="string">
+  Request body field `bankingInstituteState`.
+</ParamField>
+
+<ParamField body="bankingInstituteZip" type="number">
+  Request body field `bankingInstituteZip`.
+</ParamField>
+
+<ParamField body="bankingInstituteCountry" type="string">
+  Request body field `bankingInstituteCountry`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /payees/{payee_id}/bank-accounts`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/payees/{payee_id}/bank-accounts" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "nv1byeVRoeOQgrB",
+    "bankName": "TestPayeeBankAccountOne",
+    "routingNumber": "011000015",
+    "accountNumber": "765432109876",
+    "accountType": "businessChecking"
+  }
+}
+```

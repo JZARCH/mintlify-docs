@@ -1,0 +1,24 @@
+---
+title: 'Check API'
+description: 'Endpoints in the Check section of the Online Check Writer API v3'
+---
+
+This page lists all endpoints that belong to the **Check** folder in the Postman collection.
+
+| Method | Path | Endpoint |
+| --- | --- | --- |
+| `GET` | `/checks` | [Retrieve all checks](/api-reference/generated/check/retrieve-all-checks) |
+| `POST` | `/checks` | [Create checks](/api-reference/generated/check/create-checks) |
+| `DELETE` | `/checks/{checkId}` | [Delete a check](/api-reference/generated/check/delete-a-check) |
+| `GET` | `/checks/{checkId}` | [Retrieve a check](/api-reference/generated/check/retrieve-a-check) |
+| `PUT` | `/checks/{checkId}` | [Update a check](/api-reference/generated/check/update-a-check) |
+| `GET` | `/checks/{checkId}/attachments` | [Retrieve all attachments details](/api-reference/generated/check/attachments/retrieve-all-attachments-details) |
+| `POST` | `/checks/{checkId}/attachments` | [Add new attachment](/api-reference/generated/check/attachments/add-new-attachment) |
+| `DELETE` | `/checks/{checkId}/attachments/{checkAttachmentId}` | [Delete a attachment](/api-reference/generated/check/attachments/delete-a-attachment) |
+| `GET` | `/checks/{checkId}/attachments/{checkAttachmentId}` | [Retrieve a attachment details](/api-reference/generated/check/attachments/retrieve-a-attachment-details) |
+| `POST` | `/checks/{checkId}/mark-as-cleared` | [Mark as Posted](/api-reference/generated/check/mark-as-posted) |
+| `POST` | `/checks/{checkId}/void` | [Void a check](/api-reference/generated/check/void-a-check) |
+| `GET` | `/checks/{checkId}/voucher` | [Retrieve voucher by checkId](/api-reference/generated/check/retrieve-voucher-by-checkid) |
+| `POST` | `/checks/bulk-delete` | [Bulk Delete](/api-reference/generated/check/bulk-delete) |
+| `POST` | `/checks/print` | [Print  checks](/api-reference/generated/check/print-checks) |
+| `POST` | `/checks/print-with-attachment` | [Print  checks with attachment](/api-reference/generated/check/print-checks-with-attachment) |

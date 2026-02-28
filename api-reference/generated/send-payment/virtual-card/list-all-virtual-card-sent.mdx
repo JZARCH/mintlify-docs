@@ -1,0 +1,194 @@
+---
+title: 'List All Virtual Card Sent'
+api: 'GET /send-payment/virtualCard'
+---
+
+Get all the Virtual Cards you have sent.
+
+**Query parameters**
+
+referenceNoFilter records by referenceNo
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /send-payment/virtualCard`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/send-payment/virtualCard" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "meta": {
+    "total": 146,
+    "perPage": 10,
+    "currentPage": 1,
+    "lastPage": 15
+  },
+  "data": [
+    {
+      "id": "ba8f4f4a-2709-4de8-b436-cd408be239b5",
+      "amount": "52.00",
+      "payeeId": "36gYVewEo4dx7bD",
+      "transferType": "virtualCard",
+      "referenceNo": "12315",
+      "status": "PROCESSING",
+      "description": "VC to GolbalTech",
+      "source": {
+        "sourceType": "wallet",
+        "sourceId": "e9633880-6b23-466f-87bb-93832d38191c"
+      },
+      "createdAt": "2024-08-25T07:28:59.000000Z",
+      "updatedAt": "2024-08-25T07:29:00.000000Z"
+    },
+    {
+      "id": "958f592b-dfd1-4e3d-a697-94c6881b1ee8",
+      "amount": "50.00",
+      "payeeId": "36gYVewEo4dx7bD",
+      "transferType": "virtualCard",
+      "referenceNo": "12314",
+      "status": "PROCESSING",
+      "description": "VC to GolbalTech",
+      "source": {
+        "sourceType": "wallet",
+        "sourceId": "e9633880-6b23-466f-87bb-93832d38191c"
+      },
+      "createdAt": "2024-08-25T07:28:47.000000Z",
+      "updatedAt": "2024-08-25T07:28:48.000000Z"
+    },
+    {
+      "id": "f4213153-cc67-4abb-aeb2-e44a3ca63380",
+      "amount": "40.00",
+      "payeeId": "36gYVewEo4dx7bD",
+      "transferType": "virtualCard",
+      "referenceNo": "12313",
+      "status": "PROCESSING",
+      "description": "VC to GolbalTech",
+      "source": {
+        "sourceType": "wallet",
+        "sourceId": "e9633880-6b23-466f-87bb-93832d38191c"
+      },
+      "createdAt": "2024-08-25T07:28:37.000000Z",
+      "updatedAt": "2024-08-25T07:28:38.000000Z"
+    },
+    {
+      "id": "511426e5-cc70-4d78-b24c-4000e83221a4",
+      "amount": "30.00",
+      "payeeId": "36gYVewEo4dx7bD",
+      "transferType": "virtualCard",
+      "referenceNo": "12312",
+      "status": "PROCESSING",
+      "description": "VC to GolbalTech",
+      "source": {
+        "sourceType": "wallet",
+        "sourceId": "e9633880-6b23-466f-87bb-93832d38191c"
+      },
+      "createdAt": "2024-08-25T07:28:26.000000Z",
+      "updatedAt": "2024-08-25T07:28:27.000000Z"
+    },
+    {
+      "id": "085dfc55-4243-4861-9976-b780a7c9f88b",
+      "amount": "13.00",
+      "payeeId": "36gYVewEo4dx7bD",
+      "transferType": "virtualCard",
+      "referenceNo": "12312",
+      "status": "PROCESSING",
+      "description": "VC to GolbalTech",
+      "source": {
+        "sourceType": "wallet",
+        "sourceId": "e9633880-6b23-466f-87bb-93832d38191c"
+      },
+      "createdAt": "2024-08-25T07:28:17.000000Z",
+      "updatedAt": "2024-08-25T07:28:17.000000Z"
+    },
+    {
+      "id": "dd5d95dd-39d1-4df0-bccd-7d95d3c46397",
+      "amount": "12.00",
+      "payeeId": "36gYVewEo4dx7bD",
+      "transferType": "virtualCard",
+      "referenceNo": "12312",
+      "status": "PROCESSING",
+      "description": "VC to GolbalTech",
+      "source": {
+        "sourceType": "wallet",
+        "sourceId": "e9633880-6b23-466f-87bb-93832d38191c"
+      },
+      "createdAt": "2024-08-25T07:28:08.000000Z",
+      "updatedAt": "2024-08-25T07:28:09.000000Z"
+    },
+    {
+      "id": "6fe912d3-4163-463c-ab25-cac320c91659",
+      "amount": "11.00",
+      "payeeId": "36gYVewEo4dx7bD",
+      "transferType": "virtualCard",
+      "referenceNo": "12312",
+      "status": "PROCESSING",
+      "description": "VC to GolbalTech",
+      "source": {
+        "sourceType": "wallet",
+        "sourceId": "e9633880-6b23-466f-87bb-93832d38191c"
+      },
+      "createdAt": "2024-08-25T07:28:00.000000Z",
+      "updatedAt": "2024-08-25T07:28:00.000000Z"
+    },
+    {
+      "id": "4cf53720-8f89-4b95-9a70-2ff58b351108",
+      "amount": "10.00",
+      "payeeId": "36gYVewEo4dx7bD",
+      "transferType": "virtualCard",
+      "referenceNo": "12312",
+      "status": "PROCESSING",
+      "description": "VC to GolbalTech",
+      "source": {
+        "sourceType": "bankAccount",
+        "sourceId": "rRBQPA4m375qe7gxqXW"
+      },
+      "createdAt": "2024-08-25T07:23:24.000000Z",
+      "updatedAt": "2024-08-25T07:23:24.000000Z"
+    },
+    {
+      "id": "c9867ae2-7ee9-4d27-82fd-c5e87fe587b8",
+      "amount": "10.00",
+      "payeeId": "36gYVewEo4dx7bD",
+      "transferType": "virtualCard",
+      "referenceNo": "12312",
+      "status": "PROCESSING",
+      "description": "VC to GolbalTech",
+      "source": {
+        "sourceType": "wallet",
+        "sourceId": "e9633880-6b23-466f-87bb-93832d38191c"
+      },
+      "createdAt": "2024-08-25T07:19:47.000000Z",
+      "updatedAt": "2024-08-25T07:19:48.000000Z"
+    },
+    {
+      "id": "53308069-e448-40ba-b9fe-5f102a718154",
+      "amount": "12.00",
+      "payeeId": "azRNXG0DlGLxyBb",
+      "transferType": "virtualCard",
+      "referenceNo": "",
+      "status": "FAILED",
+      "description": "test",
+      "source": {
+        "sourceType": "wallet",
+        "sourceId": "86f24597-a2a4-489d-b18d-c2bfb9b8b452"
+      },
+      "createdAt": "2023-12-13T15:10:17.000000Z",
+      "updatedAt": "2024-01-06T14:05:27.000000Z"
+    }
+  ]
+}
+```

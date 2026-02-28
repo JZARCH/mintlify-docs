@@ -1,0 +1,83 @@
+---
+title: 'Create Payees'
+api: 'POST /payees'
+---
+
+You can create multiple payees in one single request by passing payee attributes.
+
+**Payload parameters**
+
+payeesRequiredAn array of payee attributes
+
+`_payee_` _attributes_
+
+nameRequiredStringName of payee,Must be no longer than 100 characters.nickNameOptionalStringNick name of payee,Must be no longer than 50 characters.companyOptionalStringCompany name,Must be no longer than 50 characters.emailOptionalStringMust be no longer than 90 characters.phoneOptionalStringMust be no longer than 15 characters.address1OptionalStringMust be no longer than 180 characters.address2OptionalStringMust be no longer than 180 characters.cityOptionalStringMust be no longer than 180 characters.stateOptionalStringMust be a 2 letter state short-name codezipOptionalStringMust be no longer than 15 characters.countryOptionalStringMust be no longer than 40 characters.dobOptional StringDate of birth, Must be in the format YYYY-MM-DD.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="payees" type="object[]">
+  Request body field `payees`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /payees`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/payees" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Successfully created",
+  "data": {
+    "payees": [
+      {
+        "payeeId": "B1y3GL6ngmjpX8z",
+        "name": "Liam Montgomery",
+        "nickName": "Lee",
+        "company": "Montgomery Innovations",
+        "email": "liam.montgomery@example.com",
+        "phone": "408-555-9876",
+        "address1": "4321 Redwood Drive",
+        "address2": "",
+        "city": "San Jose",
+        "state": "CA",
+        "zip": "95120",
+        "country": "US",
+        "entityType": null,
+        "dob": "1987-11-02"
+      },
+      {
+        "payeeId": "3Ez2GgXbpKeqQgA",
+        "name": "Isabella Rivera",
+        "nickName": "Izzy",
+        "company": "Rivera Consulting",
+        "email": "isabella.rivera@example.com",
+        "phone": "408-555-6543",
+        "address1": "789 Pine Street",
+        "address2": "Suite 101",
+        "city": "San Jose",
+        "state": "CA",
+        "zip": "95125",
+        "country": "US",
+        "entityType": null,
+        "dob": null
+      }
+    ]
+  }
+}
+```

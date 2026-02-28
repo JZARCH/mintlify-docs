@@ -1,0 +1,81 @@
+---
+title: 'Create customer'
+api: 'POST /getpaid-by-form/customer'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="identity" type="string">
+  Request body field `identity`.
+</ParamField>
+
+<ParamField body="customerName" type="string">
+  Request body field `customerName`.
+</ParamField>
+
+<ParamField body="customerEmail" type="string">
+  Request body field `customerEmail`.
+</ParamField>
+
+<ParamField body="customerPhone" type="string">
+  Request body field `customerPhone`.
+</ParamField>
+
+<ParamField body="customerAdderessLine1" type="string">
+  Request body field `customerAdderessLine1`.
+</ParamField>
+
+<ParamField body="customerCity" type="string">
+  Request body field `customerCity`.
+</ParamField>
+
+<ParamField body="customerState" type="string">
+  Request body field `customerState`.
+</ParamField>
+
+<ParamField body="customerZip" type="string">
+  Request body field `customerZip`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /getpaid-by-form/customer`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/getpaid-by-form/customer" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "30aedb6c-5976-46e2-a229-030bc299bedb",
+    "identity": "545654",
+    "customerName": "Customer 1",
+    "customerEmail": "email@test.com",
+    "customerAdderessLine1": "95113 mark street rod",
+    "customerPhone": "900244400",
+    "customerCity": "Sanjose",
+    "customerState": "CA",
+    "customerZip": "95113",
+    "bankAccounts": [
+      []
+    ],
+    "createdAt": "2021-09-21T14:30:04.000000Z",
+    "updatedAt": "2021-09-21T14:30:04.000000Z"
+  },
+  "statusCode": 202
+}
+```

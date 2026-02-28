@@ -1,0 +1,194 @@
+---
+title: 'List All Wire Payments'
+api: 'GET /send-payment/wire'
+---
+
+Get all the Wire payments you have initiated.
+
+**Query parameters**
+
+referenceNoFilter records by referenceNo
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /send-payment/wire`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/send-payment/wire" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "meta": {
+    "total": 474,
+    "perPage": 10,
+    "currentPage": 1,
+    "lastPage": 48
+  },
+  "data": [
+    {
+      "id": "9d75fa15-0005-4a01-939d-b4619b061807",
+      "amount": "2.00",
+      "payeeId": "36gYVewEo4dx7bD",
+      "transferType": "wire",
+      "referenceNo": "12312",
+      "status": "PROCESSING",
+      "description": "v3 pay 1",
+      "source": {
+        "sourceType": "bankAccount",
+        "sourceId": "rRBQPA4m375qe7gxqXW"
+      },
+      "createdAt": "2024-08-25T06:55:24.000000Z",
+      "updatedAt": "2024-08-25T06:55:25.000000Z"
+    },
+    {
+      "id": "26d94501-04ad-40f8-9ce4-03624fd0fbf2",
+      "amount": "1.25",
+      "payeeId": "36gYVewEo4dx7bD",
+      "transferType": "wire",
+      "referenceNo": "",
+      "status": "PROCESSING",
+      "description": "Payroll",
+      "source": {
+        "sourceType": "bankAccount",
+        "sourceId": "rRBQPA4m375qe7gxqXW"
+      },
+      "createdAt": "2024-08-25T06:45:56.000000Z",
+      "updatedAt": "2024-08-25T06:46:08.000000Z"
+    },
+    {
+      "id": "7ba15990-30df-4e56-803a-3de6aaf2743a",
+      "amount": "2.00",
+      "payeeId": "903wmjY5Yj71bkv",
+      "transferType": "wire",
+      "referenceNo": "12312",
+      "status": "PROCESSING",
+      "description": "v3 pay 1",
+      "source": {
+        "sourceType": "bankAccount",
+        "sourceId": "rRBQPA4m375qe7gxqXW"
+      },
+      "createdAt": "2024-08-25T05:32:05.000000Z",
+      "updatedAt": "2024-08-25T05:32:06.000000Z"
+    },
+    {
+      "id": "17665e90-724c-4375-ad11-209fde50c535",
+      "amount": "10.50",
+      "payeeId": "903wmjY5Yj71bkv",
+      "transferType": "wire",
+      "referenceNo": "",
+      "status": "PROCESSING",
+      "description": "test",
+      "source": {
+        "sourceType": "bankAccount",
+        "sourceId": "rRBQPA4m375qe7gxqXW"
+      },
+      "createdAt": "2024-08-25T05:22:18.000000Z",
+      "updatedAt": "2024-08-25T05:22:32.000000Z"
+    },
+    {
+      "id": "ebf5e0ad-5256-4d4d-aae0-bcb193b48fb4",
+      "amount": "63.00",
+      "payeeId": "903wmjY5Yj71bkv",
+      "transferType": "wire",
+      "referenceNo": "",
+      "status": "FAILED",
+      "description": "test",
+      "source": {
+        "sourceType": "wallet",
+        "sourceId": "e9633880-6b23-466f-87bb-93832d38191c"
+      },
+      "createdAt": "2024-08-22T09:17:46.000000Z",
+      "updatedAt": "2024-08-22T09:22:31.000000Z"
+    },
+    {
+      "id": "60f9e4eb-c7c1-42cc-8744-ca969ba67fdb",
+      "amount": "78.00",
+      "payeeId": "903wmjY5Yj71bkv",
+      "transferType": "wire",
+      "referenceNo": "",
+      "status": "FAILED",
+      "description": "testtt",
+      "source": {
+        "sourceType": "wallet",
+        "sourceId": "e9633880-6b23-466f-87bb-93832d38191c"
+      },
+      "createdAt": "2024-08-21T14:57:02.000000Z",
+      "updatedAt": "2024-08-21T14:57:17.000000Z"
+    },
+    {
+      "id": "69463308-7054-4568-9046-ade1aaac2f05",
+      "amount": "20.32",
+      "payeeId": "903wmjY5Yj71bkv",
+      "transferType": "wire",
+      "referenceNo": "",
+      "status": "FAILED",
+      "description": "Test 32",
+      "source": {
+        "sourceType": "wallet",
+        "sourceId": "e9633880-6b23-466f-87bb-93832d38191c"
+      },
+      "createdAt": "2024-08-21T14:44:04.000000Z",
+      "updatedAt": "2024-08-21T14:44:45.000000Z"
+    },
+    {
+      "id": "ce978342-b9a6-449e-88ac-ab45a8acb4b7",
+      "amount": "12.23",
+      "payeeId": "903wmjY5Yj71bkv",
+      "transferType": "wire",
+      "referenceNo": "",
+      "status": "FAILED",
+      "description": "test",
+      "source": {
+        "sourceType": "wallet",
+        "sourceId": "e9633880-6b23-466f-87bb-93832d38191c"
+      },
+      "createdAt": "2024-08-21T14:00:46.000000Z",
+      "updatedAt": "2024-08-21T14:07:22.000000Z"
+    },
+    {
+      "id": "d78696d8-f7e8-40df-953c-c27f1cafe2bd",
+      "amount": "11.11",
+      "payeeId": "903wmjY5Yj71bkv",
+      "transferType": "wire",
+      "referenceNo": "78",
+      "status": "FAILED",
+      "description": "test",
+      "source": {
+        "sourceType": "wallet",
+        "sourceId": "e9633880-6b23-466f-87bb-93832d38191c"
+      },
+      "createdAt": "2024-08-21T13:55:07.000000Z",
+      "updatedAt": "2024-08-21T13:55:37.000000Z"
+    },
+    {
+      "id": "a8e32f49-6d0d-4ef1-8d85-277e7ae017c6",
+      "amount": "15.25",
+      "payeeId": "JB1y3GLaOepX8z6",
+      "transferType": "wire",
+      "referenceNo": "",
+      "status": "FAILED",
+      "description": "test",
+      "source": {
+        "sourceType": "wallet",
+        "sourceId": "e9633880-6b23-466f-87bb-93832d38191c"
+      },
+      "createdAt": "2024-08-21T12:59:29.000000Z",
+      "updatedAt": "2024-08-21T12:59:58.000000Z"
+    }
+  ]
+}
+```

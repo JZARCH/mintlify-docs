@@ -1,0 +1,127 @@
+---
+title: 'Create Direct Deposit'
+api: 'POST /quickpay/directdeposit'
+---
+
+If you want to test this feature talk with our customer support team.
+
+|  |  |
+| --- | --- |
+| accountId | required |
+
+| Destination |  |
+| --- | --- |
+| name | required |
+| routing_number | required | sample routing number : 211274450 |
+| account_number | required |
+
+| **Payment Details** |  |
+| --- | --- |
+| amount | required |
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="source" type="object">
+  Request body field `source`.
+</ParamField>
+
+<ParamField body="source.accountType" type="string">
+  Request body field `source.accountType`.
+</ParamField>
+
+<ParamField body="source.accountId" type="string">
+  Request body field `source.accountId`.
+</ParamField>
+
+<ParamField body="destination" type="object">
+  Request body field `destination`.
+</ParamField>
+
+<ParamField body="destination.name" type="string">
+  Request body field `destination.name`.
+</ParamField>
+
+<ParamField body="destination.company" type="string">
+  Request body field `destination.company`.
+</ParamField>
+
+<ParamField body="destination.address1" type="string">
+  Request body field `destination.address1`.
+</ParamField>
+
+<ParamField body="destination.address2" type="string">
+  Request body field `destination.address2`.
+</ParamField>
+
+<ParamField body="destination.city" type="string">
+  Request body field `destination.city`.
+</ParamField>
+
+<ParamField body="destination.state" type="string">
+  Request body field `destination.state`.
+</ParamField>
+
+<ParamField body="destination.zip" type="string">
+  Request body field `destination.zip`.
+</ParamField>
+
+<ParamField body="destination.phone" type="string">
+  Request body field `destination.phone`.
+</ParamField>
+
+<ParamField body="destination.email" type="string">
+  Request body field `destination.email`.
+</ParamField>
+
+<ParamField body="destination.routing_number" type="string">
+  Request body field `destination.routing_number`.
+</ParamField>
+
+<ParamField body="destination.account_number" type="string">
+  Request body field `destination.account_number`.
+</ParamField>
+
+<ParamField body="payment_details" type="object">
+  Request body field `payment_details`.
+</ParamField>
+
+<ParamField body="payment_details.amount" type="number">
+  Request body field `payment_details.amount`.
+</ParamField>
+
+<ParamField body="payment_details.memo" type="string">
+  Request body field `payment_details.memo`.
+</ParamField>
+
+<ParamField body="payment_details.note" type="string">
+  Request body field `payment_details.note`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /quickpay/directdeposit`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/quickpay/directdeposit" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "4686a587-550b-485a-9b6b-6efdacff46ce"
+  }
+}
+```

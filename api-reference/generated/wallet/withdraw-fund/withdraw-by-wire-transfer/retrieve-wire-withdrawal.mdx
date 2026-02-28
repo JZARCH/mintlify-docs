@@ -1,0 +1,46 @@
+---
+title: 'Retrieve Wire Withdrawal'
+api: 'GET /wallet/withdraw/wire/{wireId}'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="wireId" type="string" required>
+  Path parameter `wireId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /wallet/withdraw/wire/{wireId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/wallet/withdraw/wire/{wireId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "56a27cc0-2d81-4bb3-97ce-5bec55104626",
+    "fromWallet": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+    "toBankAccount": "Jy7VeBw8yQjzn1m",
+    "amount": "15.01",
+    "description": "wallet withdrawal 2",
+    "status": "PROCESSING",
+    "updatedAt": "2025-03-12T09:56:14.000000Z",
+    "createdAt": "2025-03-12T09:56:14.000000Z"
+  }
+}
+```

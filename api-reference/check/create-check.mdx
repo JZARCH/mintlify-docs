@@ -1,0 +1,115 @@
+---
+title: 'Create check'
+api: 'POST /quickpay/check'
+---
+
+Issue a check from a bank account to a payee.
+
+## Request
+
+### Body
+
+<ParamField body="source.accountType" type="string" required>
+  Funding account type. For example, `"bankaccount"`.
+</ParamField>
+
+<ParamField body="source.accountId" type="string" required>
+  ID of the funding bank account. This corresponds to `{{bankAccountId}}` in the Postman collection.
+</ParamField>
+
+<ParamField body="destination.name" type="string" required>
+  Payee name. Maximum 191 characters.
+</ParamField>
+
+<ParamField body="destination.company" type="string">
+  Optional company name. Maximum 50 characters.
+</ParamField>
+
+<ParamField body="destination.address1" type="string">
+  First line of the destination mailing address.
+</ParamField>
+
+<ParamField body="destination.city" type="string">
+  City for the destination mailing address.
+</ParamField>
+
+<ParamField body="destination.state" type="string">
+  State or region. Use the 2-character code such as `"TX"`.
+</ParamField>
+
+<ParamField body="destination.zip" type="string">
+  Postal or ZIP code.
+</ParamField>
+
+<ParamField body="destination.phone" type="string">
+  Optional phone number for the payee.
+</ParamField>
+
+<ParamField body="destination.email" type="string">
+  Optional email address for the payee.
+</ParamField>
+
+<ParamField body="payment_details.amount" type="number" required>
+  Check amount.
+</ParamField>
+
+<ParamField body="payment_details.memo" type="string">
+  Optional memo printed on the check. Maximum 150 characters.
+</ParamField>
+
+<ParamField body="payment_details.note" type="string">
+  Optional internal note. Maximum 150 characters.
+</ParamField>
+
+<ParamField body="payment_details.referenceID" type="string">
+  Optional reference identifier from your system.
+</ParamField>
+
+<ParamField body="payment_details.issueDate" type="string">
+  Optional issue date in `YYYY-MM-DD` format.
+</ParamField>
+
+## Example
+
+```bash
+curl --location "$BASE_URL/quickpay/check" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "source": {
+      "accountType": "bankaccount",
+      "accountId": "{{$bankAccountId}}"
+    },
+    "destination": {
+      "name": "John Myres",
+      "company": "Tyler Payment Technologist",
+      "address1": "5007 richmond rd",
+      "city": "Tyler",
+      "state": "TX",
+      "zip": "75701",
+      "phone": "9032457713",
+      "email": "support@onlinecheckwriter.com"
+    },
+    "payment_details": {
+      "amount": 500,
+      "memo": "for game",
+      "note": "Note For Internal Purpose",
+      "referenceID": "12",
+      "issueDate": "2024-07-01"
+    }
+  }'
+```
+
+## Response
+
+On success, the API returns a JSON object indicating success and the generated check ID.
+
+```json
+{
+  "success": true,
+  "data": {
+    "checkId": "6gYVewMJO54dx7b"
+  }
+}
+```
+

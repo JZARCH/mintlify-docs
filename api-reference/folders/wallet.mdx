@@ -1,0 +1,27 @@
+---
+title: 'Wallet API'
+description: 'Endpoints in the Wallet section of the Online Check Writer API v3'
+---
+
+This page lists all endpoints that belong to the **Wallet** folder in the Postman collection.
+
+| Method | Path | Endpoint |
+| --- | --- | --- |
+| `GET` | `/` | [List Wire Withdrawal](/api-reference/generated/wallet/withdraw-fund/withdraw-by-wire-transfer/list-wire-withdrawal) |
+| `GET` | `/wallet` | [List All Wallets](/api-reference/generated/wallet/list-all-wallets) |
+| `GET` | `/wallet/{uuid}` | [Retrieve a wallet](/api-reference/generated/wallet/retrieve-a-wallet) |
+| `GET` | `/wallet/{uuid}/transactions` | [Wallet Transactions](/api-reference/generated/wallet/wallet-transactions) |
+| `GET` | `/wallet/fund-wallet/{walletId}` | [Retrieve ACH wallet funding](/api-reference/generated/wallet/fund-wallet/fund-wallet-by-ach/retrieve-ach-wallet-funding) |
+| `GET` | `/wallet/fund/ach` | [List ACH wallet funding](/api-reference/generated/wallet/fund-wallet/fund-wallet-by-ach/list-ach-wallet-funding) |
+| `POST` | `/wallet/fund/ach/initiate` | [Initiate ACH wallet funding](/api-reference/generated/wallet/fund-wallet/fund-wallet-by-ach/initiate-ach-wallet-funding) |
+| `GET` | `/wallet/fund/requests` | [List All Fund Requests](/api-reference/generated/wallet/fund-wallet/fund-wallet-by-request/list-all-fund-requests) |
+| `GET` | `/wallet/fund/requests/{requestId}` | [Retrieve Fund Wallet Request](/api-reference/generated/wallet/fund-wallet/fund-wallet-by-request/retrieve-fund-wallet-request) |
+| `POST` | `/wallet/fund/requests/create` | [Create Fund Wallet Request](/api-reference/generated/wallet/fund-wallet/fund-wallet-by-request/create-fund-wallet-request) |
+| `POST` | `/wallet/internal-transfer` | [Wallet Internal Transfer](/api-reference/generated/wallet/wallet-internal-transfer) |
+| `GET` | `/wallet/withdraw/ach` | [List ACH Withdrawals](/api-reference/generated/wallet/withdraw-fund/withdraw-by-ach/list-ach-withdrawals) |
+| `GET` | `/wallet/withdraw/ach/{achId}` | [Retrieve ACH Withdrawal](/api-reference/generated/wallet/withdraw-fund/withdraw-by-ach/retrieve-ach-withdrawal) |
+| `POST` | `/wallet/withdraw/ach/initiate` | [Initiate ACH Withdrawal](/api-reference/generated/wallet/withdraw-fund/withdraw-by-ach/initiate-ach-withdrawal) |
+| `GET` | `/wallet/withdraw/mail/{mailId}` | [Retrieve Check Mail Withdrawal](/api-reference/generated/wallet/withdraw-fund/withdraw-by-check-mail/retrieve-check-mail-withdrawal) |
+| `POST` | `/wallet/withdraw/mail/initiate` | [Initiate Check Mail Withdrawal](/api-reference/generated/wallet/withdraw-fund/withdraw-by-check-mail/initiate-check-mail-withdrawal) |
+| `GET` | `/wallet/withdraw/wire/{wireId}` | [Retrieve Wire Withdrawal](/api-reference/generated/wallet/withdraw-fund/withdraw-by-wire-transfer/retrieve-wire-withdrawal) |
+| `POST` | `/wallet/withdraw/wire/initiate` | [Initiate Wire Withdrawal](/api-reference/generated/wallet/withdraw-fund/withdraw-by-wire-transfer/initiate-wire-withdrawal) |

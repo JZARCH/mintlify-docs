@@ -1,0 +1,49 @@
+---
+title: 'Delete a custom from address'
+api: 'DELETE /customFromAddresses/{customFromAddressId}'
+---
+
+Permanently deletes a custom from address.
+
+Path parameters
+
+ 
+  customFromAddressId
+  Required    
+         The id of the Custom from address to be delete.
+  
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="customFromAddressId" type="string" required>
+  Path parameter `customFromAddressId`.
+</ParamField>
+
+## Request
+
+Endpoint: `DELETE /customFromAddresses/{customFromAddressId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/customFromAddresses/{customFromAddressId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Successfully deleted"
+}
+```

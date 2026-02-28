@@ -1,0 +1,47 @@
+---
+title: 'Create Email Check'
+api: 'POST /emailchecks'
+---
+
+You can create multiple Email check in one single request.
+
+**Payload parameters**
+
+emailChecksRequiredAn array of emailCheck attributes
+
+_`emailCheck`_ _attributes_
+
+checkIdRequiredStringMust be a check IDpayeeEmailOptionalStringRequired if not exist any email on associated payeeenableSmsInformOptionalBooleanNotify your payee through SMS, By default falsepayeePhoneOptionalStringRequired if enableSmsInform is true and if not exist any phone on associated payeesendAttachmentOptionalPossible values : 0 or 1.This will send added attachments along with the check.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="emailChecks" type="object[]">
+  Request body field `emailChecks`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /emailchecks`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/emailchecks" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Succesfully done"
+}
+```

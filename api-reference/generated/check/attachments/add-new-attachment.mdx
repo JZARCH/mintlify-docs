@@ -1,0 +1,69 @@
+---
+title: 'Add new attachment'
+api: 'POST /checks/{checkId}/attachments'
+---
+
+Add new attachment to existing check
+
+Path parameters
+
+ 
+  checkId
+  Required    
+         The id of the check.
+  
+
+
+
+Payload parameters
+
+ 
+  attachment
+  Required    
+        File
+        File of type pdf,xls,xlsx,rtf,doc and docx
+  
+
+
+
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="checkId" type="string" required>
+  Path parameter `checkId`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /checks/{checkId}/attachments`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/checks/{checkId}/attachments" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Succesfully added",
+  "data": {
+    "checkAttachmentId": "RdJM5Gb3JeY329A",
+    "checkId": "7rLdjvvqx2jJEz6",
+    "fileName": "check_attachment_1603187841_OnlineCheckWriter.pdf",
+    "fileNickName": 1,
+    "pageCount": 1,
+    "createdDate": "10-20-2020"
+  }
+}
+```

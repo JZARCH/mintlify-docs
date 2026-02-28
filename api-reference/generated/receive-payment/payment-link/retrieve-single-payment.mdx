@@ -1,0 +1,65 @@
+---
+title: 'Retrieve Single Payment'
+api: 'GET /getpaid-by-form/check/{referenceId}'
+---
+
+You can retrieve a single payment link check using `referenceId`
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="referenceId" type="string" required>
+  Path parameter `referenceId`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /getpaid-by-form/check/{referenceId}`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/getpaid-by-form/check/{referenceId}" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "referenceId": "DgpNlkQ4rKAGwnOV0Z9",
+    "memo": "Payment",
+    "amount": "104.00",
+    "serialNumber": 1001,
+    "createdAt": "2024-06-15T09:37:04.000000Z",
+    "invoiceNumber": "",
+    "transactionId": "",
+    "customerDetails": {
+      "customerEmail": "john@test.com",
+      "customerName": "John",
+      "customerAddressLine1": "1451 Ondulado Road",
+      "customerPhone": "11111111111",
+      "customerCity": "Del Monte Forest",
+      "customerState": "CA",
+      "customerZip": "93953"
+    },
+    "metaData": [],
+    "customField1": "",
+    "customField2": "",
+    "customField3": "",
+    "status": {
+      "statusCode": 51,
+      "statusShortDescription": "DD-COMPLETED"
+    }
+  },
+  "statusCode": 200
+}
+```

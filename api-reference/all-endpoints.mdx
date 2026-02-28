@@ -1,0 +1,175 @@
+---
+title: 'All endpoints'
+description: 'Index of all Online Check Writer API v3 endpoints generated from the Postman collection'
+---
+
+This page lists all endpoints that were generated from the Online Check Writer API v3 Postman collection.
+
+| Group | Method | Path | Page |
+| --- | --- | --- | --- |
+| Bank Account | `GET` | `/bankAccounts` | [Retrieve all bank accounts](/api-reference/generated/bank-account/retrieve-all-bank-accounts) |
+| Bank Account | `POST` | `/bankAccounts` | [Create bank accounts](/api-reference/generated/bank-account/create-bank-accounts) |
+| Bank Account | `DELETE` | `/bankAccounts/{bankAccountId}` | [Delete a bank Account](/api-reference/generated/bank-account/delete-a-bank-account) |
+| Bank Account | `GET` | `/bankAccounts/{bankAccountId}` | [Retrieve a bank account](/api-reference/generated/bank-account/retrieve-a-bank-account) |
+| Bank Account | `PUT` | `/bankAccounts/{bankAccountId}` | [Update a bank Account](/api-reference/generated/bank-account/update-a-bank-account) |
+| Bank Account | `POST` | `/bankAccounts/{bankAccountId}/logos` | [Add Logo](/api-reference/generated/bank-account/add-logo) |
+| Bank Account | `GET` | `/bankAccounts/{bankAccountId}/signatures` | [Get Signature](/api-reference/generated/bank-account/get-signature) |
+| Bank Account | `POST` | `/bankAccounts/{bankAccountId}/signatures` | [Add Signature](/api-reference/generated/bank-account/add-signature) |
+| Bank Account | `POST` | `/bankAccounts/routing-number/{routingNumber}` | [Routing Number Validation](/api-reference/generated/bank-account/routing-number-validation) |
+| Bank Account | `GET` | `/bankAccounts/templates` | [Retrieve check design templates](/api-reference/generated/bank-account/retrieve-check-design-templates) |
+| Bank Account Verify | `GET` | `/bank-account-verify/{bankAccountId}/status` | [Get Micro Deposit Status](/api-reference/generated/bank-account-verify/get-micro-deposit-status) |
+| Bank Account Verify | `POST` | `/bank-account-verify/confirm-micro-deposit` | [Confirm Micro Deposit](/api-reference/generated/bank-account-verify/confirm-micro-deposit) |
+| Bank Account Verify | `POST` | `/bank-account-verify/micro-deposit` | [Create Micro Deposit](/api-reference/generated/bank-account-verify/create-micro-deposit) |
+| Card Program / Wallet Gift Card | `GET` | `/card-program/{cardProgramId}/transactions` | [Show Wallet Gift Card Transaction Details](/api-reference/generated/card-program/wallet-gift-card/show-wallet-gift-card-transaction-details) |
+| Card Program / Wallet Gift Card | `GET` | `/card-program/gift-card` | [List Wallet Gift Cards](/api-reference/generated/card-program/wallet-gift-card/list-wallet-gift-cards) |
+| Card Program / Wallet Gift Card | `GET` | `/card-program/gift-card/{giftCardId}` | [Retrieve Wallet Gift Card](/api-reference/generated/card-program/wallet-gift-card/retrieve-wallet-gift-card) |
+| Card Program / Wallet Gift Card | `POST` | `/card-program/gift-card/add-fund` | [Recharge a Wallet Gift Card](/api-reference/generated/card-program/wallet-gift-card/recharge-a-wallet-gift-card) |
+| Card Program / Wallet Gift Card | `POST` | `/card-program/gift-card/create` | [Create Wallet Gift Card](/api-reference/generated/card-program/wallet-gift-card/create-wallet-gift-card) |
+| Card Program / Wallet Spend Card | `GET` | `/card-program/{cardProgramId}/transactions` | [Show Wallet Spend Card Transaction Details](/api-reference/generated/card-program/wallet-spend-card/show-wallet-spend-card-transaction-details) |
+| Card Program / Wallet Spend Card | `GET` | `/card-program/card` | [List Wallet Spend Cards](/api-reference/generated/card-program/wallet-spend-card/list-wallet-spend-cards) |
+| Card Program / Wallet Spend Card | `GET` | `/card-program/card/{cardId}` | [Retrieve Wallet Spend Card](/api-reference/generated/card-program/wallet-spend-card/retrieve-wallet-spend-card) |
+| Card Program / Wallet Spend Card | `POST` | `/card-program/card/{cardId}/change-status` | [Update Wallet Spend Card Status](/api-reference/generated/card-program/wallet-spend-card/update-wallet-spend-card-status) |
+| Card Program / Wallet Spend Card | `PUT` | `/card-program/card/b093ef67-c6d5-4c9a-ae84-154c7c8558a` | [Update Wallet Spend Card](/api-reference/generated/card-program/wallet-spend-card/update-wallet-spend-card) |
+| Card Program / Wallet Spend Card | `POST` | `/card-program/card/create` | [Create Virtual Card](/api-reference/generated/card-program/wallet-spend-card/create-virtual-card) |
+| Card Program / Wallet Spend Card | `POST` | `/card-program/card/create` | [Create Physical Card](/api-reference/generated/card-program/wallet-spend-card/create-physical-card) |
+| Card Program / Wallet Spend Card | `GET` | `/card-program/card/show-card/{showCardId}` | [Show Wallet Spend Card Details](/api-reference/generated/card-program/wallet-spend-card/show-wallet-spend-card-details) |
+| Category | `GET` | `/categories` | [Retrieve all Categories](/api-reference/generated/category/retrieve-all-categories) |
+| Category | `POST` | `/categories` | [Create Category](/api-reference/generated/category/create-category) |
+| Check | `GET` | `/checks` | [Retrieve all checks](/api-reference/generated/check/retrieve-all-checks) |
+| Check | `POST` | `/checks` | [Create checks](/api-reference/generated/check/create-checks) |
+| Check | `DELETE` | `/checks/{checkId}` | [Delete a check](/api-reference/generated/check/delete-a-check) |
+| Check | `GET` | `/checks/{checkId}` | [Retrieve a check](/api-reference/generated/check/retrieve-a-check) |
+| Check | `PUT` | `/checks/{checkId}` | [Update a check](/api-reference/generated/check/update-a-check) |
+| Check | `POST` | `/checks/{checkId}/mark-as-cleared` | [Mark as Posted](/api-reference/generated/check/mark-as-posted) |
+| Check | `POST` | `/checks/{checkId}/void` | [Void a check](/api-reference/generated/check/void-a-check) |
+| Check | `GET` | `/checks/{checkId}/voucher` | [Retrieve voucher by checkId](/api-reference/generated/check/retrieve-voucher-by-checkid) |
+| Check | `POST` | `/checks/bulk-delete` | [Bulk Delete](/api-reference/generated/check/bulk-delete) |
+| Check | `POST` | `/checks/print` | [Print  checks](/api-reference/generated/check/print-checks) |
+| Check | `POST` | `/checks/print-with-attachment` | [Print  checks with attachment](/api-reference/generated/check/print-checks-with-attachment) |
+| Check / Attachments | `GET` | `/checks/{checkId}/attachments` | [Retrieve all attachments details](/api-reference/generated/check/attachments/retrieve-all-attachments-details) |
+| Check / Attachments | `POST` | `/checks/{checkId}/attachments` | [Add new attachment](/api-reference/generated/check/attachments/add-new-attachment) |
+| Check / Attachments | `DELETE` | `/checks/{checkId}/attachments/{checkAttachmentId}` | [Delete a attachment](/api-reference/generated/check/attachments/delete-a-attachment) |
+| Check / Attachments | `GET` | `/checks/{checkId}/attachments/{checkAttachmentId}` | [Retrieve a attachment details](/api-reference/generated/check/attachments/retrieve-a-attachment-details) |
+| Custom From Address | `GET` | `/customFromAddresses` | [Retrieve all Custom from addresses](/api-reference/generated/custom-from-address/retrieve-all-custom-from-addresses) |
+| Custom From Address | `POST` | `/customFromAddresses` | [Create a custom from address](/api-reference/generated/custom-from-address/create-a-custom-from-address) |
+| Custom From Address | `PUT` | `/customFromAddresses/{customfromaddressId}` | [Update a custom from address](/api-reference/generated/custom-from-address/update-a-custom-from-address) |
+| Custom From Address | `DELETE` | `/customFromAddresses/{customFromAddressId}` | [Delete a custom from address](/api-reference/generated/custom-from-address/delete-a-custom-from-address) |
+| Custom From Address | `GET` | `/customFromAddresses/{customFromAddressId}` | [Retrieve a custom from address](/api-reference/generated/custom-from-address/retrieve-a-custom-from-address) |
+| Custom To Address | `GET` | `/customToAddresses` | [Retrieve all Custom to addresses](/api-reference/generated/custom-to-address/retrieve-all-custom-to-addresses) |
+| Custom To Address | `POST` | `/customToAddresses` | [Create a custom to address](/api-reference/generated/custom-to-address/create-a-custom-to-address) |
+| Custom To Address | `DELETE` | `/customToAddresses/{customToAddressId}` | [Delete a custom to address](/api-reference/generated/custom-to-address/delete-a-custom-to-address) |
+| Custom To Address | `GET` | `/customToAddresses/{customToAddressId}` | [Retrieve a custom to address](/api-reference/generated/custom-to-address/retrieve-a-custom-to-address) |
+| Custom To Address | `PUT` | `/customToAddresses/{customToAddressId}` | [Update a custom to address](/api-reference/generated/custom-to-address/update-a-custom-to-address) |
+| Direct Deposit/ACH | `GET` | `/ach/{checkId}/status` | [Get Status](/api-reference/generated/direct-deposit-ach/get-status) |
+| Direct Deposit/ACH | `GET` | `/ach/{checkId}/statusAll` | [Get All status](/api-reference/generated/direct-deposit-ach/get-all-status) |
+| Direct Deposit/ACH | `POST` | `/directDeposit/create` | [Create Direct Deposit](/api-reference/generated/direct-deposit-ach/create-direct-deposit) |
+| Email Check | `POST` | `/emailchecks` | [Create Email Check](/api-reference/generated/email-check/create-email-check) |
+| Mail Document | `GET` | `/documentmailing/getreplyto` | [Get Reply To Address](/api-reference/generated/mail-document/get-reply-to-address) |
+| Mail Document / Html File Mailing | `POST` | `/documentmailing/template/mail` | [Mail Html](/api-reference/generated/mail-document/html-file-mailing/mail-html) |
+| Mail Document / Html File Mailing | `POST` | `/documentmailing/template/upload` | [Create](/api-reference/generated/mail-document/html-file-mailing/create) |
+| Mail Document / Pdf Mailing | `POST` | `/documentmailing/mail` | [Mail](/api-reference/generated/mail-document/pdf-mailing/mail) |
+| Mail Document / Sender Address | `POST` | `/documentmailing/sender/add` | [add](/api-reference/generated/mail-document/sender-address/add) |
+| Mail Document / Sender Address | `POST` | `/documentmailing/sender/delete/{id}` | [delete](/api-reference/generated/mail-document/sender-address/delete) |
+| Mail Document / Tracking | `GET` | `/documentmailing/tracking/{documentId}` | [Get](/api-reference/generated/mail-document/tracking/get) |
+| Mail Document / Upload Doc | `POST` | `/documentmailing/upload` | [Upload Document](/api-reference/generated/mail-document/upload-doc/upload-document) |
+| MailCheck | `POST` | `/mailchecks` | [Create new mail check](/api-reference/generated/mailcheck/create-new-mail-check) |
+| MailCheck | `GET` | `/mailchecks/{checkId}/tracking` | [Track Mail Check](/api-reference/generated/mailcheck/track-mail-check) |
+| MailCheck | `POST` | `/mailchecks/calculateFee` | [Calculate Fee](/api-reference/generated/mailcheck/calculate-fee) |
+| MailCheck | `GET` | `/mailchecks/mailingOptions` | [Retrieve all mail options](/api-reference/generated/mailcheck/retrieve-all-mail-options) |
+| MailCheck / Attachments | `GET` | `/mailchecks/{checkId}/attachments` | [Retrieve all mail attachments](/api-reference/generated/mailcheck/attachments/retrieve-all-mail-attachments) |
+| MailCheck / Attachments | `POST` | `/mailchecks/{checkId}/attachments` | [Add new mail attachment](/api-reference/generated/mailcheck/attachments/add-new-mail-attachment) |
+| MailCheck / Attachments | `DELETE` | `/mailchecks/{checkId}/attachments/{mailAttachmentId}` | [Delete mail attachment](/api-reference/generated/mailcheck/attachments/delete-mail-attachment) |
+| Pay From Credit Card | `GET` | `/payments/card` | [Get Cards](/api-reference/generated/pay-from-credit-card/get-cards) |
+| Pay From Credit Card | `POST` | `/payments/card` | [Pay](/api-reference/generated/pay-from-credit-card/pay) |
+| Payee | `GET` | `/payees` | [Retrieve all payees](/api-reference/generated/payee/retrieve-all-payees) |
+| Payee | `POST` | `/payees` | [Create Payees](/api-reference/generated/payee/create-payees) |
+| Payee | `DELETE` | `/payees/{payeeId}` | [Delete a Payee](/api-reference/generated/payee/delete-a-payee) |
+| Payee | `GET` | `/payees/{payeeId}` | [Retrieve a payee](/api-reference/generated/payee/retrieve-a-payee) |
+| Payee | `PUT` | `/payees/{payeeId}` | [Update a payee](/api-reference/generated/payee/update-a-payee) |
+| Payee / Bank Accounts | `GET` | `/payees/{payee_id}/bank-accounts` | [List Payee Bank Accounts](/api-reference/generated/payee/bank-accounts/list-payee-bank-accounts) |
+| Payee / Bank Accounts | `POST` | `/payees/{payee_id}/bank-accounts` | [Create Payee  Bank Account](/api-reference/generated/payee/bank-accounts/create-payee-bank-account) |
+| Payee / Bank Accounts | `DELETE` | `/payees/{payee_id}/bank-accounts/{payee-bankaccount-id}` | [Delete Payee Bank Account](/api-reference/generated/payee/bank-accounts/delete-payee-bank-account) |
+| Payee / Bank Accounts | `GET` | `/payees/{payee_id}/bank-accounts/{payee-bankaccount-id}` | [Get Payee Bank Account](/api-reference/generated/payee/bank-accounts/get-payee-bank-account) |
+| Payee / Bank Accounts | `PUT` | `/payees/{payee_id}/bank-accounts/{payee-bankaccount-id}` | [Edit Payee Bank Account](/api-reference/generated/payee/bank-accounts/edit-payee-bank-account) |
+| Quick Pay | `POST` | `/quickpay/bundle-mail` | [Create Bundle Mail](/api-reference/generated/quick-pay/create-bundle-mail) |
+| Quick Pay | `POST` | `/quickpay/check` | [Create Check](/api-reference/generated/quick-pay/create-check) |
+| Quick Pay | `POST` | `/quickpay/directdeposit` | [Create Direct Deposit](/api-reference/generated/quick-pay/create-direct-deposit) |
+| Quick Pay | `POST` | `/quickpay/echeck` | [Create Echeck](/api-reference/generated/quick-pay/create-echeck) |
+| Quick Pay | `POST` | `/quickpay/mailcheck` | [Create MailCheck](/api-reference/generated/quick-pay/create-mailcheck) |
+| Quick Pay | `POST` | `/quickpay/mailpdf` | [Sent Pdf](/api-reference/generated/quick-pay/sent-pdf) |
+| Quick Pay | `POST` | `/quickpay/virtualcard` | [Create Virtual Card](/api-reference/generated/quick-pay/create-virtual-card) |
+| Quick Pay | `POST` | `/quickpay/wire` | [Create Wire Transfer](/api-reference/generated/quick-pay/create-wire-transfer) |
+| Receive Payment | `GET` | `/receive-payments/{receivedPaymentId}/info` | [Retrieve Received Payment](/api-reference/generated/receive-payment/retrieve-received-payment) |
+| Receive Payment / Manual ACH | `GET` | `/manual-ach` | [Manual ACH Request Lists](/api-reference/generated/receive-payment/manual-ach/manual-ach-request-lists) |
+| Receive Payment / Manual ACH | `POST` | `/manual-ach` | [Initiate Manual ACH](/api-reference/generated/receive-payment/manual-ach/initiate-manual-ach) |
+| Receive Payment / Manual ACH | `GET` | `/manual-ach/{manualAchId}` | [Retrieve Manual ACH request](/api-reference/generated/receive-payment/manual-ach/retrieve-manual-ach-request) |
+| Receive Payment / Payment Link | `GET` | `/getpaid-by-form` | [Get Payment Link](/api-reference/generated/receive-payment/payment-link/get-payment-link) |
+| Receive Payment / Payment Link | `POST` | `/getpaid-by-form` | [Create Payment Link](/api-reference/generated/receive-payment/payment-link/create-payment-link) |
+| Receive Payment / Payment Link | `POST` | `/getpaid-by-form/bank-account` | [Create Bank Account](/api-reference/generated/receive-payment/payment-link/create-bank-account) |
+| Receive Payment / Payment Link | `GET` | `/getpaid-by-form/bank-account/{customerBankAccountId}` | [Retrieve Bank account](/api-reference/generated/receive-payment/payment-link/retrieve-bank-account) |
+| Receive Payment / Payment Link | `PUT` | `/getpaid-by-form/bank-account/{customerBankAccountId}` | [Update Bank Account](/api-reference/generated/receive-payment/payment-link/update-bank-account) |
+| Receive Payment / Payment Link | `GET` | `/getpaid-by-form/check` | [Retrieve All Payments](/api-reference/generated/receive-payment/payment-link/retrieve-all-payments) |
+| Receive Payment / Payment Link | `POST` | `/getpaid-by-form/check` | [Create Payment](/api-reference/generated/receive-payment/payment-link/create-payment) |
+| Receive Payment / Payment Link | `GET` | `/getpaid-by-form/check/{referenceId}` | [Retrieve Single Payment](/api-reference/generated/receive-payment/payment-link/retrieve-single-payment) |
+| Receive Payment / Payment Link | `POST` | `/getpaid-by-form/check/{referenceId}/direct-deposit` | [Initiate Direct Deposit](/api-reference/generated/receive-payment/payment-link/initiate-direct-deposit) |
+| Receive Payment / Payment Link | `POST` | `/getpaid-by-form/customer` | [Create customer](/api-reference/generated/receive-payment/payment-link/create-customer) |
+| Receive Payment / Payment Link | `GET` | `/getpaid-by-form/customer/{customerId}` | [Get Customer](/api-reference/generated/receive-payment/payment-link/get-customer) |
+| Receive Payment / Payment Link | `PUT` | `/getpaid-by-form/customer/{id}` | [Update customer](/api-reference/generated/receive-payment/payment-link/update-customer) |
+| Send Payment | `GET` | `/send-payment/{paymentId}/info` | [Retrieve Payment Info](/api-reference/generated/send-payment/retrieve-payment-info) |
+| Send Payment / ACH | `GET` | `/send-payment/ach` | [List All ACH Payments](/api-reference/generated/send-payment/ach/list-all-ach-payments) |
+| Send Payment / ACH | `POST` | `/send-payment/ach` | [Send ACH Payment](/api-reference/generated/send-payment/ach/send-ach-payment) |
+| Send Payment / Check Mail | `GET` | `/send-payment/checkMail` | [List All Check Mail Payments](/api-reference/generated/send-payment/check-mail/list-all-check-mail-payments) |
+| Send Payment / Check Mail | `POST` | `/send-payment/checkMail` | [Send Check Mail Payment](/api-reference/generated/send-payment/check-mail/send-check-mail-payment) |
+| Send Payment / Check Mail / Attachments | `POST` | `/attachment` | [Add Attachment](/api-reference/generated/send-payment/check-mail/attachments/add-attachment) |
+| Send Payment / Check Mail / Attachments | `DELETE` | `/attachment/{attachment_id}` | [Delete Attachment](/api-reference/generated/send-payment/check-mail/attachments/delete-attachment) |
+| Send Payment / Check Mail / Attachments | `GET` | `/attachment/{attachment_id}` | [View Attachment](/api-reference/generated/send-payment/check-mail/attachments/view-attachment) |
+| Send Payment / Instant Transfer/RTP | `GET` | `/send-payment/instant_transfer` | [List All Instant Payments](/api-reference/generated/send-payment/instant-transfer-rtp/list-all-instant-payments) |
+| Send Payment / Instant Transfer/RTP | `POST` | `/send-payment/instant_transfer` | [Send Instant Payment/RTP](/api-reference/generated/send-payment/instant-transfer-rtp/send-instant-payment-rtp) |
+| Send Payment / Virtual Card | `GET` | `/send-payment/virtualCard` | [List All Virtual Card Sent](/api-reference/generated/send-payment/virtual-card/list-all-virtual-card-sent) |
+| Send Payment / Virtual Card | `POST` | `/send-payment/virtualCard` | [Send Virtual Card](/api-reference/generated/send-payment/virtual-card/send-virtual-card) |
+| Send Payment / Wire | `GET` | `/send-payment/wire` | [List All Wire Payments](/api-reference/generated/send-payment/wire/list-all-wire-payments) |
+| Send Payment / Wire | `POST` | `/send-payment/wire` | [Send Wire Payment](/api-reference/generated/send-payment/wire/send-wire-payment) |
+| Voucher | `POST` | `/vouchers` | [Create voucher](/api-reference/generated/voucher/create-voucher) |
+| Voucher | `DELETE` | `/vouchers/{voucherId}` | [Delete voucher](/api-reference/generated/voucher/delete-voucher) |
+| Voucher | `GET` | `/vouchers/{voucherId}` | [Retrieve voucher](/api-reference/generated/voucher/retrieve-voucher) |
+| Voucher | `PUT` | `/vouchers/{voucherId}` | [Update Voucher](/api-reference/generated/voucher/update-voucher) |
+| Wallet | `GET` | `/wallet` | [List All Wallets](/api-reference/generated/wallet/list-all-wallets) |
+| Wallet | `GET` | `/wallet/{uuid}` | [Retrieve a wallet](/api-reference/generated/wallet/retrieve-a-wallet) |
+| Wallet | `GET` | `/wallet/{uuid}/transactions` | [Wallet Transactions](/api-reference/generated/wallet/wallet-transactions) |
+| Wallet | `POST` | `/wallet/internal-transfer` | [Wallet Internal Transfer](/api-reference/generated/wallet/wallet-internal-transfer) |
+| Wallet / Fund Wallet / Fund Wallet By ACH | `GET` | `/wallet/fund-wallet/{walletId}` | [Retrieve ACH wallet funding](/api-reference/generated/wallet/fund-wallet/fund-wallet-by-ach/retrieve-ach-wallet-funding) |
+| Wallet / Fund Wallet / Fund Wallet By ACH | `GET` | `/wallet/fund/ach` | [List ACH wallet funding](/api-reference/generated/wallet/fund-wallet/fund-wallet-by-ach/list-ach-wallet-funding) |
+| Wallet / Fund Wallet / Fund Wallet By ACH | `POST` | `/wallet/fund/ach/initiate` | [Initiate ACH wallet funding](/api-reference/generated/wallet/fund-wallet/fund-wallet-by-ach/initiate-ach-wallet-funding) |
+| Wallet / Fund Wallet / Fund Wallet By Request | `GET` | `/wallet/fund/requests` | [List All Fund Requests](/api-reference/generated/wallet/fund-wallet/fund-wallet-by-request/list-all-fund-requests) |
+| Wallet / Fund Wallet / Fund Wallet By Request | `GET` | `/wallet/fund/requests/{requestId}` | [Retrieve Fund Wallet Request](/api-reference/generated/wallet/fund-wallet/fund-wallet-by-request/retrieve-fund-wallet-request) |
+| Wallet / Fund Wallet / Fund Wallet By Request | `POST` | `/wallet/fund/requests/create` | [Create Fund Wallet Request](/api-reference/generated/wallet/fund-wallet/fund-wallet-by-request/create-fund-wallet-request) |
+| Wallet / Withdraw Fund / Withdraw by ACH | `GET` | `/wallet/withdraw/ach` | [List ACH Withdrawals](/api-reference/generated/wallet/withdraw-fund/withdraw-by-ach/list-ach-withdrawals) |
+| Wallet / Withdraw Fund / Withdraw by ACH | `GET` | `/wallet/withdraw/ach/{achId}` | [Retrieve ACH Withdrawal](/api-reference/generated/wallet/withdraw-fund/withdraw-by-ach/retrieve-ach-withdrawal) |
+| Wallet / Withdraw Fund / Withdraw by ACH | `POST` | `/wallet/withdraw/ach/initiate` | [Initiate ACH Withdrawal](/api-reference/generated/wallet/withdraw-fund/withdraw-by-ach/initiate-ach-withdrawal) |
+| Wallet / Withdraw Fund / Withdraw by Check Mail | `GET` | `/wallet/withdraw/mail/{mailId}` | [Retrieve Check Mail Withdrawal](/api-reference/generated/wallet/withdraw-fund/withdraw-by-check-mail/retrieve-check-mail-withdrawal) |
+| Wallet / Withdraw Fund / Withdraw by Check Mail | `POST` | `/wallet/withdraw/mail/initiate` | [Initiate Check Mail Withdrawal](/api-reference/generated/wallet/withdraw-fund/withdraw-by-check-mail/initiate-check-mail-withdrawal) |
+| Wallet / Withdraw Fund / Withdraw by Wire Transfer | `GET` | `/` | [List Wire Withdrawal](/api-reference/generated/wallet/withdraw-fund/withdraw-by-wire-transfer/list-wire-withdrawal) |
+| Wallet / Withdraw Fund / Withdraw by Wire Transfer | `GET` | `/wallet/withdraw/wire/{wireId}` | [Retrieve Wire Withdrawal](/api-reference/generated/wallet/withdraw-fund/withdraw-by-wire-transfer/retrieve-wire-withdrawal) |
+| Wallet / Withdraw Fund / Withdraw by Wire Transfer | `POST` | `/wallet/withdraw/wire/initiate` | [Initiate Wire Withdrawal](/api-reference/generated/wallet/withdraw-fund/withdraw-by-wire-transfer/initiate-wire-withdrawal) |
+| Zil Money Webhook Integration / Card Program / Card Program Events | `POST` | `/` | [card-program.card.created](/api-reference/generated/zil-money-webhook-integration/card-program/card-program-events/card-program-card-created) |
+| Zil Money Webhook Integration / Card Program / Card Program Events | `POST` | `/` | [card-program.card.transaction.created](/api-reference/generated/zil-money-webhook-integration/card-program/card-program-events/card-program-card-transaction-created) |
+| Zil Money Webhook Integration / Card Program / Card Program Events | `POST` | `/` | [card-program.card.transaction.updated](/api-reference/generated/zil-money-webhook-integration/card-program/card-program-events/card-program-card-transaction-updated) |
+| Zil Money Webhook Integration / Check / Mail | `POST` | `/` | [check.mailing.tracking](/api-reference/generated/zil-money-webhook-integration/check/mail/check-mailing-tracking) |
+| Zil Money Webhook Integration / Check / Mail | `POST` | `/` | [document.mailing.tracking](/api-reference/generated/zil-money-webhook-integration/check/mail/document-mailing-tracking) |
+| Zil Money Webhook Integration / Check / Print | `POST` | `/` | [check.print.async (success)](/api-reference/generated/zil-money-webhook-integration/check/print/check-print-async-success) |
+| Zil Money Webhook Integration / Check / Print | `POST` | `/` | [check.print.async (failed)](/api-reference/generated/zil-money-webhook-integration/check/print/check-print-async-failed) |
+| Zil Money Webhook Integration / Receive Payment / Manual ACH | `POST` | `/` | [manual-ach.initiated](/api-reference/generated/zil-money-webhook-integration/receive-payment/manual-ach/manual-ach-initiated) |
+| Zil Money Webhook Integration / Receive Payment / Manual ACH | `POST` | `/` | [manual-ach.updated](/api-reference/generated/zil-money-webhook-integration/receive-payment/manual-ach/manual-ach-updated) |
+| Zil Money Webhook Integration / Receive Payment / Payment Link | `POST` | `/` | [gpbf.check.created](/api-reference/generated/zil-money-webhook-integration/receive-payment/payment-link/gpbf-check-created) |
+| Zil Money Webhook Integration / Receive Payment / Payment Link | `POST` | `/` | [gpbf.check.updated](/api-reference/generated/zil-money-webhook-integration/receive-payment/payment-link/gpbf-check-updated) |
+| Zil Money Webhook Integration / Send Payment | `POST` | `/` | [sendPayment.updated](/api-reference/generated/zil-money-webhook-integration/send-payment/sendpayment-updated) |
+| Zil Money Webhook Integration / Wallet / Wallet Funding / ACH | `POST` | `/` | [wallet.funding.ach.initiated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-funding/ach/wallet-funding-ach-initiated) |
+| Zil Money Webhook Integration / Wallet / Wallet Funding / ACH | `POST` | `/` | [wallet.funding.ach.updated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-funding/ach/wallet-funding-ach-updated) |
+| Zil Money Webhook Integration / Wallet / Wallet Funding / Fund Request | `POST` | `/` | [wallet.funding.request.initiated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-funding/fund-request/wallet-funding-request-initiated) |
+| Zil Money Webhook Integration / Wallet / Wallet Funding / Fund Request | `POST` | `/` | [wallet.funding.request.updated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-funding/fund-request/wallet-funding-request-updated) |
+| Zil Money Webhook Integration / Wallet / Wallet Withdrawal / ACH | `POST` | `/` | [wallet.withdraw.ach.initiated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-withdrawal/ach/wallet-withdraw-ach-initiated) |
+| Zil Money Webhook Integration / Wallet / Wallet Withdrawal / ACH | `POST` | `/` | [wallet.withdraw.ach.updated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-withdrawal/ach/wallet-withdraw-ach-updated) |
+| Zil Money Webhook Integration / Wallet / Wallet Withdrawal / MAIL | `POST` | `/` | [wallet.withdraw.check.mail.initiated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-withdrawal/mail/wallet-withdraw-check-mail-initiated) |
+| Zil Money Webhook Integration / Wallet / Wallet Withdrawal / MAIL | `POST` | `/` | [wallet.withdraw.check.mail.updated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-withdrawal/mail/wallet-withdraw-check-mail-updated) |
+| Zil Money Webhook Integration / Wallet / Wallet Withdrawal / WIRE | `POST` | `/` | [wallet.withdraw.wire.initiated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-withdrawal/wire/wallet-withdraw-wire-initiated) |
+| Zil Money Webhook Integration / Wallet / Wallet Withdrawal / WIRE | `POST` | `/` | [wallet.withdraw.wire.updated](/api-reference/generated/zil-money-webhook-integration/wallet/wallet-withdrawal/wire/wallet-withdraw-wire-updated) |

@@ -1,0 +1,65 @@
+---
+title: 'Calculate Fee'
+api: 'POST /mailchecks/calculateFee'
+---
+
+You can calculate check mail fees by using same mail creation payload parameters.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="isShippingToCustomAddress" type="boolean">
+  Request body field `isShippingToCustomAddress`.
+</ParamField>
+
+<ParamField body="customFromAddressId" type="string">
+  Request body field `customFromAddressId`.
+</ParamField>
+
+<ParamField body="customToAddressId" type="string">
+  Request body field `customToAddressId`.
+</ParamField>
+
+<ParamField body="customShippingTypeId" type="number">
+  Request body field `customShippingTypeId`.
+</ParamField>
+
+<ParamField body="mailChecks" type="object[]">
+  Request body field `mailChecks`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /mailchecks/calculateFee`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/mailchecks/calculateFee" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "data": {
+    "currentBalance": "933.02",
+    "isShippingToCustomAddress": true,
+    "itemWisePrice": [
+      "0.80",
+      "0.80"
+    ],
+    "customShippingFee": "29.99",
+    "subTotal": "1.60",
+    "total": "31.59"
+  }
+}
+```

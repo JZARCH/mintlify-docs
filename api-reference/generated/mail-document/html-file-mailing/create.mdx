@@ -1,0 +1,22 @@
+---
+title: 'Create'
+api: 'POST /documentmailing/template/upload'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /documentmailing/template/upload`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/documentmailing/template/upload" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```

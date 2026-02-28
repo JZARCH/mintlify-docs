@@ -1,0 +1,47 @@
+---
+title: 'Add Signature'
+api: 'POST /bankAccounts/{bankAccountId}/signatures'
+---
+
+Add signature to existing bank account
+
+**Path parameters**
+
+bankAccountIdRequiredThe id of the Bank account to update.
+
+**Payload parameters**
+
+signatureRequiredFileAccepted file types are PNG,JPG and JPEG and must be no more than 40960KbnickNameOptionalStringThe nick name of the signature,Must be no longer than 20 characters.
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Path parameters
+
+<ParamField path="bankAccountId" type="string" required>
+  Path parameter `bankAccountId`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /bankAccounts/{bankAccountId}/signatures`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/bankAccounts/{bankAccountId}/signatures" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "message": "Succesfuly uploaded"
+}
+```

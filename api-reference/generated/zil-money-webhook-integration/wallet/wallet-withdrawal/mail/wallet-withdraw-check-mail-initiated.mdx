@@ -1,0 +1,196 @@
+---
+title: 'wallet.withdraw.check.mail.initiated'
+api: 'POST /'
+---
+
+## wallet.withdraw.check.mail.initiated
+
+Triggered when a user initiates a **wallet withdrawal via physical check mailing**. A check will be printed and mailed to the specified recipient address.
+
+**Trigger:** User creates a check mail withdrawal from their Zil Money wallet.
+
+**Source:** `BankingCheckMailingRequest::triggerInitiatedWebhook()` → `WithdrawFundViaMailCheckResources`
+
+---
+
+## Payload Field Reference
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `data.id` | string (UUID) | Unique identifier for this check mail request |
+| `data.fromWallet` | string | Source wallet UUID (e.g., `"deab2f42-8b8b-47ad-b766-eacc632df634"`) |
+| `data.amount` | string | Check amount formatted to 2 decimal places |
+| `data.description` | string | Memo / description on the check |
+| `data.shippingType` | string | Shipping carrier and service (e.g., `USPS_FIRST_CLASS`, `USPS_PRIORITY`, `FEDEX_NEXT_DAY_PM`, `FEDEX_GROUND`) |
+| `data.shippingInfo.trackingNumber` | string\|null | Carrier tracking number (null until check is mailed) |
+| `data.shippingInfo.trackingUrl` | string\|null | Public tracking URL (null until check is mailed) |
+| `data.status` | string | `PENDING`, `PROCESSING`, `COMPLETED`, `CANCELED`, `FAILED`, `RETURNED` |
+| `data.clearingFile` | string\|null | Pre-signed S3 URL to the clearing PDF (available after printing) |
+| `data.previewFile` | string\|null | Pre-signed S3 URL to the check preview PDF |
+| `data.reviewMessage` | string | Message if check is under review |
+| `data.fromAddress.name` | string | Sender's name (appears as return address on envelope) |
+| `data.fromAddress.addressLine1` | string | Sender's street address |
+| `data.fromAddress.addressLine2` | string | Sender's address line 2 (apt, suite, etc.) |
+| `data.fromAddress.city` | string | Sender's city |
+| `data.fromAddress.state` | string | Sender's state (2-letter code) |
+| `data.fromAddress.zip` | string | Sender's ZIP code |
+| `data.toAddress.name` | string | Recipient's name (pay to the order of) |
+| `data.toAddress.addressLine1` | string | Recipient's street address |
+| `data.toAddress.addressLine2` | string | Recipient's address line 2 |
+| `data.toAddress.city` | string | Recipient's city |
+| `data.toAddress.state` | string | Recipient's state (2-letter code) |
+| `data.toAddress.zip` | string | Recipient's ZIP code |
+| `data.updatedAt` | ISO 8601 datetime | Last updated timestamp |
+| `data.createdAt` | ISO 8601 datetime | Creation timestamp |
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Body parameters
+
+<ParamField body="event" type="object">
+  Request body field `event`.
+</ParamField>
+
+<ParamField body="event.type" type="string">
+  Request body field `event.type`.
+</ParamField>
+
+<ParamField body="event.id" type="string">
+  Request body field `event.id`.
+</ParamField>
+
+<ParamField body="event.createdAt" type="string">
+  Request body field `event.createdAt`.
+</ParamField>
+
+<ParamField body="event.data" type="object">
+  Request body field `event.data`.
+</ParamField>
+
+<ParamField body="event.data.id" type="string">
+  Request body field `event.data.id`.
+</ParamField>
+
+<ParamField body="event.data.fromWallet" type="string">
+  Request body field `event.data.fromWallet`.
+</ParamField>
+
+<ParamField body="event.data.amount" type="string">
+  Request body field `event.data.amount`.
+</ParamField>
+
+<ParamField body="event.data.description" type="string">
+  Request body field `event.data.description`.
+</ParamField>
+
+<ParamField body="event.data.shippingType" type="string">
+  Request body field `event.data.shippingType`.
+</ParamField>
+
+<ParamField body="event.data.shippingInfo" type="object">
+  Request body field `event.data.shippingInfo`.
+</ParamField>
+
+<ParamField body="event.data.shippingInfo.trackingNumber" type="string">
+  Request body field `event.data.shippingInfo.trackingNumber`.
+</ParamField>
+
+<ParamField body="event.data.shippingInfo.trackingUrl" type="string">
+  Request body field `event.data.shippingInfo.trackingUrl`.
+</ParamField>
+
+<ParamField body="event.data.status" type="string">
+  Request body field `event.data.status`.
+</ParamField>
+
+<ParamField body="event.data.clearingFile" type="string">
+  Request body field `event.data.clearingFile`.
+</ParamField>
+
+<ParamField body="event.data.previewFile" type="string">
+  Request body field `event.data.previewFile`.
+</ParamField>
+
+<ParamField body="event.data.reviewMessage" type="string">
+  Request body field `event.data.reviewMessage`.
+</ParamField>
+
+<ParamField body="event.data.updatedAt" type="string">
+  Request body field `event.data.updatedAt`.
+</ParamField>
+
+<ParamField body="event.data.createdAt" type="string">
+  Request body field `event.data.createdAt`.
+</ParamField>
+
+<ParamField body="event.data.fromAddress" type="object">
+  Request body field `event.data.fromAddress`.
+</ParamField>
+
+<ParamField body="event.data.fromAddress.name" type="string">
+  Request body field `event.data.fromAddress.name`.
+</ParamField>
+
+<ParamField body="event.data.fromAddress.addressLine1" type="string">
+  Request body field `event.data.fromAddress.addressLine1`.
+</ParamField>
+
+<ParamField body="event.data.fromAddress.addressLine2" type="string">
+  Request body field `event.data.fromAddress.addressLine2`.
+</ParamField>
+
+<ParamField body="event.data.fromAddress.city" type="string">
+  Request body field `event.data.fromAddress.city`.
+</ParamField>
+
+<ParamField body="event.data.fromAddress.state" type="string">
+  Request body field `event.data.fromAddress.state`.
+</ParamField>
+
+<ParamField body="event.data.fromAddress.zip" type="string">
+  Request body field `event.data.fromAddress.zip`.
+</ParamField>
+
+<ParamField body="event.data.toAddress" type="object">
+  Request body field `event.data.toAddress`.
+</ParamField>
+
+<ParamField body="event.data.toAddress.name" type="string">
+  Request body field `event.data.toAddress.name`.
+</ParamField>
+
+<ParamField body="event.data.toAddress.addressLine1" type="string">
+  Request body field `event.data.toAddress.addressLine1`.
+</ParamField>
+
+<ParamField body="event.data.toAddress.addressLine2" type="string">
+  Request body field `event.data.toAddress.addressLine2`.
+</ParamField>
+
+<ParamField body="event.data.toAddress.city" type="string">
+  Request body field `event.data.toAddress.city`.
+</ParamField>
+
+<ParamField body="event.data.toAddress.state" type="string">
+  Request body field `event.data.toAddress.state`.
+</ParamField>
+
+<ParamField body="event.data.toAddress.zip" type="string">
+  Request body field `event.data.toAddress.zip`.
+</ParamField>
+
+## Request
+
+Endpoint: `POST /`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```

@@ -1,0 +1,58 @@
+---
+title: 'List Wire Withdrawal'
+api: 'GET /'
+---
+
+## Authorization
+
+<ParamField header="Authorization" type="string" required>
+  Bearer token. Format: `Bearer {{AUTH_TOKEN}}`.
+</ParamField>
+
+## Request
+
+Endpoint: `GET /`
+
+### Example
+
+```bash
+curl --location "$BASE_URL/" \
+  --header "Authorization: Bearer $AUTH_TOKEN" \
+  --header "Accept: application/json"
+```
+
+## Response example
+
+```json
+{
+  "success": true,
+  "meta": {
+    "total": 4,
+    "perPage": 10,
+    "currentPage": 1,
+    "lastPage": 1
+  },
+  "data": [
+    {
+      "id": "56a27cc0-2d81-4bb3-97ce-5bec55104626",
+      "fromWallet": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+      "toBankAccount": "Jy7VeBw8yQjzn1m",
+      "amount": "15.01",
+      "description": "wallet withdrawal 2",
+      "status": "PROCESSING",
+      "updatedAt": "2025-03-12T09:56:14.000000Z",
+      "createdAt": "2025-03-12T09:56:14.000000Z"
+    },
+    {
+      "id": "76e10e55-34ff-444b-a72b-b03e45d430d9",
+      "fromWallet": "dd55fcc4-84a6-400b-b033-c7b2520c7963",
+      "toBankAccount": "Jy7VeBw8yQjzn1m",
+      "amount": "25.54",
+      "description": "Wallet withdrawal",
+      "status": "PROCESSING",
+      "updatedAt": "2025-03-12T09:49:00.000000Z",
+      "createdAt": "2025-03-12T09:49:00.000000Z"
+    }
+  ]
+}
+```
