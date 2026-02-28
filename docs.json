@@ -344,7 +344,13 @@
     "dark": "https://zilmoney.com/wp-content/uploads/2025/11/Zil-Money-Logo.svg"
   },
   "fonts": {
-    "family": "Funnel Display"
+    "family": "Inter",
+    "heading": {
+      "family": "Inter"
+    },
+    "body": {
+      "family": "Inter"
+    }
   },
   "navbar": {
     "links": [
